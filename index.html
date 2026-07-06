@@ -6,53 +6,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aamara Capital — Nine Business Ideas</title>
 <style>
-:root{--cream:#faf9f5;--charcoal-2:#0c0b0a;--gold:#b98a3e;--wine:#5c2b2e;--ember:#a8624f;--line:rgba(255,255,255,0.12);}
+:root{--cream:#faf9f5;--paper:#ffffff;--charcoal:#141310;--charcoal-2:#0c0b0a;--gold:#a9782f;--wine:#5c2b2e;--ember:#a8624f;--ink-soft:#5a5443;--ink-mute:#857c6a;--line:rgba(20,19,16,0.12);}
 *{box-sizing:border-box;}
-body{margin:0;background:var(--charcoal-2);color:var(--cream);font-family:"Jost","Segoe UI",Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
-h1,h2,h3{font-family:"Cormorant Garamond","Georgia",serif;font-weight:600;margin:0;}
+body{margin:0;background:var(--cream);color:var(--charcoal);font-family:"Jost","Segoe UI",Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:"Cormorant Garamond","Georgia",serif;font-weight:600;margin:0;color:var(--charcoal-2);}
 a{color:inherit;text-decoration:none;}
-em{color:var(--gold);font-style:italic;}
-.hero{text-align:center;padding:70px 6vw 44px;background:radial-gradient(ellipse at 50% 18%,rgba(92,43,46,0.42),transparent 60%),linear-gradient(180deg,#171512,#0c0b0a);}
-.logo-mark{height:44px;width:auto;display:block;margin:0 auto 10px;}
+em{color:var(--ember);font-style:italic;}
+.hero{text-align:center;padding:70px 6vw 44px;background:radial-gradient(ellipse at 50% 16%,rgba(92,43,46,0.09),transparent 60%),linear-gradient(180deg,#ffffff,#f3efe6);}
+.logo-mark{height:46px;width:auto;display:block;margin:0 auto 10px;}
 .logo-sub{font-family:"Jost",sans-serif;font-size:.7rem;letter-spacing:.62em;text-transform:uppercase;color:var(--gold);text-indent:.62em;}
-.logo-tag{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:.98rem;color:#8a8272;margin-top:8px;}
+.logo-tag{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1rem;color:var(--ink-mute);margin-top:8px;}
 .wm-rule{width:60px;height:1px;background:var(--gold);margin:26px auto 24px;}
 .htitle{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.04;text-wrap:balance;}
-.hsub{max-width:660px;margin:18px auto 0;color:#cfc7b6;font-size:clamp(1rem,1.6vw,1.16rem);}
-.hnote{margin-top:20px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#7a7264;}
-.grid{max-width:1160px;margin:0 auto;padding:40px 5vw 90px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.htitle em{color:var(--ember);font-style:italic;}
+.hsub{max-width:660px;margin:18px auto 0;color:var(--ink-soft);font-size:clamp(1rem,1.6vw,1.16rem);}
+.hnote{margin-top:20px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);}
+.grid{max-width:1160px;margin:0 auto;padding:40px 5vw 90px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
 @media(max-width:920px){.grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.grid{grid-template-columns:1fr;}}
-.bcard{position:relative;border-radius:16px;overflow:hidden;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;
-  background-size:cover;background-position:center;border:1px solid var(--line);isolation:isolate;
-  transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;}
-.bcard::before{content:"";position:absolute;inset:0;z-index:1;
-  background:linear-gradient(180deg,rgba(12,11,10,0.12) 0%,rgba(12,11,10,0.35) 42%,rgba(12,11,10,0.93) 100%);}
-.bcard:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 26px 46px -24px rgba(0,0,0,0.85);}
-.bnum{position:absolute;top:14px;left:16px;z-index:2;font-family:"Cormorant Garamond",serif;font-size:1.35rem;color:var(--gold);
-  background:rgba(12,11,10,0.55);border:1px solid var(--gold);width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(2px);}
-.bcontent{position:relative;z-index:2;padding:24px 22px 60px;}
-.bname{font-size:1.7rem;color:#fff;line-height:1.08;text-shadow:0 2px 14px rgba(0,0,0,0.6);}
-.btag{font-size:.86rem;color:#e6e0d3;margin:10px 0 16px;text-shadow:0 1px 8px rgba(0,0,0,0.7);}
-.bplay{display:inline-flex;align-items:center;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
-  border:1px solid var(--gold);border-radius:30px;padding:9px 18px;transition:all .2s;}
-.bcard:hover .bplay{background:var(--gold);color:var(--charcoal-2);}
-.bstretch{position:absolute;inset:0;z-index:3;}
-.bdoss{position:absolute;right:22px;bottom:24px;z-index:4;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#cfc7b6;
-  border:1px solid var(--line);border-radius:30px;padding:8px 14px;background:rgba(12,11,10,0.5);backdrop-filter:blur(2px);transition:all .2s;}
-.bdoss:hover{color:#fff;border-color:var(--gold);background:rgba(12,11,10,0.75);}
-footer{text-align:center;padding:44px 6vw 72px;border-top:1px solid var(--line);}
-footer p{color:#8a8272;font-size:.8rem;max-width:660px;margin:0 auto 8px;}
+.bcard{position:relative;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  box-shadow:0 12px 30px -22px rgba(60,40,20,0.4);transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;}
+.bcard:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 26px 46px -26px rgba(60,40,20,0.5);}
+.bthumb{height:172px;background-size:cover;background-position:center;position:relative;}
+.bthumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,11,10,0.05),rgba(12,11,10,0.28));}
+.bnum{position:absolute;top:14px;left:16px;z-index:2;font-family:"Cormorant Garamond",serif;font-size:1.3rem;color:#fff;
+  background:rgba(12,11,10,0.5);border:1px solid rgba(255,255,255,0.65);width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.bbody{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1;}
+.bname{font-size:1.6rem;color:var(--charcoal-2);line-height:1.1;}
+.btag{font-size:.86rem;color:var(--ink-soft);margin:9px 0 18px;flex:1;}
+.blinks{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.bplay{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:30px;padding:9px 16px;transition:all .2s;}
+.bcard:hover .bplay{background:var(--gold);color:#fff;}
+.bdoss{position:relative;z-index:2;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);border-bottom:1px solid transparent;padding-bottom:2px;transition:all .2s;}
+.bdoss:hover{color:var(--wine);border-color:var(--gold);}
+.bstretch{position:absolute;inset:0;z-index:1;}
+footer{text-align:center;padding:44px 6vw 72px;border-top:1px solid var(--line);background:#f3efe6;}
+footer p{color:var(--ink-mute);font-size:.8rem;max-width:660px;margin:0 auto 8px;}
+footer b{color:var(--gold);}
 </style>
 </head>
 <body>
 <div class="hero">
-  <svg class="logo-mark" viewBox="312 272 410 82" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aamara"><path fill="#faf9f5" d="M465.307678,294.723846 C471.187286,303.019928 476.863953,311.021240 482.704651,319.253723 C485.196198,318.021393 486.396240,315.812622 487.805420,313.846802 C495.175690,303.565277 502.499756,293.250580 509.892059,282.984955 C511.004150,281.440552 511.944305,279.025452 514.412720,279.880798 C516.584839,280.633423 515.969421,282.972290 515.970886,284.712067 C515.986572,303.192719 515.965515,321.673492 515.886047,340.153961 C515.877136,342.224579 516.540283,345.055817 514.093140,345.914490 C511.139709,346.950806 507.775330,346.902435 504.766724,345.886932 C502.823639,345.231110 503.598175,343.023438 503.593109,341.438843 C503.562866,332.010284 503.578156,322.581543 502.569824,312.874756 C496.364227,321.606415 490.158630,330.338043 483.227814,340.090118 C476.501190,330.969879 470.362640,322.647034 463.351715,313.141327 C463.351715,323.307220 463.123535,332.177246 463.443848,341.027405 C463.614929,345.753998 461.473083,346.539948 457.454010,346.483582 C453.502106,346.428101 450.827667,346.169525 450.893829,340.992188 C451.132019,322.347748 450.983826,303.698517 451.044098,285.051300 C451.050201,283.162292 450.309540,280.539520 452.666382,279.774689 C455.348663,278.904175 456.183960,281.716553 457.387482,283.372009 C460.029999,287.006775 462.540436,290.737518 465.307678,294.723846 z"/>
-<path fill="#faf9f5" d="M599.668823,315.999939 C599.674500,305.669159 599.780457,295.836945 599.632141,286.008514 C599.580505,282.591339 600.870544,281.090454 604.242310,281.131531 C610.400330,281.206573 616.568970,280.726990 622.708557,281.619080 C631.543823,282.902802 638.253113,287.190369 640.505676,296.103668 C642.695374,304.768188 641.666687,313.035095 634.103821,319.236359 C633.720703,319.550476 633.277954,319.791840 632.470337,320.327332 C637.602783,328.766632 642.558838,336.915894 647.554443,345.130127 C638.930969,348.493011 633.985535,346.930267 629.692688,339.939575 C627.077698,335.681274 624.252441,331.546326 621.776306,327.210571 C620.030273,324.153168 617.419800,323.751007 614.511169,324.340637 C611.077881,325.036591 612.359863,328.012177 612.262085,330.103943 C612.067871,334.260681 612.201172,338.432098 612.168091,342.597229 C612.129028,347.508698 608.409912,346.285339 605.640503,346.352295 C602.896179,346.418701 599.676270,347.009460 599.704407,342.492767 C599.758362,333.828918 599.687927,325.164246 599.668823,315.999939 M628.403809,305.619232 C628.513367,304.471527 628.755676,303.318512 628.710083,302.177002 C628.475159,296.299927 624.222961,293.402008 616.761475,293.290649 C609.840149,293.187286 612.724670,298.199890 612.281982,301.368866 C611.965088,303.637634 612.224487,305.988922 612.252136,308.303101 C612.270813,309.863251 612.544189,311.140656 614.406006,311.702515 C619.315063,313.183990 625.056274,311.002533 628.403809,305.619232 z"/>
-<path fill="#faf9f5" d="M384.979431,337.073120 C392.997528,317.722107 400.874603,298.726349 408.751648,279.730591 C409.280914,279.655548 409.810181,279.580505 410.339447,279.505432 C419.822510,301.412354 429.305542,323.319275 438.790863,345.231415 C430.649719,348.737061 426.543091,347.148712 423.595795,339.774139 C419.159393,328.673767 414.756317,317.560089 409.902344,305.353851 C408.144470,309.510742 406.725952,312.756561 405.393768,316.037445 C402.327667,323.588562 399.285919,331.149719 396.267090,338.719879 C392.857697,347.269623 391.855011,347.801849 382.246826,345.721130 C381.902557,342.617279 384.173065,340.240631 384.979431,337.073120 z"/>
-<path fill="#faf9f5" d="M654.653442,344.195221 C663.581360,322.608612 672.472046,301.371094 681.362671,280.133575 C681.950806,280.107422 682.538940,280.081299 683.127075,280.055145 C692.538452,301.689575 701.949768,323.323975 711.368347,344.974884 C702.747925,348.515320 698.653931,346.844147 695.767578,339.274811 C691.573792,328.276978 687.310913,317.305450 682.562866,304.987396 C678.845581,314.078339 675.651184,321.831543 672.506409,329.604767 C670.759949,333.921692 669.117004,338.280396 667.389587,342.605164 C665.560852,347.183533 658.579102,348.230896 654.653442,344.195221 z"/>
-<path fill="#faf9f5" d="M320.164001,337.231049 C328.223450,317.875641 336.133423,298.870239 344.043396,279.864807 C344.551086,279.765961 345.058746,279.667114 345.566437,279.568237 C355.103668,301.464386 364.640930,323.360535 374.182465,345.266510 C366.234833,348.630157 361.425415,346.774231 358.634735,339.673950 C354.257690,328.537628 349.896851,317.394958 345.121124,305.214264 C343.699493,308.555359 342.606506,311.018097 341.597443,313.514801 C338.171143,321.992615 334.720123,330.461029 331.382172,338.973724 C328.153412,347.207977 326.866241,347.900848 317.229797,345.819458 C317.115509,342.743591 319.224426,340.360535 320.164001,337.231049 z"/>
-<path fill="#faf9f5" d="M581.283691,333.813538 C582.916626,337.834137 584.422607,341.493835 585.928955,345.154449 C577.302979,348.452667 573.761047,346.934204 570.708801,339.041260 C566.515564,328.197693 562.305054,317.360840 557.540161,305.072418 C554.615173,312.124542 552.218689,317.841644 549.871643,323.578979 C547.728943,328.816620 545.688110,334.096252 543.515747,339.321350 C540.239441,347.201508 538.961304,347.783051 529.251770,345.309021 C538.343872,323.396545 547.371887,301.638489 556.399902,279.880402 C556.939758,279.932098 557.479553,279.983765 558.019409,280.035431 C565.731873,297.841187 573.444336,315.646942 581.283691,333.813538 z"/></svg>
+  <svg class="logo-mark" viewBox="312 272 410 82" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aamara"><path fill="#141310" d="M465.307678,294.723846 C471.187286,303.019928 476.863953,311.021240 482.704651,319.253723 C485.196198,318.021393 486.396240,315.812622 487.805420,313.846802 C495.175690,303.565277 502.499756,293.250580 509.892059,282.984955 C511.004150,281.440552 511.944305,279.025452 514.412720,279.880798 C516.584839,280.633423 515.969421,282.972290 515.970886,284.712067 C515.986572,303.192719 515.965515,321.673492 515.886047,340.153961 C515.877136,342.224579 516.540283,345.055817 514.093140,345.914490 C511.139709,346.950806 507.775330,346.902435 504.766724,345.886932 C502.823639,345.231110 503.598175,343.023438 503.593109,341.438843 C503.562866,332.010284 503.578156,322.581543 502.569824,312.874756 C496.364227,321.606415 490.158630,330.338043 483.227814,340.090118 C476.501190,330.969879 470.362640,322.647034 463.351715,313.141327 C463.351715,323.307220 463.123535,332.177246 463.443848,341.027405 C463.614929,345.753998 461.473083,346.539948 457.454010,346.483582 C453.502106,346.428101 450.827667,346.169525 450.893829,340.992188 C451.132019,322.347748 450.983826,303.698517 451.044098,285.051300 C451.050201,283.162292 450.309540,280.539520 452.666382,279.774689 C455.348663,278.904175 456.183960,281.716553 457.387482,283.372009 C460.029999,287.006775 462.540436,290.737518 465.307678,294.723846 z"/>
+<path fill="#141310" d="M599.668823,315.999939 C599.674500,305.669159 599.780457,295.836945 599.632141,286.008514 C599.580505,282.591339 600.870544,281.090454 604.242310,281.131531 C610.400330,281.206573 616.568970,280.726990 622.708557,281.619080 C631.543823,282.902802 638.253113,287.190369 640.505676,296.103668 C642.695374,304.768188 641.666687,313.035095 634.103821,319.236359 C633.720703,319.550476 633.277954,319.791840 632.470337,320.327332 C637.602783,328.766632 642.558838,336.915894 647.554443,345.130127 C638.930969,348.493011 633.985535,346.930267 629.692688,339.939575 C627.077698,335.681274 624.252441,331.546326 621.776306,327.210571 C620.030273,324.153168 617.419800,323.751007 614.511169,324.340637 C611.077881,325.036591 612.359863,328.012177 612.262085,330.103943 C612.067871,334.260681 612.201172,338.432098 612.168091,342.597229 C612.129028,347.508698 608.409912,346.285339 605.640503,346.352295 C602.896179,346.418701 599.676270,347.009460 599.704407,342.492767 C599.758362,333.828918 599.687927,325.164246 599.668823,315.999939 M628.403809,305.619232 C628.513367,304.471527 628.755676,303.318512 628.710083,302.177002 C628.475159,296.299927 624.222961,293.402008 616.761475,293.290649 C609.840149,293.187286 612.724670,298.199890 612.281982,301.368866 C611.965088,303.637634 612.224487,305.988922 612.252136,308.303101 C612.270813,309.863251 612.544189,311.140656 614.406006,311.702515 C619.315063,313.183990 625.056274,311.002533 628.403809,305.619232 z"/>
+<path fill="#141310" d="M384.979431,337.073120 C392.997528,317.722107 400.874603,298.726349 408.751648,279.730591 C409.280914,279.655548 409.810181,279.580505 410.339447,279.505432 C419.822510,301.412354 429.305542,323.319275 438.790863,345.231415 C430.649719,348.737061 426.543091,347.148712 423.595795,339.774139 C419.159393,328.673767 414.756317,317.560089 409.902344,305.353851 C408.144470,309.510742 406.725952,312.756561 405.393768,316.037445 C402.327667,323.588562 399.285919,331.149719 396.267090,338.719879 C392.857697,347.269623 391.855011,347.801849 382.246826,345.721130 C381.902557,342.617279 384.173065,340.240631 384.979431,337.073120 z"/>
+<path fill="#141310" d="M654.653442,344.195221 C663.581360,322.608612 672.472046,301.371094 681.362671,280.133575 C681.950806,280.107422 682.538940,280.081299 683.127075,280.055145 C692.538452,301.689575 701.949768,323.323975 711.368347,344.974884 C702.747925,348.515320 698.653931,346.844147 695.767578,339.274811 C691.573792,328.276978 687.310913,317.305450 682.562866,304.987396 C678.845581,314.078339 675.651184,321.831543 672.506409,329.604767 C670.759949,333.921692 669.117004,338.280396 667.389587,342.605164 C665.560852,347.183533 658.579102,348.230896 654.653442,344.195221 z"/>
+<path fill="#141310" d="M320.164001,337.231049 C328.223450,317.875641 336.133423,298.870239 344.043396,279.864807 C344.551086,279.765961 345.058746,279.667114 345.566437,279.568237 C355.103668,301.464386 364.640930,323.360535 374.182465,345.266510 C366.234833,348.630157 361.425415,346.774231 358.634735,339.673950 C354.257690,328.537628 349.896851,317.394958 345.121124,305.214264 C343.699493,308.555359 342.606506,311.018097 341.597443,313.514801 C338.171143,321.992615 334.720123,330.461029 331.382172,338.973724 C328.153412,347.207977 326.866241,347.900848 317.229797,345.819458 C317.115509,342.743591 319.224426,340.360535 320.164001,337.231049 z"/>
+<path fill="#141310" d="M581.283691,333.813538 C582.916626,337.834137 584.422607,341.493835 585.928955,345.154449 C577.302979,348.452667 573.761047,346.934204 570.708801,339.041260 C566.515564,328.197693 562.305054,317.360840 557.540161,305.072418 C554.615173,312.124542 552.218689,317.841644 549.871643,323.578979 C547.728943,328.816620 545.688110,334.096252 543.515747,339.321350 C540.239441,347.201508 538.961304,347.783051 529.251770,345.309021 C538.343872,323.396545 547.371887,301.638489 556.399902,279.880402 C556.939758,279.932098 557.479553,279.983765 558.019409,280.035431 C565.731873,297.841187 573.444336,315.646942 581.283691,333.813538 z"/></svg>
   <div class="logo-sub">Capital</div>
   <div class="logo-tag">Driven by passion, built on trust</div>
   <div class="wm-rule"></div>
@@ -61,99 +61,90 @@ footer p{color:#8a8272;font-size:.8rem;max-width:660px;margin:0 auto 8px;}
   <div class="hnote">Tap any card to play · or open its full dossier</div>
 </div>
 <main class="grid">
-    <article class="bcard" style="background-image:url(1/assets/hero-poster.jpg)">
-      <span class="bnum">01</span>
-      <div class="bcontent">
+    <article class="bcard">
+      <div class="bthumb" style="background-image:url(1/assets/hero-poster.jpg)"><span class="bnum">01</span></div>
+      <div class="bbody">
         <h3 class="bname">Premium Earthenware</h3>
         <p class="btag">Own “terracotta” as a category identity in India — D2C + boutique + HoReCa, sourced from real government-documented artisan clusters.</p>
-        <span class="bplay">▶ Play the case</span>
+        <div class="blinks"><span class="bplay">▶ Play the case</span><a class="bdoss" href="1/case.html">Full dossier ↗</a></div>
       </div>
       <a class="bstretch" href="1/" aria-label="Play the Premium Earthenware case"></a>
-      <a class="bdoss" href="1/case.html">Full dossier ↗</a>
     </article>
-    <article class="bcard" style="background-image:url(2/assets/hero-poster.jpg)">
-      <span class="bnum">02</span>
-      <div class="bcontent">
+    <article class="bcard">
+      <div class="bthumb" style="background-image:url(2/assets/hero-poster.jpg)"><span class="bnum">02</span></div>
+      <div class="bbody">
         <h3 class="bname">Premium Gaming Centre</h3>
         <p class="btag">Build the one Mumbai venue that combines premium curation, multi-format breadth and a real CRM layer — inside the fastest-compounding entertainment market Grand View Research tracks anywhere.</p>
-        <span class="bplay">▶ Play the case</span>
+        <div class="blinks"><span class="bplay">▶ Play the case</span><a class="bdoss" href="2/case.html">Full dossier ↗</a></div>
       </div>
       <a class="bstretch" href="2/" aria-label="Play the Premium Gaming Centre case"></a>
-      <a class="bdoss" href="2/case.html">Full dossier ↗</a>
     </article>
-    <article class="bcard" style="background-image:url(3/assets/hero-poster.jpg)">
-      <span class="bnum">03</span>
-      <div class="bcontent">
+    <article class="bcard">
+      <div class="bthumb" style="background-image:url(3/assets/hero-poster.jpg)"><span class="bnum">03</span></div>
+      <div class="bbody">
         <h3 class="bname">Elder Care Concierge</h3>
         <p class="btag">Own the one thing every incumbent's own reviews say they can't deliver — caregiver trust — with a directly-employed, low-attrition bench, a modern family dashboard, and deep Mumbai hospital density.</p>
-        <span class="bplay">▶ Play the case</span>
+        <div class="blinks"><span class="bplay">▶ Play the case</span><a class="bdoss" href="3/case.html">Full dossier ↗</a></div>
       </div>
       <a class="bstretch" href="3/" aria-label="Play the Elder Care Concierge case"></a>
-      <a class="bdoss" href="3/case.html">Full dossier ↗</a>
     </article>
-    <article class="bcard" style="background-image:url(4/assets/hero-poster.jpg)">
-      <span class="bnum">04</span>
-      <div class="bcontent">
+    <article class="bcard">
+      <div class="bthumb" style="background-image:url(4/assets/hero-poster.jpg)"><span class="bnum">04</span></div>
+      <div class="bbody">
         <h3 class="bname">Premium Pet Wellness</h3>
         <p class="btag">Build India's first integrated premium pet-wellness brand — daycare, boarding, grooming &amp; vet-tech under one roof, Mumbai-first — in the white space no incumbent holds.</p>
-        <span class="bplay">▶ Play the case</span>
+        <div class="blinks"><span class="bplay">▶ Play the case</span><a class="bdoss" href="4/case.html">Full dossier ↗</a></div>
       </div>
       <a class="bstretch" href="4/" aria-label="Play the Premium Pet Wellness case"></a>
-      <a class="bdoss" href="4/case.html">Full dossier ↗</a>
     </article>
-    <article class="bcard" style="background-image:url(5/assets/hero-poster.jpg)">
-      <span class="bnum">05</span>
-      <div class="bcontent">
+    <article class="bcard">
+      <div class="bthumb" style="background-image:url(5/assets/hero-poster.jpg)"><span class="bnum">05</span></div>
+      <div class="bbody">
         <h3 class="bname">Kitchen-as-a-Service</h3>
         <p class="btag">Shared, licensed, multi-tenant commercial kitchen hubs for Mumbai’s food entrepreneurs — compliance-as-a-service plus a firewalled cross-tenant demand-data product, built in the exact space three well-funded predecessors could not hold.</p>
-        <span class="bplay">▶ Play the case</span>
+        <div class="blinks"><span class="bplay">▶ Play the case</span><a class="bdoss" href="5/case.html">Full dossier ↗</a></div>
       </div>
       <a class="bstretch" href="5/" aria-label="Play the Kitchen-as-a-Service case"></a>
-      <a class="bdoss" href="5/case.html">Full dossier ↗</a>
     </article>
-    <article class="bcard" style="background-image:url(6/assets/hero-poster.jpg)">
-      <span class="bnum">06</span>
-      <div class="bcontent">
+    <article class="bcard">
+      <div class="bthumb" style="background-image:url(6/assets/hero-poster.jpg)"><span class="bnum">06</span></div>
+      <div class="bbody">
         <h3 class="bname">Commercial Tableware B2B</h3>
         <p class="btag">Own the premium-durable-<em>serviced</em> ceramic quadrant Indian HoReCa has no branded champion for — asset-light, private-label, and built on a recurring-replacement annuity.</p>
-        <span class="bplay">▶ Play the case</span>
+        <div class="blinks"><span class="bplay">▶ Play the case</span><a class="bdoss" href="6/case.html">Full dossier ↗</a></div>
       </div>
       <a class="bstretch" href="6/" aria-label="Play the Commercial Tableware B2B case"></a>
-      <a class="bdoss" href="6/case.html">Full dossier ↗</a>
     </article>
-    <article class="bcard" style="background-image:url(7/assets/hero-poster.jpg)">
-      <span class="bnum">07</span>
-      <div class="bcontent">
+    <article class="bcard">
+      <div class="bthumb" style="background-image:url(7/assets/hero-poster.jpg)"><span class="bnum">07</span></div>
+      <div class="bbody">
         <h3 class="bname">Managed Household Staff</h3>
         <p class="btag">The branded, trained, background-verified and actively-managed household-staff service Mumbai’s affluent homes can finally trust — with a replacement guarantee no informal hire offers.</p>
-        <span class="bplay">▶ Play the case</span>
+        <div class="blinks"><span class="bplay">▶ Play the case</span><a class="bdoss" href="7/case.html">Full dossier ↗</a></div>
       </div>
       <a class="bstretch" href="7/" aria-label="Play the Managed Household Staff case"></a>
-      <a class="bdoss" href="7/case.html">Full dossier ↗</a>
     </article>
-    <article class="bcard" style="background-image:url(8/assets/hero-poster.jpg)">
-      <span class="bnum">08</span>
-      <div class="bcontent">
+    <article class="bcard">
+      <div class="bthumb" style="background-image:url(8/assets/hero-poster.jpg)"><span class="bnum">08</span></div>
+      <div class="bbody">
         <h3 class="bname">Family Office as a Service</h3>
         <p class="btag">The conflict-free, flat-fee admin layer for India's newly-liquid — reporting, bill-pay, tax, succession and concierge, agnostic to who manages the money.</p>
-        <span class="bplay">▶ Play the case</span>
+        <div class="blinks"><span class="bplay">▶ Play the case</span><a class="bdoss" href="8/case.html">Full dossier ↗</a></div>
       </div>
       <a class="bstretch" href="8/" aria-label="Play the Family Office as a Service case"></a>
-      <a class="bdoss" href="8/case.html">Full dossier ↗</a>
     </article>
-    <article class="bcard" style="background-image:url(9/assets/hero-poster.jpg)">
-      <span class="bnum">09</span>
-      <div class="bcontent">
+    <article class="bcard">
+      <div class="bthumb" style="background-image:url(9/assets/hero-poster.jpg)"><span class="bnum">09</span></div>
+      <div class="bbody">
         <h3 class="bname">Second-Home &amp; NRI Property Management</h3>
         <p class="btag">The owner-first, fiduciary care service that keeps Mumbai, Alibaug and Goa second homes guest-ready — and monetises them only if you want. StayVista rents your villa; we protect it.</p>
-        <span class="bplay">▶ Play the case</span>
+        <div class="blinks"><span class="bplay">▶ Play the case</span><a class="bdoss" href="9/case.html">Full dossier ↗</a></div>
       </div>
       <a class="bstretch" href="9/" aria-label="Play the Second-Home &amp; NRI Property Management case"></a>
-      <a class="bdoss" href="9/case.html">Full dossier ↗</a>
     </article>
 </main>
 <footer>
-  <p>Private preview — link-only, not indexed. Every number in every walk-through is drawn from that business's dossier, including its <b style="color:var(--gold)">EST.</b> flags.</p>
+  <p>Private preview — link-only, not indexed. Every number in every walk-through is drawn from that business's dossier, including its <b>EST.</b> flags.</p>
   <p style="font-size:.72rem;margin-top:14px;">Videos: Pexels (free/commercial licence). Prepared for Aamara Capital.</p>
 </footer>
 </body>
