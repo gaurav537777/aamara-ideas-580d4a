@@ -1,0 +1,1187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Earthenware &amp; Modern Terracotta Living — Aamara Capital Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf9f5;
+    --charcoal:#141310;
+    --charcoal-2:#0c0b0a;
+    --gold:#b98a3e;
+    --wine:#5c2b2e;
+    --ember:#a8624f;
+    --line: rgba(20,19,16,0.12);
+    --sidebar-w: 258px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--charcoal);
+    font-family:"Jost","Segoe UI",Arial,Helvetica,sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.display{
+    font-family:"Cormorant Garamond","Georgia",serif;
+    font-weight:600;
+    color:var(--charcoal-2);
+    letter-spacing:0.01em;
+  }
+  a{color:var(--wine);}
+  a:hover{color:var(--ember);}
+  p{margin:0 0 14px 0;}
+  ul,ol{margin:0 0 16px 0;padding-left:20px;}
+  li{margin-bottom:6px;}
+
+  /* ---------- Masthead ---------- */
+  .masthead{
+    padding:34px 40px 26px 40px;
+    border-bottom:1px solid var(--line);
+    background:var(--cream);
+  }
+  .wordmark{
+    font-family:"Jost",sans-serif;
+    font-weight:600;
+    letter-spacing:0.38em;
+    font-size:0.78rem;
+    color:var(--charcoal-2);
+    text-transform:uppercase;
+  }
+  .wordmark-rule{
+    height:1px;
+    width:64px;
+    background:var(--gold);
+    margin:10px 0 22px 0;
+  }
+  .biz-name{
+    font-size:clamp(2.1rem, 4.2vw, 3.6rem);
+    line-height:1.05;
+    margin:0 0 10px 0;
+    color:var(--charcoal-2);
+  }
+  .biz-name em{color:var(--wine);font-style:italic;}
+  .positioning{
+    font-family:"Jost",sans-serif;
+    font-size:1rem;
+    font-weight:400;
+    color:var(--charcoal);
+    max-width:820px;
+    letter-spacing:0.01em;
+  }
+  .positioning strong{color:var(--gold);font-weight:600;}
+  .doc-meta{
+    margin-top:14px;
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:#6b6455;
+  }
+
+  /* ---------- Layout ---------- */
+  .app{position:relative;}
+  .tab-input{display:none;}
+
+  .sidebar{
+    position:sticky;
+    top:0;
+    float:left;
+    width:var(--sidebar-w);
+    height:100vh;
+    overflow-y:auto;
+    background:var(--charcoal-2);
+    padding:26px 0 26px 0;
+    border-right:1px solid rgba(185,138,62,0.25);
+  }
+  .sidebar-title{
+    font-family:"Jost",sans-serif;
+    font-size:0.68rem;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--gold);
+    padding:0 26px 16px 26px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    margin-bottom:6px;
+  }
+  .sidebar label{
+    display:block;
+    padding:13px 26px;
+    font-family:"Jost",sans-serif;
+    font-size:0.86rem;
+    letter-spacing:0.02em;
+    color:#cfc9ba;
+    cursor:pointer;
+    border-left:3px solid transparent;
+    transition:background 0.15s ease, color 0.15s ease;
+  }
+  .sidebar label .num{
+    color:var(--ember);
+    font-weight:600;
+    margin-right:8px;
+    font-family:"Jost",sans-serif;
+    font-size:0.78rem;
+  }
+  .sidebar label:hover{background:rgba(185,138,62,0.10);color:#fff;}
+
+  .content{
+    margin-left:var(--sidebar-w);
+    min-height:100vh;
+    padding:0;
+  }
+  .panel{display:none;padding:46px 54px 90px 54px;max-width:1180px;}
+  .panel h2.section-title{
+    font-size:clamp(1.9rem,3vw,2.6rem);
+    margin:0 0 6px 0;
+  }
+  .section-kicker{
+    font-family:"Jost",sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  .section-rule{height:1px;background:linear-gradient(to right, var(--gold), rgba(185,138,62,0));width:100%;margin:14px 0 34px 0;}
+
+  /* show/hide logic */
+  #tab-1:checked ~ .content .panel-1,
+  #tab-2:checked ~ .content .panel-2,
+  #tab-3:checked ~ .content .panel-3,
+  #tab-4:checked ~ .content .panel-4,
+  #tab-5:checked ~ .content .panel-5,
+  #tab-6:checked ~ .content .panel-6,
+  #tab-7:checked ~ .content .panel-7,
+  #tab-8:checked ~ .content .panel-8,
+  #tab-9:checked ~ .content .panel-9,
+  #tab-10:checked ~ .content .panel-10,
+  #tab-11:checked ~ .content .panel-11,
+  #tab-12:checked ~ .content .panel-12{
+    display:block;
+  }
+  #tab-1:checked ~ .sidebar label[for="tab-1"],
+  #tab-2:checked ~ .sidebar label[for="tab-2"],
+  #tab-3:checked ~ .sidebar label[for="tab-3"],
+  #tab-4:checked ~ .sidebar label[for="tab-4"],
+  #tab-5:checked ~ .sidebar label[for="tab-5"],
+  #tab-6:checked ~ .sidebar label[for="tab-6"],
+  #tab-7:checked ~ .sidebar label[for="tab-7"],
+  #tab-8:checked ~ .sidebar label[for="tab-8"],
+  #tab-9:checked ~ .sidebar label[for="tab-9"],
+  #tab-10:checked ~ .sidebar label[for="tab-10"],
+  #tab-11:checked ~ .sidebar label[for="tab-11"],
+  #tab-12:checked ~ .sidebar label[for="tab-12"]{
+    background:rgba(185,138,62,0.16);
+    color:#fff;
+    border-left:3px solid var(--gold);
+  }
+
+  /* ---------- shared components ---------- */
+  .est{
+    display:inline-block;
+    padding:1px 8px;
+    font-size:0.62rem;
+    font-family:"Jost",sans-serif;
+    font-weight:600;
+    letter-spacing:0.08em;
+    border:1px dashed var(--gold);
+    border-radius:12px;
+    color:var(--gold);
+    background:rgba(185,138,62,0.06);
+    vertical-align:middle;
+    margin-left:6px;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+  table.est-note-inline{font-size:0.8rem;}
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:0 0 30px 0;
+    font-size:0.88rem;
+  }
+  caption{
+    text-align:left;
+    font-family:"Jost",sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:8px;
+  }
+  th{
+    text-align:left;
+    font-family:"Jost",sans-serif;
+    font-weight:600;
+    font-size:0.74rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--charcoal-2);
+    padding:10px 14px;
+    border-bottom:2px solid var(--gold);
+    background:rgba(185,138,62,0.06);
+  }
+  td{
+    padding:10px 14px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  tr:hover td{background:rgba(185,138,62,0.04);}
+  .tbl-wrap{overflow-x:auto;margin-bottom:30px;}
+
+  .callout{
+    background:#fff;
+    border:1px solid var(--line);
+    border-left:4px solid var(--gold);
+    padding:20px 24px;
+    margin:0 0 28px 0;
+    border-radius:2px;
+  }
+  .callout.wine{border-left-color:var(--wine);}
+  .callout.ember{border-left-color:var(--ember);}
+  .callout h4{margin:0 0 8px 0;font-size:1.15rem;}
+  .callout-label{
+    font-family:"Jost",sans-serif;
+    font-size:0.68rem;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--wine);
+    margin-bottom:6px;
+    display:block;
+  }
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:30px;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:30px;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:30px;}
+  @media (max-width:1000px){.grid-3,.grid-4{grid-template-columns:1fr 1fr;}}
+
+  .card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:20px 22px;
+  }
+  .card h4{margin:0 0 10px 0;font-size:1.2rem;}
+  .card .tag{
+    display:inline-block;font-family:"Jost",sans-serif;font-size:0.62rem;letter-spacing:0.14em;
+    text-transform:uppercase;color:#fff;background:var(--wine);padding:2px 8px;border-radius:10px;margin-bottom:10px;
+  }
+
+  .stat{
+    text-align:left;
+  }
+  .stat .num{
+    font-family:"Cormorant Garamond",serif;
+    font-size:2.6rem;
+    font-weight:700;
+    color:var(--wine);
+    line-height:1;
+  }
+  .stat .label{
+    font-family:"Jost",sans-serif;
+    font-size:0.78rem;
+    color:#6b6455;
+    margin-top:6px;
+    letter-spacing:0.02em;
+  }
+
+  /* funnel viz */
+  .funnel{margin:20px 0 34px 0;}
+  .funnel-row{display:flex;align-items:center;margin-bottom:14px;}
+  .funnel-bar{
+    height:54px;
+    background:linear-gradient(90deg, var(--wine), var(--ember));
+    display:flex;align-items:center;color:#fff;font-family:"Jost",sans-serif;
+    padding-left:20px;font-weight:500;border-radius:2px;
+  }
+  .funnel-row:nth-child(1) .funnel-bar{width:100%;background:linear-gradient(90deg,var(--charcoal-2),var(--wine));}
+  .funnel-row:nth-child(2) .funnel-bar{width:62%;background:linear-gradient(90deg,var(--wine),var(--ember));}
+  .funnel-row:nth-child(3) .funnel-bar{width:28%;background:linear-gradient(90deg,var(--ember),var(--gold));}
+  .funnel-label{width:150px;flex-shrink:0;font-family:"Jost",sans-serif;font-size:0.8rem;color:var(--charcoal);}
+
+  /* SWOT */
+  .swot{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;margin-bottom:34px;}
+  .swot .card h4{font-family:"Jost",sans-serif;font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;}
+  .swot .s{border-top:4px solid var(--gold);}
+  .swot .w{border-top:4px solid var(--wine);}
+  .swot .o{border-top:4px solid var(--ember);}
+  .swot .t{border-top:4px solid var(--charcoal-2);}
+  @media (max-width:900px){.swot{grid-template-columns:1fr;}}
+
+  /* Porter */
+  .porter{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:34px;}
+  @media (max-width:1100px){.porter{grid-template-columns:1fr 1fr;}}
+  .porter .card{padding:16px 16px;}
+  .porter .card h4{font-size:1.02rem;}
+  .force-meter{height:6px;background:var(--line);border-radius:4px;margin:8px 0 12px 0;overflow:hidden;}
+  .force-meter span{display:block;height:100%;background:var(--wine);}
+
+  /* PESTLE */
+  .pestle{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:34px;}
+  @media (max-width:900px){.pestle{grid-template-columns:1fr 1fr;}}
+  .pestle .card{border-top:4px solid var(--gold);}
+
+  /* BMC */
+  .bmc{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    grid-template-rows:auto auto auto;
+    gap:10px;
+    margin-bottom:30px;
+  }
+  .bmc .cell{
+    background:#fff;border:1px solid var(--line);border-radius:3px;padding:14px 16px;font-size:0.82rem;
+  }
+  .bmc .cell h5{
+    margin:0 0 8px 0;font-family:"Jost",sans-serif;font-size:0.68rem;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--wine);
+  }
+  .bmc .kp{grid-column:1;grid-row:1/3;}
+  .bmc .ka{grid-column:2;grid-row:1;}
+  .bmc .kr{grid-column:2;grid-row:2;}
+  .bmc .vp{grid-column:3;grid-row:1/3;background:rgba(185,138,62,0.08);border-color:var(--gold);}
+  .bmc .cr{grid-column:4;grid-row:1;}
+  .bmc .ch{grid-column:4;grid-row:2;}
+  .bmc .cs{grid-column:5;grid-row:1/3;}
+  .bmc .cost{grid-column:1/4;grid-row:3;}
+  .bmc .rev{grid-column:4/6;grid-row:3;}
+  @media (max-width:1050px){
+    .bmc{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+    .bmc .kp,.bmc .ka,.bmc .kr,.bmc .vp,.bmc .cr,.bmc .ch,.bmc .cs,.bmc .cost,.bmc .rev{grid-column:auto;grid-row:auto;}
+  }
+
+  /* personas */
+  .persona-card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:22px 24px;margin-bottom:20px;}
+  .persona-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:12px;}
+  .persona-head h4{margin:0;font-size:1.4rem;}
+  .persona-meta{font-family:"Jost",sans-serif;font-size:0.76rem;color:#6b6455;text-transform:uppercase;letter-spacing:0.05em;}
+  .persona-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:800px){.persona-grid{grid-template-columns:1fr;}}
+  .persona-grid h6{margin:0 0 4px 0;font-family:"Jost",sans-serif;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);}
+  .persona-grid p{font-size:0.86rem;margin-bottom:0;}
+
+  /* FAQ */
+  .faq-item{border-bottom:1px solid var(--line);padding:20px 0;}
+  .faq-q{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:1.28rem;color:var(--wine);margin-bottom:8px;}
+  .faq-a{font-size:0.92rem;}
+
+  /* roadmap */
+  .roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:30px;}
+  @media (max-width:1000px){.roadmap{grid-template-columns:1fr 1fr;}}
+  .roadmap .card{border-top:4px solid var(--ember);}
+  .roadmap .card h4{font-family:"Jost",sans-serif;letter-spacing:0.06em;text-transform:uppercase;font-size:0.92rem;}
+  .roadmap ul{padding-left:18px;font-size:0.84rem;}
+
+  /* sources */
+  .src-group{margin-bottom:26px;}
+  .src-group h4{font-family:"Jost",sans-serif;font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--line);padding-bottom:6px;margin-bottom:10px;}
+  .src-group ul{font-size:0.82rem;padding-left:18px;}
+  .src-group li{margin-bottom:5px;word-break:break-word;}
+
+  .badge-flag{
+    display:inline-block;font-family:"Jost",sans-serif;font-size:0.62rem;letter-spacing:0.08em;
+    text-transform:uppercase;color:#fff;background:var(--charcoal-2);padding:1px 7px;border-radius:10px;margin-left:6px;
+  }
+
+  /* mobile sidebar collapse */
+  @media (max-width:768px){
+    .sidebar{
+      position:static;float:none;width:100%;height:auto;
+      display:flex;overflow-x:auto;overflow-y:hidden;padding:10px 6px;
+      border-right:none;border-bottom:1px solid rgba(185,138,62,0.25);
+    }
+    .sidebar-title{display:none;}
+    .sidebar label{
+      white-space:nowrap;padding:10px 16px;border-left:none;border-bottom:3px solid transparent;
+    }
+    #tab-1:checked ~ .sidebar label[for="tab-1"],
+    #tab-2:checked ~ .sidebar label[for="tab-2"],
+    #tab-3:checked ~ .sidebar label[for="tab-3"],
+    #tab-4:checked ~ .sidebar label[for="tab-4"],
+    #tab-5:checked ~ .sidebar label[for="tab-5"],
+    #tab-6:checked ~ .sidebar label[for="tab-6"],
+    #tab-7:checked ~ .sidebar label[for="tab-7"],
+    #tab-8:checked ~ .sidebar label[for="tab-8"],
+    #tab-9:checked ~ .sidebar label[for="tab-9"],
+    #tab-10:checked ~ .sidebar label[for="tab-10"],
+    #tab-11:checked ~ .sidebar label[for="tab-11"],
+    #tab-12:checked ~ .sidebar label[for="tab-12"]{
+      border-left:none;border-bottom:3px solid var(--gold);
+    }
+    .content{margin-left:0;}
+    .panel{padding:30px 20px 70px 20px;}
+    .masthead{padding:24px 20px;}
+  }
+
+  /* ---------- print ---------- */
+  @media print{
+    .masthead{border-bottom:2px solid var(--gold);}
+    .sidebar{display:none !important;}
+    .content{margin-left:0 !important;}
+    .panel{
+      display:block !important;
+      page-break-after:always;
+      break-after:page;
+      padding:24px 6px;
+      max-width:100%;
+    }
+    .panel:last-child{page-break-after:auto;}
+    .funnel-bar{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    body{background:#fff;}
+    a{color:var(--charcoal-2);text-decoration:underline;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wordmark">AAMARA CAPITAL</div>
+  <div class="wordmark-rule"></div>
+  <h1 class="biz-name">Premium Earthenware &amp; <em>Modern Terracotta Living</em></h1>
+  <p class="positioning">A Mumbai-anchored, artisan-partnered terracotta house — D2C, boutique retail and HoReCa — built on <strong>government-documented</strong> sourcing capacity, not assumption. Case study 1 of 5 new-business candidates.</p>
+  <div class="doc-meta">Internal Investment Committee Case Study &nbsp;·&nbsp; Prepared for Aamara Capital &nbsp;·&nbsp; 3 July 2026</div>
+</header>
+
+<div class="app">
+  <input class="tab-input" type="radio" name="tabs" id="tab-1" checked>
+  <input class="tab-input" type="radio" name="tabs" id="tab-2">
+  <input class="tab-input" type="radio" name="tabs" id="tab-3">
+  <input class="tab-input" type="radio" name="tabs" id="tab-4">
+  <input class="tab-input" type="radio" name="tabs" id="tab-5">
+  <input class="tab-input" type="radio" name="tabs" id="tab-6">
+  <input class="tab-input" type="radio" name="tabs" id="tab-7">
+  <input class="tab-input" type="radio" name="tabs" id="tab-8">
+  <input class="tab-input" type="radio" name="tabs" id="tab-9">
+  <input class="tab-input" type="radio" name="tabs" id="tab-10">
+  <input class="tab-input" type="radio" name="tabs" id="tab-11">
+  <input class="tab-input" type="radio" name="tabs" id="tab-12">
+
+  <nav class="sidebar">
+    <div class="sidebar-title">Contents</div>
+    <label for="tab-1"><span class="num">01</span>Executive Summary</label>
+    <label for="tab-2"><span class="num">02</span>Market &amp; Industry</label>
+    <label for="tab-3"><span class="num">03</span>Competitive Landscape</label>
+    <label for="tab-4"><span class="num">04</span>Macro &amp; Regulatory</label>
+    <label for="tab-5"><span class="num">05</span>Financials</label>
+    <label for="tab-6"><span class="num">06</span>Customers &amp; Marketing</label>
+    <label for="tab-7"><span class="num">07</span>Technology &amp; Expansion</label>
+    <label for="tab-8"><span class="num">08</span>Business Model</label>
+    <label for="tab-9"><span class="num">09</span>USP &amp; Moat</label>
+    <label for="tab-10"><span class="num">10</span>FAQ</label>
+    <label for="tab-11"><span class="num">11</span>Action Plan</label>
+    <label for="tab-12"><span class="num">12</span>Sources</label>
+  </nav>
+
+  <main class="content">
+
+    <!-- ============ 1. EXECUTIVE SUMMARY ============ -->
+    <section class="panel panel-1">
+      <div class="section-kicker">Section 01</div>
+      <h2 class="section-title">Executive Summary</h2>
+      <div class="section-rule"></div>
+
+      <div class="grid-4">
+        <div class="card stat"><div class="num">$420M</div><div class="label">India Pottery &amp; Ceramics category, 2024 — closest proxy TAM</div></div>
+        <div class="card stat"><div class="num">₹7cr <span class="est">EST.</span></div><div class="label">Annual revenue to reach opex break-even, Year 3–4</div></div>
+        <div class="card stat"><div class="num">0</div><div class="label">Funded, nationally-distributed, terracotta-exclusive brands in India today</div></div>
+        <div class="card stat"><div class="num">717</div><div class="label">Artisans across the two real Maharashtra SFURTI clusters — Nashik (516) + Bhadrawati (201)</div></div>
+      </div>
+
+      <h3>Business overview</h3>
+      <p>Premium Earthenware &amp; Modern Terracotta Living is a Mumbai-headquartered house built around one clear idea: no funded, nationally-distributed brand currently owns "terracotta" as a category identity in India. Generalists (Ellementry, Nestasia) spread themselves across every material; heritage luxury players (Good Earth, FabIndia) treat terracotta as an accent SKU inside a porcelain- or textile-led catalogue; the only true terracotta-first D2C+B2B comparable, Mittihub, is bootstrapped, single-state, and still under ₹1 crore in revenue after several years of trading. The whitespace is real and currently uncontested.</p>
+      <p>The venture combines three revenue channels — D2C e-commerce, boutique retail, and B2B HoReCa bulk supply — around an artisan-partnership sourcing model, launched first in Mumbai and expanded in a disciplined, evidence-based sequence across Maharashtra, India, and eventually export markets.</p>
+
+      <h3>The problem</h3>
+      <p>Urban Indian consumers who want authentic, handmade, sustainably-sourced tableware and decor are currently forced to choose between three unsatisfying options: (1) mass-catalogue "craft-adjacent" generalists with well-documented quality and trust problems (Ellementry rates 1.38/5 on MouthShut for recurring quality defects; Nestasia faces public markup and refund-policy complaints despite $12.35M raised), (2) ultra-luxury porcelain houses priced out of reach for most buyers (Good Earth's four-piece dinner sets run ₹7,500–20,000), or (3) a long tail of Instagram-only micro-studios with no scale, consistency, or HoReCa credibility. On the hospitality side, hotel and restaurant F&amp;B buyers face the same bifurcation: industrial wholesalers (Clay Craft India, La Opala) with no craft story, or two boutique craft-luxury specialists (BAFA Pottery, Ikai Asai) who cannot be everywhere.</p>
+
+      <h3>The solution</h3>
+      <p>A single brand that owns "premium terracotta" end-to-end: exclusive, multi-year artisan-cluster partnerships; transparent, fair-trade-style pricing that directly answers the trust gap left by Nestasia and Ellementry; a design-IP library that keeps handmade production current with urban taste; and a dedicated HoReCa arm built on Aamara Capital's existing Mumbai hospitality and HNI network — the same warm-introduction advantage that let Ikai Asai place tableware inside Raffles Udaipur, The Leela Jaipur, and multiple Marriott properties from a standing start in 2019.</p>
+
+      <h3>Target customers</h3>
+      <ul>
+        <li><strong>Premium home decorators</strong> (urban, design-literate, ₹35–50 lakh HHI) buying accent tableware and decor for their own homes and as gifts.</li>
+        <li><strong>Hotel &amp; restaurant F&amp;B procurement</strong> buying distinctive, story-rich tableware for guest-facing "experience dining" concepts.</li>
+        <li><strong>Eco-conscious young professionals</strong> (₹12–18 lakh income) entering the category through accessible, sub-₹1,000 gifting SKUs.</li>
+        <li><strong>Legacy wealth / corporate gifting buyers</strong> seeking exclusive, non-generic Diwali and wedding-season gifting at scale.</li>
+      </ul>
+      <p>Full persona detail — buying triggers, objections, and what converts each segment — is in Section 06.</p>
+
+      <div class="callout wine">
+        <span class="callout-label">Material Due-Diligence Finding — Read Before Anything Else</span>
+        <h4>The originally-proposed sourcing clusters do not check out. The real ones are better.</h4>
+        <p>The concept as first proposed named <strong>Palghar</strong> and <strong>Karjat/Raigad</strong> as the artisan sourcing base. Direct research against primary sources found neither survives scrutiny: Palghar's own district government industrial-information page lists Tata Steel, JSW, Coca-Cola and agriculture — <strong>no pottery cluster at all</strong>. Karjat/Raigad rests on a single undated NGO page describing ~400 women hand-building open-fired pottery with no wheel and no kiln — a real craft, but not a scalable, documentable sourcing base for a premium tableware brand. A third originally-considered cluster, Khavda (Gujarat), is independently documented as down to roughly <strong>two practicing artisan families</strong> — not viable at any scale.</p>
+        <p>What the same research <em>did</em> find, directly on the MSME Ministry's own approved-cluster dashboard, is better: <strong>Nashik Pottery Cluster (516 artisans, ₹342.44 lakh in Government of India SFURTI funding)</strong> and <strong>Bhadrawati Terracotta Cluster, Chandrapur (201 artisans, ₹166.85 lakh GOI funding)</strong> — both officially recognized, officially funded, and independently verifiable Maharashtra pottery clusters under the SFURTI scheme. Neither Palghar nor Karjat/Raigad appears on that list.</p>
+        <p><strong>We treat this as a diligence win, not a setback.</strong> A sourcing thesis built on an unverified assumption is a liability disguised as a moat; a sourcing thesis built on 717 artisans with a documented decade of government co-investment, technical support from CGCRI (CSIR), and an existing subsidy pathway for kiln/wheel upgrades is an actual foundation to contract against. This case study — and every section that follows — is built on Nashik and Bhadrawati as the primary sourcing thesis. Palghar, Karjat/Raigad, and Khavda are retained only as originally-considered options that diligence ruled out (see FAQ, Section 10).</p>
+      </div>
+
+      <h3>Why now</h3>
+      <ul>
+        <li><strong>Regulatory tailwind, not headwind</strong>: GST 2.0 (effective 22 Sep 2025) cut most decorative/kitchenware terracotta HSN codes from 12% to 5%, with earthen pots and diyas NIL-rated — a direct, current margin tailwind.</li>
+        <li><strong>A live policy narrative</strong>: the single-use-plastics ban (since Jul 2022) has the Central Pollution Control Board actively promoting clay as a plastic substitute — a citable, government-backed sustainability story no competitor is using at scale.</li>
+        <li><strong>An open runway</strong>: no market-research firm has ever published a dedicated India terracotta/earthenware market-size report, and no pure-play Indian terracotta D2C brand has raised institutional Series A+ capital — both read as evidence of a nascent, first-mover-friendly category, not a data gap to be nervous about.</li>
+        <li><strong>A funding-ready artisan base</strong>: PM Vishwakarma Yojana (₹13,000 crore, potter/kumhaar named as 1 of 18 covered trades) and KVIC's Kumhar Sashaktikaran Programme already co-fund exactly the kiln/wheel upgrade this business needs to make — de-risking the capital side of the artisan-partnership model.</li>
+      </ul>
+
+      <h3>Key highlights</h3>
+      <div class="grid-3">
+        <div class="card"><h4>Whitespace, confirmed</h4><p>Category fragmentation across 15+ named competitors and micro-studios, with no single terracotta-first, funded, nationally-scaled winner — see Section 03.</p></div>
+        <div class="card"><h4>Real sourcing base</h4><p>717 SFURTI-registered artisans across Nashik and Bhadrawati, both eligible for CGCRI technical support and further GOI co-investment — see Section 02.</p></div>
+        <div class="card"><h4>Disciplined financial base case</h4><p>Break-even <span class="est">EST.</span> at ~₹7 crore annual revenue by Year 3–4, benchmarked against real comparables (Mittihub, Good Earth) rather than a generic SaaS-style hockey stick — see Section 05.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ 2. MARKET & INDUSTRY ============ -->
+    <section class="panel panel-2">
+      <div class="section-kicker">Section 02</div>
+      <h2 class="section-title">Market &amp; Industry</h2>
+      <div class="section-rule"></div>
+
+      <h3>Industry overview</h3>
+      <p>India's traditional pottery sector is large in headcount and poorly measured in revenue. Artisan-count claims conflict: a widely-recycled "40 lakh potters" figure traces to a single site last updated in 2011 and should not be cited without caveat. More defensible: <strong>68.86 lakh artisans nationally</strong> across all crafts (KNN India, citing the Ministry of Textiles' Development Commissioner-Handicrafts data), <strong>32.03 lakh registered</strong> under the Pehchan artisan-ID scheme (PIB, Dec 2024), and <strong>64.66 lakh handicraft workers</strong> overall, 64% of them women (PIB, Dec 2025).</p>
+      <p>KVIC's own operational guidelines for the Gramodyog Vikas Yojana pottery programme are the clearest economic data point in the whole category: a traditional hand-wheel potter earns <strong>under ₹100/day</strong>; an electric-wheel potter earns <strong>≥₹500/day</strong>, and <strong>90% of India's potters earn under ₹3,500/month</strong>. That income gap is the single clearest, most quantifiable argument for this business's artisan value proposition — a genuine kiln/wheel technology upgrade, not a marketing claim.</p>
+      <p>Institutional demand already exists at scale: Indian Railways has made terracotta kulhads compulsory at <strong>400 major stations</strong>. And government capital is already flowing into this exact craft: the SFURTI scheme has earmarked <strong>₹50 crore</strong> nationally to build pottery clusters up to "crockery and tile making" capability, with CGCRI (CSIR) providing technical support.</p>
+
+      <div class="callout">
+        <span class="callout-label">Sourcing Reality — The Artisan Base This Plan Is Built On</span>
+        <h4>Nashik and Bhadrawati: the real, government-recognized Maharashtra pottery clusters</h4>
+        <p>Per the MSME Ministry's own approved-SFURTI-cluster dashboard (dashboard.msme.gov.in), Maharashtra has exactly two officially recognized pottery/terracotta clusters:</p>
+        <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Cluster</th><th>District</th><th>Registered artisans</th><th>GOI SFURTI funding</th><th>Funding year</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Nashik Pottery Cluster</strong></td><td>Nashik</td><td>516</td><td>₹342.44 lakh</td><td>FY2020-21</td></tr>
+            <tr><td><strong>Bhadrawati Terracotta Cluster</strong></td><td>Chandrapur</td><td>201</td><td>₹166.85 lakh</td><td>FY2020-21</td></tr>
+            <tr><td>Total real, documented base</td><td>—</td><td><strong>717 artisans</strong></td><td><strong>₹509.29 lakh</strong></td><td>—</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>Neither cluster carries a GI tag (Maharashtra's full GI list — 54 marks, 39 agricultural, 13 handicraft — has no pottery entry at all), so there is no legal barrier to sourcing or branding from them, and equally no GI-backed "certified authentic" marketing claim available. This is a genuine gap versus a competitor sourcing from a GI-tagged cluster elsewhere in India (e.g. Bankura Panchmura, West Bengal, or Molela, Rajasthan) — and a candidate for Maharashtra ODOP advocacy in Phase 2 (Section 07).</p>
+      </div>
+
+      <h3>Market size — presented as a range, not averaged</h3>
+      <p>This category has no single authoritative market-size source. "Home decor" alone ranges from $0.4bn to $80bn across research houses depending on scope. Grand View Research and Fortune Business Insights blocked direct verification (HTTP 403) in every research stream — their figures are treated as lower-confidence, snippet-sourced estimates below.</p>
+      <div class="tbl-wrap">
+      <table>
+        <caption>India tableware / ceramics / home-decor — comparable market-size figures by source and scope</caption>
+        <thead><tr><th>Segment (as defined by source)</th><th>Figure</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>India Pottery &amp; Ceramics <em>(closest direct proxy)</em></td><td>$420.3M (2024) → $658.2M by 2033, CAGR 5.1%</td><td>Grand View Research <span class="badge-flag">Unverified — 403</span></td></tr>
+          <tr><td>India tableware, offline channel</td><td>$1.18bn (2024); +$403.6M over 2026–2030, CAGR 4.9%</td><td>Technavio (Mar 2026, directly fetched)</td></tr>
+          <tr><td>India ceramic tableware</td><td>CAGR 6.3% (2025–2031)</td><td>6Wresearch</td></tr>
+          <tr><td>India tableware</td><td>$5.29–5.67bn (2024/25) → $9.91bn by 2032, CAGR ~8.3%</td><td>Fortune Business Insights <span class="badge-flag">Unverified — 403, internally inconsistent</span></td></tr>
+          <tr><td>India home decor</td><td>$26.88bn (2025) → $42.36bn by 2034, CAGR 5.18%</td><td>IMARC Group</td></tr>
+          <tr><td>India home decor (narrow B2C)</td><td>$1.83bn (2026 projected), CAGR ~2%</td><td>Statista</td></tr>
+          <tr><td>Global earthenware market</td><td>$1.38–1.74bn (2022) → $2.34–2.37bn by 2029/2031</td><td>The Brainy Insights / Valuates Reports</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>Key structural nuance</strong>: Technavio's India breakdown finds metalware — not ceramic — holds the largest India tableware revenue share. Ceramic/terracotta is a growth niche, not the incumbent leader. Globally, porcelain holds 58.5% share, but <strong>earthenware is the fastest-growing material sub-segment globally at 9.4% CAGR</strong> (Mordor Intelligence) — a global, not India-specific, figure, but directionally supportive.</p>
+
+      <h3>TAM / SAM / SOM <span class="est">EST.</span></h3>
+      <p>No primary source sizes "premium artisanal terracotta tableware/decor" as a distinct India category — the figures below are built bottom-up and explicitly labelled as estimates.</p>
+      <div class="funnel">
+        <div class="funnel-row"><div class="funnel-label">TAM <span class="est">EST.</span></div><div class="funnel-bar">≈ $420M (₹3,500 cr) — India Pottery &amp; Ceramics proxy category, 2024</div></div>
+        <div class="funnel-row"><div class="funnel-label">SAM <span class="est">EST.</span></div><div class="funnel-bar">₹350–500 cr (~$40–60M) — premium D2C + boutique + HoReCa slice, nationally</div></div>
+        <div class="funnel-row"><div class="funnel-label">SOM <span class="est">EST.</span></div><div class="funnel-bar">₹2–10 cr (~$0.25–1.2M) by Year 3 — Mumbai-first, 0.5–2% of SAM</div></div>
+      </div>
+      <p style="font-size:0.86rem;color:#6b6455;">SOM is anchored to Mittihub's actual disclosed trajectory — the closest real terracotta D2C+B2B comparable — rather than top-down percentage math: FY23 revenue ₹30 lakh, FY24 target ₹70 lakh (133% YoY), on a 60% B2B / 30% D2C / 10% studio mix that directly validates the channel model proposed here, albeit at unfunded, single-state scale.</p>
+
+      <h3>Growth rate</h3>
+      <p>Cross-source range for relevant proxy categories: 5.1% (Pottery &amp; Ceramics) to 6.3–8.3% (ceramic tableware, various sources) to 9.4% global CAGR for earthenware specifically. A blended <strong>7–9% category CAGR</strong> <span class="est">EST.</span> is reasonable for modelling — well below the 24–36% CAGR claimed for India's D2C e-commerce channel overall, meaning most of this brand's growth must come from channel-mix shift (online penetration, HoReCa wins), not organic category expansion.</p>
+
+      <h3>Key market trends</h3>
+      <ul>
+        <li><strong>Premiumization</strong>: Bain's Asia-Pacific Consumer Products Report shows India value growth accelerating from 7.2% (2024) to 13.7% (H1 2025); KPMG India finds 52% of consumers weight point-of-sale experience heavily in premium purchase decisions.</li>
+        <li><strong>Sustainability</strong>: Indian consumers report willingness to pay a 13.1% premium for sustainably-sourced goods vs. 9.7% global average (PwC), reinforced by the CPCB's active promotion of clay as a single-use-plastic substitute.</li>
+        <li><strong>"Vocal for Local"</strong>: Atmanirbhar Bharat framing and 32.03 lakh artisans mobilized under the Pehchan ID scheme provide a favourable narrative umbrella.</li>
+        <li><strong>D2C boom</strong>: India e-commerce GMV of $65–66bn (2025) at 19–21% CAGR (Bain), projected to $170–180bn by 2030; D2C specifically estimated $87.5–100bn by 2025 (Avendus/IBEF) to $30–35bn GMV by 2027 (Redseer, older estimate) — present as a range, not averaged.</li>
+        <li><strong>Gifting culture</strong>: India's gifting market is $75.16bn (2024) → $92.32bn by 2030 (TechSci); the wedding economy alone is ~$130bn (Jefferies) with 80 lakh–1 crore weddings/year — larger than the entire US wedding market.</li>
+      </ul>
+
+      <h3>Consumer behaviour</h3>
+      <p>Urban Monthly Per Capita Expenditure reached ₹6,996 (+8.3% YoY, HCES 2023-24), with durable-goods share of spend having more than doubled to ~7% since 2000. Urban buyers increasingly value handmade/artisan provenance storytelling, sustainability credentials, Instagram-able aesthetics, and gifting-appropriateness. On the HoReCa side, Technavio finds hospitality brands using handcrafted ceramic pottery for "lifestyle alignment" saw a <strong>25% increase in sales</strong>, with some sustainability-focused brands reporting tripled online engagement.</p>
+    </section>
+
+    <!-- ============ 3. COMPETITIVE LANDSCAPE ============ -->
+    <section class="panel panel-3">
+      <div class="section-kicker">Section 03</div>
+      <h2 class="section-title">Competitive Landscape</h2>
+      <div class="section-rule"></div>
+
+      <p>Ten named players span four tiers: funded home-decor generalists, heritage luxury houses, listed industrial hotelware manufacturers, and boutique craft-to-hospitality specialists. No player owns "terracotta" as a category identity today.</p>
+
+      <div class="tbl-wrap">
+      <table>
+        <caption>Full competitor comparison</caption>
+        <thead><tr><th>Brand</th><th>Model</th><th>Pricing</th><th>Strength</th><th>Weakness</th><th>Sentiment</th><th>Our opportunity</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Ellementry</strong></td><td>Multi-material D2C + 16 stores/13 cities + marketplaces</td><td>₹450–26,900</td><td>Broad reach, 4,000+ artisans, exports to 12 countries</td><td>Not terracotta-focused; weak QC at scale</td><td>1.38/5 (MouthShut) — recurring defect complaints</td><td>Curated terracotta-only positioning with visible artisan-attribution and tighter QC</td></tr>
+          <tr><td><strong>Nestasia</strong></td><td>D2C generalist, $12.35M raised, 30 stores by end-2025</td><td>Mid-premium; ₹4,800 fruit-holder markup complaint documented</td><td>Best-funded pure-play, 1M+ orders, strong omnichannel</td><td>Perceived overpricing; rigid wallet-credit refund policy</td><td>Mixed — Trustpilot markup/refund complaints</td><td>Transparent fair-trade pricing converts markup-skepticism into differentiation</td></tr>
+          <tr><td><strong>Good Earth India</strong></td><td>Ultra-premium retail, 10 stores incl. Turkey, since 1996</td><td>₹7,500–20,000 (dinner sets); ₹2,600–5,600 (mug/tea sets)</td><td>Founder-led authenticity, 30-year artisan-revival mission</td><td>Porcelain/fine-china led, not terracotta-first; no B2B/HoReCa arm; 30 yrs to ₹49.9cr</td><td>Strong luxury-brand equity</td><td>Occupy the gap between Good Earth's ultra-luxury ceiling and Ellementry/Nestasia's mass-premium floor</td></tr>
+          <tr><td><strong>FabIndia</strong></td><td>National ethnic/craft generalist retail + some B2B</td><td>₹799 (planter) – ₹1,899 (mug set)</td><td>Proven artisan-at-scale supply chain, national footprint</td><td>"Ethnic generalist" positioning, not premium-design or terracotta-specific</td><td>Established, broad</td><td>Strongest operating-model comparable; we out-design and out-focus, not out-scale</td></tr>
+          <tr><td><strong>IKEA India</strong></td><td>Mass retail; rotating artisan co-created collections</td><td>~₹129 entry (BRUNBÄR pot)</td><td>Proves artisan-sourced ceramics viable at ultra-low price</td><td>Limited-edition, not a permanent premium range</td><td>N/A — mass brand</td><td>No direct threat; validates artisan-sourcing model at the opposite price end</td></tr>
+          <tr><td><strong>Clay Craft India</strong></td><td>Listed (NSE Emerge, IPO Jun 2026) industrial hotelware manufacturer</td><td>Wholesale/distributor pricing, ~5,770 SKUs</td><td>FY26 Total Income ₹184.57cr, PAT ₹27.02cr, EBITDA margin 23.33%, 110+ distributors</td><td>No craft/artisan story; industrial scale only</td><td>N/A — B2B industrial</td><td>Cannot out-distribute; compete on artisan-authenticity and design curation instead</td></tr>
+          <tr><td><strong>La Opala RG</strong></td><td>Listed, ~50% of organized opalware segment</td><td>Distributor/retail, 12,000+ retailers</td><td>Gross margin 56.96% (Q2 FY26); net margin 35.0% (FY24) — best-in-class</td><td>Opalware, not terracotta; no craft narrative</td><td>N/A — B2B/mass retail</td><td>Aspirational margin benchmark only, not a near-term competitive threat</td></tr>
+          <tr><td><strong>BAFA Pottery</strong></td><td>Bespoke B2B hotelware, Jaipur</td><td>Custom/bulk, 3,000+ designs</td><td>"Trusted by Taj, Oberoi &amp; Fairmont"; double-fired at 1200°C; Oberoi Vanyavilas project</td><td>Jaipur-based; no documented Mumbai-first presence</td><td>Strong trade reputation</td><td>Closest direct HoReCa rival — win on Mumbai-network warm intros BAFA doesn't have locally</td></tr>
+          <tr><td><strong>Ikai Asai</strong></td><td>Artisanal homeware, backed by Ananya Birla</td><td>Premium, multi-material</td><td>Raffles Udaipur, Leela Jaipur, Fairmont Jaipur, Marriott placements; Maison et Objet Paris debut</td><td>Not terracotta-exclusive; works across pottery/textiles/metal</td><td>Strong craft-to-hospitality case study</td><td>Direct playbook to replicate — but terracotta-exclusive vs. their multi-craft breadth</td></tr>
+          <tr><td><strong>Mittihub</strong></td><td>Bootstrapped terracotta D2C+B2B, Rajasthan</td><td>Entry-to-mid, 70 SKUs</td><td>Only true terracotta-first comparable; 60% B2B/30% D2C/10% studio mix validates model</td><td>FY24 revenue only ₹70 lakh target; single-state, unfunded, 50-artisan network</td><td>Small but credible</td><td>Proof-of-concept at small scale — the whitespace for a funded, multi-cluster, Mumbai-based player remains wide open</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h3>SWOT Analysis</h3>
+      <div class="swot">
+        <div class="card s"><h4>Strengths</h4><ul>
+          <li>First-mover potential to own "terracotta" as a category identity — no incumbent currently does this</li>
+          <li>Aamara's Mumbai hospitality/HNI network is a credible warm channel into HoReCa where only BAFA Pottery and Ikai Asai are serious craft-premium players</li>
+          <li>Genuine policy tailwind: single-use-plastics ban actively promotes clay as substitute (CPCB, since Jul 2022)</li>
+          <li>GST 2.0 reform: most decorative/kitchenware terracotta now 5% (down from 12%); earthen pots/diyas NIL-rated</li>
+          <li>Quantifiable artisan wage-upgrade story: &lt;₹100/day hand-wheel vs. ≥₹500/day electric-wheel (KVIC)</li>
+        </ul></div>
+        <div class="card w"><h4>Weaknesses</h4><ul>
+          <li>No brand equity yet vs. Good Earth's 30-year head start or FabIndia's national footprint</li>
+          <li>Terracotta is inherently fragile — 4–8% ceramic/glass e-commerce breakage rate is structural, not incidental</li>
+          <li>Handmade production is low-throughput and inconsistent vs. machine-made competitors — a documented Ellementry weakness</li>
+          <li>Kiln emissions classification ambiguity in Maharashtra (see Section 04) could slow scaling</li>
+        </ul></div>
+        <div class="card o"><h4>Opportunities</h4><ul>
+          <li>Confirmed whitespace: no funded, nationally-distributed, artisan-exclusive terracotta brand exists in India today</li>
+          <li>HoReCa design-renaissance: brands aligning with handcrafted "experience dining" saw 25% sales increases (Technavio)</li>
+          <li>Export lane is close to a blank slate: only ~106 terracotta export shipments tracked Oct 2023–Sep 2024 (Volza), +45% YoY</li>
+          <li>Government co-investment (PM Vishwakarma, SFURTI, KVIC Kumhar Sashaktikaran) lowers the capital cost of the kiln-upgrade moat</li>
+        </ul></div>
+        <div class="card t"><h4>Threats</h4><ul>
+          <li>Category is thin on independent validation — no dedicated market-research firm sizes it; demand assumptions carry real forecasting risk</li>
+          <li>Artisan-dependency risk is structural — single-cluster over-reliance is an existential supply risk (see Khavda's collapse to ~2 families)</li>
+          <li>Well-capitalized generalists (Nestasia, $12.35M raised) could pivot into a "terracotta collection" and erode first-mover advantage</li>
+          <li>Amazon Karigar's mixed results show marketplace scale does not automatically translate into artisan or brand success</li>
+        </ul></div>
+      </div>
+
+      <h3>Porter's Five Forces</h3>
+      <div class="porter">
+        <div class="card"><h4>New Entrants</h4><div class="force-meter"><span style="width:60%;"></span></div><p>Moderate-to-high. Low barriers at micro-studio tier; higher for funded, HoReCa-credible players — but the whitespace itself invites the next well-funded entrant or a Nestasia pivot.</p></div>
+        <div class="card"><h4>Supplier Power</h4><div class="force-meter"><span style="width:85%;"></span></div><p>High — the concept's central strategic risk. Concentrated, geographically-fixed artisan clusters (717 across Nashik/Bhadrawati) give real bargaining leverage absent active cluster-expansion investment.</p></div>
+        <div class="card"><h4>Buyer Power</h4><div class="force-meter"><span style="width:65%;"></span></div><p>Moderate (D2C, price-takers but low switching cost) to High (HoReCa buyers compare Clay Craft/La Opala/BAFA and can demand credit terms and customization).</p></div>
+        <div class="card"><h4>Substitutes</h4><div class="force-meter"><span style="width:80%;"></span></div><p>High. Melamine, steel, glass and opalware are cheaper, more durable, more consistent — metalware already outsells ceramic in Indian tableware overall.</p></div>
+        <div class="card"><h4>Rivalry</h4><div class="force-meter"><span style="width:50%;"></span></div><p>Moderate but structurally favourable — fragmented and non-overlapping on terracotta specifically; a real but currently uncontested window.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ 4. MACRO & REGULATORY ============ -->
+    <section class="panel panel-4">
+      <div class="section-kicker">Section 04</div>
+      <h2 class="section-title">Macro &amp; Regulatory</h2>
+      <div class="section-rule"></div>
+
+      <h3>PESTLE Analysis</h3>
+      <div class="pestle">
+        <div class="card"><h4>Political</h4><p>PM Vishwakarma Yojana (₹13,000cr, 5-yr) names Potter/Kumhaar as 1 of 18 covered trades — toolkit grants, concessional loans, skill training. SFURTI funds 513 clusters nationally, with Nashik and Bhadrawati the real Maharashtra pottery clusters.</p></div>
+        <div class="card"><h4>Economic</h4><p>Urban MPCE up 8.3% YoY. D2C/e-commerce infrastructure increasingly commoditized. GST 2.0 cut most terracotta HSN codes 12%→5%, NIL for earthen pots/diyas — a direct margin tailwind.</p></div>
+        <div class="card"><h4>Social</h4><p>Rising demand for authentic, handmade, provenance-attributed gifting. IHD/Crafts Council 2025 survey found average handicraft-worker pay of ₹270/day, below minimum wage in every surveyed state — a real ethical exposure this brand must address with genuinely better artisan terms, not just marketing language.</p></div>
+        <div class="card"><h4>Technological</h4><p>KVIC/MGIRI Wardha kiln design cuts fuel use 30–35%; IIT-Delhi RuTag/Khamir Kutch redesign cuts firing time 36hrs→4-5hrs at ~₹30,000/kiln — actionable, low-cost, but publicly available to competitors too; genuine moat requires R&amp;D beyond adoption.</p></div>
+        <div class="card"><h4>Legal</h4><p>GST handmade-vs-machine-made HSN classification is a live open question. New Labour Codes in force nationally since 21 Nov 2025; Maharashtra state rules still finalizing into 2026. No GI tag protects Nashik or Bhadrawati.</p></div>
+        <div class="card"><h4>Environmental</h4><p>MPCB's kiln-emissions classification genuinely conflicts by fuel type (see below) — direct pre-consultation with Regional Offices recommended before kiln design is finalized.</p></div>
+      </div>
+
+      <h3>Government regulations — full compliance map</h3>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Area</th><th>Requirement</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td>Udyam/MSME</td><td>Free self-declaration registration</td><td>Aadhaar+PAN+GSTIN via udyamregistration.gov.in; Micro threshold ≤₹2.5cr investment / ≤₹10cr turnover (rev. 1 Apr 2025)</td></tr>
+          <tr><td>GST / HSN</td><td>5% on terracotta tableware/kitchenware (HSN 6912), NIL on earthen pots/diyas</td><td>CBIC Notification 13/2025-CT(Rate), eff. 22 Sep 2025. Open question: handmade-vs-machine-made classification for mixed SKU lines — confirm before final pricing</td></tr>
+          <tr><td>BMC Trade License</td><td>Mandatory for any Mumbai commercial establishment</td><td>Plus Maharashtra Shops &amp; Establishments ("Gumasta") registration within 30 days of commencing; 1-yr validity, annual renewal; timeline 7–25 working days depending on source</td></tr>
+          <tr><td>FSSAI / food-contact safety</td><td>No FSSAI license required for ceramic manufacturing itself</td><td>But Food Safety (Packaging) Regulations 2018 require migration-testing/Declaration of Compliance data that HoReCa customers (as FBOs) will request from us. Governing standard: <strong>IS 9806:2001</strong> lead/cadmium migration limits</td></tr>
+          <tr><td>Labour compliance</td><td>Factories Act 1948 threshold 10+ workers (with power)</td><td>Contract Labour Act threshold nationally 20+, but <strong>Maharashtra-specific threshold raised to 50 workmen</strong> (Gazette 5 Jan 2017) — favourable for a Maharashtra workshop</td></tr>
+          <tr><td>Environmental / kiln clearance</td><td>CTE/CTO under Water Act 1974 / Air Act 1981</td><td>MPCB's 2025 White-category circular lists "Pottery and terracotta items" as self-certifying — but CPCB's fuel-based table would classify a wood/coal-fired kiln Orange/Red. <strong>Electric/LPG firing moves classification toward Green/White</strong> — direct pre-consultation with MPCB Nashik and Chandrapur Regional Offices recommended</td></tr>
+          <tr><td>GI tag</td><td>No GI protects Nashik or Bhadrawati</td><td>No legal barrier to sourcing/branding, but no GI-backed "certified authentic" claim available either — candidate for future ODOP/GI advocacy</td></tr>
+          <tr><td>Export</td><td>EPCH membership + RCMC</td><td>₹8,850 enrolment year, ~₹5,900/yr renewal; RoDTEP eligible (~0.3–4.3% band, exact HSN rate TBC); ISPM 15 governs wood packaging for export</td></tr>
+          <tr><td>Packaging / EPR</td><td>Plastic Waste Management Rules 2016 (as amended 2022)</td><td>Business classifies as "Brand Owner" for D2C packaging; <strong>2024 amendment exempts Micro/Small Udyam-classified Brand Owners</strong> from EPR obligations — favourable at Year 1–2 scale</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h3>Risk Analysis</h3>
+      <div class="grid-2">
+        <div class="card"><h4>Operational</h4><p><strong>Artisan dependency</strong> is the highest-priority operational risk — not hypothetical. A single-cluster disruption (illness, migration to daily-wage work, death of a master artisan) could halt entire SKU lines given non-fungible individual skill/style. <strong>Seasonality</strong>: monsoon (Jun–Sep) constrains sun-drying/open-air production. <strong>Breakage/logistics</strong>: 4–8% documented ceramic/glass e-commerce breakage rate; damaged-goods returns consume 20–65% of item value in processing cost.</p></div>
+        <div class="card"><h4>Financial</h4><p>Category is genuinely under-capitalized — no comparable terracotta brand has raised institutional capital, so there is no proven unit-economics playbook to benchmark against; all projections here are explicit estimates. Working-capital intensity: artisan-exclusivity retainers require advance payment ahead of finished-goods revenue.</p></div>
+        <div class="card"><h4>Regulatory</h4><p>MPCB kiln-emissions classification ambiguity creates real uncertainty in setup timelines. GST handmade-vs-machine-made ambiguity could materially move blended margin. Labour-code transition (new codes since Nov 2025, state rules still finalizing) creates near-term compliance uncertainty.</p></div>
+        <div class="card"><h4>Technology</h4><p>"Proprietary glaze/kiln technology" as a stated moat needs genuine R&amp;D — the publicly documented kiln improvements (MGIRI Wardha, IIT-Delhi RuTag/Khamir) are already public-domain and available to any competitor. Any food-contact glaze must be tested against IS 9806:2001 lead/cadmium limits before "food-safe" claims are made.</p></div>
+        <div class="card"><h4>Market</h4><p>No independent research firm sizes this category — TAM/SAM/SOM figures carry real forecasting uncertainty. Metalware, not ceramic, is the largest India tableware category by revenue — terracotta must win on experience and story, not functional superiority.</p></div>
+        <div class="card"><h4>Scalability</h4><p>The tension between "exclusive artisan cluster" sourcing (small, high-touch) and "scale India-wide then internationally" is structural: Good Earth took 30 years to reach ₹49.9cr; Mittihub remains at ₹30–70 lakh after several years, single-state. Aggressive scaling plans must be stress-tested against these real comparables, not against faster but structurally different funded generalists.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ 5. FINANCIALS ============ -->
+    <section class="panel panel-5">
+      <div class="section-kicker">Section 05</div>
+      <h2 class="section-title">Financials</h2>
+      <div class="section-rule"></div>
+      <p style="font-size:0.86rem;color:#6b6455;">Every figure on this page is either a directly-sourced benchmark (competitor revenue, equipment pricing, wage data) or an explicit estimate built bottom-up from those benchmarks. Estimated figures carry the <span class="est">EST.</span> marker throughout — no comparable terracotta-specific brand has raised institutional capital, so there is no external unit-economics playbook to check these against; treat as working assumptions to be revisited against real sales data.</p>
+
+      <h3>Startup cost <span class="est">EST.</span> — Year 1, Mumbai HQ + Nashik/Bhadrawati sourcing pilot</h3>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Line item</th><th>Estimate (INR)</th><th>Basis</th></tr></thead>
+        <tbody>
+          <tr><td>Registration, Udyam/MSME, GST, trademark</td><td>₹1–2 lakh <span class="est">EST.</span></td><td>Standard India company-formation cost; Udyam itself free</td></tr>
+          <tr><td>Kiln infrastructure (2–3 electric/LPG kilns + Nashik/Bhadrawati artisan-cluster upgrade co-investment)</td><td>₹8–15 lakh <span class="est">EST.</span></td><td>Electric kiln retail ₹88,900–2,85,525 (Bhoomi Pottery/IndiaMART); assumes partial KVIC co-investment subsidy</td></tr>
+          <tr><td>Potter's wheels (studio + artisan upgrades)</td><td>₹2–5 lakh <span class="est">EST.</span></td><td>₹2,999–90,000/unit range, ~10–20 units</td></tr>
+          <tr><td>Boutique retail fit-out (Mumbai, ~800–1,200 sq ft)</td><td>₹18–56 lakh <span class="est">EST.</span></td><td>₹1,500–7,000/sq ft fit-out range (Sparrow PMC 2026 guide)</td></tr>
+          <tr><td>Retail security deposit (6–10 months rent)</td><td>₹18–48 lakh <span class="est">EST.</span></td><td>₹300–800/sq ft/month Bandra/Khar/Colaba rent range</td></tr>
+          <tr><td>D2C website/Shopify build + photography/branding</td><td>₹5–10 lakh <span class="est">EST.</span></td><td>Standard mid-tier Shopify build, India market</td></tr>
+          <tr><td>Initial inventory (SKU development, launch stock)</td><td>₹15–25 lakh <span class="est">EST.</span></td><td>~200–300 SKUs at blended ₹500–2,000 artisan cost price</td></tr>
+          <tr><td>Artisan advance payments / exclusivity retainers (Nashik + Bhadrawati)</td><td>₹10–20 lakh <span class="est">EST.</span></td><td>Working-capital buffer to secure cluster relationships upfront</td></tr>
+          <tr><td>EPCH/RCMC export registration (optional, Yr 1–2)</td><td>₹9,000–15,000</td><td>Directly sourced: ₹8,850 enrolment + GST</td></tr>
+          <tr><td>BMC trade license + Shops &amp; Establishment</td><td>₹50,000–1 lakh <span class="est">EST.</span></td><td>Official fee schedule unverified; third-party estimate ₹4,000–1.5 lakh + professional fees</td></tr>
+          <tr><td>Contingency/legal/compliance buffer</td><td>₹5–8 lakh <span class="est">EST.</span></td><td>Standard 10% buffer on above</td></tr>
+          <tr><td><strong>Total estimated startup cost</strong></td><td><strong>≈ ₹85 lakh – 1.9 crore</strong> <span class="est">EST.</span></td><td>Wide range reflects retail-location and kiln-scale choices; D2C-only launch could execute at the lower half</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h3>Monthly operating cost <span class="est">EST.</span> — steady state, Year 1</h3>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Line item</th><th>Estimate (INR/month)</th><th>Basis</th></tr></thead>
+        <tbody>
+          <tr><td>Artisan payments (piece-rate + retainer, 20–30 artisans)</td><td>₹4–8 lakh <span class="est">EST.</span></td><td>₹270–650/day wage range × 20–30 workers × 26 days, blended</td></tr>
+          <tr><td>Retail store rent + CAM</td><td>₹2.5–8 lakh <span class="est">EST.</span></td><td>800–1,200 sq ft × ₹300–800/sq ft</td></tr>
+          <tr><td>Warehouse/QC hub rent + utilities (incl. kiln power)</td><td>₹1–2 lakh <span class="est">EST.</span></td><td>Smaller footprint than retail</td></tr>
+          <tr><td>D2C platform, marketing tech, CRM</td><td>₹1–2 lakh <span class="est">EST.</span></td><td>Shopify Plus/standard + Zoho/HubSpot + inventory tools</td></tr>
+          <tr><td>Digital marketing (Meta/Google/influencer)</td><td>₹3–6 lakh <span class="est">EST.</span></td><td>~10–15% of projected monthly D2C revenue, early growth phase</td></tr>
+          <tr><td>Logistics/shipping (~500–1,000 orders/month)</td><td>₹1–2.5 lakh <span class="est">EST.</span></td><td>₹150–250/fragile 1-2kg shipment</td></tr>
+          <tr><td>Salaries (design, ops, HoReCa BD, retail staff)</td><td>₹6–12 lakh <span class="est">EST.</span></td><td>Lean 8–15 person team, Mumbai market rates</td></tr>
+          <tr><td>Breakage/damage provision</td><td>5–8% of COGS</td><td>Directly sourced ceramic/glass shipment benchmark</td></tr>
+          <tr><td><strong>Total estimated monthly opex</strong></td><td><strong>≈ ₹19–41 lakh/month</strong> <span class="est">EST.</span></td><td>Wide range reflects store-vs-no-store and team-size choices</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="grid-3">
+        <div class="card stat"><div class="num">40–55% <span class="est">EST.</span></div><div class="label">Gross margin — below La Opala's 56.96% mechanized benchmark, reflecting higher per-unit artisan labour cost and breakage provision</div></div>
+        <div class="card stat"><div class="num">0–5% <span class="est">EST.</span></div><div class="label">Net margin, Year 1–2, rising to 10–15% <span class="est">EST.</span> by Year 3–4 as HoReCa share grows</div></div>
+        <div class="card stat"><div class="num">₹7cr <span class="est">EST.</span></div><div class="label">Break-even annual revenue — Fixed costs ₹3.36cr/yr ÷ 48% gross margin</div></div>
+      </div>
+
+      <h3>Break-even analysis <span class="est">EST.</span> — stated assumptions</h3>
+      <ul>
+        <li>Year 1 monthly opex, mid-range steady state ≈ <strong>₹28 lakh/month = ₹3.36 crore/year</strong></li>
+        <li>Blended gross margin assumption: <strong>48%</strong> (midpoint of 40–55% range)</li>
+        <li>Break-even revenue = Fixed costs ÷ Gross margin % ≈ ₹3.36cr ÷ 0.48 ≈ <strong>₹7 crore annual revenue</strong>, before recovery of the ₹85 lakh–1.9 crore startup capital</li>
+        <li>Cross-checked against Mittihub's real trajectory (₹30 lakh → ₹70 lakh target, unfunded, single-state): a better-capitalized, Mumbai-based, HoReCa-inclusive model reaching ₹7cr breakeven by <strong>Year 3–4</strong> — not Year 1 — is realistic, consistent with both Mittihub's and Good Earth's real (slower than VC-hockey-stick) growth curves</li>
+      </ul>
+
+      <h3>Pricing strategy</h3>
+      <p>Premium positioning above Ellementry/Nestasia's mass-premium tier, below Good Earth's ultra-luxury ceiling: <strong>₹800–8,000 per piece</strong> <span class="est">EST.</span> for tableware/decor, vs. Good Earth's ₹7,500–20,000 dinner-set tier and Ellementry's ₹450–7,350 serveware range. HoReCa pricing benchmarks against BAFA Pottery's bespoke model rather than Clay Craft/La Opala's mass-distributor pricing. GST-aware SKU design maximizes the share of catalogue qualifying for the 5% (or NIL) handicraft rate rather than the 12–18% general-ceramic classification — a direct, quantifiable margin lever <span class="est">EST.</span> pending the open handmade-vs-machine-made classification question.</p>
+
+      <h3>Revenue streams</h3>
+      <ol>
+        <li>D2C e-commerce (own Shopify site + owned social channels)</li>
+        <li>Boutique retail (own store + potential shop-in-shop placements)</li>
+        <li>Marketplace (Amazon/Tata Cliq/Nykaa Fashion Home)</li>
+        <li>B2B HoReCa bulk supply — the proposed high-LTV, "sticky" channel</li>
+        <li>Corporate/wedding gifting (bulk custom orders)</li>
+        <li>Export (EPCH/RCMC-enabled, longer horizon — see Section 07)</li>
+      </ol>
+
+      <h3>Unit economics <span class="est">EST.</span></h3>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Estimate</th><th>Basis</th></tr></thead>
+        <tbody>
+          <tr><td>Cost per SKU (blended)</td><td>₹200–1,200 <span class="est">EST.</span></td><td>₹270–650/day artisan wage ÷ assumed 8–15 finished pieces/day + material/firing overhead</td></tr>
+          <tr><td>Average Order Value (D2C)</td><td>₹2,000–3,500 <span class="est">EST.</span></td><td>Positioned between Ellementry and Good Earth tiers; 2–4 item basket at ₹800–1,500/item</td></tr>
+          <tr><td>Average Order Value (HoReCa, per PO)</td><td>₹1–5 lakh+ <span class="est">EST.</span></td><td>Bulk order assumption, hotel-scale procurement</td></tr>
+          <tr><td>Customer Acquisition Cost (D2C)</td><td>₹700–1,200 <span class="est">EST.</span></td><td>Between "personal care" (₹300–500) and general 2025 D2C CAC (₹1,800–2,500) benchmarks</td></tr>
+          <tr><td>Contribution Margin 2 (CM2), target</td><td>10–15% of AOV <span class="est">EST.</span></td><td>Cited "healthy" CM2 range for Indian D2C; below 5% flagged as danger zone</td></tr>
+          <tr><td>Breakage/return provision</td><td>5–8% of COGS</td><td>Directly sourced ceramic/glass e-commerce benchmark</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <!-- ============ 6. CUSTOMERS & MARKETING ============ -->
+    <section class="panel panel-6">
+      <div class="section-kicker">Section 06</div>
+      <h2 class="section-title">Customers &amp; Marketing</h2>
+      <div class="section-rule"></div>
+
+      <h3>Customer personas</h3>
+
+      <div class="persona-card">
+        <div class="persona-head"><h4>Rhea Malhotra, 34</h4><div class="persona-meta">The Premium Home Decorator · Bandra West</div></div>
+        <p style="font-size:0.86rem;">Advertising/media professional, dual-income household ₹35–50 lakh/yr. Follows design accounts on Instagram; shops Nicobar/Good Earth/Nestasia for accent pieces.</p>
+        <div class="persona-grid">
+          <div><h6>Buying triggers</h6><p>A beautifully-shot reel of the artisan's hands at work; housewarming/Diwali gifting need; a "conscious consumption" narrative.</p></div>
+          <div><h6>Objections</h6><p>"Why is a handmade bowl ₹1,800 when IKEA sells one for ₹300?"; durability concerns for daily use; breakage anxiety from a past bad online delivery.</p></div>
+          <div><h6>What converts her</h6><p>Visible artisan-attribution ("made by a Nashik Pottery Cluster artisan"), a no-quibble breakage replacement policy, social proof from design-community influencers.</p></div>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-head"><h4>Arjun Kapadia, 41</h4><div class="persona-meta">Hotel F&amp;B Procurement Manager · Mumbai/Goa corridor</div></div>
+        <p style="font-size:0.86rem;">Manages an annual tableware/crockery budget of ₹40–80 lakh for a boutique 5-star/luxury resort chain. Currently sources from Clay Craft/La Opala (bulk, reliable, no story) and occasionally BAFA Pottery.</p>
+        <div class="persona-grid">
+          <div><h6>Buying triggers</h6><p>A new restaurant concept needing a distinctive tableware identity; ESG/sustainability mandates pushing toward local-artisan sourcing.</p></div>
+          <div><h6>Objections</h6><p>Consistency/breakage risk at hundreds-of-place-settings scale; hand-made reorder lead time vs. machine-made restock speed; price premium vs. Clay Craft.</p></div>
+          <div><h6>What converts him</h6><p>A proven bulk-order track record even at small pilot scale; reorder lead times backed by Nashik/Bhadrawati capacity planning; an "authentic Maharashtra craft" story — Nashik Pottery Cluster or Bhadrawati Terracotta Cluster, named specifically — for his marketing team to use.</p></div>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-head"><h4>Sanjana Oberoi, 29</h4><div class="persona-meta">Eco-Conscious Young Professional / Gifting Buyer · Powai/Chembur</div></div>
+        <p style="font-size:0.86rem;">Fintech/consulting, ₹12–18 lakh/yr, active on Instagram/Pinterest, buying "sustainable" and "vocal for local" products across categories.</p>
+        <div class="persona-grid">
+          <div><h6>Buying triggers</h6><p>Wedding/housewarming gift-shopping; plastic-free lifestyle motivation reinforced by the government's single-use-plastic messaging; accessible entry SKUs (diyas, small planters, mugs).</p></div>
+          <div><h6>Objections</h6><p>Budget-consciousness; skepticism of "artisan-washing" given Nestasia's documented markup-trust gap; limited apartment storage favouring smaller pieces.</p></div>
+          <div><h6>What converts her</h6><p>Transparent pricing with visible cost-breakdown/fair-trade framing; affordable entry price points under ₹1,000; a referral/gifting bundle ("gift a set, get a discount on your next order").</p></div>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-head"><h4>Vikram Seth, 52</h4><div class="persona-meta">Legacy Wealth / Corporate Gifting Buyer · Malabar Hill/Colaba</div></div>
+        <p style="font-size:0.86rem;">Family-office/business-owner profile similar to Aamara's own network, ₹1 crore+/yr, buys premium gifting for corporate relationship management and personal collection.</p>
+        <div class="persona-grid">
+          <div><h6>Buying triggers</h6><p>Corporate gifting season (Diwali, year-end) — a ₹12,000–14,000 crore market growing 2–3x faster than consumer gifting; desire for taste-signalling gifts more distinctive than a generic corporate hamper.</p></div>
+          <div><h6>Objections</h6><p>Needs bulk-order reliability and customization for corporate use; wants assured consistent quality across large multi-recipient orders; festival-season time pressure.</p></div>
+          <div><h6>What converts him</h6><p>A dedicated corporate-gifting concierge service, branding/customization options, and an exclusivity narrative — "limited annual production from the Nashik Pottery Cluster" — that outperforms generic corporate-gift vendors.</p></div>
+        </div>
+      </div>
+
+      <h3>Marketing strategy</h3>
+      <div class="grid-2">
+        <div class="card"><h4>Online</h4><p><strong>Instagram-first</strong>: heavy investment in "artisan's hands" process content — video of specific Nashik and Bhadrawati artisans making each piece — directly answering the provenance-storytelling gap in Nestasia/Ellementry's marketing. <strong>D2C SEO</strong> targeting less-contested long-tail terms ("handmade terracotta tableware," "sustainable tableware India"). <strong>Influencer strategy</strong>: home-decor/interior-design micro-influencers (the same media genre that covered Studio Coppre and Amalfiee) over broad-reach lifestyle influencers.</p></div>
+        <div class="card"><h4>Offline</h4><p><strong>Trade shows</strong>: World of Hospitality Expo (Mumbai, NESCO Goregaon, late Jan) as the low-cost local HoReCa entry point; India Design ID (Mumbai, Jio World Centre BKC, Oct) — where Padme Hum Studio, a women-led artisan collective, exhibited hand-made ceramic tableware as direct precedent; AAHAR (Delhi, national scale) once the business has volume. <strong>Pop-ups</strong> in Bandra/Khar/Colaba to test footfall before a full lease.</p></div>
+        <div class="card"><h4>Launch sequencing</h4><p>(1) Soft-launch D2C site + Instagram with a tightly-curated 30–50 SKU collection telling the Nashik/Bhadrawati artisan story; (2) pilot HoReCa relationships via Aamara's existing Mumbai hospitality network — warm intros, bypassing the cold trade-show route initially; (3) first trade-show presence at World of Hospitality Expo before graduating to India Design ID and AAHAR.</p></div>
+        <div class="card"><h4>Corporate / HoReCa partnerships</h4><p>Model directly on Ikai Asai's playbook: 2–3 flagship hotel/restaurant placements generating press and social proof, used as case studies to pitch additional properties. Pitch Mumbai boutique/independent restaurants first — lower procurement bureaucracy than large hotel chains — before pursuing 5-star chain-level contracts.</p></div>
+        <div class="card"><h4>Referral strategy</h4><p>Gifting-bundle referral mechanics ("gift a set, get a discount") — a natural fit given the wedding/housewarming/corporate-gifting demand pool.</p></div>
+        <div class="card"><h4>Retention strategy</h4><p>An unusually generous no-quibble breakage-replacement policy, explicitly marketed as better than Nestasia's criticized wallet-credit-only refund policy. HoReCa retention via multi-year supply agreements, reorder-lead-time guarantees, and dedicated account management.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ 7. TECHNOLOGY & EXPANSION ============ -->
+    <section class="panel panel-7">
+      <div class="section-kicker">Section 07</div>
+      <h2 class="section-title">Technology &amp; Expansion</h2>
+      <div class="section-rule"></div>
+
+      <h3>Technology stack</h3>
+      <div class="grid-3">
+        <div class="card"><h4>D2C / E-commerce</h4><p>Shopify (Plus or standard, by scale) — the dominant choice for comparable Indian brands (Ellementry, Nestasia, FabIndia's online arm all run on Shopify or Shopify-adjacent stacks).</p></div>
+        <div class="card"><h4>Inventory / OMS</h4><p>Unicommerce or Vinculum — India-specific multi-channel inventory/order management for own-site + Amazon + Myntra + Tata Cliq, matching Ellementry's and Nestasia's disclosed distribution model.</p></div>
+        <div class="card"><h4>CRM / marketing automation</h4><p>Zoho CRM or HubSpot for customer relationship management, email/WhatsApp marketing automation, and loyalty/retention campaigns.</p></div>
+        <div class="card"><h4>Retail POS</h4><p>GoFrugal, Vend, or Shopify POS — integrated with the same backend for unified inventory across online/offline channels.</p></div>
+        <div class="card"><h4>Artisan/production coordination</h4><p>A lightweight WhatsApp Business API-based system for order communication with Nashik and Bhadrawati artisans — pragmatic given rural digital-literacy realities, mirroring analogous social-enterprise models (Rangsutra/IKEA Social Entrepreneurship).</p></div>
+        <div class="card"><h4>AI use cases</h4><p><strong>Design generation</strong> for the design-IP library moat (AI-assisted concepts, artisan hand-execution preserves authenticity). <strong>Demand forecasting</strong> to manage the tension between slow artisan cycles and D2C/HoReCa demand variability, especially the documented monsoon-seasonality risk. <strong>Customer service</strong> chatbot for order-status/FAQ at scale. No competitor found using AI in this category today — a genuine differentiation opportunity.</p></div>
+      </div>
+      <p><strong>Analytics</strong>: Google Analytics 4 + Shopify native analytics, plus a BI layer (Metabase or Zoho Analytics) for cross-channel (D2C + retail + HoReCa) revenue/margin visibility.</p>
+
+      <h3>Expansion strategy</h3>
+      <div class="roadmap">
+        <div class="card"><h4>Phase 1 — Mumbai (Yr 1–2)</h4><ul>
+          <li>D2C site + 1 boutique retail location (Bandra/Khar/Colaba corridor)</li>
+          <li>Pilot HoReCa relationships via Aamara's Mumbai hospitality network</li>
+          <li>Formalize Nashik + Bhadrawati sourcing contracts directly with cluster artisan groups</li>
+          <li>First trade shows: World of Hospitality Expo (Jan), India Design ID (Oct)</li>
+          <li>Target: ~₹7cr <span class="est">EST.</span> annual revenue breakeven by end of Phase 1/early Phase 2</li>
+        </ul></div>
+        <div class="card"><h4>Phase 2 — Maharashtra (Yr 2–3)</h4><ul>
+          <li>Deepen Nashik/Bhadrawati contracts; co-invest in KVIC/CGCRI kiln-upgrade programmes to expand artisan-cluster capacity, not just consume it</li>
+          <li>2–3 more boutique locations: Pune, Nashik city</li>
+          <li>Pursue Maharashtra ODOP designation advocacy for Nashik or Bhadrawati as provenance/marketing asset</li>
+        </ul></div>
+        <div class="card"><h4>Phase 3 — India (Yr 3–4)</h4><ul>
+          <li>One metro outside Maharashtra (Delhi/Bangalore), following Ellementry's 16-store/13-city and Nestasia's 30-store playbooks</li>
+          <li>Scale HoReCa nationally via AAHAR (Delhi, largest national hospitality trade show)</li>
+          <li>Supplementary Amazon Karigar/marketplace listing — treated as incremental reach, not primary channel, given documented mixed real-world artisan outcomes</li>
+        </ul></div>
+        <div class="card"><h4>Phase 4 — Export (Yr 4+)</h4><ul>
+          <li>Register EPCH (₹8,850) + RCMC as foundational export-compliance step</li>
+          <li>Target Middle East (UAE/Saudi) and Indian-diaspora markets (US/UK/Canada) as market-testing, not assumed demand</li>
+          <li>Use Etsy (89.9M active global buyers) as low-cost international test channel</li>
+          <li>Benchmark against Ikai Asai's Maison et Objet Paris / London Craft Week entry and its Bangkok (GAA) HoReCa placement — export follows, not precedes, a proven domestic HoReCa track record</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- ============ 8. BUSINESS MODEL ============ -->
+    <section class="panel panel-8">
+      <div class="section-kicker">Section 08</div>
+      <h2 class="section-title">Business Model</h2>
+      <div class="section-rule"></div>
+
+      <h3>Business Model Canvas</h3>
+      <div class="bmc">
+        <div class="cell kp"><h5>Key Partners</h5><p>Nashik Pottery Cluster (516 artisans) &amp; Bhadrawati Terracotta Cluster (201 artisans); CGCRI (CSIR) technical support; KVIC/PM Vishwakarma for kiln-upgrade co-investment; Shiprocket/Delhivery logistics; Aamara Capital's Mumbai HoReCa network; EPCH for export.</p></div>
+        <div class="cell ka"><h5>Key Activities</h5><p>Artisan-cluster contracting &amp; kiln-upgrade co-investment; design-IP development; QC and finishing; D2C/retail merchandising; HoReCa business development.</p></div>
+        <div class="cell kr"><h5>Key Resources</h5><p>Exclusive Nashik/Bhadrawati artisan contracts; design-IP library; boutique retail lease(s); D2C platform &amp; brand equity; Aamara's warm HoReCa network.</p></div>
+        <div class="cell vp"><h5>Value Proposition</h5><p><strong>For consumers</strong>: authentic, transparently-priced, artisan-attributed terracotta with a no-quibble breakage guarantee — the trust gap Nestasia and Ellementry leave open.<br><br><strong>For HoReCa buyers</strong>: a Mumbai-based, warm-introduction alternative to BAFA Pottery, backed by documented Nashik/Bhadrawati capacity and reorder-lead-time guarantees.<br><br><strong>For artisans</strong>: a real, quantifiable income upgrade (₹100/day hand-wheel → ₹500+/day electric-wheel, per KVIC data) plus co-invested kiln/wheel technology.</p></div>
+        <div class="cell cr"><h5>Customer Relationships</h5><p>D2C: community/content-led (Instagram, WhatsApp). HoReCa: dedicated account management, multi-year supply agreements.</p></div>
+        <div class="cell ch"><h5>Channels</h5><p>Own D2C site, boutique retail, marketplaces (Amazon/Tata Cliq), trade shows (World of Hospitality Expo, India Design ID, AAHAR), direct HoReCa BD.</p></div>
+        <div class="cell cs"><h5>Customer Segments</h5><p>Premium home decorators; hotel/restaurant F&amp;B procurement; eco-conscious young professionals; legacy wealth/corporate gifting buyers (see Section 06 personas).</p></div>
+        <div class="cell cost"><h5>Cost Structure</h5><p>Artisan payments (piece-rate + retainers) · retail rent/CAM · kiln/wheel infrastructure &amp; upgrades · D2C tech &amp; marketing · logistics &amp; breakage provision (5–8% of COGS) · lean team salaries.</p></div>
+        <div class="cell rev"><h5>Revenue Streams</h5><p>D2C e-commerce · boutique retail · marketplaces · B2B HoReCa bulk supply · corporate/wedding gifting · export (Phase 4).</p></div>
+      </div>
+
+      <h3>Revenue model &amp; cost structure</h3>
+      <p>Revenue is deliberately multi-channel from Year 1 — D2C, boutique retail, and HoReCa — rather than sequential, because the three channels de-risk each other: D2C provides brand-building margin and direct customer data; boutique retail provides tactile trust-building for a fragile, high-consideration product category; HoReCa provides the "sticky," multi-year, higher-volume revenue base that smooths the seasonality and demand-variability risk inherent to artisan production. Cost structure is artisan-labour-heavy rather than capital-equipment-heavy relative to a mechanized manufacturer (Clay Craft, La Opala) — the direct trade-off for the authenticity/story-based value proposition this brand is built on.</p>
+
+      <h3>Acquisition &amp; retention strategy</h3>
+      <p>Acquisition leans on content-led organic reach (artisan process video) and warm-network HoReCa introductions before paid performance marketing, keeping estimated CAC (₹700–1,200 <span class="est">EST.</span>) below general 2025 D2C benchmarks (₹1,800–2,500). Retention is built on two structural differentiators competitors have left open: a genuinely no-quibble breakage-replacement policy (vs. Nestasia's criticized wallet-credit-only approach) and multi-year HoReCa supply agreements with guaranteed reorder lead times.</p>
+    </section>
+
+    <!-- ============ 9. USP & MOAT ============ -->
+    <section class="panel panel-9">
+      <div class="section-kicker">Section 09</div>
+      <h2 class="section-title">USP &amp; Moat</h2>
+      <div class="section-rule"></div>
+
+      <p>Every incumbent in Section 03 has a real, specific gap this business is built to exploit — not a generic "we're more authentic" claim.</p>
+
+      <div class="grid-2">
+        <div class="card"><h4>vs. Ellementry</h4><p>Ellementry's 1.38/5 MouthShut score is a quality-consistency failure at marketplace scale across a broad multi-material catalogue. This business stays terracotta-exclusive with a smaller, QC-intensive SKU count sourced from two named, contracted clusters — consistency by design, not an afterthought bolted onto scale.</p></div>
+        <div class="card"><h4>vs. Nestasia</h4><p>Nestasia's documented markup complaint (₹4,800 vs. ~₹1,300 "local equivalent") and wallet-credit-only refund policy are trust gaps this brand closes directly: transparent, cost-breakdown pricing and a genuinely no-quibble breakage-replacement policy, marketed explicitly against Nestasia's weak point.</p></div>
+        <div class="card"><h4>vs. Good Earth / FabIndia</h4><p>Good Earth's ₹7,500–20,000 dinner-set ceiling and porcelain-first catalogue price out most buyers; FabIndia's ethnic-generalist positioning treats terracotta as one craft among many. This brand occupies the ₹800–8,000 <span class="est">EST.</span> gap between them with a terracotta-only design identity neither competitor is built to defend.</p></div>
+        <div class="card"><h4>vs. BAFA Pottery / Ikai Asai (HoReCa)</h4><p>Both are the real craft-luxury HoReCa comparables — and both are based outside Mumbai (Jaipur; multi-city, Ananya Birla-backed). Aamara Capital's existing Mumbai hospitality and HNI network is a warm-introduction advantage neither can replicate locally; this brand can win the first 2–3 flagship Mumbai/Goa-corridor placements the same way Ikai Asai won Raffles Udaipur — through relationship, not cold outreach.</p></div>
+      </div>
+
+      <h3>The moat, specifically</h3>
+      <ul>
+        <li><strong>Exclusive, documented artisan contracts</strong>: multi-year agreements with Nashik Pottery Cluster (516 artisans, ₹342.44 lakh GOI-funded) and Bhadrawati Terracotta Cluster (201 artisans, ₹166.85 lakh GOI-funded) — a supply base that is real, government-verified, and CGCRI-supported, not a single unverified NGO page. Competitors entering later face a genuine relationship-and-capacity head start this business will have already built.</li>
+        <li><strong>Kiln/glaze technology, honestly scoped</strong>: the publicly-available MGIRI Wardha and IIT-Delhi RuTag/Khamir kiln designs are a starting point, not the moat itself — the actual differentiation is proprietary glaze formulation (tested and IS 9806:2001-compliant for food contact) and process refinements built through direct, ongoing R&amp;D investment with the two contracted clusters, which a generalist competitor sourcing opportunistically from multiple clusters has no reason to fund.</li>
+        <li><strong>A design-IP library</strong> built specifically for these two clusters' techniques and material properties, accelerated by AI-assisted concepting but hand-executed — giving urban design relevance that a purely craft-preservation-focused competitor (or a purely industrial one) cannot match simultaneously.</li>
+        <li><strong>Sticky HoReCa relationships</strong>: multi-year supply agreements with guaranteed reorder lead times, sold through Aamara's existing network — switching costs for a hotel that has built a signature tableware identity around this brand are real and structurally similar to why BAFA Pottery's Oberoi Vanyavilas relationship has persisted.</li>
+      </ul>
+    </section>
+
+    <!-- ============ 10. FAQ ============ -->
+    <section class="panel panel-10">
+      <div class="section-kicker">Section 10</div>
+      <h2 class="section-title">FAQ — Investment Committee Questions</h2>
+      <div class="section-rule"></div>
+
+      <div class="faq-item">
+        <div class="faq-q">You originally proposed Palghar/Karjat as the sourcing base — why the change to Nashik/Bhadrawati, and is this actually viable?</div>
+        <div class="faq-a">Because we checked, and Palghar/Karjat didn't hold up. Palghar's own district government industrial-information page lists Tata Steel, JSW, Coca-Cola and agriculture — no pottery cluster at all. Karjat/Raigad rests on one undated NGO page describing ~400 women doing entirely hand-built, open-fired pottery — no wheel, no kiln, not a scalable premium-tableware sourcing base. We looked at the MSME Ministry's own approved-SFURTI-cluster dashboard instead and found two real, government-funded, government-verified Maharashtra pottery clusters: Nashik (516 artisans, ₹342.44 lakh GOI funding) and Bhadrawati/Chandrapur (201 artisans, ₹166.85 lakh GOI funding). That's 717 documented artisans with a decade of government co-investment and CGCRI technical support behind them — a stronger foundation than the original, unverified premise. This is what real diligence looks like: we didn't force the numbers to fit the original pitch.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What happens if artisans just sell directly once trained on modern design?</div>
+        <div class="faq-a">This is a real risk with any craft-partnership model and we price the moat accordingly rather than assuming loyalty. Three structural defenses: (1) multi-year exclusivity contracts with advance-payment retainers, sized into the ₹10–20 lakh startup budget specifically to make exclusivity economically rational for the artisan, not just contractually binding; (2) the kiln/wheel technology upgrade (co-funded via KVIC/PM Vishwakarma) is capital equipment we help finance and that stays tied to the relationship, not a design lesson an artisan can walk away with; (3) the actual value the brand adds — design-IP, D2C/HoReCa distribution, QC, marketing, and the Aamara hospitality network — is the part an individual artisan genuinely cannot replicate alone, unlike a design template. Historical parallel: Rangsutra/IKEA Social Entrepreneurship's model has sustained multi-year artisan relationships at scale using this same combination of capital investment plus market access.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How is this different from FabIndia or Good Earth?</div>
+        <div class="faq-a">FabIndia is a national ethnic-craft generalist across textiles, food, and home — terracotta is a minor SKU inside a much broader catalogue, not a defended category identity. Good Earth is porcelain/fine-china-led (its Oceana and Nishaat collections), with terracotta as an accent inside its sister brand Nicobar, and its ₹7,500–20,000 dinner-set pricing plus 30-year, ₹49.9 crore revenue trajectory shows a slow, ultra-luxury-retail growth model with no HoReCa arm at all. This business is terracotta-exclusive, priced in the ₹800–8,000 <span class="est">EST.</span> gap between Ellementry/Nestasia's mass-premium tier and Good Earth's ceiling, and built with a dedicated HoReCa channel from day one — a combination neither FabIndia nor Good Earth is structured to defend.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's your exposure to breakage/logistics in D2C shipping?</div>
+        <div class="faq-a">Real and structural, not a footnote: documented ceramic/glass e-commerce breakage runs 4–8%, and damaged-goods returns can consume 20–65% of item value in processing cost. We provision 5–8% of COGS for this directly in unit economics (Section 05) rather than assuming it away. Mitigations: upgraded fiberboard/cushioning packaging (one documented case study cut breakage from 6% to 1.2% with better packaging, at real but bounded cost); a no-quibble replacement policy that converts an inherent cost center into the retention differentiator described in Section 06, explicitly positioned against Nestasia's criticized refund policy; and channel mix shift toward HoReCa bulk/local delivery and boutique retail (no shipping risk) as those channels scale, reducing the D2C-shipping share of total breakage exposure over time.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Why hasn't anyone already built this? Is the whitespace real or are we missing something?</div>
+        <div class="faq-a">Both the funding data and the operating-model data corroborate the whitespace: no pure-play Indian terracotta D2C brand has raised institutional Series A+ capital, and the closest direct comparable, Mittihub, is bootstrapped and still under ₹1 crore in revenue after several years, single-state. The two funded generalists (Ellementry, Nestasia) chose breadth over terracotta focus; the two heritage luxury houses (Good Earth, FabIndia) built around different core materials/models decades ago and have shown no sign of pivoting into a dedicated terracotta line. The most likely reason no one has done this yet is that it requires exactly the combination this business has — capital, an artisan-sourcing thesis that survives diligence, and a warm HoReCa network — rather than any one of those being sufficient alone.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Your TAM/SAM/SOM numbers are self-constructed. How much should we trust them?</div>
+        <div class="faq-a">Treat them as working estimates, not external validation — we say so explicitly in Section 02. No research firm sizes "premium artisanal terracotta" as a distinct category, so TAM is built from the closest proxy (India Pottery &amp; Ceramics, $420M) and SAM/SOM are derived by applying online-penetration and premium-tier ratios from adjacent categories, with no direct source confirming those ratios for terracotta specifically. What we do trust more is the SOM anchor: Mittihub's actual disclosed FY23→FY24 revenue trajectory, which is a real, if small, data point from the nearest true comparable business — and our ₹7cr break-even estimate is deliberately benchmarked against that reality (and Good Earth's slow 30-year curve) rather than a generic VC-style growth assumption.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What is the single biggest risk to this business?</div>
+        <div class="faq-a">Artisan-supplier concentration and bargaining power (Porter's Force 2, Section 03) — 717 artisans across two clusters is real capacity, but it is still geographically concentrated, and Khavda's collapse to ~2 practicing families is a live cautionary example of how fast a craft-supply base can erode. The mitigation is not to assume it away but to actively invest in cluster expansion and training (via KVIC/SFURTI co-investment) so the business grows the supply base it depends on, rather than simply extracting from a fixed one.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Why should Aamara Capital, a family office, run an artisan supply chain rather than invest in a proven business?</div>
+        <div class="faq-a">Because the proven-business option in this exact category doesn't exist yet at institutional scale — that absence is the opportunity, not a reason to avoid it. Aamara's specific edge is not operational craft-supply-chain expertise (which will need to be hired/built) but the Mumbai hospitality and HNI network that gives this business a warm-introduction path into HoReCa that Ikai Asai and BAFA Pottery had to build cold. That network advantage is time-limited — it erodes if a well-funded competitor (Nestasia, or a new entrant) claims the category first.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's the realistic timeline to profitability, and how does that compare to what we'd tell an LP?</div>
+        <div class="faq-a">Operating break-even at ~₹7 crore annual revenue is estimated for Year 3–4, not Year 1 — deliberately benchmarked against Mittihub's and Good Earth's real, slower-than-VC-hockey-stick growth curves rather than an optimistic projection. Net margin is estimated at break-even-to-5% in Year 1–2, rising to 10–15% by Year 3–4 as HoReCa's steadier, higher-volume mix grows as a share of revenue. This should be communicated as a patient-capital, craft-business timeline, not a venture-scale one.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do you protect margin given the open GST handmade-vs-machine-made classification question?</div>
+        <div class="faq-a">We flag it rather than assume the favourable outcome: it is genuinely unclear whether the 5% handicraft GST rate applies to all Chapter 69 tableware/kitchenware regardless of production method, or only to goods specifically qualifying under the handicraft-goods notification. Before finalizing pricing/margin models, we will pull the full annexure of CBIC Notification 13/2025-CT(Rate) directly and, if needed, seek a written CBIC clarification — a ~₹10-15 lakh margin swing on GST classification alone is material enough to resolve before scaling SKU mix, not after.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What about the kiln-emissions regulatory ambiguity in Maharashtra — could that stall the business?</div>
+        <div class="faq-a">It could delay, not stall, and the mitigation is a design choice we control: MPCB's White-category circular self-certifies "pottery and terracotta items," but CPCB's fuel-based table would classify a wood/coal-fired kiln as Orange/Red, requiring full Consent to Establish/Operate. Choosing electric or LPG firing (which we're already budgeting for in the startup-cost table) moves classification toward Green/White and avoids the ambiguity almost entirely. We will still pre-consult in writing with MPCB's Nashik and Chandrapur Regional Offices before finalizing kiln design, rather than assuming the favourable classification.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Are we exploiting artisans by building a margin business on ₹270/day labour?</div>
+        <div class="faq-a">This is a real reputational and ethical exposure we take seriously, not a PR risk to manage around. The IHD/Crafts Council 2025 survey found average handicraft-worker pay of ₹270/day, below minimum wage in every surveyed state. Our explicit commitment is that the "artisan partnership" story must translate into materially better artisan incomes than the sector norm — the KVIC data (₹100/day hand-wheel vs. ₹500+/day electric-wheel) gives us a real, quantifiable target to beat, and we will report artisan-income outcomes transparently as part of the brand story itself, not just the sourcing story.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if a well-funded competitor (Nestasia) launches a terracotta line before we scale?</div>
+        <div class="faq-a">Real threat (Section 03, Threats) and the reason timing matters. Our defense is the two things Nestasia cannot fast-follow into: (1) exclusive, contracted relationships with Nashik and Bhadrawati artisans, secured with advance-payment retainers before a competitor even identifies these clusters as a target; and (2) Aamara's Mumbai HoReCa network, which is a relationship asset, not a capital one — Nestasia's $12.35M can buy inventory and marketing spend, but it cannot buy the warm introductions this business starts with. Both defenses are time-sensitive, which is the core argument for moving on Phase 1 now rather than waiting.</div>
+      </div>
+    </section>
+
+    <!-- ============ 11. ACTION PLAN ============ -->
+    <section class="panel panel-11">
+      <div class="section-kicker">Section 11</div>
+      <h2 class="section-title">Action Plan</h2>
+      <div class="section-rule"></div>
+
+      <div class="roadmap">
+        <div class="card"><h4>First 30 days</h4><ul>
+          <li>Site visits to Nashik Pottery Cluster and Bhadrawati Terracotta Cluster; meet cluster SPVs/artisan groups directly, verify the 516/201 artisan counts and current capacity on the ground</li>
+          <li>Direct written pre-consultation with MPCB's Nashik and Chandrapur Regional Offices on kiln-emissions classification for electric/LPG firing</li>
+          <li>Pull full annexure of CBIC Notification 13/2025-CT(Rate) to resolve the handmade-vs-machine-made GST classification question</li>
+          <li>File Udyam/MSME registration; engage a Mumbai company-formation/compliance advisor for BMC trade license + Gumasta process</li>
+          <li>Draft first exclusivity-contract term sheet for Nashik and Bhadrawati artisan groups, including advance-payment retainer structure</li>
+        </ul></div>
+        <div class="card"><h4>Days 31–60</h4><ul>
+          <li>Finalize kiln/wheel technology plan and apply for KVIC Kumhar Sashaktikaran / PM Vishwakarma co-investment subsidy for the Nashik/Bhadrawati upgrade</li>
+          <li>Commission initial 30–50 SKU design collection with Nashik/Bhadrawati artisans; begin IS 9806:2001 glaze testing for food-contact SKUs</li>
+          <li>Shortlist and negotiate a boutique retail location in the Bandra/Khar/Colaba corridor; begin fit-out planning</li>
+          <li>Build the D2C Shopify site; commission artisan-process photography/video at both clusters</li>
+          <li>Identify first 2–3 warm HoReCa introduction targets through Aamara Capital's existing Mumbai hospitality network</li>
+        </ul></div>
+        <div class="card"><h4>Days 61–90</h4><ul>
+          <li>Sign multi-year exclusivity contracts with both clusters; disburse advance-payment retainers</li>
+          <li>Soft-launch D2C site + Instagram with the curated 30–50 SKU collection, leading with Nashik/Bhadrawati artisan-attribution content</li>
+          <li>Pitch and close first 1–2 HoReCa pilot placements (boutique Mumbai restaurant or single hotel outlet)</li>
+          <li>Complete BMC trade license, Shops &amp; Establishment registration, and EPCH/RCMC registration if export is in scope for Year 1</li>
+          <li>Register for World of Hospitality Expo (next Mumbai edition) as first trade-show presence</li>
+        </ul></div>
+        <div class="card"><h4>Year 1</h4><ul>
+          <li>Open first boutique retail location; reach 200–300 live SKUs across D2C, retail and HoReCa channels</li>
+          <li>Convert HoReCa pilots into signed multi-year supply agreements; target 5–8 active HoReCa accounts by year-end</li>
+          <li>Exhibit at India Design ID (Oct, Mumbai) for design-trade credibility</li>
+          <li>Track actual artisan-income uplift at Nashik/Bhadrawati against the KVIC ₹100→₹500+/day benchmark and publish it as part of the brand story</li>
+          <li>Reassess TAM/SAM/SOM and break-even assumptions against real Year 1 sales data, per the explicit "revisit as data accumulates" caveat in Section 02/05</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- ============ 12. SOURCES ============ -->
+    <section class="panel panel-12">
+      <div class="section-kicker">Section 12</div>
+      <h2 class="section-title">Sources</h2>
+      <div class="section-rule"></div>
+      <p style="font-size:0.86rem;color:#6b6455;">Compiled from 60+ web searches and direct primary-source fetches across five parallel research streams. Figures marked <span class="badge-flag">Unverified — 403</span> in earlier sections indicate a source that blocked direct-fetch verification (Grand View Research, Fortune Business Insights) and are treated as lower-confidence.</p>
+
+      <div class="src-group">
+        <h4>Market Research</h4>
+        <ul>
+          <li>Grand View Research, India Pottery &amp; Ceramics Market — <a href="https://www.grandviewresearch.com/horizon/outlook/pottery-ceramics-market/india" target="_blank">grandviewresearch.com/horizon/outlook/pottery-ceramics-market/india</a></li>
+          <li>IMARC Group, India Home Decor Market — <a href="https://www.imarcgroup.com/india-home-decor-market" target="_blank">imarcgroup.com/india-home-decor-market</a></li>
+          <li>IBEF, Home Décor Industry — <a href="https://www.ibef.org/blogs" target="_blank">ibef.org/blogs</a> (30 Dec 2025)</li>
+          <li>Statista, Home Decor India Outlook — <a href="https://www.statista.com/outlook/cmo/furniture/home-decor/india" target="_blank">statista.com/outlook/cmo/furniture/home-decor/india</a></li>
+          <li>Mordor Intelligence, Home Furniture / Interior Design / Ceramic Segment — <a href="https://www.mordorintelligence.com" target="_blank">mordorintelligence.com</a></li>
+          <li>TechSci Research, Home Furnishing / India Gifting Market — <a href="https://www.researchandmarkets.com" target="_blank">researchandmarkets.com</a></li>
+          <li>Invest India — <a href="https://www.investindia.gov.in/blogs" target="_blank">investindia.gov.in/blogs</a> (2 Aug 2023)</li>
+          <li>6Wresearch, India Ceramic Tableware Market — <a href="https://www.6wresearch.com" target="_blank">6wresearch.com</a></li>
+          <li>Technavio, Tableware Market in India — Technavio (Mar 2026), corroborated by GII Research (1 Apr 2026)</li>
+          <li>Fortune Business Insights — <a href="https://www.fortunebusinessinsights.com" target="_blank">fortunebusinessinsights.com</a> <span class="badge-flag">Unverified — 403</span></li>
+          <li>Valuates Reports / The Brainy Insights, Global Earthenware Market</li>
+          <li>KVIC, Operational Guidelines, Gramodyog Vikas Yojana — <a href="https://www.dcmsme.gov.in/Pottery.pdf" target="_blank">dcmsme.gov.in/Pottery.pdf</a></li>
+          <li>KNN India, handicraft artisan census — <a href="https://www.knnindia.co.in" target="_blank">knnindia.co.in</a></li>
+          <li>PIB Year End Review 2024, Ministry of Textiles — <a href="https://pib.gov.in/PressReleasePage.aspx?PRID=2089306" target="_blank">pib.gov.in/PressReleasePage.aspx?PRID=2089306</a></li>
+          <li>Palghar district government industrial-information page — <a href="https://palghar.gov.in/en/industrial-information/" target="_blank">palghar.gov.in/en/industrial-information/</a></li>
+          <li>Tisser.in, Karjat/Raigad Women Artisans Project — tisser.in/pottery-cluster/ <span class="badge-flag">Unverified, undated, single-source</span></li>
+          <li>MSME Dashboard, approved SFURTI clusters — <a href="https://dashboard.msme.gov.in/approved_sfurti_cluster.aspx" target="_blank">dashboard.msme.gov.in/approved_sfurti_cluster.aspx</a></li>
+          <li>The Better India, Khavda pottery — thebetterindia.com/86676/family-kutch-keep-dying-craft-khavda-pottery-alive/</li>
+          <li>Gujarat SFURTI cluster list — slbcgujarat.in (uploaded Sept 2023)</li>
+          <li>Bain &amp; Company, Asia-Pacific Consumer Products Report 2025 (13 Nov 2025); How India Shops Online 2026 (8 Apr 2026)</li>
+          <li>KPMG India, CX Report '25: Consumer Durables (Mar 2025)</li>
+          <li>PwC, Voice of the Consumer Survey 2024 <span class="badge-flag">Snippet-sourced</span></li>
+          <li>TechSci Research, India Gifting Market (Feb 2025); Jefferies wedding-economy research via Zeebiz</li>
+          <li>HCES 2023-24 summary via Drishti IAS; dataforindia.com, durable-goods spend share</li>
+          <li>Inc42, Mittihub (30 Jan 2024)</li>
+        </ul>
+      </div>
+
+      <div class="src-group">
+        <h4>Competitor Analysis</h4>
+        <ul>
+          <li>Tracxn — <a href="https://tracxn.com/d/companies/ellementry/" target="_blank">tracxn.com/d/companies/ellementry/</a>, <a href="https://tracxn.com/d/companies/nestasia/" target="_blank">tracxn.com/d/companies/nestasia/</a>, <a href="https://tracxn.com/d/companies/goodearth/" target="_blank">tracxn.com/d/companies/goodearth/</a></li>
+          <li>Storyboard18 / Indian Retailer, Ellementry funding — storyboard18.com; indianretailer.com</li>
+          <li>MouthShut, Ellementry reviews — <a href="https://www.mouthshut.com/product-reviews/ellementry-reviews-926157887" target="_blank">mouthshut.com/product-reviews/ellementry-reviews-926157887</a></li>
+          <li>ellementry.com, product pricing pages</li>
+          <li>Inc42 / Entrackr, Nestasia funding &amp; financials — inc42.com/buzz/nestasia-nets-8-35-mn-to-expand-its-home-decor-lifestyle-play/ ; entrackr.com</li>
+          <li>Trustpilot, Nestasia reviews — <a href="https://www.trustpilot.com/review/nestasia.in" target="_blank">trustpilot.com/review/nestasia.in</a></li>
+          <li>Zee Zest / Tweak India, niche ceramics roundups — zeezest.com ; tweakindia.com</li>
+          <li>Studio Coppre, Claymen, The Wishing Chair, Amalfiee Ceramics — studiocoppre.com ; claymen.in ; wishingchair.in ; amalfieeceramics.com</li>
+          <li>IKEA Social Entrepreneurship — ikea.com/in/en</li>
+          <li>FabIndia — fabindia.com; Nicobar — nicobar.com</li>
+          <li>Good Earth — goodearth.in; Business Standard, Anita Lal profile; Business of Fashion</li>
+          <li>Clay Craft India — claycraftindia.com/pages/hotelware; DRHP — nsearchives.nseindia.com; screener.in</li>
+          <li>La Opala RG — laopala.in; HDFC Securities; MarketsMojo; Equitymaster</li>
+          <li>BAFA Pottery — byartistforartist.com/hotelware</li>
+          <li>Ikai Asai — ikaiasai.com; Hosp Emag — hospemag.me; Maison et Objet — mom.maison-objet.com</li>
+          <li>Inc42, Mittihub (30 Jan 2024)</li>
+        </ul>
+      </div>
+
+      <div class="src-group">
+        <h4>Government Regulations</h4>
+        <ul>
+          <li>Udyam Registration — <a href="https://udyamregistration.gov.in" target="_blank">udyamregistration.gov.in</a></li>
+          <li>PM Vishwakarma — <a href="https://pmvishwakarma.gov.in" target="_blank">pmvishwakarma.gov.in</a>; PIB — pib.gov.in/PressReleasePage.aspx?PRID=2041501</li>
+          <li>SFURTI — sfurti.msme.gov.in; msmereporter.com</li>
+          <li>CBIC Notification 13/2025-Central Tax (Rate) — a2ztaxcorp.net; taxguru.in</li>
+          <li>Citizen Matters, BMC trade license — citizenmatters.in</li>
+          <li>Agile Regulatory / TaxAJ, Gumasta/BMC license fees — agileregulatory.com; taxaj.com</li>
+          <li>FSSAI, Food Product Category list — foscos.fssai.gov.in; Packaging Regulations 2018 — fssai.gov.in</li>
+          <li>BIS, IS 9806:2001 — law.resource.org/pub/in/bis/S02/is.9806.2001.pdf</li>
+          <li>IndianKanoon, Factories Act 1948 — indiankanoon.org</li>
+          <li>Lexology, Maharashtra Contract Labour Amendment — lexology.com</li>
+          <li>IHD/Crafts Council of India 2025 survey — DT Next — dtnext.in</li>
+          <li>MPCB White Category Circular (16 Jun 2025) — mpcb.gov.in</li>
+          <li>GPCB White Category list — ifp.gujarat.gov.in</li>
+          <li>Mongabay India, Kutch kiln improvement (RuTag/Khamir) — india.mongabay.com</li>
+          <li>Wikipedia, List of GIs in India; The IP Press, GI tags — theippress.com</li>
+          <li>EPCH membership — epch.in/membership-registration; DGFT e-RCMC — dgft.gov.in</li>
+          <li>ClearTax, RoDTEP — cleartax.in/s/rodtep-scheme; Ergopack, ISPM 15 — ergopack-india.com</li>
+          <li>Saikrishna Associates / Sort Consultancy, Plastic EPR rules — saikrishnaassociates.com; sortconsultancy.com</li>
+        </ul>
+      </div>
+
+      <div class="src-group">
+        <h4>Financial Research</h4>
+        <ul>
+          <li>ThePrint / MSN, IHD-Crafts Council craft wage survey — theprint.in; msn.com</li>
+          <li>Handicrafts.nic.in, Artisan Data — handicrafts.nic.in</li>
+          <li>CEIC / Labour Bureau, Maharashtra rural wage data — ceicdata.com; labourbureau.gov.in</li>
+          <li>IndiaMART, electric kilns/potter's wheels — dir.indiamart.com; Bhoomi Pottery — bhoomipottery.com; Ravi Engineering Works — raviengg.com</li>
+          <li>tenten.co, D2C CAC Benchmarks 2026 — tenten.co/shopify/d2c-cac-benchmarks-2026/</li>
+          <li>Ask Luca, ecommerce profit margin benchmarks — ask-luca.com; aimnlaunch.com, CM2 benchmarks</li>
+          <li>Opensend / Impactograph, shipping damage rate statistics — opensend.com; impactograph.com</li>
+          <li>HomeBazaar / 99acres / Square Yards, Mumbai retail rent listings</li>
+          <li>Sparrow PMC, retail fit-out cost guide 2026 — sparrowpmc.com</li>
+          <li>Clay Craft India DRHP — nsearchives.nseindia.com; Chittorgarh — chittorgarh.com</li>
+          <li>La Opala RG — MarketsMojo; Equitymaster</li>
+          <li>Shiprocket / GoodSeva, courier rate comparisons — shiprocket.in; goodseva.com</li>
+        </ul>
+      </div>
+
+      <div class="src-group">
+        <h4>HoReCa / Export</h4>
+        <ul>
+          <li>IndiaMART, Aryavarth Hotelwares; Stallion Hotel Supplies; Everstyle Hotel Supplies India</li>
+          <li>AAHAR Expo — aaharexpo.com; itpo.gov.in; pib.gov.in</li>
+          <li>India Design ID 2026 — indiadesignid.com; luxe.outlookindia.com</li>
+          <li>Interior Lifestyle India / Ambiente India — in.messefrankfurt.com; 10times.com</li>
+          <li>World of Hospitality Expo — tradeshows.tradeindia.com/worldofhospitality</li>
+          <li>Hotelier India, "The Table Is Set" — hotelierindia.com/operations/the-table-is-set</li>
+          <li>EPCH, handicraft export data — epch.in; PIB, handicraft exports FY24-25 — static.pib.gov.in</li>
+          <li>Volza, terracotta export shipment data — volza.com/p/terracotta/export/export-from-india/</li>
+          <li>IBEF, handicrafts industry — ibef.org/exports/handicrafts-industry-india</li>
+          <li>Amazon Karigar — aboutamazon.in; Rest of World — restofworld.org/2024/amazon-karigar-india-handicraft-makers/; Scroll.in — scroll.in/article/1075197/</li>
+          <li>Mongabay India, Khurja pottery cluster — india.mongabay.com/2024/04/wheeling-towards-sustainable-pottery-making-in-khurja/</li>
+          <li>Chittoor district ODOP / Drishti IAS ODOP — chittoor.ap.gov.in; drishtiias.com</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

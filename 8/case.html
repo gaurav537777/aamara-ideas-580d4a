@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Office as a Service — Business Case Study | Aamara Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf9f5;
+  --charcoal:#141310;
+  --charcoal-2:#0c0b0a;
+  --gold:#b98a3e;
+  --wine:#5c2b2e;
+  --ember:#a8624f;
+  --line:rgba(20,19,16,0.12);
+  --sidebar-w:258px;
+  --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans:"Jost", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--cream);
+  color:var(--charcoal);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;color:var(--charcoal-2);margin:0 0 0.5em;}
+h1{font-size:2.6rem;line-height:1.1;}
+h2{font-size:1.9rem;border-bottom:1px solid var(--line);padding-bottom:0.35em;margin-top:1.6em;}
+h2:first-of-type{margin-top:0;}
+h3{font-size:1.3rem;color:var(--wine);margin-top:1.4em;}
+h4{font-size:1.05rem;color:var(--charcoal);font-family:var(--sans);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;font-size:0.85rem;}
+p{margin:0 0 1em;}
+a{color:var(--wine);}
+ul,ol{padding-left:1.3em;}
+li{margin-bottom:0.45em;}
+.section-tag{font-family:var(--sans);text-transform:uppercase;letter-spacing:0.18em;font-size:0.72rem;color:var(--gold);font-weight:600;margin-bottom:0.6em;display:block;}
+.lede{font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--wine);margin-bottom:1.2em;line-height:1.5;}
+
+/* ---------- EST badge ---------- */
+.est{
+  display:inline-block;
+  font-family:var(--sans);
+  font-size:0.62rem;
+  font-weight:600;
+  letter-spacing:0.08em;
+  color:var(--gold);
+  border:1px dashed var(--gold);
+  border-radius:10px;
+  padding:1px 7px;
+  margin-left:5px;
+  vertical-align:middle;
+  background:rgba(185,138,62,0.06);
+  white-space:nowrap;
+}
+
+/* ---------- Radio-toggle tab system ---------- */
+input[name="tabs"]{position:absolute;opacity:0;pointer-events:none;}
+
+.layout{display:flex;min-height:100vh;}
+
+.sidebar{
+  position:fixed;
+  top:0;left:0;bottom:0;
+  width:var(--sidebar-w);
+  background:var(--charcoal-2);
+  color:var(--cream);
+  overflow-y:auto;
+  padding:28px 0 40px;
+  z-index:10;
+  border-right:1px solid rgba(185,138,62,0.35);
+}
+.brand-block{padding:0 26px 22px;border-bottom:1px solid rgba(250,249,245,0.12);margin-bottom:10px;}
+.wordmark{
+  font-family:var(--sans);
+  font-size:0.78rem;
+  letter-spacing:0.28em;
+  font-weight:600;
+  color:var(--cream);
+  text-transform:uppercase;
+}
+.wordmark-rule{height:1px;width:42px;background:var(--gold);margin:10px 0 16px;}
+.biz-name{font-family:var(--serif);font-size:1.65rem;color:var(--cream);line-height:1.15;margin-bottom:8px;font-weight:600;}
+.positioning{font-size:0.78rem;color:rgba(250,249,245,0.72);line-height:1.5;font-style:italic;font-family:var(--serif);font-size:0.95rem;}
+.case-meta{font-size:0.68rem;letter-spacing:0.06em;color:var(--gold);text-transform:uppercase;margin-top:14px;}
+
+nav.tabs{display:flex;flex-direction:column;padding-top:10px;}
+nav.tabs label{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  padding:12px 26px;
+  font-size:0.86rem;
+  letter-spacing:0.02em;
+  color:rgba(250,249,245,0.62);
+  cursor:pointer;
+  border-left:3px solid transparent;
+  transition:all .15s ease;
+}
+nav.tabs label .n{font-family:var(--serif);font-size:0.78rem;color:var(--gold);opacity:0.8;}
+nav.tabs label:hover{background:rgba(185,138,62,0.08);color:var(--cream);}
+
+.content{
+  margin-left:var(--sidebar-w);
+  flex:1;
+  padding:56px 64px 100px;
+  max-width:1020px;
+}
+.panel{display:none;animation:fade .25s ease;}
+@keyframes fade{from{opacity:0;}to{opacity:1;}}
+
+/* wire up all 12 tabs */
+#tab1:checked ~ .layout #panel1,
+#tab2:checked ~ .layout #panel2,
+#tab3:checked ~ .layout #panel3,
+#tab4:checked ~ .layout #panel4,
+#tab5:checked ~ .layout #panel5,
+#tab6:checked ~ .layout #panel6,
+#tab7:checked ~ .layout #panel7,
+#tab8:checked ~ .layout #panel8,
+#tab9:checked ~ .layout #panel9,
+#tab10:checked ~ .layout #panel10,
+#tab11:checked ~ .layout #panel11,
+#tab12:checked ~ .layout #panel12{display:block;}
+
+#tab1:checked ~ .layout label[for="tab1"],
+#tab2:checked ~ .layout label[for="tab2"],
+#tab3:checked ~ .layout label[for="tab3"],
+#tab4:checked ~ .layout label[for="tab4"],
+#tab5:checked ~ .layout label[for="tab5"],
+#tab6:checked ~ .layout label[for="tab6"],
+#tab7:checked ~ .layout label[for="tab7"],
+#tab8:checked ~ .layout label[for="tab8"],
+#tab9:checked ~ .layout label[for="tab9"],
+#tab10:checked ~ .layout label[for="tab10"],
+#tab11:checked ~ .layout label[for="tab11"],
+#tab12:checked ~ .layout label[for="tab12"]{
+  background:rgba(185,138,62,0.14);
+  color:var(--cream);
+  border-left:3px solid var(--gold);
+}
+
+/* ---------- Tables ---------- */
+table{width:100%;border-collapse:collapse;margin:1.2em 0 1.8em;font-size:0.88rem;}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+th{font-family:var(--sans);font-weight:600;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--wine);background:rgba(92,43,46,0.05);}
+tr:last-child td{border-bottom:1px solid var(--line);}
+.table-wrap{overflow-x:auto;margin-bottom:1.5em;}
+td.num,th.num{white-space:nowrap;}
+
+/* ---------- Cards / grids ---------- */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:1.4em 0;}
+.card{background:#fff;border:1px solid var(--line);border-radius:6px;padding:20px 22px;box-shadow:0 1px 3px rgba(20,19,16,0.04);}
+.card h4{margin-top:0;}
+.persona-card{border-top:3px solid var(--gold);}
+.persona-card .role{font-family:var(--serif);font-size:1.25rem;color:var(--wine);margin-bottom:2px;}
+.persona-card .sub{font-size:0.78rem;color:#6b665c;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.04em;}
+.persona-card dt{font-weight:600;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--gold);margin-top:10px;}
+.persona-card dd{margin:2px 0 0;font-size:0.87rem;}
+
+/* SWOT */
+.swot-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1.2em 0 2em;}
+.swot-box{padding:18px 20px;border-radius:6px;}
+.swot-box h4{margin-top:0;color:#fff;font-size:0.78rem;}
+.swot-s{background:#3f5d45;color:#fff;}
+.swot-w{background:var(--wine);color:#fff;}
+.swot-o{background:#8a6a2a;color:#fff;}
+.swot-t{background:var(--charcoal-2);color:#fff;}
+.swot-box li{color:rgba(255,255,255,0.92);font-size:0.87rem;}
+.swot-box h4{color:#f3e6c8;}
+
+/* Porter */
+.porter-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:1.2em 0 2em;}
+.porter-card{border:1px solid var(--line);border-left:4px solid var(--ember);padding:16px 20px;background:#fff;border-radius:4px;}
+.porter-card h4{color:var(--ember);margin-bottom:6px;}
+.force-level{display:inline-block;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.05em;padding:2px 9px;border-radius:9px;background:rgba(168,98,79,0.12);color:var(--ember);margin-bottom:8px;font-weight:600;}
+
+/* PESTLE */
+.pestle-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:1.2em 0 2em;}
+.pestle-card{border:1px solid var(--line);padding:16px 20px;border-radius:4px;background:#fff;}
+.pestle-card h4{color:var(--gold);}
+
+/* funnel */
+.funnel{display:flex;flex-direction:column;align-items:center;gap:6px;margin:1.6em 0 2em;}
+.funnel-tier{color:#fff;text-align:center;padding:16px;border-radius:4px;font-family:var(--sans);}
+.funnel-tier .amt{font-family:var(--serif);font-size:1.8rem;display:block;font-weight:600;}
+.funnel-tier .lbl{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;opacity:0.85;}
+.funnel-tam{width:100%;background:var(--charcoal-2);}
+.funnel-sam{width:72%;background:var(--wine);}
+.funnel-som{width:44%;background:var(--gold);color:var(--charcoal-2);}
+
+/* Bar chart (market table alt) */
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.bar-label{width:220px;font-size:0.8rem;flex-shrink:0;}
+.bar-track{flex:1;background:rgba(20,19,16,0.06);border-radius:3px;height:18px;position:relative;}
+.bar-fill{background:linear-gradient(90deg,var(--gold),var(--ember));height:100%;border-radius:3px;}
+.bar-val{font-size:0.76rem;color:#6b665c;margin-left:8px;white-space:nowrap;}
+
+/* BMC */
+.bmc-grid{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,auto);gap:2px;background:var(--line);margin:1.4em 0 2em;border:1px solid var(--line);}
+.bmc-cell{background:#fff;padding:14px 16px;font-size:0.82rem;}
+.bmc-cell h4{font-size:0.7rem;color:var(--gold);margin-bottom:6px;}
+.bmc-partners{grid-column:1;grid-row:1/3;}
+.bmc-activities{grid-column:2;grid-row:1;}
+.bmc-resources{grid-column:2;grid-row:2;}
+.bmc-value{grid-column:3;grid-row:1/3;background:#fbf3e4;}
+.bmc-relationships{grid-column:4;grid-row:1;}
+.bmc-channels{grid-column:4;grid-row:2;}
+.bmc-segments{grid-column:5;grid-row:1/3;}
+.bmc-cost{grid-column:1/4;background:#f6f1ea;}
+.bmc-revenue{grid-column:4/6;background:#f6f1ea;}
+.bmc-bottom{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px;}
+
+/* FAQ */
+.faq-item{border:1px solid var(--line);border-radius:5px;margin-bottom:12px;padding:16px 20px;background:#fff;}
+.faq-q{font-family:var(--serif);font-size:1.15rem;color:var(--wine);margin-bottom:6px;font-weight:600;}
+.faq-a{font-size:0.9rem;}
+
+/* Roadmap */
+.roadmap{border-left:2px solid var(--gold);margin:1.4em 0 2em;padding-left:0;}
+.road-phase{position:relative;padding:0 0 28px 30px;}
+.road-phase::before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--cream);}
+.road-phase h4{color:var(--wine);font-size:1rem;margin-bottom:8px;}
+.road-phase ul{margin:0;}
+
+/* Sources */
+.source-group h4{color:var(--gold);margin-top:1.4em;}
+.source-group ul{list-style:none;padding-left:0;}
+.source-group li{font-size:0.82rem;margin-bottom:6px;border-bottom:1px dotted var(--line);padding-bottom:6px;}
+.source-group a{word-break:break-word;}
+
+.callout{background:#fbf3e4;border-left:4px solid var(--gold);padding:16px 20px;margin:1.2em 0;font-size:0.92rem;}
+.callout.wine{background:#f5eaea;border-left-color:var(--wine);}
+.stat-row{display:flex;flex-wrap:wrap;gap:24px;margin:1.4em 0 2em;}
+.stat{flex:1;min-width:150px;}
+.stat .n{font-family:var(--serif);font-size:2.3rem;color:var(--wine);font-weight:600;display:block;line-height:1;}
+.stat .l{font-size:0.76rem;text-transform:uppercase;letter-spacing:0.05em;color:#6b665c;margin-top:4px;}
+
+/* Mobile */
+@media (max-width:768px){
+  .sidebar{position:relative;width:100%;height:auto;border-right:none;border-bottom:1px solid rgba(185,138,62,0.35);padding:20px 0 0;}
+  .brand-block{padding:0 20px 16px;}
+  nav.tabs{flex-direction:row;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:0 10px 14px;}
+  nav.tabs label{white-space:nowrap;border-left:none;border-bottom:3px solid transparent;padding:10px 16px;}
+  #tab1:checked ~ .layout label[for="tab1"],
+  #tab2:checked ~ .layout label[for="tab2"],
+  #tab3:checked ~ .layout label[for="tab3"],
+  #tab4:checked ~ .layout label[for="tab4"],
+  #tab5:checked ~ .layout label[for="tab5"],
+  #tab6:checked ~ .layout label[for="tab6"],
+  #tab7:checked ~ .layout label[for="tab7"],
+  #tab8:checked ~ .layout label[for="tab8"],
+  #tab9:checked ~ .layout label[for="tab9"],
+  #tab10:checked ~ .layout label[for="tab10"],
+  #tab11:checked ~ .layout label[for="tab11"],
+  #tab12:checked ~ .layout label[for="tab12"]{border-left:none;border-bottom:3px solid var(--gold);}
+  .layout{display:block;}
+  .content{margin-left:0;padding:32px 20px 80px;}
+  .swot-grid,.bmc-grid{grid-template-columns:1fr;}
+  .bmc-partners,.bmc-value,.bmc-segments{grid-column:1;grid-row:auto;}
+  .bmc-cost,.bmc-revenue{grid-column:1;}
+}
+
+/* ---------- Print ---------- */
+@media print{
+  input[name="tabs"]{display:none;}
+  .sidebar{position:static;width:100%;height:auto;color:var(--charcoal);background:#fff;border-bottom:2px solid var(--gold);border-right:none;page-break-after:always;}
+  .wordmark,.biz-name,.positioning,.case-meta{color:var(--charcoal-2)!important;}
+  nav.tabs{display:none;}
+  .layout{display:block;}
+  .content{margin-left:0;padding:0 10mm;max-width:100%;}
+  .panel{display:block!important;page-break-after:always;padding-top:14mm;}
+  .panel:last-child{page-break-after:auto;}
+  a{color:var(--charcoal-2);text-decoration:none;}
+  body{background:#fff;}
+}
+</style>
+</head>
+<body>
+
+<input type="radio" name="tabs" id="tab1" checked>
+<input type="radio" name="tabs" id="tab2">
+<input type="radio" name="tabs" id="tab3">
+<input type="radio" name="tabs" id="tab4">
+<input type="radio" name="tabs" id="tab5">
+<input type="radio" name="tabs" id="tab6">
+<input type="radio" name="tabs" id="tab7">
+<input type="radio" name="tabs" id="tab8">
+<input type="radio" name="tabs" id="tab9">
+<input type="radio" name="tabs" id="tab10">
+<input type="radio" name="tabs" id="tab11">
+<input type="radio" name="tabs" id="tab12">
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand-block">
+      <div class="wordmark">Aamara Capital</div>
+      <div class="wordmark-rule"></div>
+      <div class="biz-name">Family Office as a Service</div>
+      <div class="positioning">The conflict-free, flat-fee admin layer for India's newly-liquid — reporting, bill-pay, tax, succession and concierge, agnostic to who manages the money.</div>
+      <div class="case-meta">Case Study · Business Concept 8</div>
+    </div>
+    <nav class="tabs">
+      <label for="tab1"><span class="n">01</span> Executive Summary</label>
+      <label for="tab2"><span class="n">02</span> Market &amp; Industry</label>
+      <label for="tab3"><span class="n">03</span> Competitive Landscape</label>
+      <label for="tab4"><span class="n">04</span> Macro &amp; Regulatory</label>
+      <label for="tab5"><span class="n">05</span> Financials</label>
+      <label for="tab6"><span class="n">06</span> Customers &amp; Marketing</label>
+      <label for="tab7"><span class="n">07</span> Technology &amp; Expansion</label>
+      <label for="tab8"><span class="n">08</span> Business Model</label>
+      <label for="tab9"><span class="n">09</span> USP &amp; Moat</label>
+      <label for="tab10"><span class="n">10</span> FAQ</label>
+      <label for="tab11"><span class="n">11</span> Action Plan</label>
+      <label for="tab12"><span class="n">12</span> Sources</label>
+    </nav>
+  </aside>
+
+  <main class="content">
+
+    <!-- ================= 01 EXECUTIVE SUMMARY ================= -->
+    <section class="panel" id="panel1">
+      <span class="section-tag">Section 01</span>
+      <h1>Executive Summary</h1>
+      <p class="lede">India is minting new liquid wealth faster than almost any economy on earth — but the plumbing to administer that wealth is a decade behind the money.</p>
+
+      <p><strong>Family Office as a Service</strong> is a Mumbai-first, recurring-fee business that runs the <em>non-discretionary admin and concierge layer</em> around a wealthy household's financial life: consolidated cross-asset reporting, bookkeeping and bill-pay, tax and CA coordination, a secure document vault, estate and succession logistics, insurance review, next-generation financial education, and lifestyle concierge. It is built for India's <strong>₹25–200 crore "emerging-affluent / lower-UHNI" band</strong> — households too small to justify a bespoke single-family office (which globally needs ₹800 crore-plus in assets to pay for its own staff), yet actively product-pushed and under-served by private banks. Critically, the model is priced on a <strong>fixed retainer, never as a percentage of assets</strong>, and it is deliberately kept <strong>separate from discretionary money management</strong> — making it structurally conflict-free in a market where almost everyone else earns from the products they sell.</p>
+
+      <p><strong>The legal spine, stated up front.</strong> This entity is <strong>not</strong> a SEBI Registered Investment Adviser (RIA). Pure administration, factual consolidated reporting, bill-pay, document custody, and the <em>coordination</em> of the client's own CA, lawyer and adviser are not "investment advice in securities" under the SEBI (Investment Advisers) Regulations, 2013. The RIA fixed-fee cap of ₹1.51 lakh per family per year therefore does <strong>not</strong> apply — the retainer is uncapped — precisely because the business does not recommend securities for a fee. Any actual securities advice or money management is referred <em>out</em> to the client's own RIA/PMS. This partition is the design's backbone and is enforced in every contract and marketing asset (see Macro &amp; Regulatory and USP &amp; Moat).</p>
+
+      <p><strong>The problem is structural, not cyclical.</strong> India's ultra-high-net-worth (US$30M+) population rose <strong>63% between 2021 and 2026</strong>, from roughly 12,000 to <strong>19,877</strong> — now the world's sixth-largest — yet the country had only about <strong>300 family offices in 2024, up from 45 in 2018</strong> (PwC/EY). Wealth is out-running the servicing infrastructure by roughly a decade. Today a newly-liquid founder stitches their financial life together across a CA, a broker, a private-bank relationship manager and a spreadsheet — with no single, conflict-free "quarterback." That the incumbents are conflicted is not an accusation but a documented fact: <strong>over 57% of Indian bank relationship managers admitted mis-selling</strong> products to hit targets (Oct-2024 survey), and banks earn <strong>65–70% first-year commission</strong> on in-house insurance. In a category whose entire value is trust, that is the opening.</p>
+
+      <p><strong>The solution</strong> is a senior, human-led services team sitting on top of a bought-in reporting platform, delivering one consolidated view and one accountable point of contact — agnostic to who manages the money. The moat is the sticky, data-rich, trust-based relationship that product-pushing banks structurally cannot credibly offer, and that percentage-of-assets incumbents find uneconomic to serve at flat fees below their AUM math.</p>
+
+      <p><strong>Target customers</strong> span four personas, each captured at a moment of need: the recently-exited SaaS founder (cash-rich, admin-poor); the senior technology executive with concentrated cross-border ESOP/RSU holdings; the second-generation inheritor who wants stewardship without becoming a CFO (only <strong>7% of Indian heirs</strong> feel obligated to run the family business); and the returning NRI juggling two financial lives across FEMA and multi-currency reporting.</p>
+
+      <p><strong>Why now:</strong> liquidity events are structural, not episodic — over <strong>US$1.8 billion</strong> of startup employee liquidity has flowed across 100+ Indian startups since 2020, including ₹1,448 crore across ~23 companies in 2024 alone; the wealth-management asset pool is projected to more than double from <strong>~$1.1 trillion (FY24) to $2.3 trillion (FY29)</strong>; a great wealth transfer of roughly <strong>₹108 lakh crore</strong> is beginning over the coming decade; and both SEBI (Dec-2024) and the RBI (mis-selling directions from Jan-2027) are actively tilting the field toward fee-based, conflict-free advice. The window to plant a clean, flat-fee flag is open now.</p>
+
+      <p><strong>Key highlights:</strong> an estimated<span class="est">EST.</span> ₹3.5–6 crore Year-1 cash requirement; a defensible 5-year revenue target<span class="est">EST.</span> of ₹24–120 crore at 300–1,500 families; break-even<span class="est">EST.</span> at roughly 75–90 families; very high structural retention (>90%<span class="est">EST.</span>) because switching means re-plumbing an entire financial life; and a phased Mumbai + Bengaluru → Delhi/Hyderabad/Pune → NRI-hub expansion path. The single largest execution risk is not market demand — it is <strong>the Aamara conflict-of-interest challenge</strong>, addressed structurally (separate entity, arms-length, contractual no-cross-sell) rather than verbally.</p>
+    </section>
+
+    <!-- ================= 02 MARKET & INDUSTRY ================= -->
+    <section class="panel" id="panel2">
+      <span class="section-tag">Section 02</span>
+      <h1>Market &amp; Industry</h1>
+
+      <h2>India's Wealth Pyramid — the Core Demand Driver</h2>
+      <div class="stat-row">
+        <div class="stat"><span class="n">19,877</span><span class="l">UHNWI (US$30M+), early 2026 — 6th-largest globally, +63% since 2021 (Knight Frank)</span></div>
+        <div class="stat"><span class="n">85,698</span><span class="l">HNWI (US$10M+) in 2024 → 93,753 by 2028 (Knight Frank)</span></div>
+        <div class="stat"><span class="n">45 → ~300</span><span class="l">family offices in India, 2018 → 2024 (PwC/EY) — a ~7x lag behind the wealth</span></div>
+        <div class="stat"><span class="n">35.4%</span><span class="l">of India's ultra-rich are in Mumbai (Knight Frank) — the natural launch metro</span></div>
+      </div>
+      <p>India's UHNWI base grew at roughly <strong>37% CAGR from 2018–2024</strong> (PwC/EY) while the number of institutions built to service it — family offices — grew far slower. Cumulative family-office assets are estimated to <strong>exceed ₹3 lakh crore</strong>, and these portfolios are getting <em>more</em> complex to administer, not less: family offices now allocate 10–20%+ to private equity/VC and 25–50% to AIFs (EY). The administration problem compounds with every new asset class.</p>
+
+      <h3>The Load-Bearing Distinction — Who We Actually Serve</h3>
+      <div class="callout wine">
+        <strong>Tier discipline matters here.</strong> The target band is <strong>₹25–200 crore net worth (≈ US$3M–$24M)</strong>, which sits <em>below</em> the Knight Frank US$30M UHNWI cutoff. So the market cannot be sized off the 19,877 UHNWI number — that segment is <em>above</em> the target. The addressable base is the <strong>top of the US$10M+ HNWI pool (85,698) plus the US$3–10M affluent tier beneath it</strong>. This band is precisely the one that is too small for a bespoke single-family office yet too complex, and too product-pushed, to be well-served by a private bank.</div>
+
+      <h3>Liquidity Events — Why the Band Keeps Refilling</h3>
+      <ul>
+        <li><strong>ESOP buybacks are now a structural feature.</strong> In 2024, ~₹1,448 crore (~$170M) of ESOP liquidity flowed to 3,000+ employees across ~23 companies; Swiggy alone offered $65M (Jul-2024), Urban Company ~₹203 crore (Inc42). Since 2020, <strong>over $1.8 billion</strong> across 100+ startups; 2025 added a further $158M+ across 9,000+ employees.</li>
+        <li><strong>Exits, IPOs and secondaries</strong> convert paper unicorn equity into cash — "nearly three individuals each day join the UHNW club as start-ups go to market" (Julius Baer).</li>
+        <li><strong>The great wealth transfer</strong> — roughly $1.5 trillion from ~70% of India's 334 billionaires (Hurun 2024), and ~₹108 lakh crore over the decade (EY) — with only <strong>7% of heirs</strong> feeling obligated to run the family business (HSBC 2025). Demand is shifting from operating businesses to <em>managing wealth</em>.</li>
+      </ul>
+
+      <h3>Market Sizing — Label Every Number by What It Measures</h3>
+      <p>These figures measure different things and are <strong>not</strong> interchangeable — the asset pool is not a revenue number, and neither is the software market.</p>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Layer / Report</th><th>Size</th><th>Forecast</th><th>CAGR</th></tr>
+        <tr><td>Wealth-management AUM pool (client assets)</td><td>~$1.1T (FY24)</td><td>$2.3T by FY29</td><td>&gt;15%</td></tr>
+        <tr><td>India wealth-management market (services revenue)</td><td>$154.25B (2024)</td><td>$286.91B by 2030</td><td>10.96%</td></tr>
+        <tr><td>India wealth-management software market</td><td>$260.5M (2023)</td><td>$730.7M by 2030</td><td>15.9%</td></tr>
+        <tr><td>PMS + AIF AUM (the assets we would report on)</td><td>&gt;₹23 lakh cr (Sep-2025)</td><td>AIF alone &gt;₹100 lakh cr by 2030</td><td>~31% (decade)</td></tr>
+        <tr><td>India wealthtech funding (backdrop)</td><td>~$634M (2024–25)</td><td>—</td><td>—</td></tr>
+      </table>
+      </div>
+
+      <h3>TAM / SAM / SOM — Built Bottom-Up (Families × Retainer)<span class="est">EST.</span></h3>
+      <p>Sized by <em>number of target families × annual flat retainer</em> — deliberately not borrowed from a wealthtech "market size" report. Treat as directional planning inputs.</p>
+      <div class="funnel">
+        <div class="funnel-tier funnel-tam"><span class="amt">₹12,000 cr / yr</span><span class="lbl">TAM — ~150,000 households in the ₹25–200 cr band (top of HNWI + affluent tier) × ~₹8 lakh avg retainer</span></div>
+        <div class="funnel-tier funnel-sam"><span class="amt">₹3,000 cr / yr</span><span class="lbl">SAM — ~37,500 metro, English-first, digitally-comfortable households actively feeling the admin pain (~25% of TAM)</span></div>
+        <div class="funnel-tier funnel-som"><span class="amt">₹24–120 cr / yr</span><span class="lbl">SOM — realistic 5-year capture: ~300 families (Yr-3) to ~1,500 families × ~₹8 lakh retainer</span></div>
+      </div>
+      <p style="font-size:0.82rem;color:#6b665c;">Sensitivity on TAM: 100k–200k households × ₹5–12 lakh retainer = ₹5,000–24,000 cr/yr. The 1,500-family SOM ceiling is benchmarked against Client Associates (1,300+ relationships) and Waterfield (150 families) — i.e. plausible, not aggressive.</p>
+
+      <h3>Consumer &amp; Decision-Maker Behaviour</h3>
+      <div class="callout">
+        <strong>This is a trust-and-timing market.</strong> The buyer is financially sophisticated on <em>earning</em> money but often a novice at <em>administering</em> it, and the purchase is almost always triggered by an event — an exit, an ESOP buyback, an inheritance, a return from abroad — not steady-state planning. Acquisition must therefore be relationship-led and timed to the liquidity moment (via VCs, investment bankers, CA networks and ESOP-liquidity platforms), and the first proof point must be delivered fast: a single consolidated net-worth view the client has never had before.</div>
+    </section>
+
+    <!-- ================= 03 COMPETITIVE LANDSCAPE ================= -->
+    <section class="panel" id="panel3">
+      <span class="section-tag">Section 03</span>
+      <h1>Competitive Landscape</h1>
+      <p class="lede">Everyone in Indian wealth is paid to touch the money — through AUM fees or product commissions. Nobody productises a flat-fee, product-agnostic admin layer for the ₹25–200 crore band. That white space is the entire thesis.</p>
+
+      <h2>Multi-Family Offices &amp; Wealth Firms — the "Big AUM" Incumbents</h2>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Player</th><th>Model</th><th>Fee basis</th><th>Scale / min ticket</th><th>Admin vs asset-mgmt</th><th>Gap / opportunity</th></tr>
+        <tr>
+          <td><strong>360 ONE</strong> (ex-IIFL Wealth)</td>
+          <td>Full-stack wealth + asset-mgmt NBFC</td>
+          <td>Mostly % AUM / distribution</td>
+          <td>₹7.11 lakh cr AUM (Dec-2025, ~$79B)</td>
+          <td>Both — but asset-mgmt-led, conflict-laden vs flat fee</td>
+          <td>Uneconomic and conflicted for our band; chases ₹100 cr+</td>
+        </tr>
+        <tr>
+          <td><strong>Nuvama</strong> (ex-Edelweiss)</td>
+          <td>Wealth (HNI) + Private (UHNI)</td>
+          <td>% AUM / distribution</td>
+          <td>&gt;₹4.4 trillion assets; 1.2M+ clients</td>
+          <td>Both; product/distribution heavy</td>
+          <td>Product-push DNA; can't credibly go flat-fee without cannibalising</td>
+        </tr>
+        <tr>
+          <td><strong>Waterfield Advisors</strong></td>
+          <td><strong>Fee-only MFO</strong> (SEBI RIA)</td>
+          <td>Fee-only (no product commissions)</td>
+          <td>~$4.3B across <strong>150 families</strong></td>
+          <td>Advisory-led — the scaled fee-only comp</td>
+          <td>Excellent but advisory-first, few families, top-UHNI focus; no productised admin/concierge for emerging-affluent</td>
+        </tr>
+        <tr>
+          <td><strong>Client Associates</strong></td>
+          <td>MFO platform</td>
+          <td>Advisory + some distribution</td>
+          <td>~$7B AUA, <strong>1,300+ relationships</strong>, MFO for $10M+</td>
+          <td>Both; broad services incl. estate/immigration</td>
+          <td>Serves above our band ($10M+ min); admin isn't a flat-fee standalone product</td>
+        </tr>
+        <tr>
+          <td><strong>ASK Private Wealth</strong></td>
+          <td>Wealth + asset mgmt</td>
+          <td>% AUM</td>
+          <td>~₹81,000 cr (~$10B), 20,000+ clients</td>
+          <td>Asset-mgmt-led</td>
+          <td>Classic AUM conflict; not an admin-first proposition</td>
+        </tr>
+        <tr>
+          <td><strong>Entrust Family Office</strong></td>
+          <td>Boutique MFO, pure advisory</td>
+          <td>Fee / advisory, "zero conflict"</td>
+          <td>Bengaluru, founded 2013, early SEBI RIA</td>
+          <td>Advisory + non-investment needs — <strong>closest philosophical comp</strong></td>
+          <td>Validates the conflict-free thesis; still advisory-led, not a scalable admin/concierge platform</td>
+        </tr>
+        <tr>
+          <td><strong>Kotak / Centrum Wealth</strong></td>
+          <td>Private banking / wealth</td>
+          <td>% AUM + distribution</td>
+          <td>Bank-led scale</td>
+          <td>Both; distribution conflict</td>
+          <td>The mis-selling incumbent the whole positioning is defined against</td>
+        </tr>
+        <tr>
+          <td><strong>Multi-Act / Karma / Sundaram (Terra)</strong></td>
+          <td>Advisory + PMS/AIF for FOs/UHNW</td>
+          <td>Advisory + PMS/perf fees</td>
+          <td>Established, research-led</td>
+          <td>Asset-mgmt-led</td>
+          <td>Compete for the money, not the admin</td>
+        </tr>
+      </table>
+      </div>
+
+      <h2>Wealthtech &amp; Software — Tools, Not the Service Layer</h2>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Player</th><th>Model</th><th>Fee basis</th><th>Scale / funding</th><th>What it is to us</th></tr>
+        <tr><td><strong>Dezerv</strong></td><td>Tech-led PMS/portfolio mgmt for HNIs</td><td>% AUM (money management)</td><td>₹14,000 cr AUM; &gt;$60M funding (₹350 cr Series C, Oct-2025)</td><td>Competes for the <em>money</em>, not the admin layer</td></tr>
+        <tr><td><strong>Centricity</strong></td><td>B2B2C assisted wealthtech for IFAs/bankers</td><td>Platform / distribution</td><td>~$20M raise; 27→120 cities</td><td>Distribution enablement — orthogonal</td></tr>
+        <tr><td><strong>PMS Bazaar</strong></td><td>PMS/AIF data, comparison &amp; tracking</td><td>Subscription</td><td>90,000+ subscribers; 500+ PMS, 200+ AIF</td><td>Reporting/data tool — adjacent, not a service</td></tr>
+        <tr><td><strong>Addepar</strong> (global)</td><td>Family-office reporting/aggregation software</td><td>AUM-based SaaS (0.008–0.03%)</td><td>~$229k avg revenue/customer; serves $25–50M+ families</td><td>Potential <em>tooling</em> at the Premier end — not a services comp</td></tr>
+        <tr><td><strong>Asset Vantage</strong></td><td>India-focused FO reporting + GL accounting</td><td>Custom SaaS (cheaper than Addepar)</td><td>Used by KK Birla Group, Mumbai FOs</td><td>Our likely <em>build-vs-buy</em> engine (see Technology)</td></tr>
+      </table>
+      </div>
+
+      <div class="callout"><strong>The white space, precisely.</strong> The big MFOs are % AUM/distribution and chase ₹100 cr+; the fee-only purists are advisory-led and focused on the top UHNI; the wealthtech competes for the money or distribution; and the software is a tool, not a service — it won't do your bill-pay, chase your CA, or organise your will. <strong>Family Office as a Service is the human-plus-software services layer that sits above all of them, agnostic to who manages the money.</strong></div>
+
+      <h2>SWOT Analysis</h2>
+      <div class="swot-grid">
+        <div class="swot-box swot-s"><h4>Strengths</h4><ul>
+          <li>Conflict-free flat fee in a market where 57% of bank RMs admit mis-selling — a structural trust advantage</li>
+          <li>Deep stickiness: owning the data, bill-pay rails and document vault makes switching cost = re-plumbing a financial life</li>
+          <li>Aamara adjacency for credibility, deal-flow and operational know-how</li>
+          <li>Serves a large, genuinely unserved band with recurring, high-retention revenue</li>
+        </ul></div>
+        <div class="swot-box swot-w"><h4>Weaknesses</h4><ul>
+          <li>People-intensive (60–70% personnel cost) — margins are thin until ~50 families</li>
+          <li>No "free" product-cross-sell economics to subsidise acquisition</li>
+          <li>Brand and trust must be built from zero; senior talent is scarce and expensive</li>
+          <li>The RIA advice/admin line must be policed continuously, and the Aamara-conflict perception managed</li>
+        </ul></div>
+        <div class="swot-box swot-o"><h4>Opportunities</h4><ul>
+          <li>Wealth pool doubling to $2.3T by FY29; ESOP/exit liquidity structural</li>
+          <li>~₹108 lakh cr great wealth transfer makes succession/admin urgent</li>
+          <li>RBI mis-selling directions (Jan-2027) squeeze the product-push banks — a direct tailwind</li>
+          <li>NRI-return wealth ($135B remittances FY25) and cross-border complexity</li>
+        </ul></div>
+        <div class="swot-box swot-t"><h4>Threats</h4><ul>
+          <li>An incumbent bolts on a "family-office desk" (though still conflicted by its AUM core)</li>
+          <li>A well-funded wealthtech productises the admin layer first</li>
+          <li>Talent poaching by larger, richer wealth firms</li>
+          <li>A future SEBI framework for family offices; or a downturn compressing liquidity events</li>
+        </ul></div>
+      </div>
+
+      <h2>Porter's Five Forces</h2>
+      <div class="porter-grid">
+        <div class="porter-card"><span class="force-level">Moderate</span><h4>Competitive rivalry</h4><p>Many wealth firms exist, but none is positioned as flat-fee, admin-first for the ₹25–200 cr band. Direct rivalry is thin today and will intensify as the model is validated — first-mover trust matters.</p></div>
+        <div class="porter-card"><span class="force-level">Moderate–High</span><h4>Threat of new entrants</h4><p>The regulatory barrier is low (not an RIA), so copycats can appear. But the real barrier — trust, accumulated data and switching cost — takes years to build. Capital alone doesn't buy it.</p></div>
+        <div class="porter-card"><span class="force-level">Moderate</span><h4>Threat of substitutes</h4><p>The DIY status quo (CA + broker + spreadsheet) and software-only tools (Asset Vantage) are the substitutes — but neither solves the <em>coordination</em> problem, which is the actual pain.</p></div>
+        <div class="porter-card"><span class="force-level">Low–Moderate</span><h4>Supplier power</h4><p>"Suppliers" are talent (ex-private-bank RMs, CAs, CFPs) and software (Addepar/Asset Vantage). Software is available and priced; top talent is scarce but hireable — the main early constraint.</p></div>
+        <div class="porter-card"><span class="force-level">Moderate, falling over time</span><h4>Buyer power</h4><p>Clients are sophisticated and fee-sensitive at onboarding, but once their entire financial life is re-plumbed onto the platform, switching cost is very high — bargaining power shifts to the provider over the relationship's life.</p></div>
+      </div>
+    </section>
+
+    <!-- ================= 04 MACRO & REGULATORY ================= -->
+    <section class="panel" id="panel4">
+      <span class="section-tag">Section 04</span>
+      <h1>Macro &amp; Regulatory</h1>
+
+      <h2>PESTLE Analysis</h2>
+      <div class="pestle-grid">
+        <div class="pestle-card"><h4>Political</h4><p>A stable pro-wealth-creation stance; estate duty abolished in 1985; GIFT City and onshore-fund incentives. A future inheritance-tax debate is a tail risk — but would itself be a <em>demand driver</em> for the succession-planning services this business coordinates.</p></div>
+        <div class="pestle-card"><h4>Economic</h4><p>The wealth-management asset pool is projected to double to <strong>$2.3 trillion by FY29</strong>; ESOP/exit liquidity is structural; record <strong>$135.46 billion of remittances in FY25</strong> feeds the returning-NRI persona.</p></div>
+        <div class="pestle-card"><h4>Social</h4><p>The great wealth transfer (~$1.5 trillion) is beginning, and only <strong>7% of Indian heirs</strong> feel obligated to run the family business (HSBC 2025) — so demand shifts from operating businesses toward professionally <em>managed and administered</em> wealth.</p></div>
+        <div class="pestle-card"><h4>Technological</h4><p>Account Aggregators, UPI, digital KYC and mature family-office software (Addepar, Asset Vantage) make a consolidated, multi-asset reporting product feasible at reasonable cost — no multi-year build required.</p></div>
+        <div class="pestle-card"><h4>Legal</h4><p>"Family office" is unregulated <em>per se</em>; the business runs as an LLP/Pvt Ltd services company. The load-bearing question is the RIA advice/admin line (below) and DPDP data-protection compliance.</p></div>
+        <div class="pestle-card"><h4>Environmental</h4><p>Minimal direct exposure. ESG/impact allocation is a growing next-generation theme — an advisory-coordination opportunity rather than an operational risk.</p></div>
+      </div>
+
+      <h2>The Regulatory Line — The Core Legal Design</h2>
+      <div class="callout wine">
+        <strong>Why the flat retainer is legal and uncapped.</strong> The SEBI (Investment Advisers) Regulations, 2013 (as amended to Dec-2024) govern <strong>"investment advice in securities."</strong> Pure administration, factual consolidated reporting, bookkeeping, bill-pay, document custody, tax/CA/lawyer <em>coordination</em>, estate logistics, insurance <em>review</em>, education and concierge are <strong>not</strong> securities advice. The RIA fixed-fee cap of <strong>₹1.51 lakh per family per year</strong> (and the 2.5%-of-AUA cap) binds only a <em>registered adviser recommending securities</em>. Because this business does not recommend securities for a fee, those caps do not apply, and the ₹3–25 lakh retainer is lawful.</div>
+      <ul>
+        <li><strong>The structural partition (enforced operationally):</strong> <em>In-house, uncapped flat fee</em> — reporting, bill-pay, vault, tax/estate coordination, insurance review, concierge, education, project-managing the client's advisers. <em>Referred out</em> — any actual recommendation of securities, or discretionary money management, goes to the client's own RIA/PMS/CA/lawyer.</li>
+        <li><strong>Discipline of language:</strong> "advice-<em>coordination</em>" means project-managing the client's CA/lawyer/RIA — it is not giving advice. This wording must be rigorous in every client contract and marketing asset, or the RIA line blurs and the fee-cap risk returns.</li>
+        <li><strong>Optional escalation structure:</strong> if securities advice is ever brought in-house, do it through a <em>separately-registered non-individual RIA subsidiary</em> charging within the ₹1.51 lakh cap — kept legally and economically distinct from the (uncapped) admin entity.</li>
+        <li><strong>"Family office" is unregulated per se:</strong> the term appears in no Indian statute, and in <strong>October 2025 SEBI expressly clarified it is not examining a dedicated framework</strong>. Structures are assembled from the Indian Trusts Act 1882, Companies Act 2013, LLP Act 2008, Income-tax Act 1961, FEMA 1999 and applicable SEBI regs.</li>
+        <li><strong>DPDP Act 2023 + Rules 2025:</strong> holding highly sensitive financial data makes the business a Data Fiduciary — likely a <em>Significant Data Fiduciary</em> at scale, requiring an India-based DPO, independent audits and DPIAs. Penalties up to <strong>₹250 crore per breach, with no cure period</strong>; hard compliance deadline <strong>13 May 2027</strong>. This is the single biggest compliance cost and risk — and, delivered well, a selling point.</li>
+        <li><strong>AML/KYC:</strong> bill-pay and vault touch money movement, so robust onboarding KYC/AML is required.</li>
+        <li><strong>Tax &amp; estate:</strong> tax <em>coordination</em> (managing the client's CA) is unregulated; return <em>preparation</em> would fall under CA/ERI norms, so filing stays with the client's CA. Wills under the Indian Succession Act 1925, probate/succession certificates via courts, private trusts under the Trusts Act 1882, HUF planning — all coordination, executed by the client's lawyer.</li>
+        <li><strong>RBI mis-selling directions (from 1-Jan-2027):</strong> tighten product-push by banks — a direct tailwind for the conflict-free model, and a reminder to keep the business's own conduct spotless.</li>
+      </ul>
+
+      <h2>Risk Analysis</h2>
+      <h3>Strategic &amp; Reputational Risks</h3>
+      <ul>
+        <li><strong>The Aamara conflict-of-interest challenge — the single biggest risk.</strong> A PMS/AIF manager building a "conflict-free" admin layer invites the charge that it merely funnels clients into Aamara's own products. The only credible defence is structural, not verbal: a separate legal entity, arms-length, a contractual no-cross-sell rule, and a product-agnostic mandate. If that firewall is soft, the entire flat-fee/conflict-free USP — the whole moat — collapses.</li>
+        <li><strong>Scope-creep across the RIA line</strong> if relationship managers start informally "recommending" securities — mitigated by language discipline, training and contract design.</li>
+      </ul>
+      <h3>Regulatory Risks</h3>
+      <ul>
+        <li>A future SEBI family-office framework (currently disclaimed) could impose registration or conduct rules.</li>
+        <li>DPDP enforcement or a data breach — high-stakes given concentrated sensitive data (₹250 cr/breach, no cure period, 13-May-2027 deadline).</li>
+      </ul>
+      <h3>Financial &amp; Scalability Risks</h3>
+      <ul>
+        <li>People-heavy cost base (60–70% personnel) means margins are negative until ~50 families and break-even needs ~75–90 families — a real runway requirement before operating leverage appears.</li>
+        <li>Talent scarcity: the model depends on senior, credentialed hires (ex-private-bank, CAs, CFPs) who are expensive and poachable.</li>
+        <li>An economic downturn that compresses exits/ESOP events slows the refill of the target band.</li>
+      </ul>
+    </section>
+
+    <!-- ================= 05 FINANCIALS ================= -->
+    <section class="panel" id="panel5">
+      <span class="section-tag">Section 05</span>
+      <h1>Financials</h1>
+      <p style="font-size:0.85rem;color:#6b665c;font-style:italic;">Every figure in this section is a planning estimate derived from benchmark data, not a verified/audited number — each carries the <span class="est">EST.</span> marker. Sourced benchmark anchors are cited in the Sources tab.</p>
+
+      <h2>Benchmark Anchors (Sourced)</h2>
+      <ul>
+        <li><strong>RIA flat fees (India):</strong> most fee-only planners charge ₹15,000–60,000/yr (range ₹11,000–1,25,000); the SEBI RIA fixed-fee cap is ₹1.51 lakh/family/yr. These are the low-complexity floor — our band pays multiples because complexity is far higher <em>and</em> we are not RIA-capped.</li>
+        <li><strong>Global family-office run-cost:</strong> 20–120 bps of AUM, or ~$0.9M–$6.6M/yr, of which 60–70% is personnel (UBS/JPM/Campden GFO 2026) — confirming an in-house SFO is uneconomic below ~₹800 cr and validating a shared platform.</li>
+        <li><strong>Reporting software:</strong> Addepar $50k–250k+/yr (0.008–0.03% AUM); Asset Vantage materially cheaper and India-focused.</li>
+        <li><strong>Bookkeeping/CA:</strong> a dedicated part-time bookkeeper + CA coordination is modest per client — ~₹1–3 lakh/family/yr fully-loaded at scale<span class="est">EST.</span></li>
+      </ul>
+
+      <h2>Startup Cost — Year 1<span class="est">EST.</span></h2>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Category</th><th class="num">Estimated cost (₹)</th><th>Notes</th></tr>
+        <tr><td>Software — Asset Vantage licence + document vault + thin proprietary dashboard</td><td class="num">40–75 lakh <span class="est">EST.</span></td><td>Buy-and-customise; Addepar reserved for the Premier tier</td></tr>
+        <tr><td>Founding team (6–8) — senior FO lead, 2–3 relationship/coordination managers, reporting analyst, tax-coordination lead, ops/compliance/DPO</td><td class="num">2.5–4.5 cr <span class="est">EST.</span></td><td>Fully-loaded; ~60–70% of total burn, mirroring global FO cost structure</td></tr>
+        <tr><td>Office, legal (entity + no-cross-sell charter + non-RIA opinion), DPDP compliance, brand</td><td class="num">50–90 lakh <span class="est">EST.</span></td><td>DPDP set-up (DPO, DPIA, security architecture) is front-loaded</td></tr>
+        <tr style="font-weight:600;"><td>Total estimated Year-1 cash burn</td><td class="num">₹3.5–6.0 cr (~$420K–$720K) <span class="est">EST.</span></td><td>Funds the platform, senior team and first ~15–25 pilot families</td></tr>
+      </table>
+      </div>
+
+      <h2>Pricing Model — Tiered Flat Annual Retainer<span class="est">EST.</span></h2>
+      <p>Fee scales with complexity and effort, never with asset size — the mechanism that keeps it conflict-free and defensible.</p>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Tier</th><th>Client profile</th><th>Net worth</th><th class="num">Annual flat retainer</th></tr>
+        <tr><td><strong>Essential</strong></td><td>Newly-liquid founder/exec, single geography, moderate complexity</td><td>₹25–50 cr</td><td class="num">₹3–6 lakh <span class="est">EST.</span></td></tr>
+        <tr><td><strong>Core</strong></td><td>Multi-asset, some private/unlisted, family + entities</td><td>₹50–100 cr</td><td class="num">₹6–12 lakh <span class="est">EST.</span></td></tr>
+        <tr><td><strong>Premier</strong></td><td>Complex, cross-border/NRI, multiple entities, live succession</td><td>₹100–200 cr</td><td class="num">₹12–25 lakh <span class="est">EST.</span></td></tr>
+        <tr><td><strong>À la carte</strong></td><td>One-off will/estate execution, insurance overhaul, concierge projects</td><td>—</td><td class="num">project-priced <span class="est">EST.</span></td></tr>
+      </table>
+      </div>
+
+      <h2>Unit Economics<span class="est">EST.</span></h2>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Metric</th><th>Value</th></tr>
+        <tr><td>Customer Acquisition Cost (CAC)</td><td>₹1–3 lakh/family <span class="est">EST.</span> — referral-dominated (VCs, i-bankers, CA networks, existing clients, Aamara ecosystem)</td></tr>
+        <tr><td>Average annual contract value (ACV)</td><td>~₹8 lakh <span class="est">EST.</span> blended across tiers</td></tr>
+        <tr><td>Annual retention</td><td>&gt;90% <span class="est">EST.</span> — switching means re-plumbing an entire financial life; target 10–15+ year relationships</td></tr>
+        <tr><td>Customer Lifetime Value (LTV)</td><td>~₹65–75 lakh/family <span class="est">EST.</span> — ₹8 lakh ACV, 90% retention, ~12-year life</td></tr>
+        <tr><td>LTV:CAC ratio</td><td>&gt;20:1 <span class="est">EST.</span> — attractive precisely because there is no AUM-churn risk</td></tr>
+      </table>
+      </div>
+
+      <h2>Cost Structure &amp; Margins<span class="est">EST.</span></h2>
+      <p><strong>Cost structure:</strong> ~60–70% personnel (mirroring the global family-office benchmark), plus software, DPDP/compliance and office. The marginal cost of an additional family is low once the platform and core team exist — so <strong>operating leverage kicks in past ~40–50 families</strong>, and the model becomes strongly cash-generative beyond ~150 families.</p>
+      <p><strong>Margins:</strong> negative in Year 1 and likely Year 2<span class="est">EST.</span> during team build-out and sub-scale family count; a path to healthy service-business net margins as retainers compound against a largely fixed senior-team base — this is an annuity model, not a transactional one.</p>
+
+      <h2>Break-Even Analysis<span class="est">EST.</span></h2>
+      <div class="callout">
+        At ~₹8 lakh average ACV and steady-state opex of ~₹5–6 crore, <strong>break-even is approximately 75–90 active families<span class="est">EST.</span></strong> — achievable within roughly 24–36 months given referral-led acquisition and the size of the underserved band. A Year-3 target of ~300 families implies ~₹24 crore of revenue; a 5-year path toward ~1,500 families implies ~₹120 crore, the top of the SOM range.</div>
+    </section>
+
+    <!-- ================= 06 CUSTOMERS & MARKETING ================= -->
+    <section class="panel" id="panel6">
+      <span class="section-tag">Section 06</span>
+      <h1>Customers &amp; Marketing</h1>
+
+      <h2>Customer Personas</h2>
+      <div class="card-grid">
+        <div class="card persona-card">
+          <div class="role">Arjun</div>
+          <div class="sub">The Recently-Exited Founder</div>
+          <dl>
+            <dt>Profile</dt><dd>39, just sold or secondary'd his SaaS company; ~₹80 cr in the bank for the first time.</dd>
+            <dt>Pain points</dt><dd>"I have money now and no system." Cash-rich, time-poor, unsophisticated on administration; wary of mis-selling banks.</dd>
+            <dt>Decision drivers</dt><dd>One trusted quarterback, a single consolidated view, conflict-free advice, speed.</dd>
+            <dt>Willingness to pay</dt><dd>High — the flat fee is trivial against the sum being administered, and obviously cheaper than hidden product commissions.</dd>
+            <dt>Channel</dt><dd>His VC/investment banker at the exit; founder communities; ESOP-liquidity platforms.</dd>
+          </dl>
+        </div>
+        <div class="card persona-card">
+          <div class="role">Priya</div>
+          <div class="sub">The Senior Tech Executive</div>
+          <dl>
+            <dt>Profile</dt><dd>44, concentrated US-listed RSUs plus Indian ESOPs; ₹30–60 cr, most of it in one stock.</dd>
+            <dt>Pain points</dt><dd>Fragmentation, cross-border tax, single-stock concentration risk, no consolidated multi-currency view.</dd>
+            <dt>Decision drivers</dt><dd>Consolidated reporting, tax coordination, a plan to diversify — executed via her own advisers, coordinated by us.</dd>
+            <dt>Willingness to pay</dt><dd>High; values the tax-complexity relief most.</dd>
+            <dt>Channel</dt><dd>Employer ESOP-liquidity events; peer referral; CA networks.</dd>
+          </dl>
+        </div>
+        <div class="card persona-card">
+          <div class="role">The Mehta Heir</div>
+          <div class="sub">The Second-Generation Inheritor</div>
+          <dl>
+            <dt>Profile</dt><dd>31, inheriting ₹100–200 cr of mixed assets — business stake, real estate, PMS, unlisted holdings.</dd>
+            <dt>Pain points</dt><dd>Wants governance, education and a succession structure; one of the 93% who does <em>not</em> want to run the family business.</dd>
+            <dt>Decision drivers</dt><dd>Stewardship without becoming a CFO; next-gen education; a clean succession framework.</dd>
+            <dt>Willingness to pay</dt><dd>High and durable — this is a multi-decade relationship.</dd>
+            <dt>Channel</dt><dd>The family's existing CA/lawyer; private-bank referral; parent's network.</dd>
+          </dl>
+        </div>
+        <div class="card persona-card">
+          <div class="role">Mr. &amp; Mrs. Rao</div>
+          <div class="sub">The Returning NRI Family</div>
+          <dl>
+            <dt>Profile</dt><dd>Returning from the US/UK/Singapore with ₹50–150 cr across global and Indian assets.</dd>
+            <dt>Pain points</dt><dd>Two financial lives, FEMA, cross-border tax, multi-currency reporting, no single view.</dd>
+            <dt>Decision drivers</dt><dd>Consolidated multi-currency reporting, FEMA/cross-border coordination, a single accountable contact across time zones.</dd>
+            <dt>Willingness to pay</dt><dd>High — complexity is highest here; the Premier tier fits.</dd>
+            <dt>Channel</dt><dd>NRI/return networks; cross-border tax advisers; wealth-manager referrals.</dd>
+          </dl>
+        </div>
+      </div>
+
+      <h2>Marketing Strategy</h2>
+      <h3>Referral-Led Acquisition (the core motion)</h3>
+      <ul>
+        <li><strong>VCs and PE funds</strong> — a warm introduction to a portfolio founder at the exact moment of a liquidity event.</li>
+        <li><strong>Investment bankers and M&amp;A advisers</strong> running the exits — the person closest to the cash at the moment it arrives.</li>
+        <li><strong>CA networks</strong> — the incumbent trusted adviser; we partner and coordinate <em>them</em>, we do not compete, so they refer rather than resist.</li>
+        <li><strong>ESOP-liquidity platforms</strong> (e.g. Qapita) and founder/accelerator communities — timed, direct outreach.</li>
+        <li><strong>Private banks as referrers</strong> — for clients too small or too admin-heavy for them; because we don't manage money, we're not a threat to their AUM.</li>
+      </ul>
+      <h3>Trust &amp; Content</h3>
+      <ul>
+        <li><strong>Thought leadership on conflict-free administration</strong> — publishing the plain-English case against product-push wealth management, aimed at newly-liquid founders who don't yet know what they don't know.</li>
+        <li><strong>Referenceable clients</strong> — in a trust category, a warm reference from a peer founder is the single highest-converting asset.</li>
+      </ul>
+      <h3>The Aamara Ecosystem (arms-length)</h3>
+      <p>Aamara's existing relationships and credibility are a genuine head start — used strictly at arms-length and product-agnostically, so the conflict-free promise stays intact (see USP &amp; Moat and FAQ).</p>
+      <h3>Retention Strategy</h3>
+      <p>Trust is the product, and retention is structural: once the consolidated data, bill-pay rails and document vault live with us, switching means re-plumbing an entire financial life. The active work of retention is therefore service quality — senior, credentialed people; first-class DPDP-grade security; transparent reporting; and visible, proactive value between the once-a-year "moments" (a succession draft delivered, an insurance overhaul completed, a tax deadline handled).</p>
+    </section>
+
+    <!-- ================= 07 TECHNOLOGY & EXPANSION ================= -->
+    <section class="panel" id="panel7">
+      <span class="section-tag">Section 07</span>
+      <h1>Technology &amp; Expansion</h1>
+
+      <h2>Technology Stack — Buy the Engine, Build the Service</h2>
+      <div class="card-grid">
+        <div class="card"><h4>Reporting / Aggregation — Buy</h4><p>License <strong>Asset Vantage</strong> (India-focused, GL-integrated, cheaper than Addepar, already used by Indian family offices) for consolidated cross-asset reporting across PMS/AIF/MF/stocks/real estate/private/unlisted/crypto. Reserve <strong>Addepar</strong> ($50k–250k/yr) for the Premier/UHNI end where its depth justifies the cost. Reporting engines are commoditised — the value is the service layer, not re-inventing aggregation.</p></div>
+        <div class="card"><h4>Thin Proprietary Dashboard — Build</h4><p>A branded client surface on top of the reporting engine: a single consolidated net-worth and performance view, bill-pay status, document access, and a task/coordination tracker — the visible product the client logs into.</p></div>
+        <div class="card"><h4>Document Vault</h4><p>Encrypted, India-hosted (for DPDP data-residency comfort), role-based access with full audit trails — the succession/estate documents, entity papers, insurance policies and statements in one governed place.</p></div>
+        <div class="card"><h4>Security — a Feature, Not Just Compliance</h4><p>DPDP-grade from Day 1: India-based DPO, encryption at rest and in transit, independent data audits, DPIAs, and a breach-response protocol. With no cure period and a ₹250 crore penalty ceiling, security is a board-level priority — and, marketed honestly, a genuine differentiator for families entrusting their entire financial picture.</p></div>
+        <div class="card"><h4>Coordination Workflow</h4><p>A CRM/workflow layer that turns "chase the CA, renew the insurance, file the will, reconcile the statements" into tracked, SLA-bound tasks — the operational spine that makes the human service consistent and auditable.</p></div>
+        <div class="card"><h4>Account Aggregator &amp; Data Rails</h4><p>Leverage India's Account Aggregator framework, UPI and digital KYC to pull and reconcile data with consent — lowering the cost and friction of the consolidated view that is the client's first "wow."</p></div>
+      </div>
+
+      <h2>Expansion Strategy</h2>
+      <div class="roadmap">
+        <div class="road-phase"><h4>Phase 1 — Mumbai + Bengaluru (Years 1–2)</h4><ul>
+          <li>Mumbai holds 35.4% of India's UHNW base — the natural anchor</li>
+          <li>Bengaluru is the founder/ESOP epicentre — the richest seam of newly-liquid clients</li>
+          <li>Reach break-even family density (~75–90 families) before spreading further</li>
+        </ul></div>
+        <div class="road-phase"><h4>Phase 2 — Delhi-NCR + Hyderabad + Pune (Years 2–4)</h4><ul>
+          <li>The next wealth clusters, reachable from a shared central team and platform</li>
+          <li>Add cross-border/NRI capability as a productised Premier-tier service</li>
+        </ul></div>
+        <div class="road-phase"><h4>Phase 3 — NRI Hubs (Years 4+)</h4><ul>
+          <li>Dubai, Singapore, US/UK — serving returning-NRI and global-asset families</li>
+          <li>Leverage GIFT City for onshore structures; a communication-and-coordination layer across time zones rather than a physical-delivery expansion</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- ================= 08 BUSINESS MODEL ================= -->
+    <section class="panel" id="panel8">
+      <span class="section-tag">Section 08</span>
+      <h1>Business Model</h1>
+
+      <h2>Business Model Canvas</h2>
+      <div class="bmc-grid">
+        <div class="bmc-cell bmc-partners"><h4>Key Partners</h4><ul><li>Reporting software (Asset Vantage / Addepar)</li><li>Estate lawyers &amp; CAs (coordinated, not competed)</li><li>Insurers (reviewed, product-agnostic)</li><li>The client's own RIAs / PMS (referral partners)</li><li>VCs, i-bankers, ESOP platforms (acquisition)</li></ul></div>
+        <div class="bmc-cell bmc-activities"><h4>Key Activities</h4><ul><li>Consolidated reporting &amp; reconciliation</li><li>Bill-pay &amp; bookkeeping</li><li>Tax/estate/succession coordination</li><li>Document custody, concierge, education</li></ul></div>
+        <div class="bmc-cell bmc-resources"><h4>Key Resources</h4><ul><li>Senior, credentialed team (ex-private-bank, CAs, CFPs)</li><li>Reporting platform + secure data infra</li><li>Brand/trust &amp; referral network</li><li>Accumulated longitudinal client data</li></ul></div>
+        <div class="bmc-cell bmc-value"><h4>Value Propositions</h4><ul><li>The only conflict-free, flat-fee, admin-first "quarterback" for the ₹25–200 cr band</li><li>One consolidated view; one accountable contact</li><li>Agnostic to who manages the money</li><li>DPDP-grade security as a promise, not a footnote</li></ul></div>
+        <div class="bmc-cell bmc-relationships"><h4>Customer Relationships</h4><ul><li>High-touch, senior-led, multi-year</li><li>Embedded in the client's financial life</li><li>Proactive between annual "moments"</li></ul></div>
+        <div class="bmc-cell bmc-channels"><h4>Channels</h4><ul><li>VC/i-banker warm intros at exits</li><li>CA networks &amp; ESOP events</li><li>Peer referral</li><li>Aamara ecosystem (arms-length)</li></ul></div>
+        <div class="bmc-cell bmc-segments"><h4>Customer Segments</h4><ul><li>Recently-exited founders</li><li>Senior execs with concentrated ESOP/RSU</li><li>Second-gen inheritors</li><li>Returning NRIs with global assets</li></ul></div>
+        <div class="bmc-cell bmc-cost"><h4>Cost Structure</h4><p>Senior talent (~60–70%, the dominant line) · reporting software · DPDP/compliance &amp; DPO · office &amp; brand. Largely fixed — operating leverage past ~40–50 families.</p></div>
+        <div class="bmc-cell bmc-revenue"><h4>Revenue Streams</h4><p>Tiered flat annual retainers (₹3–25 lakh) · à-la-carte project fees (estate execution, insurance overhaul, concierge). <strong>No % AUM. No product commissions.</strong></p></div>
+      </div>
+
+      <h2>Revenue Model</h2>
+      <p>Primary: tiered flat annual retainers (Essential / Core / Premier, ₹3–25 lakh) scaled to complexity, not asset size. Secondary: à-la-carte project fees for one-off will/estate execution, insurance overhauls and concierge work. There is deliberately <strong>no percentage-of-assets fee and no product commission</strong> — the absence of those two revenue lines is the product.</p>
+
+      <h2>Cost Structure</h2>
+      <p>This is a people business first and a software business second: senior, credentialed talent is 60–70% of cost, mirroring the global family-office benchmark, with reporting software, DPDP/compliance and office as the remainder. Because that base is largely fixed, each incremental family drops a high share of its retainer to contribution once the platform and core team exist — the reason disciplined family-count growth past ~40–50 clients is where the economics turn.</p>
+
+      <h2>Pricing Strategy</h2>
+      <p>Transparent, published-logic flat retainers tied to complexity — the antithesis of opaque, commission-embedded "free" private banking. Fee scales with the effort of administering a household's affairs (geographies, entities, asset classes, live succession), never with how much money is in the account, which is exactly what keeps the incentive clean.</p>
+    </section>
+
+    <!-- ================= 09 USP & MOAT ================= -->
+    <section class="panel" id="panel9">
+      <span class="section-tag">Section 09</span>
+      <h1>USP &amp; Moat</h1>
+
+      <p class="lede">In a market where nearly everyone is paid to touch the money, being paid <em>not</em> to is both the differentiator and the defence.</p>
+
+      <h2>Why Clients Choose This Over Banks, MFOs and Wealthtech</h2>
+      <ul>
+        <li><strong>Flat-fee, conflict-free vs % AUM incumbents.</strong> The business cannot be bribed by product commissions or grow its fee by inflating AUM. That is a structural trust advantage the mis-selling channel — 57% of RMs admitting mis-selling, 65–70% insurance commissions — can never credibly claim.</li>
+        <li><strong>The admin layer <em>is</em> the sticky relationship.</strong> Product-push banks and even fee-only advisers don't run a client's life-admin. Once we hold the consolidated data, bill-pay rails and document vault, we are embedded — the switching cost is re-plumbing an entire financial life, which is why retention runs above 90%.</li>
+        <li><strong>Agnostic to who manages the money.</strong> Because we don't manage assets, we can sit above every product provider and be the client's neutral quarterback — a position no one selling a product can occupy.</li>
+        <li><strong>Regulatory positioning as a feature.</strong> Being deliberately <em>not</em> an RIA lets us charge an uncapped flat retainer while staying clean — a design % AUM firms and capped RIAs can't easily replicate without cannibalising their core.</li>
+      </ul>
+
+      <h2>Why Competitors Can't Easily Copy It</h2>
+      <ul>
+        <li><strong>The innovator's dilemma protects us.</strong> 360 ONE, Kotak or Nuvama can bolt on a "family-office desk," but they cannot credibly go flat-fee and product-agnostic without cannibalising the % AUM and distribution revenue that is their core. Their DNA is product; ours is admin.</li>
+        <li><strong>Data and switching costs compound.</strong> The longitudinal, cross-asset dataset we accumulate for each family gets more valuable — and more painful to migrate — every year. A well-funded copycat cannot instantly manufacture years of a client's consolidated financial history.</li>
+        <li><strong>Trust is built, not bought.</strong> In a category where the product is trust, a brand takes years of consistent, conflict-free delivery to establish — capital alone doesn't shortcut it.</li>
+        <li><strong>The Aamara adjacency, kept clean, is an asset rivals lack</strong> — credibility, ecosystem deal-flow and operational know-how — <em>provided</em> the arms-length firewall holds (see FAQ 1). The firewall is existential, not cosmetic: the moment the business soft-pushes Aamara products, the conflict-free USP dies.</li>
+      </ul>
+    </section>
+
+    <!-- ================= 10 FAQ ================= -->
+    <section class="panel" id="panel10">
+      <span class="section-tag">Section 10</span>
+      <h1>FAQ — Questions an Investment Committee Will Ask</h1>
+
+      <div class="faq-item"><div class="faq-q">1. Doesn't this conflict with Aamara's own PMS/AIF? Isn't "conflict-free" hypocritical?</div><div class="faq-a">This is the single most important question, and the answer must be structural, not verbal. The admin entity is a <strong>separate legal company, arms-length, product-agnostic, with a contractual no-cross-selling rule</strong>. It is compensated only by the client's flat retainer and does not steer clients into Aamara products. If a client independently chooses Aamara's PMS, that is disclosed and at the client's own initiative. The moment the business soft-pushes Aamara, the entire "conflict-free" USP — the whole moat — dies. So the firewall is existential, and it is enforced through legal structure and a written charter, not a promise.</div></div>
+
+      <div class="faq-item"><div class="faq-q">2. Why would a founder pay a flat fee when private banking is "free"?</div><div class="faq-a">Because "free" private banking is paid for invisibly — through the 65–70% first-year commissions on in-house products and the documented 57% of relationship managers who admit mis-selling to hit targets. The founder pays far more, in worse products, without seeing the bill. A transparent flat fee is both cheaper in the round and aligned — the adviser earns the same whatever the client buys.</div></div>
+
+      <div class="faq-item"><div class="faq-q">3. How do you make money without AUM?</div><div class="faq-a">Through tiered flat retainers (₹3–25 lakh) plus à-la-carte project fees, on a base with high retention (&gt;90%<span class="est">EST.</span>), low referral-led CAC, and an estimated LTV:CAC above 20:1. The model doesn't need assets under management — it needs <em>families</em> and <em>stickiness</em>, both of which it has structurally.</div></div>
+
+      <div class="faq-item"><div class="faq-q">4. Where exactly is the regulatory line between advice and administration?</div><div class="faq-a">The business does not recommend securities, so it is not a SEBI RIA, so the ₹1.51 lakh fixed-fee cap does not apply. It administers, reports and <em>coordinates</em> the client's own CA, lawyer and adviser. Any actual securities advice is referred out — or, if ever brought in-house, run through a separately-registered, separately-capped RIA subsidiary. The distinction is enforced by disciplined contract and marketing language ("advice-coordination," not "advice").</div></div>
+
+      <div class="faq-item"><div class="faq-q">5. You hold everything — what happens if you're breached?</div><div class="faq-a">Data security is treated as a board-level priority and a selling point, not an afterthought. The build is DPDP-grade from Day 1: India-based DPO, encryption at rest and in transit, independent audits, DPIAs and a breach-response protocol. The DPDP Act's exposure — up to ₹250 crore per breach with no cure period, hard deadline 13 May 2027 — is exactly why security is engineered in from the first family, not retrofitted.</div></div>
+
+      <div class="faq-item"><div class="faq-q">6. Can't 360 ONE, Kotak or Nuvama just copy this?</div><div class="faq-a">They can add a "family-office desk," but they cannot credibly go flat-fee and product-agnostic without cannibalising the % AUM and distribution revenue that funds them — a textbook innovator's dilemma. Their institutional DNA is product distribution; this business's is administration. Copying the positioning without changing the revenue model would be immediately visible to a skeptical client.</div></div>
+
+      <div class="faq-item"><div class="faq-q">7. What if the client wants you to manage their money too?</div><div class="faq-a">We refer to vetted RIAs/PMS — including, on the client's own initiative and with full disclosure, Aamara — while staying the neutral quarterback. Managing money ourselves would forfeit the conflict-free moat, so it is a deliberate, permanent line, not a stepping stone.</div></div>
+
+      <div class="faq-item"><div class="faq-q">8. Is the market really big enough at flat fees?</div><div class="faq-a">Yes, on a bottom-up basis. SAM is an estimated<span class="est">EST.</span> ₹3,000 crore/year (families × retainer); break-even needs only ~75–90 families; a Year-3 target of ~300 families is ~₹24 crore of revenue, and a 5-year path toward ~1,500 families is ~₹120 crore. The band — the top of the 85,698 HNWI pool plus the affluent tier below — is large and genuinely under-served.</div></div>
+
+      <div class="faq-item"><div class="faq-q">9. Isn't this just a people business with no scalability?</div><div class="faq-a">Early on, yes — 60–70% of cost is people. But the shared platform and central team create real operating leverage past ~40–50 families, and the data moat plus &gt;90% retention turn it into a compounding annuity rather than a project-services treadmill. The scalability comes from stickiness and leverage on a fixed senior base, not from thin, transactional volume.</div></div>
+
+      <div class="faq-item"><div class="faq-q">10. What's the real churn risk?</div><div class="faq-a">Fee competition is not the primary risk, because switching cost is structural (re-plumbing a financial life). The real risk is a service-quality lapse — a missed deadline, a reporting error, a security scare. Mitigation is senior talent, SLA-bound coordination workflows, and disciplined proactive communication between the annual "moments."</div></div>
+
+      <div class="faq-item"><div class="faq-q">11. What if SEBI decides to regulate family offices?</div><div class="faq-a">SEBI expressly clarified in October 2025 that it is <em>not</em> pursuing a dedicated family-office framework. If that changes, the business is a lightly-exposed services company (LLP/Pvt Ltd) and can register a subsidiary if a specific activity ever requires it. The core admin/coordination work sits outside securities regulation by design.</div></div>
+
+      <div class="faq-item"><div class="faq-q">12. Why now, and not five years ago?</div><div class="faq-a">Because the tailwinds only recently aligned: the wealth pool is doubling to $2.3 trillion by FY29, ESOP/exit liquidity has become structural (over $1.8 billion since 2020), a ~₹108 lakh crore great transfer is beginning, and the RBI's 2027 mis-selling crackdown is about to squeeze the product-push banks. Five years ago the band was too thin and the regulatory wind was neutral; the window is open now.</div></div>
+
+      <div class="faq-item"><div class="faq-q">13. What's the strategic value / exit?</div><div class="faq-a">A trusted, data-rich, high-retention relationship with hundreds or thousands of newly-liquid families is strategically valuable to any wealth manager, bank or global multi-family office — and, standalone, it is a durable, defensible annuity. The very stickiness that protects the business also makes the book of relationships an asset others would pay a premium to acquire.</div></div>
+    </section>
+
+    <!-- ================= 11 ACTION PLAN ================= -->
+    <section class="panel" id="panel11">
+      <span class="section-tag">Section 11</span>
+      <h1>Action Plan</h1>
+
+      <div class="roadmap">
+        <div class="road-phase"><h4>First 30 Days</h4><ul>
+          <li>Incorporate the <strong>separate legal entity</strong> (LLP/Pvt Ltd) and draft the arms-length / no-cross-sell charter versus Aamara</li>
+          <li>Obtain a legal opinion confirming <strong>non-RIA status</strong> and documenting the admin/advice partition</li>
+          <li>Shortlist Asset Vantage versus Addepar; begin vendor conversations</li>
+          <li>Hire the founding family-office lead; define the three pricing tiers and the standard client contract (with language discipline built in)</li>
+        </ul></div>
+        <div class="road-phase"><h4>Days 31–60</h4><ul>
+          <li>Sign reporting-software and document-vault vendors</li>
+          <li>Stand up DPDP compliance — appoint the DPO, run the first DPIA, architect security</li>
+          <li>Build the MVP client dashboard on top of the reporting engine</li>
+          <li>Recruit 2–3 relationship/coordination managers and a tax-coordination lead; line up the estate-lawyer, CA and insurance partner panel</li>
+          <li>Design the referral pipeline (VCs, i-bankers, CA networks, ESOP platforms)</li>
+        </ul></div>
+        <div class="road-phase"><h4>Days 61–90</h4><ul>
+          <li>Onboard <strong>3–5 pilot families</strong> (from the Aamara ecosystem / founder network) at Essential/Core tiers</li>
+          <li>Run the full loop end-to-end — consolidated report → bill-pay → vault → one succession or insurance project</li>
+          <li>Collect testimonials; refine SLAs and unit economics against real delivery cost</li>
+        </ul></div>
+        <div class="road-phase"><h4>Year 1</h4><ul>
+          <li>Reach <strong>15–25 families</strong>; validate the ~₹8 lakh blended ACV and &gt;90% retention assumptions</li>
+          <li>Formalise NRI/cross-border capability as a productised Premier service</li>
+          <li>Publish thought leadership on conflict-free administration; build the referral flywheel</li>
+          <li>Establish the Mumbai + Bengaluru presence and set the trajectory toward the 75–90-family break-even in Year 2</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- ================= 12 SOURCES ================= -->
+    <section class="panel" id="panel12">
+      <span class="section-tag">Section 12</span>
+      <h1>Sources</h1>
+      <p style="font-size:0.85rem;color:#6b665c;">Full source list compiled during secondary research, organised by section. All links as captured in the research dossier. Figures marked <span class="est">EST.</span> throughout are Aamara desk estimates/derivations, not sourced facts.</p>
+
+      <div class="source-group">
+        <h4>Wealth Population &amp; HNWI/UHNWI Counts</h4>
+        <ul>
+          <li><a href="https://cxotoday.com/media-coverage/indias-hnwi-population-set-to-reach-93753-by-2028-knight-franks-the-wealth-report-2025/" target="_blank">Knight Frank — The Wealth Report 2025 (HNWI 85,698 → 93,753 by 2028)</a></li>
+          <li><a href="https://mediabrief.com/india-becomes-the-sixth-most-ultra-hni-populous-country-globally/" target="_blank">Knight Frank — India 6th-most UHNI-populous globally (UHNWI 19,877, +63%)</a></li>
+          <li><a href="https://www.knightfrank.com/research/article/2026/4/wealth-sizing-model-2026-results" target="_blank">Knight Frank — Wealth Sizing Model 2026 results</a></li>
+          <li><a href="https://hurunindia.com/media-release/details/?id=674d305fcf08e188628b90cd" target="_blank">Hurun India Rich List 2024 (334 billionaires; 1,539 &gt;₹1,000 cr)</a></li>
+          <li><a href="https://ibef.org/news/india-minted-a-new-billionaire-every-5-days-in-2023-hurun-rich-list-2024" target="_blank">IBEF — A new billionaire every 5 days in 2023 (Hurun 2024)</a></li>
+          <li><a href="https://www.kotak.com/content/dam/Kotak/about-us/media-press-releases/2025/media-release-kotak-private-top-of-the-pyramid-report-2024.pdf" target="_blank">Kotak Private — Top of the Pyramid Report 2024</a></li>
+          <li><a href="https://www.juliusbaer.com/en/insights/company-insights/behind-the-scenes/indias-wealth-market-vibrant-growing-changing/" target="_blank">Julius Baer — India's wealth market (20% of millionaires under 40)</a></li>
+        </ul>
+      </div>
+
+      <div class="source-group">
+        <h4>Family Offices &amp; Wealth Transfer</h4>
+        <ul>
+          <li><a href="https://www.ey.com/en_in/insights/family-office/old-roots-new-routes-the-evolving-landscape-of-family-offices-in-india" target="_blank">EY — Old roots, new routes: evolving landscape of family offices in India (45→300; ₹108 lakh cr transfer)</a></li>
+          <li><a href="https://www.ibef.org/news/family-offices-in-india-rise-from-45-to-300-in-6-years-handle-us-30-billion-in-aum" target="_blank">IBEF — Family offices rise from 45 to 300; $30B AUM; 14% CAGR</a></li>
+          <li><a href="https://www.entrepreneur.com/en-in/news-and-trends/indias-family-offices-reach-300-in-2024-report/493918" target="_blank">Entrepreneur India — India's family offices reach 300 in 2024</a></li>
+          <li><a href="https://www.juliusbaer.com/en/insights/wealth-insights/family/the-indian-family-office-playbook/" target="_blank">Julius Baer — The Indian Family Office Playbook</a></li>
+          <li><a href="https://india.entrepreneur.com/news-and-trends/only-7-of-indian-heirs-feel-obligated-to-take-over-family/492059" target="_blank">Entrepreneur India — Only 7% of heirs feel obligated to run the family business (HSBC 2025)</a></li>
+          <li><a href="https://www.about.hsbc.co.in/-/media/india/en/news-and-media/250520-indias-family-businesses-trust-next-gen-leadership-trends-hsbc-report-2025.pdf" target="_blank">HSBC 2025 — India's family businesses &amp; next-gen leadership</a></li>
+        </ul>
+      </div>
+
+      <div class="source-group">
+        <h4>ESOP / Exit Liquidity</h4>
+        <ul>
+          <li><a href="https://inc42.com/features/esop-buybacks-3000-startup-employees-made-over-inr-1450-cr-in-2024/" target="_blank">Inc42 — ESOP buybacks: 3,000+ employees made ₹1,450 cr in 2024</a></li>
+          <li><a href="https://inc42.com/buzz/indian-startups-esop-buybacks-employees-2025-review/" target="_blank">Inc42 — Indian startups' ESOP buybacks 2025 review (&gt;$1.8bn since 2020)</a></li>
+          <li><a href="https://www.qapita.com/in/blog/esop-exit-strategies-india" target="_blank">Qapita — ESOP exit strategies India</a></li>
+        </ul>
+      </div>
+
+      <div class="source-group">
+        <h4>Market Sizing — Wealth Management / Wealthtech / PMS-AIF</h4>
+        <ul>
+          <li><a href="https://www.forbesindia.com/article/upfront/brand-connect/indias-wealth-management-industry-is-entering-its-defining-decade/2992069/1" target="_blank">Forbes India — Wealth-management AUM $1.1T (FY24) → $2.3T (FY29)</a></li>
+          <li><a href="https://www.3one4capital.com/blogs/signals-indias-wealth-management-industry" target="_blank">3one4 Capital — Signals: India's wealth-management industry</a></li>
+          <li><a href="https://www.techsciresearch.com/report/india-wealth-management-market/4226.html" target="_blank">TechSci — India wealth-management market $154.25B → $286.91B (10.96% CAGR)</a></li>
+          <li><a href="https://www.grandviewresearch.com/horizon/outlook/wealth-management-software-market/india" target="_blank">Grand View — India wealth-management software $260.5M → $730.7M (15.9%)</a></li>
+          <li><a href="https://www.sebi.gov.in/statistics/assets-managed.html" target="_blank">SEBI — PMS assets managed (statistics)</a></li>
+          <li><a href="https://www.sebi.gov.in/statistics/1392982252002.html" target="_blank">SEBI — AIF activity (statistics)</a></li>
+          <li><a href="https://hi5shrenik.medium.com/indias-portfolio-revolution-how-pms-aifs-are-reshaping-wealth-management-6468364e5923" target="_blank">Medium/EY–Julius Baer synthesis — PMS+AIF &gt;₹23 lakh cr; AIF → ₹100 lakh cr by 2030</a></li>
+          <li><a href="https://entrackr.com/report/indias-wealthtech-funding-climbs-to-634-mn-in-202425-10954686" target="_blank">Entrackr — India wealthtech funding ~$634M in 2024–25</a></li>
+        </ul>
+      </div>
+
+      <div class="source-group">
+        <h4>Competitors — MFOs, Wealth Firms &amp; Wealthtech</h4>
+        <ul>
+          <li><a href="https://en.wikipedia.org/wiki/360_One_WAM" target="_blank">360 ONE WAM — profile (₹7.11 lakh cr AUM)</a></li>
+          <li><a href="https://www.nuvama.com/" target="_blank">Nuvama Group — homepage (&gt;₹4.4 trillion assets)</a></li>
+          <li><a href="https://waterfieldadvisors.com/" target="_blank">Waterfield Advisors — fee-only MFO ($4.3B / 150 families)</a></li>
+          <li><a href="https://www.hubbis.com/article/advisory-first-how-waterfield-advisors-is-reshaping-india-s-wealth-model-with-a-human-edge-and-digital-innovation" target="_blank">Hubbis — Waterfield's advisory-first model</a></li>
+          <li><a href="https://clientassociates.com/services/practice-areas/family-office/" target="_blank">Client Associates — Family Office ($7B AUA, 1,300+ relationships)</a></li>
+          <li><a href="https://praxisrock.com/resources/investors/family-offices-india" target="_blank">Praxis — Family offices in India (ASK ~₹81,000 cr; comps overview)</a></li>
+          <li><a href="https://www.entrustfamilyoffice.com/" target="_blank">Entrust Family Office — boutique pure-advisory, "zero conflict"</a></li>
+          <li><a href="https://andsimple.co/family-offices/entrust-family-office" target="_blank">AndSimple — Entrust Family Office profile</a></li>
+          <li><a href="https://multi-act.com/" target="_blank">Multi-Act — advisory + PMS for family offices</a></li>
+          <li><a href="https://unlistedzone.com/dezerv-secures-350-crore-in-series-c-funding-strengthening-its-position-as-indias-leading-wealth-management-innovator" target="_blank">Dezerv — ₹350 cr Series C; ₹14,000 cr AUM</a></li>
+          <li><a href="https://techcrunch.com/2024/07/07/investors-chase-wealthtech-startups-in-india-as-affluent-class-grows/" target="_blank">TechCrunch — Investors chase India wealthtech startups</a></li>
+          <li><a href="https://centricity.co.in/" target="_blank">Centricity — assisted wealthtech</a></li>
+          <li><a href="https://pmsbazaar.com/" target="_blank">PMS Bazaar — PMS/AIF data &amp; tracking (90,000+ subscribers)</a></li>
+          <li><a href="https://andsimple.co/companies/addepar/" target="_blank">Addepar — profile (0.008–0.03% AUM; ~$229k avg rev/customer)</a></li>
+          <li><a href="https://sacra.com/c/addepar/" target="_blank">Sacra — Addepar analysis</a></li>
+          <li><a href="https://www.assetvantage.com/" target="_blank">Asset Vantage — India-focused family-office software</a></li>
+          <li><a href="https://familyoffice-software.com/compare/addepar-vs-asset-vantage" target="_blank">Family Office Software — Addepar vs Asset Vantage comparison</a></li>
+        </ul>
+      </div>
+
+      <div class="source-group">
+        <h4>Regulatory &amp; Legal</h4>
+        <ul>
+          <li><a href="https://www.sebi.gov.in/legal/regulations/dec-2024/securities-and-exchange-board-of-india-investment-advisers-second-amendment-regulations-2024_89980.html" target="_blank">SEBI (Investment Advisers) 2nd Amendment 2024 (fixed-fee cap ₹1.51 lakh; 2.5% AUA)</a></li>
+          <li><a href="https://1finance.co.in/blog/sebi-ria-financial-planner-fees-charge/" target="_blank">1 Finance — SEBI RIA / financial-planner fee benchmarks</a></li>
+          <li><a href="https://scripbox.com/wealth/sebi-registered-investment-advisor/" target="_blank">Scripbox — SEBI Registered Investment Advisor overview</a></li>
+          <li><a href="https://www.legalitysimplified.com/sebi-clarifies-it-is-not-considering-regulatory-oversight-of-family-offices/" target="_blank">Legality Simplified — SEBI (Oct-2025) not considering family-office oversight</a></li>
+          <li><a href="https://treelife.in/legal/family-offices-in-india/" target="_blank">Treelife — Family offices in India (legal structures)</a></li>
+          <li><a href="https://www.mondaq.com/india/securities/1772916/five-legal-and-compliance-essentials-for-setting-up-a-family-office-in-india" target="_blank">Mondaq — Legal &amp; compliance essentials for a family office in India</a></li>
+          <li><a href="https://www.ey.com/en_in/insights/cybersecurity/decoding-the-digital-personal-data-protection-act-2023" target="_blank">EY — Decoding the DPDP Act 2023 (SDF/DPO/DPIA; ₹250 cr)</a></li>
+          <li><a href="https://www.hoganlovells.com/en/publications/indias-digital-personal-data-protection-act-2023-brought-into-force-" target="_blank">Hogan Lovells — DPDP Act in force (deadline 13 May 2027)</a></li>
+          <li><a href="https://cleartax.in/s/inheritance-tax" target="_blank">ClearTax — Inheritance tax in India (estate duty abolished 1985)</a></li>
+          <li><a href="https://1finance.co.in/blog/mis-selling-by-banks-is-the-bank-trying-to-scam-you-how-to-protect-yourself/" target="_blank">1 Finance — Mis-selling by banks (57% RMs; 65–70% commissions)</a></li>
+          <li><a href="https://www.indmoney.com/blog/stocks/rbi-mis-selling-rules" target="_blank">INDmoney — RBI mis-selling rules (from 1-Jan-2027)</a></li>
+        </ul>
+      </div>
+
+      <div class="source-group">
+        <h4>Global Family-Office Cost Benchmarks &amp; NRI Wealth</h4>
+        <ul>
+          <li><a href="https://www.ubs.com/global/en/media/display-page-ndp/en-20260528-global-family-office-report-2026.html" target="_blank">UBS — Global Family Office Report 2026 (20–120 bps; 60–70% personnel)</a></li>
+          <li><a href="https://aleta.io/knowledge-hub/family-office-costs-and-fees" target="_blank">Aleta — Family-office costs and fees</a></li>
+          <li><a href="https://www.ibef.org/blogs/the-diaspora-effect-driving-bilateral-ties-and-remittances-to-india" target="_blank">IBEF — Remittances $135.46B FY25 (record)</a></li>
+          <li><a href="https://www.idfcfirst.bank.in/finfirst-blogs/nri/nri-remittance-trends-future-india" target="_blank">IDFC First — NRI remittance trends</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1087 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Pet Wellness Chain — Case Study | Aamara Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ AAMARA CAPITAL — BRAND SYSTEM ============ */
+:root{
+  --cream:#faf9f5;
+  --charcoal:#141310;
+  --charcoal2:#0c0b0a;
+  --gold:#b98a3e;
+  --wine:#5c2b2e;
+  --ember:#a8624f;
+  --line: rgba(20,19,16,0.12);
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans: "Jost", Helvetica, Arial, sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--cream);
+  color:var(--charcoal2);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--serif); font-weight:600; color:var(--charcoal2); margin:0 0 .3em 0;}
+p{margin:0 0 1em 0;}
+a{color:var(--wine);}
+a:hover{color:var(--ember);}
+
+/* ---------- header / wordmark ---------- */
+.brand-header{
+  padding:28px 40px 22px 40px;
+  border-bottom:1px solid var(--line);
+  background:var(--cream);
+}
+.wordmark{
+  font-family:var(--sans);
+  font-weight:600;
+  letter-spacing:.32em;
+  font-size:13px;
+  color:var(--charcoal2);
+  text-transform:uppercase;
+}
+.gold-rule{
+  height:2px;
+  width:64px;
+  background:var(--gold);
+  margin:10px 0 18px 0;
+}
+.doc-title{
+  font-family:var(--serif);
+  font-size:44px;
+  font-weight:700;
+  line-height:1.05;
+  margin:0 0 6px 0;
+  color:var(--charcoal2);
+}
+.doc-sub{
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:15px;
+  color:var(--wine);
+  letter-spacing:.02em;
+}
+.doc-meta{
+  font-size:12px;
+  color:#7a7568;
+  margin-top:10px;
+  letter-spacing:.04em;
+}
+
+/* ---------- EST badge ---------- */
+.est{
+  display:inline-block;
+  font-family:var(--sans);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.08em;
+  color:var(--gold);
+  border:1px dashed var(--gold);
+  border-radius:20px;
+  padding:1px 7px;
+  margin-left:5px;
+  vertical-align:middle;
+  background:rgba(185,138,62,0.06);
+  white-space:nowrap;
+}
+
+/* ---------- radio-tab mechanism ---------- */
+.tab-input{display:none;}
+.layout{display:flex; align-items:flex-start; min-height:100vh;}
+.sidebar{
+  position:sticky; top:0;
+  width:250px; min-width:250px;
+  height:100vh;
+  overflow-y:auto;
+  background:var(--charcoal2);
+  padding:26px 0;
+  border-right:3px solid var(--gold);
+}
+.sidebar .side-brand{
+  color:var(--cream);
+  font-size:11px;
+  letter-spacing:.28em;
+  padding:0 24px 18px 24px;
+  border-bottom:1px solid rgba(250,249,245,0.15);
+  margin-bottom:8px;
+}
+.sidebar label{
+  display:block;
+  color:rgba(250,249,245,0.62);
+  font-size:13px;
+  letter-spacing:.03em;
+  padding:12px 24px;
+  cursor:pointer;
+  border-left:3px solid transparent;
+  transition:all .15s ease;
+  font-weight:400;
+}
+.sidebar label .num{color:var(--gold); font-weight:600; margin-right:8px; font-family:var(--serif); font-size:15px;}
+.sidebar label:hover{background:rgba(185,138,62,0.12); color:var(--cream);}
+
+.content{flex:1; padding:44px 56px; max-width:980px;}
+.panel{display:none;}
+.panel h2.section-title{
+  font-size:36px;
+  border-bottom:2px solid var(--gold);
+  padding-bottom:14px;
+  margin-bottom:8px;
+}
+.panel .section-kicker{
+  font-family:var(--sans);
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  font-size:11px;
+  color:var(--wine);
+  font-weight:600;
+  margin-bottom:6px;
+}
+.panel .section-intro{font-size:16px; color:#3a382f; max-width:760px; margin-bottom:28px;}
+
+/* show/hide logic - each input controls its sibling layout's matching panel + label state */
+#tab1:checked ~ .layout #panel1,
+#tab2:checked ~ .layout #panel2,
+#tab3:checked ~ .layout #panel3,
+#tab4:checked ~ .layout #panel4,
+#tab5:checked ~ .layout #panel5,
+#tab6:checked ~ .layout #panel6,
+#tab7:checked ~ .layout #panel7,
+#tab8:checked ~ .layout #panel8,
+#tab9:checked ~ .layout #panel9,
+#tab10:checked ~ .layout #panel10,
+#tab11:checked ~ .layout #panel11,
+#tab12:checked ~ .layout #panel12{display:block;}
+
+#tab1:checked ~ .layout label[for="tab1"],
+#tab2:checked ~ .layout label[for="tab2"],
+#tab3:checked ~ .layout label[for="tab3"],
+#tab4:checked ~ .layout label[for="tab4"],
+#tab5:checked ~ .layout label[for="tab5"],
+#tab6:checked ~ .layout label[for="tab6"],
+#tab7:checked ~ .layout label[for="tab7"],
+#tab8:checked ~ .layout label[for="tab8"],
+#tab9:checked ~ .layout label[for="tab9"],
+#tab10:checked ~ .layout label[for="tab10"],
+#tab11:checked ~ .layout label[for="tab11"],
+#tab12:checked ~ .layout label[for="tab12"]{
+  background:rgba(185,138,62,0.16);
+  color:var(--cream);
+  border-left:3px solid var(--gold);
+  font-weight:500;
+}
+
+/* ---------- shared components ---------- */
+table{border-collapse:collapse; width:100%; margin:18px 0 28px 0; font-size:13.5px;}
+th,td{border:1px solid var(--line); padding:10px 12px; text-align:left; vertical-align:top;}
+th{background:var(--charcoal2); color:var(--cream); font-weight:500; font-family:var(--sans); font-size:12px; letter-spacing:.03em; text-transform:uppercase;}
+tr:nth-child(even) td{background:rgba(185,138,62,0.045);}
+.table-wrap{overflow-x:auto;}
+
+.callout{
+  background:linear-gradient(135deg, rgba(92,43,46,0.06), rgba(185,138,62,0.08));
+  border-left:4px solid var(--wine);
+  padding:20px 26px;
+  margin:22px 0 30px 0;
+  border-radius:2px;
+}
+.callout h3{font-size:20px; color:var(--wine); margin-bottom:6px;}
+.callout p{margin-bottom:0; font-size:15px;}
+
+.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:20px 0;}
+.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:20px 0;}
+.grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:20px 0;}
+
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-top:3px solid var(--gold);
+  padding:18px 20px;
+  border-radius:2px;
+}
+.card h4{font-size:19px; margin-bottom:8px;}
+.card.wine-top{border-top-color:var(--wine);}
+.card.ember-top{border-top-color:var(--ember);}
+.card ul{margin:0; padding-left:18px;}
+.card li{margin-bottom:6px; font-size:13.5px;}
+
+.swot-grid{display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--gold); margin:20px 0 30px 0; border:2px solid var(--gold);}
+.swot-cell{background:#fff; padding:18px 22px;}
+.swot-cell h4{font-size:17px; letter-spacing:.05em; text-transform:uppercase; margin-bottom:10px;}
+.swot-cell.s h4{color:#3f7a4f;}
+.swot-cell.w h4{color:var(--ember);}
+.swot-cell.o h4{color:var(--gold);}
+.swot-cell.t h4{color:var(--wine);}
+.swot-cell ul{margin:0; padding-left:18px; font-size:13px;}
+.swot-cell li{margin-bottom:7px;}
+
+.porter-card{background:#fff; border:1px solid var(--line); border-left:4px solid var(--wine); padding:16px 20px; margin-bottom:12px;}
+.porter-card h4{font-size:17px; margin-bottom:6px;}
+.porter-rating{display:inline-block; font-size:10px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:#fff; background:var(--wine); padding:2px 10px; border-radius:10px; margin-left:10px;}
+.porter-card p{font-size:13.5px; margin-bottom:0;}
+
+.pestle-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0 30px 0;}
+.pestle-card{background:#fff; border:1px solid var(--line); padding:16px 20px; border-radius:2px;}
+.pestle-card h4{font-size:16px; color:var(--wine); text-transform:uppercase; letter-spacing:.08em; font-size:13px; margin-bottom:8px;}
+.pestle-card ul{margin:0; padding-left:18px; font-size:13px;}
+.pestle-card li{margin-bottom:7px;}
+
+.reg-group{margin-bottom:20px;}
+.reg-group h4{font-size:18px; color:var(--wine); margin-bottom:8px; border-bottom:1px solid var(--line); padding-bottom:4px;}
+.reg-group ul{padding-left:20px; font-size:13.5px;}
+.reg-group li{margin-bottom:8px;}
+
+.risk-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:16px 0 30px 0;}
+.risk-card{background:#fff; border:1px solid var(--line); border-top:3px solid var(--ember); padding:16px 20px;}
+.risk-card h4{font-size:16px; margin-bottom:8px;}
+.risk-card ul{margin:0; padding-left:18px; font-size:13px;}
+.risk-card li{margin-bottom:7px;}
+
+/* funnel viz */
+.funnel{margin:24px 0 10px 0;}
+.funnel-row{display:flex; align-items:center; margin-bottom:14px;}
+.funnel-label{width:110px; font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--wine); font-weight:600;}
+.funnel-bar-wrap{flex:1; background:rgba(20,19,16,0.05); border-radius:3px; overflow:hidden; height:46px; position:relative;}
+.funnel-bar{height:100%; display:flex; align-items:center; padding:0 18px; color:#fff; font-family:var(--serif); font-size:15px; font-weight:600;}
+.funnel-bar.tam{width:100%; background:var(--wine);}
+.funnel-bar.sam{width:55%; background:var(--ember);}
+.funnel-bar.som{width:22%; background:var(--gold);}
+.funnel-note{font-size:11.5px; color:#7a7568; margin-top:-8px; margin-bottom:16px; padding-left:110px;}
+
+.stat-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:24px 0 32px 0;}
+.stat-box{text-align:center; background:#fff; border:1px solid var(--line); padding:18px 10px; border-radius:2px;}
+.stat-box .num{font-family:var(--serif); font-size:32px; font-weight:700; color:var(--wine); line-height:1;}
+.stat-box .lbl{font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:#7a7568; margin-top:6px;}
+
+.persona-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:20px 0 30px 0;}
+.persona-card{background:#fff; border:1px solid var(--line); border-radius:3px; overflow:hidden;}
+.persona-head{background:var(--charcoal2); color:var(--cream); padding:14px 20px;}
+.persona-head .p-name{font-family:var(--serif); font-size:22px; font-weight:600;}
+.persona-head .p-tag{font-size:11px; color:var(--gold); text-transform:uppercase; letter-spacing:.06em;}
+.persona-body{padding:16px 20px; font-size:13.5px;}
+.persona-body p{margin-bottom:10px;}
+.persona-body b{color:var(--wine);}
+
+.marketing-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:16px 0 30px 0;}
+.mkt-card{background:#fff; border:1px solid var(--line); border-top:3px solid var(--gold); padding:16px 20px;}
+.mkt-card h4{font-size:16px; margin-bottom:8px; color:var(--wine);}
+.mkt-card ul{margin:0; padding-left:18px; font-size:13px;}
+.mkt-card li{margin-bottom:7px;}
+
+.bmc-grid{display:grid; grid-template-columns:repeat(5,1fr); grid-template-rows:auto auto; gap:2px; background:var(--gold); border:2px solid var(--gold); margin:22px 0 30px 0;}
+.bmc-cell{background:#fff; padding:14px 16px; min-height:150px;}
+.bmc-cell h4{font-size:13px; text-transform:uppercase; letter-spacing:.05em; color:var(--wine); margin-bottom:8px;}
+.bmc-cell ul{margin:0; padding-left:16px; font-size:12px;}
+.bmc-cell li{margin-bottom:6px;}
+.bmc-cell.span2{grid-column:span 2;}
+.bmc-cell.wide{grid-column:span 5;}
+
+.faq-item{background:#fff; border:1px solid var(--line); border-left:4px solid var(--wine); margin-bottom:14px; padding:16px 22px;}
+.faq-q{font-family:var(--serif); font-size:19px; font-weight:600; color:var(--charcoal2); margin-bottom:8px;}
+.faq-a{font-size:14px; color:#3a382f;}
+
+.roadmap{position:relative; margin:24px 0 30px 0; padding-left:26px; border-left:3px solid var(--gold);}
+.road-phase{margin-bottom:26px; position:relative;}
+.road-phase::before{content:""; position:absolute; left:-33px; top:4px; width:14px; height:14px; border-radius:50%; background:var(--wine); border:3px solid var(--cream); outline:2px solid var(--gold);}
+.road-phase h4{font-size:20px; color:var(--wine); margin-bottom:8px;}
+.road-phase ul{margin:0; padding-left:20px; font-size:13.5px;}
+.road-phase li{margin-bottom:6px;}
+
+.source-group{margin-bottom:22px;}
+.source-group h4{font-size:17px; color:var(--wine); border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:10px;}
+.source-group ul{padding-left:20px; font-size:13px;}
+.source-group li{margin-bottom:6px;}
+
+.usp-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin:20px 0 30px 0;}
+.usp-card{background:#fff; border:1px solid var(--line); padding:18px 20px; text-align:center;}
+.usp-card .icon{font-size:26px; color:var(--gold); margin-bottom:8px;}
+.usp-card h4{font-size:16px; margin-bottom:8px;}
+.usp-card p{font-size:13px; margin-bottom:0;}
+
+.vs-table td.win{color:#3f7a4f; font-weight:600;}
+
+/* ---------- responsive ---------- */
+@media (max-width: 768px){
+  .layout{flex-direction:column;}
+  .sidebar{
+    position:sticky; top:0; width:100%; min-width:0; height:auto;
+    display:flex; overflow-x:auto; overflow-y:hidden; padding:10px 6px; border-right:none; border-bottom:3px solid var(--gold);
+    white-space:nowrap;
+  }
+  .sidebar .side-brand{display:none;}
+  .sidebar label{padding:10px 16px; border-left:none; border-bottom:3px solid transparent; flex:none;}
+  #tab1:checked ~ .layout label[for="tab1"],
+  #tab2:checked ~ .layout label[for="tab2"],
+  #tab3:checked ~ .layout label[for="tab3"],
+  #tab4:checked ~ .layout label[for="tab4"],
+  #tab5:checked ~ .layout label[for="tab5"],
+  #tab6:checked ~ .layout label[for="tab6"],
+  #tab7:checked ~ .layout label[for="tab7"],
+  #tab8:checked ~ .layout label[for="tab8"],
+  #tab9:checked ~ .layout label[for="tab9"],
+  #tab10:checked ~ .layout label[for="tab10"],
+  #tab11:checked ~ .layout label[for="tab11"],
+  #tab12:checked ~ .layout label[for="tab12"]{border-left:none; border-bottom:3px solid var(--gold);}
+  .content{padding:28px 20px;}
+  .grid-2, .grid-3, .grid-4, .swot-grid, .pestle-grid, .persona-grid, .marketing-grid, .risk-grid, .usp-grid{grid-template-columns:1fr;}
+  .bmc-grid{grid-template-columns:1fr 1fr;}
+  .bmc-cell.wide{grid-column:span 2;}
+  .stat-strip{grid-template-columns:1fr 1fr;}
+  .brand-header{padding:20px 20px;}
+  .doc-title{font-size:32px;}
+}
+
+/* ---------- print ---------- */
+@media print{
+  .sidebar{display:none !important;}
+  .layout{display:block !important;}
+  .content{padding:0 10px; max-width:100%;}
+  .panel{display:block !important; page-break-after:always; padding-top:10px;}
+  .panel:last-child{page-break-after:auto;}
+  body{background:#fff;}
+  .brand-header{border-bottom:2px solid var(--gold);}
+  a{text-decoration:none; color:var(--charcoal2);}
+  .card, .persona-card, .mkt-card, .risk-card, .pestle-card, .faq-item, .porter-card{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+
+<header class="brand-header">
+  <div class="wordmark">AAMARA CAPITAL</div>
+  <div class="gold-rule"></div>
+  <div class="doc-title">Premium Pet Wellness Chain</div>
+  <div class="doc-sub">A case study — building India's first integrated premium daycare, boarding, grooming &amp; vet-tech brand, Mumbai-first.</div>
+  <div class="doc-meta">NEW BUSINESS EVALUATION · CANDIDATE 4 OF 5 · PREPARED JULY 2026</div>
+</header>
+
+<input class="tab-input" type="radio" name="tabs" id="tab1" checked>
+<input class="tab-input" type="radio" name="tabs" id="tab2">
+<input class="tab-input" type="radio" name="tabs" id="tab3">
+<input class="tab-input" type="radio" name="tabs" id="tab4">
+<input class="tab-input" type="radio" name="tabs" id="tab5">
+<input class="tab-input" type="radio" name="tabs" id="tab6">
+<input class="tab-input" type="radio" name="tabs" id="tab7">
+<input class="tab-input" type="radio" name="tabs" id="tab8">
+<input class="tab-input" type="radio" name="tabs" id="tab9">
+<input class="tab-input" type="radio" name="tabs" id="tab10">
+<input class="tab-input" type="radio" name="tabs" id="tab11">
+<input class="tab-input" type="radio" name="tabs" id="tab12">
+
+<div class="layout">
+  <nav class="sidebar">
+    <div class="side-brand">CASE STUDY CONTENTS</div>
+    <label for="tab1"><span class="num">01</span>Executive Summary</label>
+    <label for="tab2"><span class="num">02</span>Market &amp; Industry</label>
+    <label for="tab3"><span class="num">03</span>Competitive Landscape</label>
+    <label for="tab4"><span class="num">04</span>Macro &amp; Regulatory</label>
+    <label for="tab5"><span class="num">05</span>Financials</label>
+    <label for="tab6"><span class="num">06</span>Customers &amp; Marketing</label>
+    <label for="tab7"><span class="num">07</span>Technology &amp; Expansion</label>
+    <label for="tab8"><span class="num">08</span>Business Model</label>
+    <label for="tab9"><span class="num">09</span>USP &amp; Moat</label>
+    <label for="tab10"><span class="num">10</span>FAQ</label>
+    <label for="tab11"><span class="num">11</span>Action Plan</label>
+    <label for="tab12"><span class="num">12</span>Sources</label>
+  </nav>
+
+  <main class="content">
+
+    <!-- ===================== 01 EXECUTIVE SUMMARY ===================== -->
+    <section class="panel" id="panel1">
+      <div class="section-kicker">Section 01</div>
+      <h2 class="section-title">Executive Summary</h2>
+
+      <div class="stat-strip">
+        <div class="stat-box"><div class="num">42M<span class="est">EST.</span></div><div class="lbl">Pets in India, 2024</div></div>
+        <div class="stat-box"><div class="num">33.6%</div><div class="lbl">West India share of pet-food revenue</div></div>
+        <div class="stat-box"><div class="num">12</div><div class="lbl">Vetic clinics in Mumbai — closest rival</div></div>
+        <div class="stat-box"><div class="num">₹4-8cr<span class="est">EST.</span></div><div class="lbl">Year-5 Mumbai revenue (SOM)</div></div>
+      </div>
+
+      <p>Mumbai's pet-owning households have outgrown the market built to serve them. A generation of nuclear-family, dual-income pet parents in Bandra, Powai, Andheri and Juhu now treat their dogs and cats as family — spending on "human-grade" nutrition, designer grooming and premium boarding — yet the city offers no single trusted destination that combines all of it. Owners currently stitch together a neighbourhood groomer, an informal boarder found through a WhatsApp group, and a vet clinic across town, with no shared record of vaccinations, allergies or visit history between any of them. That fragmentation is the problem this case study evaluates a solution for: a chain of premium, purpose-built pet wellness centres — grooming, daycare and overnight boarding under one roof — wired into a proprietary app that holds each pet's digital health record, sends vaccination and grooming reminders, and connects owners to registered veterinarians by telehealth.</p>
+
+      <p>The competitive scan behind this case study is the reason it is being brought to the investment committee now rather than filed away. Six named players were profiled in depth. <b>Heads Up For Tails</b> has built India's strongest pet retail brand and a 100+ store footprint, but its grooming is a counter bolted onto a shop, not a destination, and it has no health-record or tele-vet layer. <b>Supertails</b> has built the best digital/tele-vet product in the category and is growing revenue 67% year-on-year, but it has zero physical locations — a customer who wants to drop a dog off for the day simply cannot use it. <b>Wiggles</b> proved five years ago that Indian pet owners will pay for a subscription box and a vet-on-call line, but at ₹21.7 crore revenue it has never achieved density anywhere, least of all Mumbai. <b>DogSpot</b> shows that eighteen years of content trust and a Ratan Tata cheque still do not convert to a scaled services business without capital and real estate. And <b>Vetic</b> — the single most important read in this research — has already proven the hardest part: 65 clinics across 11 cities, 12 of them in Mumbai, combining vet consults, grooming and app-based booking at genuine scale. What Vetic has not built is a daycare or boarding brand; it reads, and is positioned, as a clinic. <b>No competitor in this market owns premium physical locations, boarding/daycare, integrated health-tech, and a subscription model simultaneously</b> — that is the white space this concept is designed to occupy.</p>
+
+      <p><b>Target customers</b> span four validated personas developed from this research: young working professionals needing reliable daytime daycare with photo proof of care; affluent multi-pet families wanting a single "wellness home" for a premium-breed animal; frequent-travelling professionals who need dependable, safe overnight boarding, especially across the Diwali and year-end peak; and first-time, often first-generation pet parents who need an approachable, non-judgmental entry point into pet healthcare. Each persona maps to a different revenue line — subscription daycare, top-tier membership, prepaid boarding credits, and low-ticket entry membership respectively — giving the model multiple, uncorrelated demand drivers rather than dependence on a single customer type.</p>
+
+      <p><b>Why now:</b> three tailwinds are converging. First, India's pet care economy has compounded from roughly $3.6 billion (CY24) toward a projected $24-25 billion by 2032 on most estimates <span class="est">EST.</span>, and 60%+ of urban pet owners already say they prefer professional boarding over informal arrangements — the market is visibly formalizing away from unorganized operators. Second, corporate India has started normalizing pet-friendly workplace policy (Nestlé India, WeWork India, InMobi, Bizongo, Swiggy), opening a genuine B2B2C channel that did not exist five years ago. Third, and most decisively, the category's best-funded players have each built only one piece of the puzzle — brand and retail (HUFT), tele-health (Supertails), subscription (Wiggles), or clinical density (Vetic) — and none of the four has yet combined them. That gap will not stay open indefinitely: HUFT could add an app, Vetic could add boarding, Supertails could open stores. The window to establish the integrated category leader is now, not after a incumbent closes the gap first.</p>
+
+      <p><b>Key highlights this case study surfaces:</b> a bottom-up-derived Mumbai SOM of roughly ₹4-8 crore/year by Year 5 <span class="est">EST.</span> against a Mumbai premium SAM of ₹25-40 crore today <span class="est">EST.</span>; a per-flagship-location startup cost of ₹84 lakh to ₹1.7 crore <span class="est">EST.</span> with a lower-capex ₹25-45 lakh <span class="est">EST.</span> satellite format for hub-and-spoke rollout; a blended gross margin around 50-55% <span class="est">EST.</span> and mature-location net margin of 5-15% <span class="est">EST.</span>; and a regulatory stack (BMC licensing, the Prevention of Cruelty to Animals Act 1960, Veterinary Council of India registration, ambiguous GST treatment) that is navigable but must be underwritten carefully before capital is committed. The recommendation that follows in this case study is to pilot two flagship locations in Bandra/Khar and Powai, prove unit economics over 12-18 months, and only then commit to the wider Mumbai, Maharashtra and India roadmap detailed in Section 11.</p>
+    </section>
+
+    <!-- ===================== 02 MARKET & INDUSTRY ===================== -->
+    <section class="panel" id="panel2">
+      <div class="section-kicker">Section 02</div>
+      <h2 class="section-title">Market &amp; Industry</h2>
+      <p class="section-intro">India's "pet care market" is quoted anywhere between $720 million and $25 billion depending entirely on what the analyst chooses to count. This section reconciles those numbers before using them.</p>
+
+      <h3>The headline confusion — reconciled, not silently picked</h3>
+      <div class="table-wrap"><table>
+        <tr><th>Source</th><th>Scope</th><th>Figure</th><th>Growth</th></tr>
+        <tr><td>Nexdigm</td><td>"India Pet Care Market" (narrowest definition)</td><td>US$720 million <span class="est">EST.</span></td><td>—</td></tr>
+        <tr><td>IBEF / India Briefing (Redseer)</td><td>Total pet care economy — food + healthcare + accessories + services</td><td>₹30,434 cr / ~US$3.6bn (CY24) → ~US$24.8-25bn by 2032</td><td>~20% CAGR</td></tr>
+        <tr><td>Grand View Research — Pet Services</td><td>Pet services only (grooming, boarding, training)</td><td>US$1,025 million by 2030 <span class="est">EST.</span></td><td>11.3% CAGR (2024-30)</td></tr>
+        <tr><td>Grand View Research — Pet Care</td><td>Broader pet care</td><td>US$2,478.9m by 2030 / two conflicting GVR notes cite 5.5% and 8.0% CAGR</td><td>5.5-8.0% CAGR (inconsistent within GVR itself)</td></tr>
+        <tr><td>IMARC — Pet Grooming</td><td>Grooming only</td><td>US$440.8m (2025) → US$764.3m by 2034</td><td>6.12% CAGR</td></tr>
+        <tr><td>IMARC — Pet Care Products</td><td>Broadest, retail-inclusive</td><td>US$8.6bn (2025) → US$13.9bn by 2034</td><td>5.24% CAGR</td></tr>
+      </table></div>
+
+      <div class="callout">
+        <h3>Reconciliation used in this case study</h3>
+        <p>The 10x+ spread across vendors is a scope artifact, not disagreement about India's pet market being real. This case study anchors on the <b>pet services sub-segment</b> — grooming, boarding, daycare, training — since that is what a physical wellness chain actually sells: the GVR figure of ~US$1.0-1.1bn by 2030 and IBEF's ~₹600 crore (~US$71M) CY24 base, growing at an estimated <b>11-15% CAGR</b>, with premium/branded operators capturing a disproportionate share as the category formalizes away from unorganized neighbourhood groomers. Every TAM/SAM/SOM figure below is built from this anchor, not from the $25bn headline number.</p>
+      </div>
+
+      <h3>TAM / SAM / SOM — bottom-up estimation <span class="est">EST.</span></h3>
+      <div class="funnel">
+        <div class="funnel-row"><div class="funnel-label">TAM</div><div class="funnel-bar-wrap"><div class="funnel-bar tam">₹1,800-2,500 cr by 2028-30 · India organized services</div></div></div>
+        <div class="funnel-note">Compounding the IBEF ₹600cr CY24 base at a blended 11-15% CAGR with a premiumization uplift.</div>
+        <div class="funnel-row"><div class="funnel-label">SAM</div><div class="funnel-bar-wrap"><div class="funnel-bar sam">₹25-40 cr/yr today → ₹80-120 cr/yr by 2030 · Mumbai MMR premium segment</div></div></div>
+        <div class="funnel-note">West India ≈33% of national pet spend; Mumbai MMR ≈60-70% of that; premium/organized-willing households ≈20-30% of MMR pet owners.</div>
+        <div class="funnel-row"><div class="funnel-label">SOM</div><div class="funnel-bar-wrap"><div class="funnel-bar som">₹4-8 cr/yr by Year 5 · realistic Mumbai capture</div></div></div>
+        <div class="funnel-note">8-15 Mumbai locations by Year 5 at ₹40-70 lakh/yr revenue each ≈ 5-10% share of the Mumbai premium SAM.</div>
+      </div>
+
+      <h3>Pet ownership &amp; humanization</h3>
+      <div class="grid-2">
+        <div class="card"><h4>Scale of the pet population</h4><ul>
+          <li>India's pet population: ~26M (2019) → ~42M (2024) <span class="est">EST.</span>; dogs ~36.8M, cats ~4M.</li>
+          <li>A broader India Briefing estimate: ~100M pets nationally in 2025, of which ~30M are in urban households — the more relevant TAM anchor for a Mumbai-first chain.</li>
+          <li>~23M households own dogs; ~1.7M own cats (multi-pet households counted in both); 63% of pet owners have a dog, 42% a cat.</li>
+        </ul></div>
+        <div class="card wine-top"><h4>Why Mumbai specifically</h4><ul>
+          <li>West India (Mumbai + Pune) ≈ <b>33.6%</b> of India's pet-food revenue in 2025 — a strong over-index vs. population share.</li>
+          <li>Only ~4,000-5,000 practising vets serve India's organized/urban pet population — a national shortage that both constrains scaling and justifies a tele-vet layer that extends vet reach.</li>
+          <li>Pet insurance penetration is below 1% (vs. UK ~25%+, Sweden ~40%+) — most spend today is out-of-pocket, which matters for willingness-to-pay assumptions.</li>
+        </ul></div>
+      </div>
+
+      <h3>Key trends</h3>
+      <div class="grid-3">
+        <div class="card"><h4>Premiumization</h4><p>Grain-free/organic food, designer accessories, GPS collars, "luxury" boarding (AC suites, webcams) — consistent across IBEF, India Briefing and IMARC.</p></div>
+        <div class="card"><h4>Insurance inflection</h4><p>Still &lt;1% penetration but growing ~19-20% CAGR; new entrants Universal Sompo and Future Generali (~25,000 policies in one quarter) signal the category is turning.</p></div>
+        <div class="card"><h4>Professionalization</h4><p>Training-service demand up 3x in five years; 60%+ of urban owners now seek professional boarding over leaving pets with family/neighbours.</p></div>
+        <div class="card"><h4>Vet-tech normalization</h4><p>No dedicated VCI telemedicine framework exists yet, but Supertails and Wiggles have already normalized "vet-on-call" as a consumer expectation.</p></div>
+        <div class="card"><h4>Global entry</h4><p>Mars Petcare is investing ₹500 crore (~$59.6M) in a Telangana facility, targeting India as a top-5 global market — validation and a future competitive-intensity signal.</p></div>
+        <div class="card"><h4>Nuclear-family adoption</h4><p>Smaller households and pet-friendly housing stock in Mumbai/Pune/Bengaluru/Hyderabad are driving millennial/Gen-Z adoption, who treat pets as "family members."</p></div>
+      </div>
+
+      <h3>Consumer behaviour</h3>
+      <p>Willingness to pay is rising fastest among millennial/Gen-Z owners who anthropomorphize pets as "fur babies" and want human-grade healthcare and curated nutrition. Boarding/daycare demand spikes seasonally around Diwali, Christmas/New Year and summer travel. Yet price sensitivity is real even among the affluent: review mining surfaced a HUFT customer charged an undisclosed extra ₹2,000 for a "full haircut" beyond the quoted price — transparent, itemized, pre-committed pricing is a genuine, evidenced differentiation opportunity, not a nice-to-have. Trust and safety concerns (animal handling, hygiene, medical emergencies) are the dominant driver of provider choice, which is why vet-on-call backup and verifiable safety track records feature so heavily in every competitor's own marketing.</p>
+    </section>
+
+    <!-- ===================== 03 COMPETITIVE LANDSCAPE ===================== -->
+    <section class="panel" id="panel3">
+      <div class="section-kicker">Section 03</div>
+      <h2 class="section-title">Competitive Landscape</h2>
+
+      <div class="callout">
+        <h3>The white space: Vetic proves the model — but stops short of it</h3>
+        <p>Of six competitors profiled, <b>Vetic</b> comes closest to the proposed concept: 65 clinics across 11 cities, <b>12 in Mumbai alone</b> (Andheri West, Chembur, Borivali, Goregaon, Kandivali, Lower Parel, Mira Road, Mulund, Powai, Sanpada, Santacruz, Thane West), combining vet consultation, grooming, diagnostics and app-based booking with an emerging membership tier. It is the strongest available proof that "vet + grooming + app, at real density" is fundable and scalable in this market. But Vetic is built and positioned as a <b>clinic chain</b>, not a lifestyle daycare/boarding destination — there is no evidence of dedicated daycare or overnight boarding capacity, and its physical design reads as functional/clinical rather than premium-experiential. <b>Nobody has yet added premium daycare/boarding, an aspirational retail-grade physical experience, and a genuine health-record/insurance-ready data layer on top of Vetic's clinical scale.</b> That combination — Vetic's density, HUFT's brand polish, Wiggles' subscription model, plus the boarding/daycare capability none of them have built well — is the core investment thesis.</p>
+      </div>
+
+      <h3>Full competitor comparison</h3>
+      <div class="table-wrap"><table class="vs-table">
+        <tr><th>Competitor</th><th>Pricing</th><th>Business Model</th><th>Strengths</th><th>Weaknesses</th><th>Review Sentiment</th><th>Gap / Opportunity</th></tr>
+        <tr>
+          <td><b>HUFT</b><br>Heads Up For Tails</td>
+          <td>Premium retail + grooming pricing; well above budget tier</td>
+          <td>Omnichannel: 100+ stores, 80 grooming facilities, &gt;60% revenue from physical stores</td>
+          <td>Strongest brand recall in India ("Zara of pet care"); largest physical footprint; $75M raised (Sequoia/Peak XV, Verlinvest)</td>
+          <td>Grooming is a retail-counter add-on, not a destination; no health-record/tele-vet product</td>
+          <td>Trustpilot: thin base (~61 reviews); complaints of undisclosed ₹2,000 upcharge on a "full haircut"; unresolved product-quality disputes</td>
+          <td>Beat on purpose-built daycare/boarding + integrated app + transparent, itemized pricing</td>
+        </tr>
+        <tr>
+          <td><b>Supertails</b></td>
+          <td>Vet consults + private-label product pricing</td>
+          <td>Digital-first: e-commerce + telehealth + at-home vet (2024+) + Bengaluru quick-commerce</td>
+          <td>Best tele-vet/digital layer reviewed; revenue +67% YoY (₹64.6cr FY24 → ₹108.3cr FY25); $63.8M raised</td>
+          <td class="win">Zero physical footprint — cannot serve drop-off daycare or boarding at all</td>
+          <td>Trustpilot: delayed delivery, "absolutely pathetic" OTP/login flow, payment-gateway failures unresolved since May 2024, wrong items, unhonoured returns</td>
+          <td>Combine Supertails' tele-vet strength with physical locations it lacks — while actually fixing CX reliability</td>
+        </tr>
+        <tr>
+          <td><b>Wiggles</b></td>
+          <td>Subscription box + service bundle pricing</td>
+          <td>Vet-on-call + grooming + boarding + training + India's first pet subscription box</td>
+          <td>Validated subscription + vet-on-call bundling works in India; ayurvedic/herbal product line</td>
+          <td>₹21.7cr FY24 revenue — a fraction of HUFT/Supertails scale; Pune-rooted, weak Mumbai density</td>
+          <td>Not independently reviewed at scale in this research; small footprint limits review volume</td>
+          <td>Out-execute on brand experience and physical footprint quality in Mumbai specifically</td>
+        </tr>
+        <tr>
+          <td><b>DogSpot</b></td>
+          <td>Content/community platform; small commerce layer</td>
+          <td>India's oldest dog-content/community portal (2007), later e-commerce</td>
+          <td>18 years of SEO/content trust; Ratan Tata as early investor</td>
+          <td>Has not converted content leadership into a scaled services business; ~20 employees; minimal physical presence</td>
+          <td>Limited recent disclosure (revenue estimates range $100K-5.0M — low confidence)</td>
+          <td>Proof that content trust alone doesn't scale without capital + physical infrastructure — a possible SEO/content partnership target</td>
+        </tr>
+        <tr>
+          <td><b>Vetic</b></td>
+          <td>Grooming ₹199 (ear clean) – ₹1,359 (full spa); consults from ₹849; 15% first-session discount</td>
+          <td>App-first vet clinic chain: consults, vaccinations, diagnostics, grooming, dental, 24/7 SOS, emerging membership</td>
+          <td>65 clinics / 11 cities, 12 in Mumbai; genuinely proves "vet+grooming+app" at scale</td>
+          <td class="win">Clinic-positioned, not lifestyle/daycare; no dedicated daycare/boarding evidence; functional rather than premium-experiential design</td>
+          <td>Not independently reviewed at scale in this research</td>
+          <td><b>The core white space</b> — add daycare/boarding + premium experience + deeper health-record layer on top of Vetic's proven density</td>
+        </tr>
+        <tr>
+          <td><b>Unorganized cohort</b><br>Pupstop, Petsfolio, PetBacker/Purfurry</td>
+          <td>Daycare ₹500-1,200/day; boarding ₹700-1,400/night (budget tier)</td>
+          <td>Hyperlocal groomers/boarders; marketplace/aggregator models ("Airbnb for pets")</td>
+          <td>Low price points; hyperlocal trust networks; flexibility; Petsfolio claims 50,000+ clients pan-India</td>
+          <td>Fragmented; inconsistent safety standards; no integrated health records; weak brand trust for premium/exotic breeds</td>
+          <td>Not systematically reviewed; trust concerns are the dominant qualitative theme in market research</td>
+          <td>Position 1.5-2.5x above this tier on trust, safety-certification and vet-backup — the "trade up" pattern already visible in the 60%+ professional-boarding preference stat</td>
+        </tr>
+      </table></div>
+
+      <h3>SWOT Analysis</h3>
+      <div class="swot-grid">
+        <div class="swot-cell s"><h4>Strengths</h4><ul>
+          <li>Genuinely uncrowded niche — no competitor combines premium locations + boarding/daycare + health-tech + membership</li>
+          <li>Recurring-revenue subscription model improves cash-flow predictability vs. one-off retail/e-commerce competitors</li>
+          <li>Proprietary pet health-record data creates switching costs and future monetization optionality (insurance, personalization)</li>
+          <li>Mumbai's proven pet-spend over-index (~33.6% of national pet-food revenue) is a large, provably affluent beachhead</li>
+          <li>Four sub-models already independently validated in India (HUFT retail, Supertails tele-vet, Wiggles subscription, Vetic vet+app) — the risk is execution/integration, not "will Indians pay"</li>
+        </ul></div>
+        <div class="swot-cell w"><h4>Weaknesses</h4><ul>
+          <li>Zero existing brand equity — must build trust against HUFT's brand and Vetic's clinical credibility simultaneously</li>
+          <li>Premium real estate anchoring is capital- and cash-flow-intensive (fit-out + deposit + rent) before any revenue</li>
+          <li>Requires simultaneous excellence across four disciplines: grooming, hospitality/boarding, veterinary medicine, software</li>
+          <li>National vet shortage (~4,000-5,000 practising) directly constrains scaling speed</li>
+          <li>"Integrated wellness membership" is a new concept in India — customer education/acquisition cost may run higher than single-service rivals</li>
+        </ul></div>
+        <div class="swot-cell o"><h4>Opportunities</h4><ul>
+          <li>Pet insurance &lt;1% penetration and inflecting — a health-record-holding chain is well placed as a future insurer distribution partner</li>
+          <li>Corporate pet-friendliness trend (WeWork India, Nestlé India, InMobi, Bizongo, Swiggy, DriveU) opens a B2B2C employee-benefit channel</li>
+          <li>Franchise/hub-and-spoke model tested in Mumbai is directly replicable in Pune, Bengaluru, Delhi-NCR, Hyderabad</li>
+          <li>Global brand entry (Mars Petcare's ₹500cr Telangana investment) validates category growth and future acquisition interest</li>
+          <li>Rising digital-payments/app comfort among the target demographic supports a genuinely sticky subscription app</li>
+        </ul></div>
+        <div class="swot-cell t"><h4>Threats</h4><ul>
+          <li>HUFT, Vetic or a freshly-funded Supertails (reportedly raising $15-20M more) could each build the one missing piece faster than a new entrant can establish itself</li>
+          <li>Mumbai real estate inflation (Bandra high street ₹750-1,300/sq ft/month) directly compresses unit economics</li>
+          <li>Regulatory ambiguity (no dedicated regulator, voluntary FSSAI/BIS pet-food standards, no VCI telemedicine framework) is a double-edged sword — moat if navigated well, risk if rules tighten unpredictably</li>
+          <li>Public sentiment around stray dogs (3.7M bite incidents, 54 rabies deaths in 2024; 2025 Supreme Court order) could spill into tighter animal-business regulation generally</li>
+          <li>A single animal-safety incident at any one location carries outsized, socially-viral, brand-wide reputational risk</li>
+        </ul></div>
+      </div>
+
+      <h3>Porter's Five Forces</h3>
+      <div class="porter-card"><h4>Threat of new entrants <span class="porter-rating">Moderate-High</span></h4><p>A single premium location needs only ₹15-40 lakh <span class="est">EST.</span> fit-out — low barrier to entering as "just another groomer." But the <i>integrated</i> version (app + health records + tele-vet + multi-location consistency + brand trust) demands materially more capital, technical talent and vet relationships — a genuinely high barrier to becoming a category challenger.</p></div>
+      <div class="porter-card"><h4>Bargaining power of suppliers <span class="porter-rating">Moderate</span></h4><p>Premium Mumbai landlords hold high pricing power; veterinarians hold moderate-to-high power given the national shortage; grooming equipment/consumables suppliers hold low power (commoditized); branded pet-food suppliers (Mars/Royal Canin) hold moderate power if retail is added.</p></div>
+      <div class="porter-card"><h4>Bargaining power of buyers <span class="porter-rating">Moderate</span></h4><p>Individual pet owners have low ticket-size power but high switching power — home groomers, informal boarding, HUFT, Vetic and marketplace aggregators are all one tap away. Without a genuinely valuable health-record/subscription lock-in, buyer power is effectively high — the app and retention design carry disproportionate weight.</p></div>
+      <div class="porter-card"><h4>Threat of substitutes <span class="porter-rating">High</span></h4><p>Informal groomers, home-boarding marketplaces (PetBacker, Purfurry), family/friend pet-sitting and DIY grooming are all abundant and cheaper. The 60%+ preference for "professional" boarding shows the substitution trend is underway, but review evidence of overcharge backlash shows the market has not fully accepted a large premium yet.</p></div>
+      <div class="porter-card"><h4>Competitive rivalry <span class="porter-rating">High &amp; Intensifying</span></h4><p>HUFT, Supertails, Wiggles, Vetic, DogSpot and a long unorganized tail all compete for the same affluent wallet; several are well-funded ($75M HUFT, $63.8M Supertails) and growing fast (Supertails +67% YoY). Rivalry today is more about capturing an underpenetrated, 11-15%+ CAGR market than fighting over a fixed pie — but that will intensify as Mumbai matures and players overlap on the same real estate corridors.</p></div>
+    </section>
+
+    <!-- ===================== 04 MACRO & REGULATORY ===================== -->
+    <section class="panel" id="panel4">
+      <div class="section-kicker">Section 04</div>
+      <h2 class="section-title">Macro &amp; Regulatory</h2>
+
+      <h3>PESTLE Analysis</h3>
+      <div class="pestle-grid">
+        <div class="pestle-card"><h4>Political</h4><ul>
+          <li>No single "pet industry" ministry — regulation is fragmented across animal-welfare, municipal, food-safety and veterinary bodies</li>
+          <li>2025 Supreme Court order on stray-dog removal from public spaces reflects a live political tension that could spill into tighter licensing for all animal-handling businesses</li>
+        </ul></div>
+        <div class="pestle-card"><h4>Economic</h4><ul>
+          <li>Rising urban disposable income and nuclear-family formation in Mumbai/Pune are direct tailwinds for premiumized pet spend</li>
+          <li>Premium Mumbai retail rents (Bandra high street ₹750-1,300/sq ft/month; BKC ₹300-350/sq ft/month) are a major headwind on unit economics</li>
+          <li>Imported grooming equipment and supplement inputs create INR depreciation and customs-duty exposure</li>
+        </ul></div>
+        <div class="pestle-card"><h4>Social</h4><ul>
+          <li>Pet humanization is mainstream among urban millennials/Gen Z — "human-grade" healthcare and nutrition expectations</li>
+          <li>Corporate pet-friendliness (Nestlé "paw-ternity" leave, WeWork India pet-bereavement leave) reinforces acceptance of significant pet spend</li>
+          <li>Countervailing tension: rising public concern over stray-dog bites/rabies (3.7M incidents, 54 deaths, 2024) could colour sentiment toward "dog businesses" broadly</li>
+        </ul></div>
+        <div class="pestle-card"><h4>Technological</h4><ul>
+          <li>Vet-telehealth adoption is nascent but growing; no dominant integrated health-record app leader yet — genuinely greenfield</li>
+          <li>AI health-anomaly flagging and personalized reminders are largely unexploited by current competitors</li>
+          <li>India's e-commerce infrastructure ($123B 2024 → $292.3B by 2028) supports digital-first acquisition and retail add-ons</li>
+        </ul></div>
+        <div class="pestle-card"><h4>Legal</h4><ul>
+          <li>Layered stack: PCA Act 1960, Animal Birth Control Rules 2023, Pet Shop Rules 2018, Maharashtra Shops &amp; Establishments Act, BMC dog-licensing (MMC Act 1888 ss.191A/191B), VCI registration, GST/FSSAI</li>
+          <li>No codified veterinary telemedicine framework exists (unlike human-health's 2020 Telemedicine Practice Guidelines) — only settled requirement is a Registered Veterinary Practitioner must provide the service</li>
+        </ul></div>
+        <div class="pestle-card"><h4>Environmental</h4><ul>
+          <li>Kennel waste and grooming wastewater fall under municipal solid-waste and effluent-discharge norms (BMC + Maharashtra Pollution Control Board)</li>
+          <li>Water-recycling wash stations and eco-friendly grooming products are an emerging premium-brand differentiator and a real cost-control lever</li>
+        </ul></div>
+      </div>
+
+      <h3>Government Regulations &amp; Licensing</h3>
+      <div class="reg-group"><h4>Business registration &amp; premises</h4><ul>
+        <li><b>Maharashtra Shops &amp; Establishments Act</b> — standard registration for any staffed commercial premises; applies to every location.</li>
+        <li><b>BMC municipal licensing</b> (Mumbai Municipal Corporation Act 1888, ss.191A/191B) — dog owners/custodians must pay applicable taxes and hold BMC dog-licenses; a multi-dog boarding facility very likely needs facility-level trade/health licensing alongside individual dog registrations.</li>
+        <li><b>Pet Shop Rules, 2018</b> — sets animal-health, cleanliness and inspection standards; a boarding/daycare/grooming chain should assume analogous welfare-facility standards apply even though it is not classically a "pet shop."</li>
+      </ul></div>
+      <div class="reg-group"><h4>Animal welfare compliance</h4><ul>
+        <li><b>Prevention of Cruelty to Animals Act, 1960</b> — Section 3 mandates humane treatment; IPC Sections 428-429 criminalize cruelty/poisoning (up to 5 years). Welfare-compliant SOPs (space, food, exercise, vet access) are a baseline legal requirement, not a brand nicety.</li>
+        <li><b>Animal Birth Control (ABC) Rules, 2023</b> — targets stray-dog sterilization/vaccination; relevant to any CSR/adoption partnership the business runs.</li>
+        <li><b>Animal Welfare Board of India (AWBI)</b> — issues supplementary regulations/circulars requiring ongoing monitoring.</li>
+      </ul></div>
+      <div class="reg-group"><h4>Veterinary practice regulation</h4><ul>
+        <li><b>Indian Veterinary Council Act, 1984 / Veterinary Council of India (VCI)</b> — any employed or contracted vet (on-site or telehealth) must be a VCI-registered Registered Veterinary Practitioner (RVP).</li>
+        <li>No dedicated vet-telemedicine framework exists yet — the business should adopt conservative, human-telemedicine-inspired protocols (documented consent, escalation-to-in-person triggers, recordkeeping) as a self-imposed standard, both for liability management and to be well-positioned when formal rules arrive.</li>
+      </ul></div>
+      <div class="reg-group"><h4>Food safety</h4><ul>
+        <li><b>FSSAI</b> — pet food is not currently subject to mandatory FSSAI licensing; the BIS standard IS 11968:2019 for pet food is voluntary. A retail arm should still pursue FSSAI registration proactively as a trust signal.</li>
+      </ul></div>
+      <div class="reg-group"><h4>Taxation (GST)</h4><ul>
+        <li>GST classification is genuinely contested: accommodation/training/grooming <i>may</i> qualify as nil-rated "animal husbandry services," veterinary treatment is exempt as veterinary services, but common commercial practice taxes grooming/boarding/daycare at the standard <b>18% GST</b>. A formal advance ruling or professional tax opinion is required before finalizing pricing/invoicing — a wrong classification carries retroactive liability.</li>
+      </ul></div>
+      <div class="reg-group"><h4>Import duty (grooming equipment/products)</h4><ul>
+        <li>HSN-code-dependent: steel grooming combs ≈12%; pet shampoo ≈10% Basic Customs Duty + 28% IGST (HSN 33051090) — illustrative only, verify per code via a Customs House Agent.</li>
+        <li>Animal-origin imports (food/treats) require a Sanitary Import Permit (SIP) plus a veterinary health certificate, filed via DAHD/AQCS.</li>
+        <li>Smart collars/trackers may require WPC Equipment Type Approval and/or BIS Compulsory Registration; veterinary medicines/supplements require CDSCO approval via SUGAM.</li>
+      </ul></div>
+      <div class="reg-group"><h4>Waste disposal</h4><ul>
+        <li>Kennel waste and grooming wastewater fall under BMC + Maharashtra Pollution Control Board municipal solid-waste and effluent rules — budget for compliant waste contracts and water-recycling wash stations.</li>
+      </ul></div>
+
+      <h3>Risk Analysis</h3>
+      <div class="risk-grid">
+        <div class="risk-card"><h4>Operational</h4><ul>
+          <li>Animal safety/liability (injury, escape, fights) — the single highest-severity risk; mitigate with intake screening, staff-to-animal ratios, insurance, CCTV, standardized SOPs</li>
+          <li>Vet-staffing shortage (~4,000-5,000 nationally) — mitigate with hub-and-spoke tele-vet coverage across satellites</li>
+          <li>Disease-outbreak/hygiene risk — mitigate with mandatory vaccination verification (via the app), quarantine protocols, rigorous cleaning SOPs</li>
+          <li>Seasonality (Diwali/Christmas/summer peaks) — mitigate with dynamic pricing and subscription revenue smoothing</li>
+        </ul></div>
+        <div class="risk-card"><h4>Financial</h4><ul>
+          <li>High upfront capital intensity per location before any revenue; multi-location rollout compounds this risk of overextension</li>
+          <li>Margin compression if rent escalates faster than pricing power in premium corridors</li>
+          <li>Working-capital risk if subscription churn exceeds LTV assumptions</li>
+        </ul></div>
+        <div class="risk-card"><h4>Regulatory</h4><ul>
+          <li>Rules could tighten with little notice as stray-dog/public-safety issues draw more judicial/government attention</li>
+          <li>GST classification risk — an adverse ruling or audit could create material retroactive tax liability</li>
+        </ul></div>
+        <div class="risk-card"><h4>Technology</h4><ul>
+          <li>App reliability is non-trivial — Supertails' own reviews show login/OTP/payment failures actively damaging trust; the app here is the core retention moat, not a convenience feature</li>
+          <li>Health-record data security/privacy — Digital Personal Data Protection Act 2023 obligations apply to owner personal/payment data</li>
+        </ul></div>
+        <div class="risk-card"><h4>Market</h4><ul>
+          <li>Well-funded competitors (HUFT $75M, Supertails $63.8M) could close the integrated white space faster than a new entrant</li>
+          <li>Documented price-sensitivity backlash (₹2,000 surprise haircut fee) means pricing must balance premium positioning against real transparency expectations</li>
+        </ul></div>
+        <div class="risk-card"><h4>Scalability</h4><ul>
+          <li>Consistent service quality (grooming skill, animal handling, vet availability) across locations is a classic services-scaling risk beyond a founder-supervised flagship</li>
+          <li>Scarce, competitively-sought "premium pet-friendly building" real estate constrains physical expansion speed even with adequate capital</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- ===================== 05 FINANCIALS ===================== -->
+    <section class="panel" id="panel5">
+      <div class="section-kicker">Section 05</div>
+      <h2 class="section-title">Financials</h2>
+      <p class="section-intro">Every figure in this section is a planning estimate derived from India pet-services pricing and standard services-business unit economics, not an underwritten quote. Each is marked <span class="est">EST.</span> and should be validated against actual Mumbai vendor/contractor/landlord quotes before use in an investment memo.</p>
+
+      <h3>Startup cost per location — ~1,500-2,000 sq ft premium flagship <span class="est">EST.</span></h3>
+      <div class="table-wrap"><table>
+        <tr><th>Item</th><th>Estimated cost (₹)</th><th>Notes</th></tr>
+        <tr><td>Interior fit-out (wash bays, reception, retail shelving, AC/ventilation for odor control)</td><td>25-40 lakh <span class="est">EST.</span></td><td>Largest single line item; premium finish consistent with brand positioning</td></tr>
+        <tr><td>Kennels / boarding modules (10-20 units, stainless steel + AC)</td><td>8-15 lakh <span class="est">EST.</span></td><td>Scales with boarding capacity target</td></tr>
+        <tr><td>Grooming stations (3-5, electric/hydraulic tables, dryers, clippers)</td><td>6-10 lakh <span class="est">EST.</span></td><td>Benchmarked against professional equipment supplier pricing (ABK Grooming-type)</td></tr>
+        <tr><td>Diagnostic/vet-consult room (exam table, basic diagnostics, telehealth setup)</td><td>4-8 lakh <span class="est">EST.</span></td><td>Assumes basic consult room, not a full surgical suite</td></tr>
+        <tr><td>POS/booking/CRM software + app integration setup</td><td>3-6 lakh one-time <span class="est">EST.</span> + recurring SaaS</td><td>Or in-house build — see Section 07</td></tr>
+        <tr><td>Signage, branding, launch marketing</td><td>3-5 lakh <span class="est">EST.</span></td><td></td></tr>
+        <tr><td>Security deposit (6-10 months' rent, premium Mumbai retail)</td><td>20-60 lakh <span class="est">EST.</span></td><td>Single largest cash-tie-up item given Bandra-type rents</td></tr>
+        <tr><td>Working capital buffer (3-6 months opex)</td><td>15-25 lakh <span class="est">EST.</span></td><td></td></tr>
+        <tr><td><b>Total — flagship location</b></td><td><b>₹84 lakh – ₹1.7 crore</b> <span class="est">EST.</span></td><td>Wide range reflects real-estate micro-market choice</td></tr>
+        <tr><td><b>Total — satellite/hub-and-spoke location</b></td><td><b>₹25-45 lakh</b> <span class="est">EST.</span></td><td>Smaller footprint, secondary micro-market, grooming + daycare only, no on-site vet suite</td></tr>
+      </table></div>
+
+      <h3>Monthly operating cost per flagship location <span class="est">EST.</span></h3>
+      <div class="table-wrap"><table>
+        <tr><th>Item</th><th>Estimated monthly cost (₹)</th></tr>
+        <tr><td>Rent (premium micro-market, ~1,500-2,000 sq ft)</td><td>3-8 lakh <span class="est">EST.</span> (₹140-1,300+/sq ft/month by corridor)</td></tr>
+        <tr><td>Staff (2-3 groomers, 2-3 daycare/boarding attendants, 1 vet/vet-tech, 1 manager/receptionist)</td><td>3-5 lakh <span class="est">EST.</span></td></tr>
+        <tr><td>Utilities (power for AC/dryers, water for wash bays)</td><td>60,000-1,20,000 <span class="est">EST.</span></td></tr>
+        <tr><td>Consumables (shampoo, supplies, boarded-pet food, disinfection)</td><td>80,000-1,50,000 <span class="est">EST.</span></td></tr>
+        <tr><td>App/software/CRM + telehealth platform</td><td>30,000-60,000 <span class="est">EST.</span></td></tr>
+        <tr><td>Marketing (local + digital)</td><td>50,000-1,50,000 <span class="est">EST.</span></td></tr>
+        <tr><td>Insurance (general liability + animal-care liability)</td><td>20,000-40,000 <span class="est">EST.</span></td></tr>
+        <tr><td><b>Total — monthly opex per flagship</b></td><td><b>₹9-18 lakh/month</b> <span class="est">EST.</span></td></tr>
+      </table></div>
+
+      <h3>Revenue streams &amp; pricing strategy <span class="est">EST.</span></h3>
+      <ul>
+        <li><b>Grooming</b>: ₹800-2,500/session <span class="est">EST.</span> — above Vetic's ₹199-1,359 range and Pupstop-tier budget groomers, benchmarked toward HUFT-tier pricing.</li>
+        <li><b>Daycare</b>: ₹800-1,500/day à la carte <span class="est">EST.</span>; membership packages ₹10,000-25,000/month <span class="est">EST.</span> at a 20-30% discount to the daily rate to drive commitment.</li>
+        <li><b>Boarding</b>: ₹1,200-3,000/night <span class="est">EST.</span> by suite tier — above Pupstop's ₹700-1,400/night, in line with premium Bandra/Powai rates of ₹1,800-3,000/night.</li>
+        <li><b>Tele-vet consults</b>: ₹500-900/consult <span class="est">EST.</span>, benchmarked near Vetic's ₹849 in-person price; free/discounted for members as a retention lever.</li>
+        <li><b>Retail add-ons</b>: premium food/accessories/supplements — margin-accretive, secondary line, priced at standard 18% GST retail levels.</li>
+        <li><b>Membership/subscription (the core moat product)</b>: ₹1,500-3,000/month <span class="est">EST.</span> bundling discounted grooming + daycare credits + free/discounted tele-vet + health-record app access.</li>
+      </ul>
+
+      <h3>Unit economics <span class="est">EST.</span></h3>
+      <div class="grid-2">
+        <div class="card"><h4>Grooming station</h4><p>4-6 appointments/day at ~₹1,200 avg → <b>₹4,800-7,200/station/day</b> <span class="est">EST.</span></p></div>
+        <div class="card"><h4>Boarding bed</h4><p>60-70% average occupancy (seasonality-adjusted) at ₹1,800 avg nightly rate → <b>₹1,080-1,260/bed/night</b> blended <span class="est">EST.</span></p></div>
+        <div class="card"><h4>Membership LTV</h4><p>₹2,000/mo avg fee × 70% gross margin × ~20-month tenure (~4-6% monthly churn) → <b>LTV ≈ ₹28,000/member</b> <span class="est">EST.</span> — highly sensitive to actual churn, unproven at scale in India (Wiggles has not disclosed churn).</p></div>
+        <div class="card"><h4>CAC &amp; LTV:CAC</h4><p>Influencer/local-SEO/vet-tie-up acquisition rather than broad paid ads → <b>₹1,500-3,500/paying member</b> <span class="est">EST.</span>, implying an <b>8:1 to 18:1</b> LTV:CAC <span class="est">EST.</span> — the single most important number to validate empirically in a pilot before scaling.</p></div>
+      </div>
+
+      <h3>Gross &amp; net margin <span class="est">EST.</span></h3>
+      <div class="table-wrap"><table>
+        <tr><th>Line</th><th>Gross margin</th><th>Note</th></tr>
+        <tr><td>Grooming</td><td>55-65% <span class="est">EST.</span></td><td>Labor + consumables as main cost</td></tr>
+        <tr><td>Daycare/boarding</td><td>45-55% <span class="est">EST.</span></td><td>Higher labor-and-space-utilization cost ratio</td></tr>
+        <tr><td>Tele-vet</td><td>60-70% <span class="est">EST.</span></td><td>If vet compensation is per-consult/variable</td></tr>
+        <tr><td>Retail add-ons</td><td>30-40% <span class="est">EST.</span></td><td>Standard retail margin, volume-additive</td></tr>
+        <tr><td><b>Blended gross margin (mature, multi-service location)</b></td><td><b>~50-55%</b> <span class="est">EST.</span></td><td></td></tr>
+        <tr><td><b>Net margin (post-rent/staff/overhead/marketing), mature location</b></td><td><b>5-15%</b> <span class="est">EST.</span></td><td>Negative in Year 1 due to ramp-up and fixed-cost absorption lag</td></tr>
+      </table></div>
+
+      <h3>Break-even analysis <span class="est">EST.</span></h3>
+      <div class="callout">
+        <h3>Stated assumptions</h3>
+        <p>Fixed monthly cost base ≈ ₹9-18 lakh/month (midpoint ~₹13 lakh) <span class="est">EST.</span>. At a blended ~52% gross margin, the location needs <b>~₹25 lakh/month revenue</b> to break even (₹13L ÷ 0.52 ≈ ₹25L) <span class="est">EST.</span>. Illustratively that could be ~300 members at ₹2,000/month (₹6L) plus ~150 grooming sessions/month at ₹1,200 avg (₹1.8L) with boarding/daycare/retail making up the balance — i.e. a genuinely substantial, multi-hundred-member local base, realistically an <b>estimated 12-18 month ramp</b> for a new location and brand. This math assumes premium Mumbai rent; a lower-rent satellite location breaks even faster, which is precisely why the rollout sequencing in Section 07 favors proving the model at 1-2 flagships before expanding via lower-capex satellites.</p>
+      </div>
+    </section>
+
+    <!-- ===================== 06 CUSTOMERS & MARKETING ===================== -->
+    <section class="panel" id="panel6">
+      <div class="section-kicker">Section 06</div>
+      <h2 class="section-title">Customers &amp; Marketing</h2>
+
+      <h3>Customer Personas</h3>
+      <div class="persona-grid">
+        <div class="persona-card">
+          <div class="persona-head"><div class="p-name">Neha</div><div class="p-tag">Working Professional — Daycare</div></div>
+          <div class="persona-body">
+            <p>28-34, works in BKC/Lower Parel/Powai, rents a 1-2BHK in Andheri/Powai/Bandra, owns a mid-to-large breed dog (Labrador, Golden Retriever, Indie). Single or DINK household.</p>
+            <p><b>Pain point:</b> 9-10 hour office + commute days leave the dog alone; guilt-driven search for trustworthy daytime care.</p>
+            <p><b>Wants:</b> reliable drop-off daycare with photo/video updates, a flexible monthly membership (not per-day booking friction), and ideally an employer-subsidized wellness benefit.</p>
+            <p><b>Willingness to pay:</b> high for trust/reliability; churns fast if service feels unsafe or updates are inconsistent.</p>
+          </div>
+        </div>
+        <div class="persona-card">
+          <div class="persona-head"><div class="p-name">The Malhotras</div><div class="p-tag">Affluent Family — Premium Breed</div></div>
+          <div class="persona-body">
+            <p>Family of 4 in Bandra/Juhu/Powai, owns a premium/purebred dog (Golden Retriever, Beagle, Shih Tzu) or pedigree cat. Household income well above Mumbai median.</p>
+            <p><b>Pain point:</b> fragmented care today — grooming here, vet there, no single health-record; anxious about breed-specific issues (hip dysplasia, skin conditions).</p>
+            <p><b>Wants:</b> a single trusted "wellness home" — grooming, vet visits, vaccination reminders, digital health record, proactive AI-anomaly alerts.</p>
+            <p><b>Willingness to pay:</b> highest of all personas — least price-sensitive; top membership tier and retail-upsell candidate.</p>
+          </div>
+        </div>
+        <div class="persona-card">
+          <div class="persona-head"><div class="p-name">Rahul</div><div class="p-tag">Frequent Traveler — Boarding</div></div>
+          <div class="persona-body">
+            <p>30-45, consulting/finance/sales role requiring frequent travel, owns 1-2 dogs, lives alone or with a travelling partner.</p>
+            <p><b>Pain point:</b> repeatedly needs trustworthy overnight/multi-day boarding on short notice, especially Diwali/Christmas peaks; has been burned by informal arrangements or worries about kennel cough.</p>
+            <p><b>Wants:</b> guaranteed peak-season availability, live webcam/photo updates, vet-on-call backup, frequent-boarder loyalty discount.</p>
+            <p><b>Willingness to pay:</b> high, less sensitive per-night than to subscription commitment — best fit for prepaid "boarding credits."</p>
+          </div>
+        </div>
+        <div class="persona-card">
+          <div class="persona-head"><div class="p-name">Priya</div><div class="p-tag">First-Time Pet Parent</div></div>
+          <div class="persona-body">
+            <p>24-29, recently adopted her first pet (often a rescue/Indie dog or first cat), lives alone or with roommates, moderate income.</p>
+            <p><b>Pain point:</b> doesn't know what she doesn't know — anxious, intimidated by traditional vet clinics, needs hand-holding as much as transactions.</p>
+            <p><b>Wants:</b> an approachable, non-judgmental entry point — automatic vaccination reminders, easy "is this normal?" tele-vet chat, affordable bundled grooming/training guidance.</p>
+            <p><b>Willingness to pay:</b> lower average ticket, but high long-term value if retained and "graduated" into a higher tier — social-media-active, likely to post/review; key funnel/word-of-mouth persona.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Marketing Strategy</h3>
+      <div class="marketing-grid">
+        <div class="mkt-card"><h4>Online</h4><ul>
+          <li>Instagram/Reels-led content — grooming transformations, daycare "day in the life," boarding webcam highlights (the format that has visibly worked for HUFT)</li>
+          <li>Local SEO domination of "pet grooming near me," "dog daycare Bandra/Powai/Andheri," location-by-location — DogSpot's stalled-but-ranking position shows real uncaptured SEO value</li>
+          <li>App Store/Play Store ASO and in-app referral prompts from day one, since the app is core to retention</li>
+        </ul></div>
+        <div class="mkt-card"><h4>Offline</h4><ul>
+          <li>Vet clinic tie-ups with independent Mumbai clinics not building their own daycare/boarding, for cross-referral</li>
+          <li>Housing society (RWA) outreach in Bandra, Powai, Andheri, Juhu, Thane-West — pet-wellness camps, vaccination drives, "meet the groomer" pop-ups</li>
+          <li>Pet expos — Pet Fed Mumbai (19,000+ humans, 2,500+ pets in a recent edition) and PETEX India, alongside sponsors like Royal Canin and Drools</li>
+        </ul></div>
+        <div class="mkt-card"><h4>Launch strategy</h4><ul>
+          <li>Open 1-2 flagship locations in the highest-density affluent catchments (Bandra/Khar, Powai) to prove the model and generate initial social proof</li>
+          <li>Pre-launch waitlist + founding-member pricing (locked-in discounted rate for the first cohort) to build initial base and word-of-mouth ahead of full opex ramp</li>
+        </ul></div>
+        <div class="mkt-card"><h4>Influencer strategy</h4><ul>
+          <li>Macro pet-influencers for a launch-moment brand splash</li>
+          <li>Weight toward micro-influencers and genuine local pet-parent voices (RWA WhatsApp groups, local Facebook pet-parent groups) for sustained, credible, lower-cost acquisition</li>
+        </ul></div>
+        <div class="mkt-card"><h4>Corporate partnerships</h4><ul>
+          <li>Pursue the growing cohort of pet-friendly Mumbai employers — WeWork India, Nestlé India, InMobi-style startups, Bizongo, Swiggy, DriveU</li>
+          <li>Offer corporate wellness-membership bundles as a genuine B2B2C acquisition channel and credibility signal</li>
+        </ul></div>
+        <div class="mkt-card"><h4>Referral &amp; retention</h4><ul>
+          <li>Member-gets-member referral credits (₹500-1,000 <span class="est">EST.</span> for both referrer and referee) built into the app</li>
+          <li>Subscription bundling (grooming + daycare credits + tele-vet + health-record continuity) is the primary retention lever competitors cannot easily replicate</li>
+          <li>Proactive app engagement (vaccination reminders, health-anomaly flags, birthday/anniversary perks) to stay top-of-mind between visits</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- ===================== 07 TECHNOLOGY & EXPANSION ===================== -->
+    <section class="panel" id="panel7">
+      <div class="section-kicker">Section 07</div>
+      <h2 class="section-title">Technology &amp; Expansion</h2>
+
+      <h3>Technology Stack</h3>
+      <div class="grid-2">
+        <div class="card"><h4>Booking / POS</h4><p>Unified system across locations for appointment scheduling (grooming/daycare/boarding), walk-in/POS billing, and retail inventory — likely customized on an India-suitable POS/scheduling SaaS rather than fully custom-built, to control cost and time-to-market.</p></div>
+        <div class="card wine-top"><h4>Pet health-record app</h4><p>The core proprietary asset: digital vaccination records, weight/health history, grooming/boarding visit history, and document storage (lab reports, prescriptions) tied to each pet profile. Must be built or heavily customized in-house — this is the primary data moat, not commodity software.</p></div>
+        <div class="card"><h4>Vet telehealth integration</h4><p>Video/chat consult infrastructure connecting members to RVP-registered veterinarians, with built-in escalation logic prompting in-person visits beyond telehealth-appropriate scope — a conservative design choice given the absence of a formal VCI telemedicine framework.</p></div>
+        <div class="card"><h4>CRM / membership management</h4><p>Subscription billing, tier management, churn/retention analytics, renewal-reminder automation — critical given how sensitive LTV:CAC is to actual churn (see Section 05).</p></div>
+      </div>
+      <div class="grid-3">
+        <div class="card ember-top"><h4>AI — health-anomaly flagging</h4><p>Pattern-detection on logged weight/symptom/visit-frequency data to proactively flag potential health issues and recommend a vet consult — a genuine differentiator none of the reviewed competitors have publicized.</p></div>
+        <div class="card ember-top"><h4>AI — personalized reminders</h4><p>Vaccination/deworming/grooming-due reminders tailored to breed, age and visit history rather than generic calendar reminders.</p></div>
+        <div class="card ember-top"><h4>AI — demand forecasting</h4><p>Predicting daycare/boarding occupancy around known seasonal peaks (Diwali/Christmas) to optimize staffing and dynamic pricing.</p></div>
+      </div>
+      <div class="callout"><h3>Reliability as a design principle</h3><p>Supertails' own documented app/login/payment-gateway failures are actively damaging customer trust today — an evidenced, not hypothetical, failure mode. App uptime, payment-flow QA and OTP/login robustness must be treated as first-class product requirements from day one, since this app is meant to be the core retention moat, not a convenience feature.</p></div>
+
+      <h3>Expansion Strategy</h3>
+      <div class="roadmap">
+        <div class="road-phase"><h4>Phase 1 — Mumbai density (Years 1-2)</h4><ul>
+          <li>Launch 1-2 flagship locations in Bandra/Khar and Powai to prove the integrated model</li>
+          <li>Add 4-8 satellite/hub-and-spoke locations in Andheri, Juhu, Lower Parel, Thane West, Navi Mumbai/Sanpada — mirroring Vetic's proven 12-clinic Mumbai footprint pattern — once flagship unit economics are validated</li>
+          <li>Hub-and-spoke logic: 1-2 "hub" locations carry the full offering (vet suite, larger boarding, flagship brand experience); "spoke" locations offer grooming + daycare only, with boarding/vet-consult centralized at the nearest hub</li>
+        </ul></div>
+        <div class="road-phase"><h4>Phase 2 — Maharashtra (Years 2-3)</h4><ul>
+          <li>Expand to Pune (Wiggles' founding base, an already-proven pet-care market) and potentially Nashik/Nagpur, leveraging the same hub-and-spoke playbook validated in Mumbai</li>
+        </ul></div>
+        <div class="road-phase"><h4>Phase 3 — India metros (Years 3-5)</h4><ul>
+          <li>Expand to Bengaluru, Hyderabad, Delhi-NCR — independently confirmed top pet-ownership/pet-spend metros where competitors (Vetic's 11-city footprint, Petsfolio's Bengaluru presence) have already validated demand</li>
+          <li>Consider franchise/master-franchise models once SOPs, brand standards and the app platform are mature and reliably repeatable</li>
+        </ul></div>
+        <div class="road-phase"><h4>Franchise potential assessment</h4><ul>
+          <li>Genuine franchise potential for the grooming+daycare "spoke" format (lower capex, replicable SOPs) — comparable to other pet-sector Indian franchises requiring ~₹20 lakh initial investment + 10% royalty <span class="est">EST.</span></li>
+          <li>The vet-consult/telehealth "hub" layer and the proprietary health-record app should remain centrally operated/licensed — not franchised — to protect the data moat, brand-safety and vet-compliance consistency</li>
+          <li>A hybrid company-owned-hub + franchised-spoke structure is the most defensible long-term expansion architecture</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- ===================== 08 BUSINESS MODEL ===================== -->
+    <section class="panel" id="panel8">
+      <div class="section-kicker">Section 08</div>
+      <h2 class="section-title">Business Model</h2>
+
+      <h3>Business Model Canvas</h3>
+      <div class="bmc-grid">
+        <div class="bmc-cell"><h4>Key Partners</h4><ul><li>VCI-registered veterinarians</li><li>Premium real-estate landlords</li><li>Grooming equipment suppliers</li><li>Pet-food/retail brands (Royal Canin, Mars, Drools)</li><li>Corporate pet-friendly employers</li><li>RWAs/housing societies</li></ul></div>
+        <div class="bmc-cell"><h4>Key Activities</h4><ul><li>Grooming &amp; daycare/boarding operations</li><li>Vet telehealth delivery</li><li>App/health-record platform development</li><li>Multi-location SOP &amp; quality control</li><li>Membership acquisition &amp; retention</li></ul></div>
+        <div class="bmc-cell span2"><h4>Value Propositions</h4><ul><li>Only Mumbai brand combining premium physical locations + boarding/daycare + integrated health-tech + subscription under one roof</li><li>Transparent, itemized pricing (directly answering the market's documented overcharge-backlash)</li><li>Single digital health record eliminating fragmented care across groomer/boarder/vet</li><li>Vet-on-call safety net for boarding/daycare peace of mind</li></ul></div>
+        <div class="bmc-cell"><h4>Customer Relationships</h4><ul><li>App-mediated, always-on relationship (reminders, records, booking)</li><li>Personal trust built via consistent staff/vet familiarity</li><li>Referral &amp; loyalty-credit mechanics</li></ul></div>
+        <div class="bmc-cell"><h4>Channels</h4><ul><li>Owned app (core channel)</li><li>Physical locations as brand showcases</li><li>Instagram/Reels + local SEO</li><li>Corporate &amp; RWA partnerships</li><li>Pet expos (Pet Fed, PETEX)</li></ul></div>
+        <div class="bmc-cell"><h4>Customer Segments</h4><ul><li>Working professionals needing daycare</li><li>Affluent multi-pet families</li><li>Frequent-traveler boarders</li><li>First-time pet parents</li><li>Corporate employee-benefit pools</li></ul></div>
+        <div class="bmc-cell span2"><h4>Cost Structure</h4><ul><li>Rent &amp; fit-out (largest fixed cost, ₹9-18L/mo opex <span class="est">EST.</span>)</li><li>Staff — groomers, attendants, vets, managers</li><li>App/platform development &amp; telehealth infrastructure</li><li>Marketing &amp; member acquisition</li><li>Insurance &amp; compliance</li></ul></div>
+        <div class="bmc-cell span2"><h4>Revenue Streams</h4><ul><li>Grooming (₹800-2,500/session <span class="est">EST.</span>)</li><li>Daycare (₹800-1,500/day or ₹10,000-25,000/mo membership <span class="est">EST.</span>)</li><li>Boarding (₹1,200-3,000/night <span class="est">EST.</span>)</li><li>Tele-vet consults (₹500-900 <span class="est">EST.</span>)</li><li>Core subscription/membership (₹1,500-3,000/mo <span class="est">EST.</span>)</li><li>Retail add-ons</li></ul></div>
+      </div>
+
+      <h3>Pricing strategy &amp; acquisition/retention recap</h3>
+      <p>Pricing is deliberately positioned <i>above</i> Vetic and the unorganized cohort (trust, premium experience, integration) but anchored on radical transparency — itemized, pre-committed quotes with no surprise upcharges — directly addressing the overcharge complaints documented against HUFT. Acquisition leans on hyperlocal trust channels (RWA outreach, vet tie-ups, micro-influencers) rather than expensive broad paid media, keeping estimated CAC at ₹1,500-3,500/member <span class="est">EST.</span>. Retention is engineered structurally through the subscription bundle itself: a member who has grooming credits, daycare credits, discounted tele-vet and a continuous health record in one app faces real switching costs that a single-service competitor cannot replicate.</p>
+    </section>
+
+    <!-- ===================== 09 USP & MOAT ===================== -->
+    <section class="panel" id="panel9">
+      <div class="section-kicker">Section 09</div>
+      <h2 class="section-title">USP &amp; Moat</h2>
+      <p class="section-intro">Why would a Mumbai pet owner choose this over HUFT, Supertails or Vetic? Because none of them has built the specific combination this concept is designed around: premium physical locations, boarding/daycare, integrated health-tech, and subscription economics — together, in one place.</p>
+
+      <div class="usp-grid">
+        <div class="usp-card"><div class="icon">◆</div><h4>vs. HUFT</h4><p>HUFT sells retail with grooming attached to a store counter. This concept sells a purpose-built wellness destination with daycare and boarding HUFT does not offer, plus an integrated health-record app HUFT has not built — while matching HUFT's transparency gap with itemized, pre-committed pricing.</p></div>
+        <div class="usp-card"><div class="icon">◆</div><h4>vs. Supertails</h4><p>Supertails owns the best tele-vet/digital layer in India but has zero physical footprint — it cannot serve a customer who needs to drop a dog off. This concept combines that same tele-vet convenience with real locations, while fixing the CX/reliability failures documented in Supertails' own reviews.</p></div>
+        <div class="usp-card"><div class="icon">◆</div><h4>vs. Vetic</h4><p>Vetic has already proven vet+grooming+app works at real Mumbai density (12 clinics) — the strongest existing validation in this market. But it is a clinic, not a daycare/boarding destination, and reads as functional rather than premium-experiential. This concept adds exactly the two things Vetic lacks: boarding/daycare capacity and an aspirational, retail-grade physical brand experience.</p></div>
+      </div>
+
+      <h3>The durable moat</h3>
+      <div class="grid-2">
+        <div class="card"><h4>Data moat</h4><p>A continuously updated pet health record — vaccinations, weight, visit history, grooming/boarding preferences — becomes harder to walk away from every month it accumulates, and positions the business as a future distribution partner for the &lt;1%-penetrated but inflecting pet-insurance category.</p></div>
+        <div class="card wine-top"><h4>Subscription moat</h4><p>Bundled recurring revenue (grooming + daycare credits + tele-vet + app) is structurally stickier than any single-service competitor's offering — Wiggles proved Indian consumers will pay for this pattern; no one has paired it with premium physical density.</p></div>
+        <div class="card ember-top"><h4>Trust &amp; safety moat</h4><p>Rigorous intake screening, staff-to-animal ratios, insurance, CCTV/audit trails and transparent pricing directly answer the two things review-mining showed actually erode trust in this category: safety incidents and surprise charges.</p></div>
+        <div class="card"><h4>Real-estate moat</h4><p>Once premium, pet-friendly-building locations in Bandra/Powai-type catchments are secured, they are a genuinely scarce resource — a first-mover advantage that is difficult for a later entrant to replicate quickly, even with capital.</p></div>
+      </div>
+    </section>
+
+    <!-- ===================== 10 FAQ ===================== -->
+    <section class="panel" id="panel10">
+      <div class="section-kicker">Section 10</div>
+      <h2 class="section-title">FAQ — Investment Committee Questions</h2>
+
+      <div class="faq-item"><div class="faq-q">1. HUFT already has huge brand recognition. How do you compete with that?</div><div class="faq-a">HUFT's brand strength is real but narrow — it is built on retail and a grooming counter attached to a store, not on a purpose-built daycare/boarding destination or an integrated health-record app, neither of which HUFT has built. We are not trying to out-brand HUFT on day one; we are building a category HUFT does not currently compete in, and letting the physical experience, transparent pricing and app do the brand-building the way HUFT's own Trustpilot reviews (thin at ~61, with a documented ₹2,000 surprise-charge complaint) show it has not fully delivered on trust.</div></div>
+
+      <div class="faq-item"><div class="faq-q">2. What's your liability if a boarded pet gets sick or hurt on your premises?</div><div class="faq-a">This is treated as the single highest-severity operational risk in this case study, not an afterthought. Mitigation is layered: rigorous intake/temperament screening before any boarding, enforced staff-to-animal ratios, mandatory vaccination-record verification (enabled directly by the health-record app), quarantine protocols for new arrivals, CCTV and audit trails at every location, and both general liability and animal-care-specific liability insurance. Legally, PCA Act 1960 compliance and documented SOPs are the baseline; commercially, the vet-on-call layer means a covered animal has faster escalation to a registered vet than most existing boarding operators offer.</div></div>
+
+      <div class="faq-item"><div class="faq-q">3. Isn't this a capital-intensive real estate business with thin margins?</div><div class="faq-a">Per-flagship-location capex of ₹84 lakh-₹1.7 crore <span class="est">EST.</span> is real, and rent in premium Mumbai corridors (₹750-1,300/sq ft/month in Bandra) is the single biggest cost pressure identified in this research. That is precisely why the rollout plan is hub-and-spoke, not all-flagship: 1-2 full-service hubs prove the model, while lower-capex satellites (₹25-45 lakh <span class="est">EST.</span>, grooming+daycare only, no vet suite) carry most of the unit growth at a materially better capex-to-revenue ratio. Blended gross margin of ~50-55% and mature-location net margin of 5-15% <span class="est">EST.</span> are consistent with established Indian premium services-retail hybrids, not an outlier assumption.</div></div>
+
+      <div class="faq-item"><div class="faq-q">4. Vetic already has 65 clinics and 12 in Mumbai. Isn't that white space already closing?</div><div class="faq-a">Vetic proves the demand for "vet + grooming + app" is real and scalable — that is exactly why it's the most important competitor in this research. But its own service list (consultations, vaccinations, diagnostics, grooming, dental, 24/7 SOS) has no dedicated daycare or overnight boarding line, and its brand reads as clinical rather than premium-lifestyle. Vetic could decide to add boarding — that is a named threat in Section 03 — but building a genuinely premium daycare/boarding experience inside a clinic-positioned brand is a harder pivot than it looks, both operationally (different real estate, different staff skillset) and in brand perception. Moving first and fast, in the same 12-clinic-dense Mumbai geography Vetic has already proven, is the point.</div></div>
+
+      <div class="faq-item"><div class="faq-q">5. Why would a customer pay a premium over Pupstop or a home-based boarder at a third of the price?</div><div class="faq-a">Because the underlying research shows the market is already trading up: 60%+ of urban pet owners say they now prefer professional boarding over informal arrangements, and the qualitative complaint pattern from review-mining is about trust and safety, not price per se, at the unorganized end. We are pricing 1.5-2.5x above home-boarding tiers, which is consistent with — not larger than — the premium the market has already shown willingness to pay for organized, safety-certified, vet-backed care.</div></div>
+
+      <div class="faq-item"><div class="faq-q">6. Supertails is growing 67% year-on-year with a superior tele-vet product. Why not just partner with or acquire them instead of building physical locations?</div><div class="faq-a">Supertails' growth is real, but its own customer reviews document unresolved login/OTP failures, payment-gateway issues open since May 2024, and fulfilment problems — evidence the company is scaling faster than its operations can support. A partnership doesn't solve our core gap (no physical locations), and an acquisition would import those documented reliability problems along with the tele-vet asset. Building our own telehealth layer, informed by Supertails' visible mistakes, is the lower-risk path to the same capability.</div></div>
+
+      <div class="faq-item"><div class="faq-q">7. The GST treatment of your core services is ambiguous. What's the tax exposure?</div><div class="faq-a">Correct — this is flagged explicitly in Section 04 as a genuine regulatory risk, not glossed over. Grooming, boarding and daycare sit in a contested zone between potential nil-rated "animal husbandry services" and standard 18% GST, and veterinary treatment is separately exempt. The mitigation is procedural, not hopeful: obtain a formal GST advance ruling before finalizing the pricing and invoicing structure, price assuming the more conservative 18% treatment, and treat any favorable ruling as upside rather than build a business case dependent on it.</div></div>
+
+      <div class="faq-item"><div class="faq-q">8. You're assuming ~4-6% monthly membership churn to hit your LTV numbers. What if real churn is double that?</div><div class="faq-a">This is explicitly flagged in Section 05 as the single most important number to validate empirically — Wiggles, the closest domestic analogue, has never disclosed its churn rate, so this is unproven at scale in India. At double the assumed churn (~10-12%/month), membership tenure roughly halves and LTV falls proportionally, likely compressing LTV:CAC from an estimated 8-18:1 down toward 4-9:1 — still potentially viable, but materially tighter. This is exactly why the recommended path is a 12-18 month pilot at 1-2 flagship locations with churn tracked from month one, before any multi-location capital commitment.</div></div>
+
+      <div class="faq-item"><div class="faq-q">9. India doesn't have a formal vet-telemedicine framework. Is your tele-vet product even legal?</div><div class="faq-a">Tele-vet is not prohibited — the only settled legal requirement is that the consulting professional be a VCI-registered Registered Veterinary Practitioner (RVP), which every vet on the platform will be. In the absence of a dedicated framework (unlike the human-health 2020 Telemedicine Practice Guidelines), the business will adopt conservative, human-telemedicine-inspired internal protocols — documented consent, escalation-to-in-person triggers, recordkeeping — as a self-imposed standard. This is a liability-management choice and a positioning advantage: being visibly the "compliant, careful" operator ahead of eventual formal regulation.</div></div>
+
+      <div class="faq-item"><div class="faq-q">10. What happens to your brand if there's a single bad incident — a pet dies or escapes at one location?</div><div class="faq-a">This is named directly in the SWOT and Risk Analysis as a threat with outsized, socially-viral, brand-wide reputational risk regardless of the size of the actual incident — we are not underestimating it. The mitigation is operational rigor treated as a brand asset, not a compliance checkbox: standardized SOPs enforced identically across every location, staff-to-animal ratio minimums, CCTV audit trails, and a rapid, transparent incident-response protocol (rather than the defensive posture that has damaged trust for HUFT and Supertails in their own review histories) so that if something does happen, the response itself reinforces rather than undermines the trust thesis.</div></div>
+
+      <div class="faq-item"><div class="faq-q">11. Only 4,000-5,000 vets serve the organized pet-care segment nationally. How do you staff multiple locations without a bidding war for scarce vets?</div><div class="faq-a">The hub-and-spoke design is a direct response to this constraint: a smaller number of full-time, on-site VCI-registered vets are based at hub locations, while satellite/spoke locations are served through the tele-vet app rather than requiring a dedicated on-site vet at every single location. This reduces the absolute number of full-time vets the network needs to recruit and retain as it scales, compared to a model that requires a vet at every location.</div></div>
+
+      <div class="faq-item"><div class="faq-q">12. Your TAM/SAM/SOM numbers span sources that disagree by 10x. How much should the committee trust these figures?</div><div class="faq-a">The 10x spread is disclosed and explained, not hidden — it's a scope-definition artifact (some sources count only branded retail, others count the entire pet economy including unbranded food). This case study deliberately anchors on the narrowest, most relevant figure — the organized pet-services sub-segment (grooming, boarding, daycare, training) — rather than the flashiest headline number, and builds the Mumbai SAM/SOM bottom-up from regional spend-share data rather than top-down from a global report. The resulting SOM of ₹4-8 crore/year by Year 5 <span class="est">EST.</span> is deliberately conservative relative to the broader headline figures, and should be treated as a planning assumption to be replaced with pilot-derived numbers within 12-18 months.</div></div>
+
+      <div class="faq-item"><div class="faq-q">13. Why not just franchise from day one and avoid the capital intensity entirely?</div><div class="faq-a">Franchising the "spoke" grooming+daycare format is part of the long-term architecture (Section 07), but not from day one. The proprietary health-record app and vet-telehealth layer are the actual moat, and franchising the model before SOPs, brand standards and the app platform are proven and repeatable risks diluting exactly the consistency and data quality that differentiate this business from the unorganized cohort it's positioned against. Company-owned hubs first, franchised spokes later, is the sequencing that protects the moat while still getting capital-efficient scale eventually.</div></div>
+    </section>
+
+    <!-- ===================== 11 ACTION PLAN ===================== -->
+    <section class="panel" id="panel11">
+      <div class="section-kicker">Section 11</div>
+      <h2 class="section-title">Action Plan</h2>
+
+      <div class="roadmap">
+        <div class="road-phase"><h4>First 30 Days</h4><ul>
+          <li>Commission a formal GST advance ruling / professional tax opinion on grooming, boarding and daycare classification before any pricing is finalized</li>
+          <li>Shortlist 4-6 candidate flagship sites in Bandra/Khar and Powai against a defined footfall/pet-friendly-building/rent criteria; obtain landlord LOIs</li>
+          <li>Engage a Customs House Agent and a legal counsel to scope BMC facility licensing, PCA Act SOP requirements, and VCI vet-registration process</li>
+          <li>Begin technical scoping of the health-record app and telehealth platform (build vs. customize-on-SaaS decision) with an explicit reliability/QA requirement informed by Supertails' documented failures</li>
+          <li>Commission a formal vendor-quote exercise (fit-out contractor, kennel supplier, grooming equipment) to replace the estimated startup-cost figures in Section 05 with underwritten quotes</li>
+        </ul></div>
+        <div class="road-phase"><h4>Days 31-60</h4><ul>
+          <li>Finalize lease terms and sign for the first flagship location; begin fit-out design and BMC/Shops &amp; Establishments licensing filings</li>
+          <li>Recruit the founding vet (VCI-registered) and lead groomer/trainer team; define staff-to-animal ratio SOPs and intake/temperament screening protocol</li>
+          <li>Build the app MVP: booking, health-record core, and telehealth escalation logic; begin closed-beta testing with a small founding-member cohort</li>
+          <li>Launch the pre-launch waitlist and founding-member pricing campaign via Instagram/Reels and RWA outreach in the target catchment</li>
+          <li>Negotiate first vet-clinic referral tie-up and first pet-friendly-employer corporate conversation (WeWork India/Nestlé India/InMobi-type)</li>
+        </ul></div>
+        <div class="road-phase"><h4>Days 61-90</h4><ul>
+          <li>Complete fit-out and pass all facility inspections; secure general liability and animal-care liability insurance</li>
+          <li>Open Flagship 1 (Bandra/Khar) to the founding-member cohort with a soft launch, tracking churn and utilization from day one per the Section 05 flag</li>
+          <li>Run the first RWA pet-wellness camp / "meet the groomer" pop-up event as a hyperlocal trust-building exercise</li>
+          <li>Instrument the app's analytics to track the LTV:CAC assumptions (₹1,500-3,500 CAC, 4-6% monthly churn target) against real data</li>
+          <li>Begin site search and landlord conversations for Flagship 2 (Powai) and the first 2-3 satellite locations</li>
+        </ul></div>
+        <div class="road-phase"><h4>Year 1</h4><ul>
+          <li>Open Flagship 2 (Powai) and reach the ~12-18 month break-even ramp target for Flagship 1, validating the ₹25 lakh/month revenue break-even assumption against actuals</li>
+          <li>Open first 2-4 satellite/hub-and-spoke locations (Andheri, Juhu, Lower Parel, Thane West) once flagship unit economics are validated, not before</li>
+          <li>Formalize the corporate-partnership channel with at least 2 signed employee-benefit agreements</li>
+          <li>Publish real (not estimated) churn, LTV and CAC figures internally and use them to decide whether to proceed to Phase 2 (Pune) expansion or extend the Mumbai-density phase</li>
+          <li>Evaluate a formal pet-insurance distribution partnership discussion, given the &lt;1%-penetration/high-growth insurance backdrop identified in Section 02</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- ===================== 12 SOURCES ===================== -->
+    <section class="panel" id="panel12">
+      <div class="section-kicker">Section 12</div>
+      <h2 class="section-title">Sources</h2>
+      <p class="section-intro">All financial figures marked <span class="est">EST.</span> throughout this case study are directional planning assumptions, not underwritten quotes, and should be validated against actual Mumbai vendor/contractor/landlord quotes before use in an investment memo.</p>
+
+      <div class="source-group"><h4>Market Research</h4><ul>
+        <li><a href="https://www.nexdigm.com/market-research/report-store/india-pet-care-market-report/" target="_blank">Nexdigm — India Pet Care Market Report</a></li>
+        <li><a href="https://www.mordorintelligence.com/industry-reports/india-pet-food-market" target="_blank">Mordor Intelligence — India Pet Food Market</a></li>
+        <li><a href="https://www.grandviewresearch.com/horizon/outlook/pet-care-market/india" target="_blank">Grand View Research — India Pet Care Market Outlook 2026-2033</a></li>
+        <li><a href="https://www.grandviewresearch.com/horizon/outlook/pet-services-market/india" target="_blank">Grand View Research — India Pet Services Market Outlook 2025-2033</a></li>
+        <li><a href="https://www.marketsandata.com/industry-reports/india-pet-market" target="_blank">MarketsandData — India Pet Market</a></li>
+        <li><a href="https://www.imarcgroup.com/india-pet-food-market" target="_blank">IMARC — India Pet Food Market</a></li>
+        <li><a href="https://www.ibef.org/blogs/decoding-the-rise-of-the-pet-care-industry-in-india-a-new-consumer-growth-story" target="_blank">IBEF — Decoding the Rise of the Pet Care Industry in India</a></li>
+        <li><a href="https://www.india-briefing.com/news/indias-pet-care-economy-2025-an-overview-37234.html/" target="_blank">India Briefing — India's Pet Care Economy 2025</a></li>
+        <li><a href="https://www.imarcgroup.com/india-pet-care-products-market" target="_blank">IMARC — India Pet Care Products Market</a></li>
+        <li><a href="https://www.imarcgroup.com/india-pet-grooming-market" target="_blank">IMARC — India Pet Grooming Market</a></li>
+        <li><a href="https://www.dogster.com/statistics/pet-ownership-statistics-india" target="_blank">Dogster — India Pet Ownership Statistics 2026</a></li>
+        <li><a href="https://www.dogster.com/statistics/pet-industry-statistics-india" target="_blank">Dogster — India Pet Industry Statistics 2025</a></li>
+        <li><a href="https://www.statista.com/statistics/1061322/india-households-with-pet-dogs-and-cats/" target="_blank">Statista — India Households with Pet Dogs and Cats</a></li>
+        <li><a href="https://www.imarcgroup.com/india-pet-insurance-market" target="_blank">IMARC — India Pet Insurance Market</a></li>
+        <li><a href="https://www.business-standard.com/finance/insurance/pet-insurance-market-in-india-to-reach-rs-6-500-crore-mark-by-2025-124050800883_1.html" target="_blank">Business Standard — Pet Insurance Market India Rs 6,500 crore by 2025</a></li>
+        <li><a href="https://petfed.org/" target="_blank">Pet Fed India</a></li>
+        <li><a href="https://petex.in/" target="_blank">PETEX India</a></li>
+        <li><a href="https://www.passionateinmarketing.com/indias-biggest-pet-festival-returns-with-a-bang/" target="_blank">Passionate in Marketing — Pet Fed 2025</a></li>
+      </ul></div>
+
+      <div class="source-group"><h4>Competitor Analysis</h4><ul>
+        <li><a href="https://tracxn.com/d/companies/headsupfortails/__93y1xrlCmUhWvv7Wdg94nd6dpfRzWotSZVec25TaCVk" target="_blank">Tracxn — Heads Up For Tails Company Profile</a></li>
+        <li><a href="https://thekredible.com/company/heads-up-for-tails/financials" target="_blank">Kredible — HUFT Financials</a></li>
+        <li><a href="https://www.petfoodindustry.com/pet-food-market/article/15469525/pet-food-retailer-heads-up-for-tails-india-raises-funding" target="_blank">PetfoodIndustry — HUFT Funding</a></li>
+        <li><a href="https://www.trustpilot.com/review/headsupfortails.com" target="_blank">Trustpilot — Heads Up For Tails Reviews</a></li>
+        <li><a href="https://headsupfortails.com/pages/customer-feedback" target="_blank">HUFT — Customer Feedback Page</a></li>
+        <li><a href="https://startupintros.com/orgs/supertails" target="_blank">Startup Intros — Supertails</a></li>
+        <li><a href="https://thekredible.com/company/supertails/financials" target="_blank">Kredible — Supertails Financials</a></li>
+        <li><a href="https://startuptalky.com/supertails-success-story/" target="_blank">StartupTalky — Supertails Success Story</a></li>
+        <li><a href="https://www.indianretailer.com/news/funding-alert-supertails-secures-new-funding-strengthen-pet-care-platform" target="_blank">Indian Retailer — Supertails Funding</a></li>
+        <li><a href="https://www.trustpilot.com/review/supertails.com" target="_blank">Trustpilot — Supertails Reviews</a></li>
+        <li><a href="https://tracxn.com/d/companies/wiggles/__9oQpzoLK9DwQ5MGdGb0iMWY_gfA3Sc3mbExu5qK7kIk" target="_blank">Tracxn — Wiggles Company Profile</a></li>
+        <li><a href="https://inc42.com/buzz/pet-care-startup-wiggles-raises-1-mn-will-expand-its-footprint/" target="_blank">Inc42 — Wiggles Raises $1Mn</a></li>
+        <li><a href="https://mnacritique.mergersindia.com/news/wiggles-in-raises-5-5-million-in-pre-series-a-round-led-by-anthill-ventures/" target="_blank">M&amp;A Critique — Wiggles Pre-Series A</a></li>
+        <li><a href="https://tracxn.com/d/companies/dogspotin/__moiwR_8iaNmbqB3rQN24QBMIKYtlg38lqS7ayBPbmp8" target="_blank">Tracxn — DogSpot Company Profile</a></li>
+        <li><a href="https://inc42.com/buzz/ratan-tata-invests-in-dogspot/" target="_blank">Inc42 — Ratan Tata Invests in DogSpot</a></li>
+        <li><a href="https://vetic.in/pet-clinic-mumbai" target="_blank">Vetic — Pet Clinic Mumbai</a></li>
+        <li><a href="https://vetic.in/vet-mumbai" target="_blank">Vetic — Mumbai Vet Clinics</a></li>
+        <li><a href="https://www.vetic.in/dog-grooming-mumbai" target="_blank">Vetic — Dog Grooming Mumbai Pricing</a></li>
+        <li><a href="https://vetic.in/pet-consultation-mumbai" target="_blank">Vetic — Pet Consultation Mumbai</a></li>
+        <li><a href="https://www.pupstop.in/" target="_blank">Pupstop</a></li>
+        <li><a href="https://www.petsfolio.com/in/" target="_blank">Petsfolio India</a></li>
+        <li><a href="https://www.globenewswire.com/news-release/2022/2/24/2390901/0/en/Petsfolio-Empowering-Women-to-build-a-great-career-in-the-Pets-Care-Industry.html" target="_blank">GlobeNewswire — Petsfolio Empowering Women</a></li>
+        <li><a href="https://tracxn.com/d/companies/petsy/__qnbK_IeoGO3oHbIvp6E9jy0rrGE2xAo6tyteX_jdrkg" target="_blank">Tracxn — Petsy Company Profile</a></li>
+        <li><a href="https://tracxn.com/d/companies/petsworld/__mJZ4dK4CKwQUIgiAzkn5dDyffvU2ZGlpoqF-J6FqTRY" target="_blank">Tracxn — Petsworld Company Profile</a></li>
+        <li><a href="https://www.petboard.in/blog/dog-daycare-pricing-india" target="_blank">PetBoard — Dog Daycare &amp; Boarding Pricing in India 2026</a></li>
+      </ul></div>
+
+      <div class="source-group"><h4>SWOT / Porter's / PESTLE / Risk / Regulations</h4><ul>
+        <li><a href="https://www.indiacode.nic.in/handle/123456789/1547?view_type=browse" target="_blank">India Code — Prevention of Cruelty to Animals Act, 1960</a></li>
+        <li><a href="https://awbi.gov.in/uploads/regulations/175085130181Prevention%20of%20Cruelty%20to%20Animals%20Act,%201960.pdf" target="_blank">AWBI — PCA Act 1960 PDF</a></li>
+        <li><a href="https://awbi.gov.in/Document/rules" target="_blank">AWBI — Regulations/Rules</a></li>
+        <li><a href="https://vhd.mcgm.gov.in/storage/uploads/admin/extras/circulars/BMC%20GUIDLINES%20WITH%20RESPECT%20TO%20PET%20DOGS,%20STREET%20DOGS,%20COMMUNITY%20ANIMAL%20FEEDERS,%20RWA,%20AOA,%20PUBLIC%20INSTITUITIONS%20(1)%20(1).pdf" target="_blank">BMC Veterinary Health Department — Guidelines PDF</a></li>
+        <li><a href="https://www.getpettle.com/post/navigating-legal-and-regulatory-requirements-in-the-pet-industry-in-india" target="_blank">GetPettle — Legal/Regulatory Requirements in India's Pet Industry</a> (returned 404 at fetch time; referenced via search-snippet only)</li>
+        <li><a href="https://emergelegal.in/navigating-legal-regulations-in-indias-booming-pet-care-industry/" target="_blank">Emerge Legal — Navigating Legal Regulations in India's Pet Care Industry</a></li>
+        <li><a href="https://www.lexology.com/library/detail.aspx?g=7c1a74b0-d47e-4792-9091-5f6a5002afff" target="_blank">Lexology — India's Pet Care Sector and Regulatory Grey Areas</a></li>
+        <li><a href="https://vci.dahd.gov.in/registration-vci" target="_blank">VCI — Registration</a></li>
+        <li><a href="https://vci.dahd.gov.in/introduction" target="_blank">VCI — Introduction</a></li>
+        <li><a href="https://www.niti.gov.in/sites/default/files/2023-07/Telemedicine-for-Livestock-Health_Inside%20Report_18072023.pdf" target="_blank">NITI Aayog — Telemedicine Framework for Livestock Health 2023</a></li>
+        <li><a href="https://www.foodresearchlab.com/insights/regulation-updates/is-11968-2019-fssai-guidelines-compliance/" target="_blank">FoodResearchLab — IS 11968:2019 FSSAI Guidelines &amp; Compliance</a></li>
+        <li><a href="https://www.foodresearchlab.com/insights/regulation-updates/register-approve-pet-food-products-india-is-11968-2019/" target="_blank">FoodResearchLab — Register/Approve Pet Food Products India</a></li>
+        <li><a href="https://www.casahuja.com/2025/12/gst-classification-and-taxability.html" target="_blank">CA Sahuja — GST Classification for Veterinary/Pet-Care Service Providers</a></li>
+        <li><a href="https://gstivy.in/gst-on-pet-shops/" target="_blank">GST IVY — GST on Pet Shops</a></li>
+        <li><a href="https://www.loyalpetzone.com/impact-gst-pet-products/" target="_blank">LoyalPetZone — Impact of GST on Pet Products</a></li>
+        <li><a href="https://www.exportgenius.in/india-import-duty/pet-grooming" target="_blank">ExportGenius — India Import Duty on Pet Grooming</a></li>
+        <li><a href="https://connect2india.com/import-duty-for-Pet-Grooming-Product" target="_blank">Connect2India — Import Duty on Pet Grooming Product</a></li>
+        <li><a href="https://eximpe.com/blog/b2b/importing-pet-products-into-india-rules-permits-duties-compliance-guide-2026" target="_blank">Eximpe — Importing Pet Products into India Guide 2026</a></li>
+        <li><a href="https://abcnews.com/International/indian-supreme-courts-order-seeks-bite-stray-dog/story?id=127443132" target="_blank">ABC News — Indian Supreme Court Stray Dog Order</a></li>
+        <li><a href="https://www.drishtiias.com/daily-updates/daily-news-analysis/stray-dog-management-in-india-balancing-public-safety-and-animal-welfare" target="_blank">Drishti IAS — Stray Dog Management in India</a></li>
+      </ul></div>
+
+      <div class="source-group"><h4>Financial Research</h4><ul>
+        <li><a href="https://www.iifl.com/blogs/gold-loan/how-to-start-a-pet-boarding-spa-business" target="_blank">IIFL Finance — How to Start a Pet Boarding &amp; Spa Business in India</a></li>
+        <li><a href="https://www.petboard.in/blog/how-to-start-dog-boarding-business-india" target="_blank">PetBoard — How to Start a Dog Boarding Business in India</a></li>
+        <li><a href="https://www.franchisebazar.com/blog/top-10-pet-grooming-franchises-in-india-2023" target="_blank">FranchiseBazar — Top 10 Pet Grooming Franchises in India 2023</a></li>
+        <li><a href="https://topfranchise.com/articles/the-10-best-pet-franchise-businesses-in-india/" target="_blank">Topfranchise — Best Pet Franchise Businesses in India 2025</a></li>
+        <li><a href="https://www.abkgrooming.com/" target="_blank">ABK Grooming — Equipment Supplier</a></li>
+        <li><a href="https://www.realestatemumbai.com/commercial-property-rates-in-mumbai" target="_blank">RealEstateMumbai — Commercial Property Rates 2026</a></li>
+        <li><a href="https://cityinfoservices.com/blogs/commercial-property-for-rent-in-mumbai-top-locations-rental-trends-2026-market-insights/" target="_blank">Cityinfo Services — Commercial Property for Rent Mumbai</a></li>
+        <li><a href="https://www.statista.com/statistics/1332955/india-office-rent-in-mumbai-by-sub-market/" target="_blank">Statista — Mumbai Office Rent by Sub-market</a></li>
+      </ul></div>
+
+      <div class="source-group"><h4>Marketing Strategy</h4><ul>
+        <li><a href="https://carniwel.com/blogs/fun-activities/paws-work-india-pet-friendly-office-culture" target="_blank">Carniwel — Pet Friendly Office Culture India</a></li>
+        <li><a href="https://officechai.com/stories/indian-companies-that-allow-their-pets-in-the-office/" target="_blank">OfficeChai — Indian Startups Allowing Pets in Office</a></li>
+        <li><a href="https://sightsinplus.com/news/work-model/nestle-india-introduces-pet-friendly-workplace-policy/" target="_blank">Sights In Plus — Nestlé India Pet-Friendly Workplace Policy</a></li>
+      </ul></div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kitchen-as-a-Service — Playable Case Study</title>
+<style>:root{
+  --cream:#faf9f5;--cream-2:#f3efe6;--charcoal:#141310;--charcoal-2:#0c0b0a;
+  --gold:#b98a3e;--gold-soft:rgba(185,138,62,0.12);--wine:#5c2b2e;--ember:#a8624f;
+  --sage:#5f6b4e;--line:rgba(20,19,16,0.12);--line-light:rgba(255,255,255,0.12);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;padding:0;background:var(--charcoal-2);color:var(--cream);
+  font-family:"Jost","Segoe UI",Arial,Helvetica,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+h1,h2,h3,h4,.display{font-family:"Cormorant Garamond","Georgia",serif;font-weight:600;letter-spacing:0.01em;margin:0;}
+p{margin:0 0 14px 0;}
+em{color:var(--gold);font-style:italic;}
+strong{color:var(--cream);font-weight:600;}
+button{font-family:inherit;cursor:pointer;}
+::selection{background:var(--gold);color:var(--charcoal-2);}
+a{color:var(--gold);}
+
+.topbar{position:fixed;top:0;left:0;right:0;z-index:210;display:flex;justify-content:space-between;align-items:center;
+  padding:12px 20px;background:linear-gradient(180deg,rgba(12,11,10,0.9),transparent);pointer-events:none;}
+.topbar a{pointer-events:auto;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:#cfc7b6;
+  border:1px solid var(--line-light);border-radius:30px;padding:8px 16px;background:rgba(12,11,10,0.5);transition:all .25s;}
+.topbar a:hover{border-color:var(--gold);color:var(--gold);}
+.topbar-brand{border:none!important;background:none!important;padding:0!important;pointer-events:auto;display:flex;align-items:center;opacity:.9;transition:opacity .2s;}
+.topbar-brand:hover{opacity:1;border:none!important;}
+.topbar-logo{height:20px;width:auto;display:block;}
+@media(max-width:560px){.topbar-brand{display:none;}}
+
+.progress-rail{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(to right,var(--ember),var(--gold));z-index:220;transition:width .15s ease;}
+.chapter-dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:150;display:flex;flex-direction:column;gap:14px;}
+.chapter-dots a{width:11px;height:11px;border-radius:50%;border:1px solid rgba(255,255,255,0.35);background:transparent;transition:all .25s ease;position:relative;}
+.chapter-dots a.active{background:var(--gold);border-color:var(--gold);transform:scale(1.35);}
+.chapter-dots a::after{content:attr(data-label);position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none;}
+.chapter-dots a:hover::after{opacity:1;}
+@media(max-width:720px){.chapter-dots{display:none;}}
+
+section{position:relative;padding:96px 6vw;min-height:100vh;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid rgba(255,255,255,0.05);}
+.wrap{width:100%;max-width:1080px;margin:0 auto;}
+.kicker{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.kicker::before{content:"";width:34px;height:1px;background:var(--gold);}
+.kicker.center{justify-content:center;}
+.sec-title{font-size:clamp(2rem,5vw,3.6rem);line-height:1.05;margin-bottom:18px;text-wrap:balance;}
+.sec-title .hl{color:var(--gold);}
+.lead{font-size:clamp(1.02rem,1.6vw,1.22rem);color:#d8d2c4;max-width:760px;}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.in{opacity:1;transform:none;}
+.reveal.d1{transition-delay:.1s;}.reveal.d2{transition-delay:.22s;}.reveal.d3{transition-delay:.34s;}.reveal.d4{transition-delay:.46s;}
+@media (prefers-reduced-motion:reduce){.reveal{transition:none;opacity:1;transform:none;}}
+
+#hero{min-height:100vh;text-align:center;align-items:center;background:radial-gradient(ellipse at 50% 30%,rgba(92,43,46,0.35),transparent 60%),linear-gradient(180deg,#171512,#0c0b0a);overflow:hidden;}
+.hero-badge{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;}
+.hero-title{font-size:clamp(2.6rem,8vw,6rem);line-height:.98;margin-bottom:10px;text-wrap:balance;}
+.hero-title em{color:var(--ember);}
+.hero-sub{font-size:clamp(1rem,2vw,1.35rem);color:#cfc7b6;max-width:640px;margin:0 auto 40px;}
+.wheel-stage{position:relative;width:270px;height:270px;margin:6px auto 34px;}
+.wheel-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;box-shadow:0 30px 60px -20px rgba(0,0,0,0.85),inset 0 0 40px rgba(0,0,0,0.6);border:2px solid rgba(230,200,150,0.22);background:#241009;}
+.wheel-ring{position:absolute;inset:-16px;border-radius:50%;border:1px dashed rgba(185,138,62,0.4);animation:spin 22s linear infinite reverse;pointer-events:none;}
+.wheel-ring2{position:absolute;inset:-30px;border-radius:50%;border:1px solid rgba(185,138,62,0.15);animation:spin 40s linear infinite;pointer-events:none;}
+@keyframes spin{to{transform:rotate(360deg);}}
+@media (prefers-reduced-motion:reduce){.wheel-ring,.wheel-ring2{animation:none;}}
+.start-btn{display:inline-flex;align-items:center;gap:12px;padding:15px 34px;border:1px solid var(--gold);border-radius:40px;background:transparent;color:var(--gold);font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:all .3s ease;}
+.start-btn:hover{background:var(--gold);color:var(--charcoal-2);transform:translateY(-3px);}
+.scroll-hint{margin-top:40px;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:#7a7264;animation:bob 2s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:20px;}
+@media(max-width:860px){.stat-grid{grid-template-columns:1fr 1fr;}}
+.stat{background:linear-gradient(160deg,rgba(255,255,255,0.045),rgba(255,255,255,0.01));border:1px solid var(--line-light);border-radius:8px;padding:26px 22px;border-top:2px solid var(--gold);}
+.stat .num{font-family:"Cormorant Garamond","Georgia",serif;font-size:clamp(2rem,4vw,3.1rem);color:var(--gold);line-height:1;font-weight:600;}
+.stat .lab{font-size:.8rem;color:#cfc7b6;margin-top:12px;letter-spacing:.02em;}
+.stat .lab b{color:var(--cream);}
+
+.quad-shell{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;margin-top:14px;}
+@media(max-width:860px){.quad-shell{grid-template-columns:1fr;}}
+.quad{position:relative;width:100%;aspect-ratio:1/1;max-width:520px;border-left:1px solid rgba(255,255,255,0.25);border-bottom:1px solid rgba(255,255,255,0.25);margin:14px auto;}
+.quad .axis-x,.quad .axis-y{position:absolute;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#8a8272;}
+.quad .axis-x{bottom:-26px;width:100%;display:flex;justify-content:space-between;}
+.quad .axis-y.top{top:0;left:-8px;transform:rotate(-90deg) translateX(-100%);transform-origin:left top;white-space:nowrap;}
+.plot{position:absolute;width:15px;height:15px;border-radius:50%;background:#9a9284;transform:translate(-50%,50%);cursor:pointer;transition:all .25s ease;border:2px solid rgba(0,0,0,0.3);}
+.plot:hover{transform:translate(-50%,50%) scale(1.5);z-index:5;}
+.plot .tip{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);background:var(--cream);color:var(--charcoal-2);padding:7px 12px;border-radius:5px;font-size:.72rem;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;box-shadow:0 8px 20px rgba(0,0,0,0.4);font-weight:500;}
+.plot .tip b{color:var(--wine);}
+.plot:hover .tip{opacity:1;}
+.plot.mine{background:var(--gold);width:18px;height:18px;box-shadow:0 0 16px rgba(185,138,62,0.7);}
+.gap-zone{position:absolute;right:6%;top:6%;width:40%;height:40%;border-radius:8px;background:repeating-linear-gradient(45deg,rgba(185,138,62,0.14),rgba(185,138,62,0.14) 8px,transparent 8px,transparent 16px);border:1px dashed var(--gold);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);animation:pulse 3s ease-in-out infinite;padding:6px;}
+@keyframes pulse{0%,100%{opacity:.55;}50%{opacity:1;}}
+
+.card{background:linear-gradient(160deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015));border:1px solid var(--line-light);border-radius:10px;padding:24px;}
+.note{color:#b7b0a1;font-size:.86rem;}
+
+.detective-bg{background:linear-gradient(180deg,#0c0b0a,#15100c);}
+.files{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:30px 0 10px;}
+@media(max-width:860px){.files{grid-template-columns:1fr 1fr;}}
+.file{position:relative;height:240px;border-radius:9px;cursor:pointer;perspective:1000px;}
+.file-inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d;}
+.file.flipped .file-inner{transform:rotateY(180deg);}
+.file-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:9px;display:flex;flex-direction:column;padding:18px;border:1px solid var(--line-light);}
+.file-front{background:linear-gradient(160deg,#2a2118,#1a140e);align-items:center;justify-content:center;text-align:center;}
+.file-front .fname{font-family:"Cormorant Garamond",serif;font-size:1.25rem;color:var(--cream);margin-bottom:6px;}
+.file-front .fmeta{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:#8a8272;}
+.file-front .stamp{margin-top:auto;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px dashed var(--gold);border-radius:20px;padding:5px 12px;}
+.file-front .clue{font-size:.72rem;color:#a89f8d;margin-top:10px;font-style:italic;}
+.file-back{transform:rotateY(180deg);justify-content:flex-start;background:linear-gradient(160deg,#1c1712,#120d09);overflow-y:auto;}
+.file-back .verdict{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:8px;padding:4px 10px;border-radius:4px;align-self:flex-start;}
+.v-fail{background:rgba(168,98,79,0.22);color:#e39b86;border:1px solid rgba(168,98,79,0.5);}
+.v-real{background:rgba(95,107,78,0.28);color:#b6cf8f;border:1px solid rgba(95,107,78,0.6);}
+.file-back .fdet{font-size:.76rem;color:#cbc4b5;line-height:1.5;}
+.detective-status{margin-top:26px;padding:18px 22px;border-radius:8px;border:1px solid var(--line-light);background:rgba(185,138,62,0.06);font-size:.92rem;color:#d8d2c4;text-align:center;transition:all .4s ease;}
+.detective-status.solved{border-color:var(--gold);background:rgba(185,138,62,0.14);color:var(--cream);}
+.detective-status b{color:var(--gold);}
+
+.persona-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:24px;}
+@media(max-width:980px){.persona-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.persona-grid{grid-template-columns:1fr;}}
+.persona{height:350px;perspective:1200px;cursor:pointer;}
+.persona-inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d;}
+.persona.flipped .persona-inner{transform:rotateY(180deg);}
+.persona-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;overflow:hidden;border:1px solid var(--line-light);}
+.persona-front{display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(160deg,#251a12,#130f0a);}
+.persona-front .pmono{position:absolute;top:6px;right:22px;font-family:"Cormorant Garamond",serif;font-size:7rem;line-height:1;color:rgba(185,138,62,0.15);}
+.persona-front .pinfo{position:relative;padding:20px;}
+.persona-front .pname{font-family:"Cormorant Garamond",serif;font-size:1.5rem;color:#fff;line-height:1.1;}
+.persona-front .prole{font-size:.72rem;letter-spacing:.06em;color:var(--gold);text-transform:uppercase;margin-top:6px;}
+.persona-front .pflip{font-size:.62rem;color:#b7b0a1;margin-top:14px;letter-spacing:.1em;text-transform:uppercase;}
+.persona-back{transform:rotateY(180deg);background:linear-gradient(160deg,#1d1811,#110c08);padding:22px;display:flex;flex-direction:column;gap:12px;overflow-y:auto;}
+.persona-back .pblk .pl{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;}
+.persona-back .pblk .pt{font-size:.82rem;color:#d3ccbd;line-height:1.45;}
+.persona-back .pconv{border-top:1px solid var(--line-light);padding-top:10px;}
+.persona-back .pconv .pt{color:#b6cf8f;}
+
+.tycoon-bg{background:linear-gradient(180deg,#15100c,#0c0b0a);}
+.decision{margin-top:30px;border:1px solid var(--line-light);border-radius:12px;padding:26px;background:rgba(255,255,255,0.02);}
+.decision .dq{font-family:"Cormorant Garamond",serif;font-size:1.35rem;color:var(--cream);margin-bottom:4px;}
+.decision .dctx{font-size:.82rem;color:#a89f8d;margin-bottom:18px;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:640px){.opts{grid-template-columns:1fr;}}
+.opt{text-align:left;padding:16px 18px;border-radius:9px;border:1px solid var(--line-light);background:rgba(255,255,255,0.03);color:#d3ccbd;font-size:.9rem;transition:all .2s ease;line-height:1.4;}
+.opt:hover:not(:disabled){border-color:var(--gold);background:rgba(185,138,62,0.08);}
+.opt:disabled{cursor:default;opacity:.55;}
+.opt.chosen-good{border-color:var(--sage);background:rgba(95,107,78,0.18);opacity:1;color:#e7ecd9;}
+.opt.chosen-bad{border-color:var(--ember);background:rgba(168,98,79,0.16);opacity:1;color:#f0d7cd;}
+.feedback{margin-top:16px;font-size:.86rem;padding:14px 16px;border-radius:8px;display:none;line-height:1.5;}
+.feedback.show{display:block;}
+.feedback.good{background:rgba(95,107,78,0.14);border-left:3px solid var(--sage);color:#d5ddc6;}
+.feedback.bad{background:rgba(168,98,79,0.12);border-left:3px solid var(--ember);color:#ecccc0;}
+.tyc-score{margin-top:26px;text-align:center;font-size:.9rem;color:#cfc7b6;}
+.tyc-score b{color:var(--gold);font-size:1.3rem;font-family:"Cormorant Garamond",serif;}
+
+.wage-shell{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:20px;}
+@media(max-width:860px){.wage-shell{grid-template-columns:1fr;}}
+.wage-track{display:flex;flex-direction:column;gap:22px;}
+.wage-row .wl{font-size:.82rem;color:#cfc7b6;margin-bottom:8px;display:flex;justify-content:space-between;gap:12px;}
+.wage-row .wl b{color:var(--cream);white-space:nowrap;}
+.wage-bar-outer{height:26px;background:rgba(255,255,255,0.06);border-radius:14px;overflow:hidden;}
+.wage-bar-inner{height:100%;border-radius:14px;width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1);display:flex;align-items:center;justify-content:flex-end;padding-right:12px;font-size:.72rem;color:var(--charcoal-2);font-weight:600;}
+.wb-low{background:linear-gradient(90deg,#7a6a4a,#a8624f);}
+.wb-high{background:linear-gradient(90deg,#b98a3e,#d9a441);}
+.wage-img{border-radius:12px;overflow:hidden;height:320px;background:#181310;}
+.wage-video{width:100%;height:100%;object-fit:cover;filter:saturate(.98);display:block;}
+
+.quiz-bg{background:radial-gradient(ellipse at 50% 0%,rgba(92,43,46,0.3),transparent 55%),linear-gradient(180deg,#0f0c09,#0c0b0a);}
+.quiz-card{max-width:720px;margin:24px auto 0;background:rgba(255,255,255,0.03);border:1px solid var(--line-light);border-radius:14px;padding:34px;}
+.q-progress{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.q-text{font-family:"Cormorant Garamond",serif;font-size:1.5rem;color:var(--cream);margin-bottom:22px;line-height:1.25;}
+.q-opts{display:flex;flex-direction:column;gap:12px;}
+.q-opt{text-align:left;padding:15px 18px;border-radius:9px;border:1px solid var(--line-light);background:rgba(255,255,255,0.03);color:#d3ccbd;font-size:.92rem;transition:all .2s;}
+.q-opt:hover:not(:disabled){border-color:var(--gold);background:rgba(185,138,62,0.08);}
+.q-opt:disabled{cursor:default;}
+.q-opt.correct{border-color:var(--sage);background:rgba(95,107,78,0.2);color:#e7ecd9;}
+.q-opt.wrong{border-color:var(--ember);background:rgba(168,98,79,0.16);color:#f0d7cd;}
+.q-explain{margin-top:18px;font-size:.84rem;color:#bdb6a6;padding:14px 16px;background:rgba(185,138,62,0.06);border-radius:8px;border-left:3px solid var(--gold);display:none;line-height:1.5;}
+.q-explain.show{display:block;}
+.q-next{margin-top:22px;padding:13px 30px;border-radius:30px;border:1px solid var(--gold);background:transparent;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;font-size:.76rem;transition:all .25s;display:none;}
+.q-next.show{display:inline-block;}
+.q-next:hover{background:var(--gold);color:var(--charcoal-2);}
+.quiz-result{text-align:center;display:none;}
+.quiz-result.show{display:block;}
+.quiz-result .score-big{font-family:"Cormorant Garamond",serif;font-size:4rem;color:var(--gold);line-height:1;}
+.verdict-box{max-width:640px;margin:30px auto 0;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.vote-btn{padding:16px 30px;border-radius:40px;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;transition:all .3s;border:1px solid;}
+.vote-invest{border-color:var(--sage);color:#b6cf8f;background:rgba(95,107,78,0.12);}
+.vote-invest:hover{background:var(--sage);color:#fff;}
+.vote-pass{border-color:var(--ember);color:#e39b86;background:rgba(168,98,79,0.1);}
+.vote-pass:hover{background:var(--ember);color:#fff;}
+.vote-msg{margin-top:26px;font-size:.95rem;color:#d8d2c4;max-width:640px;margin-left:auto;margin-right:auto;min-height:24px;line-height:1.55;}
+.vote-msg b{color:var(--gold);}
+
+footer{padding:60px 6vw 70px;text-align:center;background:#0c0b0a;border-top:1px solid var(--line-light);}
+footer .fwm{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);}
+footer .frule{width:60px;height:1px;background:var(--gold);margin:16px auto;}
+footer p{color:#8a8272;font-size:.82rem;max-width:640px;margin:0 auto 8px;}
+footer a{color:var(--gold);text-decoration:none;}
+.footlinks{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;}
+.deep-link{display:inline-block;padding:12px 26px;border:1px solid var(--gold);border-radius:30px;color:var(--gold);text-decoration:none;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;transition:all .25s;}
+.deep-link:hover{background:var(--gold);color:var(--charcoal-2);}
+.deep-link.solid{background:var(--gold);color:var(--charcoal-2);}
+.deep-link.solid:hover{background:var(--ember);border-color:var(--ember);color:#fff;}
+.imgband{height:260px;overflow:hidden;position:relative;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;}
+.imgband::before{content:"";position:absolute;inset:0;background:rgba(12,11,10,0.6);}
+.imgband .cap{position:relative;text-align:center;padding:0 20px;}
+.imgband .cap .ct{font-family:"Cormorant Garamond",serif;font-size:clamp(1.4rem,3vw,2.4rem);color:#fff;}
+.imgband .cap .cs{font-size:.82rem;color:#d8d2c4;letter-spacing:.04em;margin-top:8px;max-width:640px;}
+</style>
+</head>
+<body>
+<div class="topbar"><a href="../">← All 9 ideas</a><a class="topbar-brand" href="../"><svg class="topbar-logo" viewBox="312 272 410 82" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aamara Capital"><path fill="#faf9f5" d="M465.307678,294.723846 C471.187286,303.019928 476.863953,311.021240 482.704651,319.253723 C485.196198,318.021393 486.396240,315.812622 487.805420,313.846802 C495.175690,303.565277 502.499756,293.250580 509.892059,282.984955 C511.004150,281.440552 511.944305,279.025452 514.412720,279.880798 C516.584839,280.633423 515.969421,282.972290 515.970886,284.712067 C515.986572,303.192719 515.965515,321.673492 515.886047,340.153961 C515.877136,342.224579 516.540283,345.055817 514.093140,345.914490 C511.139709,346.950806 507.775330,346.902435 504.766724,345.886932 C502.823639,345.231110 503.598175,343.023438 503.593109,341.438843 C503.562866,332.010284 503.578156,322.581543 502.569824,312.874756 C496.364227,321.606415 490.158630,330.338043 483.227814,340.090118 C476.501190,330.969879 470.362640,322.647034 463.351715,313.141327 C463.351715,323.307220 463.123535,332.177246 463.443848,341.027405 C463.614929,345.753998 461.473083,346.539948 457.454010,346.483582 C453.502106,346.428101 450.827667,346.169525 450.893829,340.992188 C451.132019,322.347748 450.983826,303.698517 451.044098,285.051300 C451.050201,283.162292 450.309540,280.539520 452.666382,279.774689 C455.348663,278.904175 456.183960,281.716553 457.387482,283.372009 C460.029999,287.006775 462.540436,290.737518 465.307678,294.723846 z"/>
+<path fill="#faf9f5" d="M599.668823,315.999939 C599.674500,305.669159 599.780457,295.836945 599.632141,286.008514 C599.580505,282.591339 600.870544,281.090454 604.242310,281.131531 C610.400330,281.206573 616.568970,280.726990 622.708557,281.619080 C631.543823,282.902802 638.253113,287.190369 640.505676,296.103668 C642.695374,304.768188 641.666687,313.035095 634.103821,319.236359 C633.720703,319.550476 633.277954,319.791840 632.470337,320.327332 C637.602783,328.766632 642.558838,336.915894 647.554443,345.130127 C638.930969,348.493011 633.985535,346.930267 629.692688,339.939575 C627.077698,335.681274 624.252441,331.546326 621.776306,327.210571 C620.030273,324.153168 617.419800,323.751007 614.511169,324.340637 C611.077881,325.036591 612.359863,328.012177 612.262085,330.103943 C612.067871,334.260681 612.201172,338.432098 612.168091,342.597229 C612.129028,347.508698 608.409912,346.285339 605.640503,346.352295 C602.896179,346.418701 599.676270,347.009460 599.704407,342.492767 C599.758362,333.828918 599.687927,325.164246 599.668823,315.999939 M628.403809,305.619232 C628.513367,304.471527 628.755676,303.318512 628.710083,302.177002 C628.475159,296.299927 624.222961,293.402008 616.761475,293.290649 C609.840149,293.187286 612.724670,298.199890 612.281982,301.368866 C611.965088,303.637634 612.224487,305.988922 612.252136,308.303101 C612.270813,309.863251 612.544189,311.140656 614.406006,311.702515 C619.315063,313.183990 625.056274,311.002533 628.403809,305.619232 z"/>
+<path fill="#faf9f5" d="M384.979431,337.073120 C392.997528,317.722107 400.874603,298.726349 408.751648,279.730591 C409.280914,279.655548 409.810181,279.580505 410.339447,279.505432 C419.822510,301.412354 429.305542,323.319275 438.790863,345.231415 C430.649719,348.737061 426.543091,347.148712 423.595795,339.774139 C419.159393,328.673767 414.756317,317.560089 409.902344,305.353851 C408.144470,309.510742 406.725952,312.756561 405.393768,316.037445 C402.327667,323.588562 399.285919,331.149719 396.267090,338.719879 C392.857697,347.269623 391.855011,347.801849 382.246826,345.721130 C381.902557,342.617279 384.173065,340.240631 384.979431,337.073120 z"/>
+<path fill="#faf9f5" d="M654.653442,344.195221 C663.581360,322.608612 672.472046,301.371094 681.362671,280.133575 C681.950806,280.107422 682.538940,280.081299 683.127075,280.055145 C692.538452,301.689575 701.949768,323.323975 711.368347,344.974884 C702.747925,348.515320 698.653931,346.844147 695.767578,339.274811 C691.573792,328.276978 687.310913,317.305450 682.562866,304.987396 C678.845581,314.078339 675.651184,321.831543 672.506409,329.604767 C670.759949,333.921692 669.117004,338.280396 667.389587,342.605164 C665.560852,347.183533 658.579102,348.230896 654.653442,344.195221 z"/>
+<path fill="#faf9f5" d="M320.164001,337.231049 C328.223450,317.875641 336.133423,298.870239 344.043396,279.864807 C344.551086,279.765961 345.058746,279.667114 345.566437,279.568237 C355.103668,301.464386 364.640930,323.360535 374.182465,345.266510 C366.234833,348.630157 361.425415,346.774231 358.634735,339.673950 C354.257690,328.537628 349.896851,317.394958 345.121124,305.214264 C343.699493,308.555359 342.606506,311.018097 341.597443,313.514801 C338.171143,321.992615 334.720123,330.461029 331.382172,338.973724 C328.153412,347.207977 326.866241,347.900848 317.229797,345.819458 C317.115509,342.743591 319.224426,340.360535 320.164001,337.231049 z"/>
+<path fill="#faf9f5" d="M581.283691,333.813538 C582.916626,337.834137 584.422607,341.493835 585.928955,345.154449 C577.302979,348.452667 573.761047,346.934204 570.708801,339.041260 C566.515564,328.197693 562.305054,317.360840 557.540161,305.072418 C554.615173,312.124542 552.218689,317.841644 549.871643,323.578979 C547.728943,328.816620 545.688110,334.096252 543.515747,339.321350 C540.239441,347.201508 538.961304,347.783051 529.251770,345.309021 C538.343872,323.396545 547.371887,301.638489 556.399902,279.880402 C556.939758,279.932098 557.479553,279.983765 558.019409,280.035431 C565.731873,297.841187 573.444336,315.646942 581.283691,333.813538 z"/></svg></a><a href="case.html">Full dossier ↗</a></div>
+<div class="progress-rail" id="rail"></div>
+<nav class="chapter-dots" id="dots"></nav>
+
+<section id="hero" data-chapter="Start">
+  <div class="wrap">
+    <div class="hero-badge">Aamara Capital · Business Idea 05 of 09</div>
+    <h1 class="hero-title">Kitchen-as-<br><em>a-Service</em></h1>
+    <p class="hero-sub">A playable walk-through of the Kitchen-as-a-Service dossier — the highest-risk idea in the set. Same facts, same numbers, same named graveyard. You get to investigate, decide, and vote.</p>
+    <div class="wheel-stage">
+      <div class="wheel-ring2"></div><div class="wheel-ring"></div>
+      <video class="wheel-video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <a href="#opportunity" class="start-btn">Fire it up ↓</a>
+    <div class="scroll-hint">Scroll to play · ~6 minutes</div>
+  </div>
+</section>
+
+<section id="opportunity" data-chapter="The Opening">
+  <div class="wrap">
+    <div class="kicker reveal">Chapter 1 · The Opening</div>
+    <h2 class="sec-title reveal d1">One model. <span class='hl'>Four numbers.</span> Three ghosts.</h2>
+    <p class="lead reveal d2">Rent food entrepreneurs a fully-compliant kitchen ‘bay’ instead of making them build one. Simple — except the two best-funded operators on earth built exactly this and walked away. Here is the honest shape of it, risk first.</p>
+    <div class="stat-grid" id="statGrid"><div class="stat reveal"><div class="num" data-to="3" data-prefix="" data-suffix="">0</div><div class="lab"><b>Well-funded prior attempts</b> at this exact model — Swiggy Access, CloudKitchens &amp; Kitchen United — that built it and exited</div></div><div class="stat reveal"><div class="num" data-to="30" data-prefix="" data-suffix="%">0%</div><div class="lab"><b>First-year shutdown rate</b> of Indian cloud kitchens (25–30%) — the category’s structural, un-engineerable risk</div></div><div class="stat reveal"><div class="num" data-to="100" data-prefix="" data-suffix="%">0%</div><div class="lab"><b>Occupancy a single 20-station hub needs</b> just to break even — even at optimistic premium pricing. EST.</div></div><div class="stat reveal"><div class="num" data-to="170" data-prefix="$" data-suffix="M">$0M</div><div class="lab"><b>National KaaS infrastructure-spend pool</b> — a modest $95–170M/yr. EST. The market is real, but narrow.</div></div></div>
+  </div>
+</section>
+
+<div class="imgband" style="background-image:url(assets/hero-poster.jpg)">
+  <div class="cap"><div class="ct">The wall every food entrepreneur hits</div><div class="cs">A standalone compliant kitchen runs ₹55,000–75,000/month all-in. Zomato and Swiggy take 15–30% and hold 90%+ of orders. 25–30% of cloud kitchens shut within a year. The kitchen itself is the bottleneck — and, for three funded predecessors, the trap.</div></div>
+</div>
+
+<section id="whitespace" data-chapter="The Whitespace">
+  <div class="wrap">
+    <div class="kicker reveal">Chapter 2 · The Whitespace</div>
+    <h2 class="sec-title reveal d1">Find the <span class='hl'>empty quadrant</span> — the one three exits couldn’t fill.</h2>
+    <p class="lead reveal d2">Ten real players, plotted — including the three that exited. Hover any dot. Notice the top-right: a <em>neutral</em> infrastructure host that actually offers a service &amp; data layer, not bare space. Nobody durably holds it. That corner is the whole thesis — and its whole risk.</p>
+    <div class="quad-shell reveal d2">
+      <div>
+        <div class="quad" id="quad">
+          <div class="gap-zone">The Gap →<br>neutral host <b>with</b> a real service &amp; data layer</div>
+          <span class="axis-y top">Neutral infrastructure host →</span>
+          <div class="axis-x"><span>Bare space (‘rent the box’)</span><span>Service + data layer →</span></div>
+        </div>
+      </div>
+      <div class="card reveal d3"><p class='note' style='margin:0 0 12px;'><b style='color:var(--gold)'>Reading the map.</b></p><p class='note' style='margin:0 0 10px;'>The three that <b style='color:#cfc7b6'>exited</b> sit top-left: neutral-ish hosts, but pure ‘rent the box’ with no durable service layer. <b style='color:#cfc7b6'>Rebel Foods</b> &amp; <b style='color:#cfc7b6'>Curefoods</b> sit low — operator-first, running their own brands, so they can never credibly be a neutral landlord for rivals.</p><p class='note' style='margin:0;'>The top-right — neutral host <em>plus</em> a real compliance/data layer — is uncontested. That is the investable idea. It is also, honestly, the corner three funded giants aimed for and couldn’t hold.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="hook" class="detective-bg" data-chapter="The Graveyard">
+  <div class="wrap">
+    <div class="kicker reveal">Chapter 3 · The Graveyard</div>
+    <h2 class="sec-title reveal d1">What <span class='hl'>killed</span> the last three — and what this plan does differently.</h2>
+    <p class="lead reveal d2">This is the riskiest idea in the portfolio, so we lead with the bodies. Three well-funded operators built almost exactly this model and left. A live regulatory complaint threatens the one real moat. <b>Click each case file</b> to see what went wrong — and what this plan changes.</p>
+    <div class="files reveal d2" id="files"></div>
+    <div class="detective-status" id="detStatus"></div>
+  </div>
+</section>
+
+<section id="personas" data-chapter="The Buyers">
+  <div class="wrap">
+    <div class="kicker reveal">Chapter 4 · The Buyers</div>
+    <h2 class="sec-title reveal d1">Four people who <span class='hl'>actually rent a bay</span>.</h2>
+    <p class="lead reveal d2">The tenants are food-business owners, not diners. Each has a trigger, an objection, and one thing that converts them. <b>Flip each card</b> to see what wins the lease.</p>
+    <div class="persona-grid reveal d2" id="personaGrid"></div>
+  </div>
+</section>
+
+<section id="tycoon" class="tycoon-bg" data-chapter="Build It">
+  <div class="wrap">
+    <div class="kicker reveal">Chapter 5 · Build the Business</div>
+    <h2 class="sec-title reveal d1">Now <span class='hl'>you</span> run it.</h2>
+    <p class="lead reveal d2">Four real decisions from the dossier — several designed to avoid the exact failure mode that sank the last three. Pick, then see what the evidence says.</p>
+    <div id="decisions" class="reveal d2"></div>
+    <div class="tyc-score" id="tycScore"></div>
+  </div>
+</section>
+
+<section id="human" data-chapter="The Human Number">
+  <div class="wrap">
+    <div class="kicker reveal">Chapter 6 · The Human Number</div>
+    <h2 class="sec-title reveal d1">The number a <span class='hl'>home chef feels</span> — and the one that keeps you honest.</h2>
+    <p class="lead reveal d2">The whole model rests on a single relatable gap: what it costs Priya to go it alone versus what a hub charges her. That gap is her reason to come. Whether it’s enough to keep <em>you</em> alive is a harder number.</p>
+    <div class="wage-shell reveal d2">
+      <div class="wage-track" id="wageTrack">
+        <div class="wage-row"><div class="wl"><span>Go it alone — standalone compliant kitchen (all-in)</span><b>₹55–75k / mo</b></div><div class="wage-bar-outer"><div class="wage-bar-inner wb-low" data-w="92">₹75k</div></div></div>
+        <div class="wage-row"><div class="wl"><span>KaaS flexible membership (~15–20 shifts/mo)</span><b>₹35–45k / mo</b></div><div class="wage-bar-outer"><div class="wage-bar-inner wb-high" data-w="55">₹45k</div></div></div>
+        <p class="note" style="margin-top:8px;">The price gap is the tenant’s reason to switch — rent, equipment, licensing and shared staff bundled below the DIY cost of a worse setup. But the membership only wins if the hub stays near-full: the break-even model shows a single 20-station hub needs close to <b>100% occupancy at premium pricing</b> just to cover fixed costs. Occupancy, and the ancillary compliance/data layers, are the operator’s only real reason to survive — not the rent line alone.</p>
+      </div>
+      <div class="wage-img">
+        <video class="wage-video" autoplay muted loop playsinline preload="none" poster="assets/hero-poster.jpg">
+          <source src="assets/hero.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quiz" class="quiz-bg" data-chapter="The IC Vote">
+  <div class="wrap">
+    <div class="kicker reveal center">Chapter 7 · The Investment Committee</div>
+    <h2 class="sec-title reveal d1" style="text-align:center;">Did it <span class='hl'>stick</span>?</h2>
+    <p class="lead reveal d2" style="margin:0 auto;text-align:center;">Five questions. Then you cast the vote you’d cast in the room — on the riskiest idea in the set.</p>
+    <div class="quiz-card reveal d2" id="quizCard">
+      <div class="q-progress" id="qProgress"></div>
+      <div class="q-text" id="qText"></div>
+      <div class="q-opts" id="qOpts"></div>
+      <div class="q-explain" id="qExplain"></div>
+      <button class="q-next" id="qNext">Next →</button>
+    </div>
+    <div class="quiz-result" id="quizResult">
+      <div class="q-progress">Your recall score</div>
+      <div class="score-big"><span id="scoreNum">0</span>/<span id="scoreDen">5</span></div>
+      <p class="lead" style="margin:14px auto 0;" id="scoreMsg"></p>
+      <h3 style="font-size:2rem;margin:44px 0 6px;">Cast your vote</h3>
+      <p class="note">You’ve seen the graveyard, the whitespace, the buyers, the unit economics and the human number. This is the highest-variance idea in the set. What’s your call?</p>
+      <div class="verdict-box">
+        <button class="vote-btn vote-invest" id="voteYes">Back it — proceed to Phase 1</button>
+        <button class="vote-btn vote-pass" id="voteNo">Pass — too much precedent-risk</button>
+      </div>
+      <div class="vote-msg" id="voteMsg"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fwm">Aamara Capital</div>
+  <div class="frule"></div>
+  <p>This playable walk-through is a companion to the full institutional dossier — it simplifies for engagement and never overrides the source document.</p>
+  <p>Every number here is drawn from the dossier, including its <b>EST.</b> flags, its named failed precedents, and its unresolved regulatory caveats — none of which are softened.</p>
+  <div class="footlinks">
+    <a class="deep-link solid" href="case.html">Open the full dossier →</a>
+    <a class="deep-link" href="../">← Back to all 9 ideas</a>
+  </div>
+  <p style="margin-top:22px;font-size:.72rem;">Video: Pexels (free/commercial licence).</p>
+</footer>
+
+<script>window.__D={"meta":{"num":"05","slug":"cloud-kitchen","title":"Kitchen-as-a-Service — Playable Case Study","hubName":"Kitchen-as-a-Service","hubTagline":"Shared, licensed, multi-tenant commercial kitchen hubs for Mumbai’s food entrepreneurs — compliance-as-a-service plus a firewalled cross-tenant demand-data product, built in the exact space three well-funded predecessors could not hold.","videoQuery":"commercial kitchen chef"},"hero":{"badge":"Aamara Capital · Business Idea 05 of 09","titleHtml":"Kitchen-as-\u003cbr>\u003cem>a-Service\u003c/em>","sub":"A playable walk-through of the Kitchen-as-a-Service dossier — the highest-risk idea in the set. Same facts, same numbers, same named graveyard. You get to investigate, decide, and vote.","startLabel":"Fire it up ↓"},"opening":{"kicker":"Chapter 1 · The Opening","titleHtml":"One model. \u003cspan class='hl'>Four numbers.\u003c/span> Three ghosts.","lead":"Rent food entrepreneurs a fully-compliant kitchen ‘bay’ instead of making them build one. Simple — except the two best-funded operators on earth built exactly this and walked away. Here is the honest shape of it, risk first.","stats":[{"to":3,"prefix":"","suffix":"","labelHtml":"\u003cb>Well-funded prior attempts\u003c/b> at this exact model — Swiggy Access, CloudKitchens &amp; Kitchen United — that built it and exited"},{"to":30,"prefix":"","suffix":"%","labelHtml":"\u003cb>First-year shutdown rate\u003c/b> of Indian cloud kitchens (25–30%) — the category’s structural, un-engineerable risk"},{"to":100,"prefix":"","suffix":"%","labelHtml":"\u003cb>Occupancy a single 20-station hub needs\u003c/b> just to break even — even at optimistic premium pricing. EST."},{"to":170,"prefix":"$","suffix":"M","labelHtml":"\u003cb>National KaaS infrastructure-spend pool\u003c/b> — a modest $95–170M/yr. EST. The market is real, but narrow."}]},"imgband":{"title":"The wall every food entrepreneur hits","sub":"A standalone compliant kitchen runs ₹55,000–75,000/month all-in. Zomato and Swiggy take 15–30% and hold 90%+ of orders. 25–30% of cloud kitchens shut within a year. The kitchen itself is the bottleneck — and, for three funded predecessors, the trap."},"whitespace":{"kicker":"Chapter 2 · The Whitespace","titleHtml":"Find the \u003cspan class='hl'>empty quadrant\u003c/span> — the one three exits couldn’t fill.","lead":"Ten real players, plotted — including the three that exited. Hover any dot. Notice the top-right: a \u003cem>neutral\u003c/em> infrastructure host that actually offers a service &amp; data layer, not bare space. Nobody durably holds it. That corner is the whole thesis — and its whole risk.","axisYtop":"Neutral infrastructure host →","axisXleft":"Bare space (‘rent the box’)","axisXright":"Service + data layer →","gapLabelHtml":"The Gap →\u003cbr>neutral host \u003cb>with\u003c/b> a real service &amp; data layer","players":[{"n":"Swiggy Access","x":0.18,"y":0.72,"d":"EXITED 2023 · 1,000+ kitchens on ₹175 cr, its own data — sold to Kitchens@"},{"n":"CloudKitchens / KitchenPlus","x":0.12,"y":0.78,"d":"EXITED India 2022 · ~$400M; rents ran 50–70% over budget"},{"n":"Kitchen United","x":0.2,"y":0.82,"d":"EXITED 2023 (US) · $100M; sold real estate, pivoted to software"},{"n":"Kitchens@","x":0.38,"y":0.6,"d":"$65M, 700+ kitchens; scaled via M&amp;A, thin location curation"},{"n":"Speed Kitchen","x":0.42,"y":0.55,"d":"Mumbai rival · MG + revenue-share; Haldiram’s, Chaayos"},{"n":"Kytchens","x":0.3,"y":0.58,"d":"Mumbai-native · 40+ brands: Worli, Andheri, Powai, Malad"},{"n":"Skope Kitchens","x":0.48,"y":0.5,"d":"Bengaluru · 6–8% royalty, 10-day go-live; Mumbai still open"},{"n":"Rebel Foods","x":0.5,"y":0.15,"d":"Operator-first · ₹1,617 cr rev, ₹337 cr FY25 loss; rents via Launcher"},{"n":"Curefoods","x":0.35,"y":0.2,"d":"Operator-first · 502 sites; 100%+ staff attrition 3 yrs running"},{"n":"EatClub (Box8)","x":0.4,"y":0.25,"d":"Multi-brand operator · losses cut 77% to ₹15.77 cr FY24"}],"sidebarHtml":"\u003cp class='note' style='margin:0 0 12px;'>\u003cb style='color:var(--gold)'>Reading the map.\u003c/b>\u003c/p>\u003cp class='note' style='margin:0 0 10px;'>The three that \u003cb style='color:#cfc7b6'>exited\u003c/b> sit top-left: neutral-ish hosts, but pure ‘rent the box’ with no durable service layer. \u003cb style='color:#cfc7b6'>Rebel Foods\u003c/b> &amp; \u003cb style='color:#cfc7b6'>Curefoods\u003c/b> sit low — operator-first, running their own brands, so they can never credibly be a neutral landlord for rivals.\u003c/p>\u003cp class='note' style='margin:0;'>The top-right — neutral host \u003cem>plus\u003c/em> a real compliance/data layer — is uncontested. That is the investable idea. It is also, honestly, the corner three funded giants aimed for and couldn’t hold.\u003c/p>"},"hook":{"chapter":"The Graveyard","kicker":"Chapter 3 · The Graveyard","titleHtml":"What \u003cspan class='hl'>killed\u003c/span> the last three — and what this plan does differently.","lead":"This is the riskiest idea in the portfolio, so we lead with the bodies. Three well-funded operators built almost exactly this model and left. A live regulatory complaint threatens the one real moat. \u003cb>Click each case file\u003c/b> to see what went wrong — and what this plan changes.","statusInitialTail":"open them all to close the case.","statusSolvedHtml":"\u003cb>Case (partly) closed.\u003c/b> Three well-funded operators built exactly this and walked — all were pure real-estate arbitrage renting bare kitchen shells. This plan is deliberately built on the layers they skipped: compliance-as-a-service, a firewalled cross-tenant data product, and underserved segments they never designed for. That differentiation is real — \u003cem>not\u003c/em> a guarantee. The break-even math (Chapter 6) still shows a single hub is tight. This remains the highest-execution-risk idea in the set, and the dossier never pretends otherwise.","cases":[{"name":"Swiggy Access","meta":"Prior attempt · exited 2023","clue":"“The platform already had the data.”","verdict":"fail","tag":"Graveyard","det":"Scaled to \u003cb>1,000+ kitchens across 14 cities on ₹175 crore\u003c/b> — with Swiggy’s own order-flow data, restaurant relationships and delivery logistics already in-house. Still couldn’t make bare-kitchen-landlord economics work, and divested to Kitchens@ in March 2023 ‘as delivery growth slows down.’"},{"name":"CloudKitchens / KitchenPlus","meta":"Prior attempt · exited India 2022","clue":"“~$400M and Uber’s real-estate playbook.”","verdict":"fail","tag":"Graveyard","det":"Travis Kalanick’s CloudKitchens (~$400M from Saudi PIF) entered India as KitchenPlus with ~80 kitchens. \u003cb>Exited entirely after three years\u003c/b> — rents and utilities reportedly ran \u003cb>50–70% above budget.\u003c/b> Real-estate cost discipline failed even with near-unlimited capital."},{"name":"Kitchen United","meta":"Prior attempt · exited 2023 (US)","clue":"“$100M to take on CloudKitchens.”","verdict":"fail","tag":"Graveyard","det":"Raised \u003cb>$100M\u003c/b>, bought Zuul Kitchens for its tech stack, then \u003cb>quit the ghost-kitchen business and sold its real estate\u003c/b> in late 2023 — pivoting to software. The same pure real-estate-arbitrage economics failed even in a mature, well-capitalised US market."},{"name":"The FHRAI / CCI complaint","meta":"Live regulatory risk · Jan 2025","clue":"“The data product is the moat…”","verdict":"fail","tag":"Regulatory","det":"FHRAI (60,000+ hotels, 500,000+ restaurants) formally complained that Zomato/Swiggy \u003cb>misuse aggregated demand data\u003c/b> to build and favour their own private-label brands (Bistro, Snacc); a Nov-2024 CCI probe found exclusivity breaches. A ‘what sells where’ product ever used against tenants would replicate \u003cb>exactly that conduct.\u003c/b>"},{"name":"Compliance-as-a-service","meta":"What this does differently","clue":"“Handled, not merely offered.”","verdict":"real","tag":"Differentiator","det":"FSSAI, BMC eating-house licence, fire NOC and GST co-ordinated centrally — the \u003cb>single clearest value-add gap\u003c/b> identified against every named competitor, and a layer none of the three failed precedents built. Backed by the 2026 FSSAI reform (₹1.5 cr Basic ceiling) and premises-based licensing."},{"name":"The firewalled data product","meta":"What this does differently","clue":"“Never used against you.”","verdict":"real","tag":"Differentiator","det":"The cross-tenant ‘what sells where’ insights product \u003cb>no failed precedent built\u003c/b> — sold as a tenant subscription only, aggregated and anonymised, with a contractual firewall and a business-model vow to \u003cb>never launch house brands.\u003c/b> The one moat the graveyard lacked — mitigated directly against the FHRAI/CCI pattern, not disclosed away."}]},"personas":{"kicker":"Chapter 4 · The Buyers","titleHtml":"Four people who \u003cspan class='hl'>actually rent a bay\u003c/span>.","lead":"The tenants are food-business owners, not diners. Each has a trigger, an objection, and one thing that converts them. \u003cb>Flip each card\u003c/b> to see what wins the lease.","items":[{"name":"“Priya”, 28–40","role":"Home-Chef-Turned-Brand-Founder · Andheri/Powai/Chembur","trig":"Instagram/WhatsApp/Homefoodi sales have outgrown what a domestic kitchen can legally and physically support; tightened FSSAI &amp; fire enforcement make staying informal risky.","obj":"Doesn’t know which FSSAI tier applies, can’t afford a full independent buildout, and fears her sales data will be used to launch a competing house brand — the FHRAI-style worry.","conv":"A membership tier below her ₹55,000–75,000/month DIY cost, 4–10 day onboarding, explicit contractual language that her data never informs the operator’s own brands, and a tenant peer community."},{"name":"“Rohan”","role":"Restaurant Brand · delivery-only outpost · 3–8 Mumbai outlets","trig":"Strong delivery volume in existing locations; wants a delivery-only presence in an underserved micro-market without an expensive multi-year retail lease.","obj":"Reputational risk from co-located tenants’ hygiene/fire incidents; dilution of ‘premium’ positioning by sharing infrastructure; wariness of revenue-share vs flat rent.","conv":"A dedicated, brand-controlled station in a visibly professional hub, 4–10 day speed-to-launch, aggregator-onboarding facilitation, and multi-hub/multi-city membership as the network grows."},{"name":"“Ananya”","role":"Multi-Brand Cloud-Kitchen Operator · testing a new city","trig":"Runs a 20–60-kitchen, 2–3-city operator; wants to validate 1–3 brands in Mumbai in a 3–6 month window before committing capex.","obj":"Free-rider fear — a future rival benefiting from her own performance data; general wariness of multi-tenant kitchens, echoing Curefoods’ 100%+ attrition.","conv":"Minimum-Guarantee-plus-revenue-share enterprise pricing (the Speed Kitchen model), plus a contractually bounded, anonymised insights product — the clearest product-market fit for the data moat in the dossier."},{"name":"“Karan”","role":"D2C Packaged-Food Brand Founder · at contract-manufacturer capacity","trig":"A venture-funded or bootstrapped D2C brand (WickedGud/Beyond Snack/MasterChow mould) whose contract manufacturer or small unit is at capacity and serves competing brands off the same lines.","obj":"A hot-delivery-optimised cook line may not suit packaged production; IP/recipe leakage risk alongside competitor brands; the non-recoverable 18% rental GST vs his 5% no-ITC output tax.","conv":"A subset of hub capacity built for packaged production (fillers, sealers, batch vessels, cold storage), contractual IP-protection language, and genuine Legal Metrology / FSSAI-labelling specialisation."}]},"tycoon":{"kicker":"Chapter 5 · Build the Business","titleHtml":"Now \u003cspan class='hl'>you\u003c/span> run it.","lead":"Four real decisions from the dossier — several designed to avoid the exact failure mode that sank the last three. Pick, then see what the evidence says.","decisions":[{"q":"1 · Where do you site Hub 1?","ctx":"CloudKitchens died on rent/utility overruns 50–70% above budget. Choose your location strategy.","opts":[{"t":"A prime, high-visibility suburb — put the hub where the brands are","good":false,"fb":"This is close to CloudKitchens’ exact failure mode. Prime-suburb rent, plus quick-commerce dark stores actively bidding up the same delivery-dense micro-markets, is how you blow the budget 50–70% over — before a single tenant defaults."},{"t":"A cost-effective commercial-industrial micro-market (Bhandup/Vikhroli/Turbhe-type)","good":true,"fb":"Correct. The dossier’s discipline is deliberate: accept lower initial visibility in exchange for real cost control, precisely because rent overrun is the documented reason a $400M predecessor lost the plot."}]},{"q":"2 · What do you do with the cross-tenant data?","ctx":"The ‘what sells where’ dataset is the one moat no failed precedent built. It’s also radioactive.","opts":[{"t":"Use it to spot winners and launch your own high-margin house brands","good":false,"fb":"That is precisely the conduct FHRAI complained about and the CCI is probing against Zomato/Swiggy (Bistro, Snacc). You’d recreate a live regulatory case and destroy the tenant trust the moat depends on."},{"t":"Sell it back to tenants only — aggregated, anonymised, firewalled by contract","good":true,"fb":"Correct. Tenant-facing subscription, anonymised before any dashboard, an explicit no-compete data firewall, and a business-model vow to never launch house brands — removing the incentive entirely, not just disclosing it."}]},{"q":"3 · How do you underwrite the economics?","ctx":"Your own break-even model shows a single 20-station hub needs ~100% occupancy just to cover fixed costs.","opts":[{"t":"One flagship hub, expected to be profitable in Year 1","good":false,"fb":"The math won’t allow it — even the optimistic mix needs full occupancy to break even. WeWork India needed 121,638 desks to reach a 6.6% net margin; a lone hub in Year 1–2 should be underwritten near-breakeven-to-negative."},{"t":"A multi-hub network with ancillary revenue, funding several hubs before profit","good":true,"fb":"Correct. Margin cushion comes from a network diluting central overhead plus ancillary layers (compliance, packaging markup, data), not from squeezing an already-tiny per-station variable cost. Prove it across 3–5 hubs, not hub #1."}]},{"q":"4 · How do you price the enterprise tier?","ctx":"Tenant churn is structural (25–30% first-year shutdown). Large tenants carry outsized leverage.","opts":[{"t":"Pure fixed rent — predictable revenue for the operator","good":false,"fb":"Fixed rent compounds a tenant’s bad quarter into a default and a sudden vacancy. In a category where a Zomato algorithm change can collapse order volume overnight, rigid rent transfers all the risk onto the weakest link."},{"t":"Minimum Guarantee + revenue-share (the Speed Kitchen model)","good":true,"fb":"Correct. Payment obligations flex with the tenant’s own sales, aligning incentives and reducing default risk — the closest real precedent among named Mumbai operators for the enterprise tier."}]}]},"human":{"chapter":"The Human Number","kicker":"Chapter 6 · The Human Number","titleHtml":"The number a \u003cspan class='hl'>home chef feels\u003c/span> — and the one that keeps you honest.","lead":"The whole model rests on a single relatable gap: what it costs Priya to go it alone versus what a hub charges her. That gap is her reason to come. Whether it’s enough to keep \u003cem>you\u003c/em> alive is a harder number.","rows":[{"label":"Go it alone — standalone compliant kitchen (all-in)","value":"₹55–75k / mo","w":92,"cls":"wb-low","barText":"₹75k"},{"label":"KaaS flexible membership (~15–20 shifts/mo)","value":"₹35–45k / mo","w":55,"cls":"wb-high","barText":"₹45k"}],"note":"The price gap is the tenant’s reason to switch — rent, equipment, licensing and shared staff bundled below the DIY cost of a worse setup. But the membership only wins if the hub stays near-full: the break-even model shows a single 20-station hub needs close to \u003cb>100% occupancy at premium pricing\u003c/b> just to cover fixed costs. Occupancy, and the ancillary compliance/data layers, are the operator’s only real reason to survive — not the rent line alone."},"quiz":{"kicker":"Chapter 7 · The Investment Committee","titleHtml":"Did it \u003cspan class='hl'>stick\u003c/span>?","lead":"Five questions. Then you cast the vote you’d cast in the room — on the riskiest idea in the set.","items":[{"q":"Why is Kitchen-as-a-Service flagged the highest-risk idea in the portfolio?","opts":["Food delivery is a shrinking market","Three well-funded operators (Swiggy Access, CloudKitchens, Kitchen United) built almost exactly this model and failed or exited","There are no customers for shared kitchens","The government has banned cloud kitchens"],"a":1,"e":"Swiggy Access (₹175 cr, its own data), CloudKitchens (~$400M) and Kitchen United ($100M) all built it and left within ~3 years — the most direct, named precedent of failure in the whole case-study set."},{"q":"What did all three failed precedents have in common?","opts":["They were all profitable but got bored","They were pure real-estate arbitrage — renting bare kitchen shells with no durable tenant-facing service or data layer","They refused to use technology","They only operated outside India"],"a":1,"e":"None had a genuine service or data layer beyond bare space — they were real-estate plays wearing tech-company valuations. That is the single most important evidence point in the dossier."},{"q":"What does the break-even model say about a single 20-station hub?","opts":["It’s profitable at 40% occupancy","It needs near-100% occupancy at premium pricing just to cover fixed costs","It never needs tenants to break even","It breaks even in month one"],"a":1,"e":"Even the optimistic pricing mix requires ~100% occupancy. Margin cushion has to come from a multi-hub network plus ancillary revenue, not from a single hub or from cutting an already-tiny per-station variable cost."},{"q":"What is the real legal exposure of the ‘what sells where’ data product?","opts":["Privacy law (DPDP) — which almost certainly applies","Competition law (FHRAI/CCI) — replicating the Zomato/Swiggy data-misuse conduct pattern","Copyright law","There is no legal exposure at all"],"a":1,"e":"DPDP likely doesn’t reach purely aggregated B2B data; the live, real channel is competition law. The mitigation — tenant-facing only, anonymised, firewalled, never launch house brands — is built against CCI/FHRAI-style scrutiny specifically."},{"q":"What is the genuine ‘why now’ regulatory tailwind?","opts":["A total ban on independent kitchens","FSSAI’s Basic Registration ceiling rises to ₹1.5 crore from 1 April 2026, and premises-based licensing lets one premises host innumerable brands","The government now pays hub rents","Zomato and Swiggy were shut down"],"a":1,"e":"The threshold reform enlarges the pool of small, scaling food businesses in the lightest compliance tier — precisely the tenant base a hub needs — and premises-not-brand licensing makes the multi-tenant model legally coherent."}]},"vote":{"prompt":"You’ve seen the graveyard, the whitespace, the buyers, the unit economics and the human number. This is the highest-variance idea in the set. What’s your call?","yesLabel":"Back it — proceed to Phase 1","noLabel":"Pass — too much precedent-risk","yesMsg":"\u003cb>Backed — eyes open.\u003c/b> Your first Action-Plan move (Days 0–30): engage counsel to close the five open regulatory questions (operator-vs-tenant FSSAI licensing, labour-threshold aggregation, MPCB category, composite BMC licence, the 2026 FSSAI reform), site-visit Kitchens@ and Speed Kitchen to pressure-test unit economics, shortlist 6–8 commercial-industrial micro-markets for indicative rent quotes, and start a founding-tenant waitlist via FSSAI consultants and home-chef communities — all before a rupee touches real estate. No full capex until at least three anchor LOIs are signed.","noMsg":"\u003cb>Passed — the most defensible ‘no’ in the set.\u003c/b> Three well-funded operators — Swiggy (₹175 cr, its own data), CloudKitchens (~$400M) and Kitchen United ($100M) — built almost exactly this and all exited within ~3 years. Your own model shows a single 20-station hub needs ~100% occupancy just to cover costs; the TAM is a self-built $95–170M; the model is structurally penalised by 18% GST it can’t pass through; and tenant health sits outside your control behind a 90%+ Zomato/Swiggy duopoly. The differentiation — compliance-as-a-service and a firewalled data product — is real but narrow and unproven. The dossier itself ranks this the highest-execution-risk of the candidates; a pass is a wholly legitimate IC position."},"footer":{"note1":"This playable walk-through is a companion to the full institutional dossier — it simplifies for engagement and never overrides the source document.","note2":"Every number here is drawn from the dossier, including its \u003cb>EST.\u003c/b> flags, its named failed precedents, and its unresolved regulatory caveats — none of which are softened.","videoCredit":"Video: Pexels (free/commercial licence)."}};</script>
+<script>(function(){
+var D=window.__D;
+
+/* reveal on scroll */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+/* progress rail + chapter dots */
+var rail=document.getElementById('rail');
+var secs=[].slice.call(document.querySelectorAll('section'));
+var dotsNav=document.getElementById('dots');
+secs.forEach(function(s){var a=document.createElement('a');a.href='#'+s.id;a.dataset.label=s.dataset.chapter||'';dotsNav.appendChild(a);});
+var dots=[].slice.call(dotsNav.children);
+function onScroll(){
+  var h=document.documentElement;
+  rail.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  var cur=0;
+  secs.forEach(function(s,i){if(s.getBoundingClientRect().top<=window.innerHeight*0.45)cur=i;});
+  dots.forEach(function(d,i){d.classList.toggle('active',i===cur);});
+}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* animated counters */
+var cIO=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(!e.isIntersecting||e.target.dataset.done)return;
+  e.target.dataset.done=1;
+  var el=e.target,to=+el.dataset.to,pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',dec=+(el.dataset.dec||0);
+  var t0=performance.now();
+  function step(t){var k=Math.min(1,(t-t0)/1400),ease=1-Math.pow(1-k,3);
+    el.textContent=pre+(to*ease).toFixed(dec)+suf;if(k<1)requestAnimationFrame(step);}
+  requestAnimationFrame(step);
+});},{threshold:0.6});
+document.querySelectorAll('.stat .num').forEach(function(el){cIO.observe(el);});
+
+/* whitespace quadrant */
+var quad=document.getElementById('quad');
+if(quad){D.whitespace.players.forEach(function(p){
+  var dot=document.createElement('div');
+  dot.className='plot'+(p.mine?' mine':'');
+  dot.style.left=(p.x*100)+'%';dot.style.bottom=(p.y*100)+'%';
+  var tip=document.createElement('span');tip.className='tip';
+  var b=document.createElement('b');b.textContent=p.n;tip.appendChild(b);
+  tip.appendChild(document.createTextNode(' — '+p.d));
+  dot.appendChild(tip);quad.appendChild(dot);
+});}
+
+/* detective / the hook */
+var filesEl=document.getElementById('files');
+var cases=D.hook.cases,opened=0;
+var detCountWrap=document.getElementById('detStatus');
+if(detCountWrap)detCountWrap.innerHTML='Cards opened: <b id="detCount">0</b> / '+cases.length+' — '+D.hook.statusInitialTail;
+cases.forEach(function(c){
+  var f=document.createElement('div');f.className='file';
+  var real=c.verdict==='real';
+  f.innerHTML='<div class="file-inner">'
+    +'<div class="file-face file-front"><div class="fname">'+c.name+'</div>'
+    +'<div class="fmeta">'+c.meta+'</div><div class="clue">'+c.clue+'</div>'
+    +'<div class="stamp">Tap to investigate</div></div>'
+    +'<div class="file-face file-back"><div class="verdict '+(real?'v-real':'v-fail')+'">'
+    +(real?'✓ '+(c.tag||'Holds up'):'✗ '+(c.tag||'Fails scrutiny'))+'</div>'
+    +'<div class="fdet">'+c.det+'</div></div></div>';
+  f.addEventListener('click',function(){
+    if(f.classList.contains('flipped'))return;
+    f.classList.add('flipped');opened++;
+    var cnt=document.getElementById('detCount');if(cnt)cnt.textContent=opened;
+    if(opened===cases.length){detCountWrap.classList.add('solved');detCountWrap.innerHTML=D.hook.statusSolvedHtml;}
+  });
+  filesEl.appendChild(f);
+});
+
+/* personas */
+var pg=document.getElementById('personaGrid');
+D.personas.items.forEach(function(p){
+  var el=document.createElement('div');el.className='persona';
+  el.innerHTML='<div class="persona-inner">'
+    +'<div class="persona-face persona-front"><div class="pmono">'+(p.name.trim()[0]||'')+'</div>'
+    +'<div class="pinfo"><div class="pname">'+p.name+'</div><div class="prole">'+p.role+'</div>'
+    +'<div class="pflip">↻ Flip — what converts them</div></div></div>'
+    +'<div class="persona-face persona-back">'
+    +'<div class="pblk"><div class="pl">Buying trigger</div><div class="pt">'+p.trig+'</div></div>'
+    +'<div class="pblk"><div class="pl">The objection</div><div class="pt">'+p.obj+'</div></div>'
+    +'<div class="pblk pconv"><div class="pl">What converts them ✓</div><div class="pt">'+p.conv+'</div></div>'
+    +'</div></div>';
+  el.addEventListener('click',function(){el.classList.toggle('flipped');});
+  pg.appendChild(el);
+});
+
+/* tycoon decisions */
+var decEl=document.getElementById('decisions'),decisions=D.tycoon.decisions,decMade=0,decRight=0;
+var tycScore=document.getElementById('tycScore');
+tycScore.innerHTML='Decisions made: <b>0 / '+decisions.length+'</b>';
+decisions.forEach(function(d){
+  var box=document.createElement('div');box.className='decision';
+  box.innerHTML='<div class="dq">'+d.q+'</div><div class="dctx">'+d.ctx+'</div>';
+  var opts=document.createElement('div');opts.className='opts';
+  var fb=document.createElement('div');fb.className='feedback';
+  var goodOpt=d.opts.filter(function(x){return x.good;})[0];
+  d.opts.forEach(function(o){
+    var b=document.createElement('button');b.className='opt';b.textContent=o.t;
+    b.addEventListener('click',function(){
+      [].slice.call(opts.children).forEach(function(c){c.disabled=true;});
+      b.classList.add(o.good?'chosen-good':'chosen-bad');
+      fb.className='feedback show '+(o.good?'good':'bad');
+      fb.innerHTML=(o.good?'✓ ':'✗ ')+o.fb+(o.good?'':'<br><br><b>The dossier’s call:</b> '+(goodOpt?goodOpt.t:'')+'.');
+      decMade++;if(o.good)decRight++;
+      tycScore.innerHTML='Decisions made: <b>'+decMade+' / '+decisions.length+'</b>'
+        +(decMade===decisions.length?' — you matched the diligence on <b>'+decRight+' of '+decisions.length+'</b>. '+(decRight===decisions.length?'A clean board.':'The dossier argues the greener option each time.'):'');
+    });
+    opts.appendChild(b);
+  });
+  box.appendChild(opts);box.appendChild(fb);decEl.appendChild(box);
+});
+
+/* wage bars */
+var wt=document.getElementById('wageTrack');
+if(wt){var wIO=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(!e.isIntersecting)return;
+  e.target.querySelectorAll('.wage-bar-inner').forEach(function(b){b.style.width=b.dataset.w+'%';});
+  wIO.unobserve(e.target);
+});},{threshold:0.4});wIO.observe(wt);}
+
+/* quiz */
+var quiz=D.quiz.items,qi=0,score=0;
+var qText=document.getElementById('qText'),qOpts=document.getElementById('qOpts'),
+    qExplain=document.getElementById('qExplain'),qNext=document.getElementById('qNext'),
+    qProgress=document.getElementById('qProgress');
+function renderQ(){
+  var item=quiz[qi];
+  qProgress.textContent='Question '+(qi+1)+' of '+quiz.length;
+  qText.textContent=item.q;
+  qOpts.innerHTML='';qExplain.className='q-explain';qNext.className='q-next';
+  item.opts.forEach(function(o,i){
+    var b=document.createElement('button');b.className='q-opt';b.textContent=o;
+    b.addEventListener('click',function(){
+      [].slice.call(qOpts.children).forEach(function(c,ci){c.disabled=true;if(ci===item.a)c.classList.add('correct');});
+      if(i===item.a)score++;else b.classList.add('wrong');
+      qExplain.innerHTML=(i===item.a?'✓ Right. ':'✗ ')+item.e;
+      qExplain.classList.add('show');qNext.classList.add('show');
+      qNext.textContent=qi<quiz.length-1?'Next →':'See your score →';
+    });
+    qOpts.appendChild(b);
+  });
+}
+qNext.addEventListener('click',function(){
+  if(qi<quiz.length-1){qi++;renderQ();}
+  else{
+    document.getElementById('quizCard').style.display='none';
+    var r=document.getElementById('quizResult');r.classList.add('show');
+    document.getElementById('scoreNum').textContent=score;
+    document.getElementById('scoreDen').textContent=quiz.length;
+    var ratio=score/quiz.length,msg;
+    if(ratio>=1)msg='Full marks. You’ve internalised the whole thesis.';
+    else if(ratio>=0.7)msg='Strong recall — you could brief the room.';
+    else if(ratio>=0.4)msg='Solid grasp of the shape of the deal.';
+    else msg='A quick reread wouldn’t hurt — the story’s worth it.';
+    document.getElementById('scoreMsg').textContent=msg;
+  }
+});
+renderQ();
+
+document.getElementById('voteYes').addEventListener('click',function(){document.getElementById('voteMsg').innerHTML=D.vote.yesMsg;});
+document.getElementById('voteNo').addEventListener('click',function(){document.getElementById('voteMsg').innerHTML=D.vote.noMsg;});
+})();
+</script>
+</body>
+</html>

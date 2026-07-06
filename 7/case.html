@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Managed Household Staff — Business Case Study | Aamara Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf9f5;
+  --charcoal:#141310;
+  --charcoal-2:#0c0b0a;
+  --gold:#b98a3e;
+  --wine:#5c2b2e;
+  --ember:#a8624f;
+  --line:rgba(20,19,16,0.12);
+  --sidebar-w:258px;
+  --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans:"Jost", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--cream);
+  color:var(--charcoal);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;color:var(--charcoal-2);margin:0 0 0.5em;}
+h1{font-size:2.6rem;line-height:1.1;}
+h2{font-size:1.9rem;border-bottom:1px solid var(--line);padding-bottom:0.35em;margin-top:1.6em;}
+h2:first-of-type{margin-top:0;}
+h3{font-size:1.3rem;color:var(--wine);margin-top:1.4em;}
+h4{font-size:1.05rem;color:var(--charcoal);font-family:var(--sans);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;font-size:0.85rem;}
+p{margin:0 0 1em;}
+a{color:var(--wine);}
+ul,ol{padding-left:1.3em;}
+li{margin-bottom:0.45em;}
+.section-tag{font-family:var(--sans);text-transform:uppercase;letter-spacing:0.18em;font-size:0.72rem;color:var(--gold);font-weight:600;margin-bottom:0.6em;display:block;}
+.lede{font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--wine);margin-bottom:1.2em;line-height:1.5;}
+
+/* ---------- EST badge ---------- */
+.est{
+  display:inline-block;
+  font-family:var(--sans);
+  font-size:0.62rem;
+  font-weight:600;
+  letter-spacing:0.08em;
+  color:var(--gold);
+  border:1px dashed var(--gold);
+  border-radius:10px;
+  padding:1px 7px;
+  margin-left:5px;
+  vertical-align:middle;
+  background:rgba(185,138,62,0.06);
+  white-space:nowrap;
+}
+
+/* ---------- Radio-toggle tab system ---------- */
+input[name="tabs"]{position:absolute;opacity:0;pointer-events:none;}
+
+.layout{display:flex;min-height:100vh;}
+
+.sidebar{
+  position:fixed;
+  top:0;left:0;bottom:0;
+  width:var(--sidebar-w);
+  background:var(--charcoal-2);
+  color:var(--cream);
+  overflow-y:auto;
+  padding:28px 0 40px;
+  z-index:10;
+  border-right:1px solid rgba(185,138,62,0.35);
+}
+.brand-block{padding:0 26px 22px;border-bottom:1px solid rgba(250,249,245,0.12);margin-bottom:10px;}
+.wordmark{
+  font-family:var(--sans);
+  font-size:0.78rem;
+  letter-spacing:0.28em;
+  font-weight:600;
+  color:var(--cream);
+  text-transform:uppercase;
+}
+.wordmark-rule{height:1px;width:42px;background:var(--gold);margin:10px 0 16px;}
+.biz-name{font-family:var(--serif);font-size:1.65rem;color:var(--cream);line-height:1.15;margin-bottom:8px;font-weight:600;}
+.positioning{font-size:0.78rem;color:rgba(250,249,245,0.72);line-height:1.5;font-style:italic;font-family:var(--serif);font-size:0.95rem;}
+.case-meta{font-size:0.68rem;letter-spacing:0.06em;color:var(--gold);text-transform:uppercase;margin-top:14px;}
+
+nav.tabs{display:flex;flex-direction:column;padding-top:10px;}
+nav.tabs label{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  padding:12px 26px;
+  font-size:0.86rem;
+  letter-spacing:0.02em;
+  color:rgba(250,249,245,0.62);
+  cursor:pointer;
+  border-left:3px solid transparent;
+  transition:all .15s ease;
+}
+nav.tabs label .n{font-family:var(--serif);font-size:0.78rem;color:var(--gold);opacity:0.8;}
+nav.tabs label:hover{background:rgba(185,138,62,0.08);color:var(--cream);}
+
+.content{
+  margin-left:var(--sidebar-w);
+  flex:1;
+  padding:56px 64px 100px;
+  max-width:1020px;
+}
+.panel{display:none;animation:fade .25s ease;}
+@keyframes fade{from{opacity:0;}to{opacity:1;}}
+
+/* wire up all 12 tabs */
+#tab1:checked ~ .layout #panel1,
+#tab2:checked ~ .layout #panel2,
+#tab3:checked ~ .layout #panel3,
+#tab4:checked ~ .layout #panel4,
+#tab5:checked ~ .layout #panel5,
+#tab6:checked ~ .layout #panel6,
+#tab7:checked ~ .layout #panel7,
+#tab8:checked ~ .layout #panel8,
+#tab9:checked ~ .layout #panel9,
+#tab10:checked ~ .layout #panel10,
+#tab11:checked ~ .layout #panel11,
+#tab12:checked ~ .layout #panel12{display:block;}
+
+#tab1:checked ~ .layout label[for="tab1"],
+#tab2:checked ~ .layout label[for="tab2"],
+#tab3:checked ~ .layout label[for="tab3"],
+#tab4:checked ~ .layout label[for="tab4"],
+#tab5:checked ~ .layout label[for="tab5"],
+#tab6:checked ~ .layout label[for="tab6"],
+#tab7:checked ~ .layout label[for="tab7"],
+#tab8:checked ~ .layout label[for="tab8"],
+#tab9:checked ~ .layout label[for="tab9"],
+#tab10:checked ~ .layout label[for="tab10"],
+#tab11:checked ~ .layout label[for="tab11"],
+#tab12:checked ~ .layout label[for="tab12"]{
+  background:rgba(185,138,62,0.14);
+  color:var(--cream);
+  border-left:3px solid var(--gold);
+}
+
+/* ---------- Tables ---------- */
+table{width:100%;border-collapse:collapse;margin:1.2em 0 1.8em;font-size:0.88rem;}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+th{font-family:var(--sans);font-weight:600;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--wine);background:rgba(92,43,46,0.05);}
+tr:last-child td{border-bottom:1px solid var(--line);}
+.table-wrap{overflow-x:auto;margin-bottom:1.5em;}
+td.num,th.num{white-space:nowrap;}
+
+/* ---------- Cards / grids ---------- */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:1.4em 0;}
+.card{background:#fff;border:1px solid var(--line);border-radius:6px;padding:20px 22px;box-shadow:0 1px 3px rgba(20,19,16,0.04);}
+.card h4{margin-top:0;}
+.persona-card{border-top:3px solid var(--gold);}
+.persona-card .role{font-family:var(--serif);font-size:1.25rem;color:var(--wine);margin-bottom:2px;}
+.persona-card .sub{font-size:0.78rem;color:#6b665c;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.04em;}
+.persona-card dt{font-weight:600;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--gold);margin-top:10px;}
+.persona-card dd{margin:2px 0 0;font-size:0.87rem;}
+
+/* SWOT */
+.swot-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1.2em 0 2em;}
+.swot-box{padding:18px 20px;border-radius:6px;}
+.swot-box h4{margin-top:0;color:#fff;font-size:0.78rem;}
+.swot-s{background:#3f5d45;color:#fff;}
+.swot-w{background:var(--wine);color:#fff;}
+.swot-o{background:#8a6a2a;color:#fff;}
+.swot-t{background:var(--charcoal-2);color:#fff;}
+.swot-box li{color:rgba(255,255,255,0.92);font-size:0.87rem;}
+.swot-box h4{color:#f3e6c8;}
+
+/* Porter */
+.porter-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:1.2em 0 2em;}
+.porter-card{border:1px solid var(--line);border-left:4px solid var(--ember);padding:16px 20px;background:#fff;border-radius:4px;}
+.porter-card h4{color:var(--ember);margin-bottom:6px;}
+.force-level{display:inline-block;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.05em;padding:2px 9px;border-radius:9px;background:rgba(168,98,79,0.12);color:var(--ember);margin-bottom:8px;font-weight:600;}
+
+/* PESTLE */
+.pestle-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:1.2em 0 2em;}
+.pestle-card{border:1px solid var(--line);padding:16px 20px;border-radius:4px;background:#fff;}
+.pestle-card h4{color:var(--gold);}
+
+/* funnel */
+.funnel{display:flex;flex-direction:column;align-items:center;gap:6px;margin:1.6em 0 2em;}
+.funnel-tier{color:#fff;text-align:center;padding:16px;border-radius:4px;font-family:var(--sans);}
+.funnel-tier .amt{font-family:var(--serif);font-size:1.8rem;display:block;font-weight:600;}
+.funnel-tier .lbl{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;opacity:0.85;}
+.funnel-tam{width:100%;background:var(--charcoal-2);}
+.funnel-sam{width:72%;background:var(--wine);}
+.funnel-som{width:44%;background:var(--gold);color:var(--charcoal-2);}
+
+/* Bar chart (market table alt) */
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.bar-label{width:220px;font-size:0.8rem;flex-shrink:0;}
+.bar-track{flex:1;background:rgba(20,19,16,0.06);border-radius:3px;height:18px;position:relative;}
+.bar-fill{background:linear-gradient(90deg,var(--gold),var(--ember));height:100%;border-radius:3px;}
+.bar-val{font-size:0.76rem;color:#6b665c;margin-left:8px;white-space:nowrap;}
+
+/* BMC */
+.bmc-grid{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,auto);gap:2px;background:var(--line);margin:1.4em 0 2em;border:1px solid var(--line);}
+.bmc-cell{background:#fff;padding:14px 16px;font-size:0.82rem;}
+.bmc-cell h4{font-size:0.7rem;color:var(--gold);margin-bottom:6px;}
+.bmc-partners{grid-column:1;grid-row:1/3;}
+.bmc-activities{grid-column:2;grid-row:1;}
+.bmc-resources{grid-column:2;grid-row:2;}
+.bmc-value{grid-column:3;grid-row:1/3;background:#fbf3e4;}
+.bmc-relationships{grid-column:4;grid-row:1;}
+.bmc-channels{grid-column:4;grid-row:2;}
+.bmc-segments{grid-column:5;grid-row:1/3;}
+.bmc-cost{grid-column:1/4;background:#f6f1ea;}
+.bmc-revenue{grid-column:4/6;background:#f6f1ea;}
+.bmc-bottom{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px;}
+
+/* FAQ */
+.faq-item{border:1px solid var(--line);border-radius:5px;margin-bottom:12px;padding:16px 20px;background:#fff;}
+.faq-q{font-family:var(--serif);font-size:1.15rem;color:var(--wine);margin-bottom:6px;font-weight:600;}
+.faq-a{font-size:0.9rem;}
+
+/* Roadmap */
+.roadmap{border-left:2px solid var(--gold);margin:1.4em 0 2em;padding-left:0;}
+.road-phase{position:relative;padding:0 0 28px 30px;}
+.road-phase::before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--cream);}
+.road-phase h4{color:var(--wine);font-size:1rem;margin-bottom:8px;}
+.road-phase ul{margin:0;}
+
+/* Sources */
+.source-group h4{color:var(--gold);margin-top:1.4em;}
+.source-group ul{list-style:none;padding-left:0;}
+.source-group li{font-size:0.82rem;margin-bottom:6px;border-bottom:1px dotted var(--line);padding-bottom:6px;}
+.source-group a{word-break:break-word;}
+
+.callout{background:#fbf3e4;border-left:4px solid var(--gold);padding:16px 20px;margin:1.2em 0;font-size:0.92rem;}
+.callout.wine{background:#f5eaea;border-left-color:var(--wine);}
+.stat-row{display:flex;flex-wrap:wrap;gap:24px;margin:1.4em 0 2em;}
+.stat{flex:1;min-width:150px;}
+.stat .n{font-family:var(--serif);font-size:2.3rem;color:var(--wine);font-weight:600;display:block;line-height:1;}
+.stat .l{font-size:0.76rem;text-transform:uppercase;letter-spacing:0.05em;color:#6b665c;margin-top:4px;}
+
+/* Mobile */
+@media (max-width:768px){
+  .sidebar{position:relative;width:100%;height:auto;border-right:none;border-bottom:1px solid rgba(185,138,62,0.35);padding:20px 0 0;}
+  .brand-block{padding:0 20px 16px;}
+  nav.tabs{flex-direction:row;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:0 10px 14px;}
+  nav.tabs label{white-space:nowrap;border-left:none;border-bottom:3px solid transparent;padding:10px 16px;}
+  #tab1:checked ~ .layout label[for="tab1"],
+  #tab2:checked ~ .layout label[for="tab2"],
+  #tab3:checked ~ .layout label[for="tab3"],
+  #tab4:checked ~ .layout label[for="tab4"],
+  #tab5:checked ~ .layout label[for="tab5"],
+  #tab6:checked ~ .layout label[for="tab6"],
+  #tab7:checked ~ .layout label[for="tab7"],
+  #tab8:checked ~ .layout label[for="tab8"],
+  #tab9:checked ~ .layout label[for="tab9"],
+  #tab10:checked ~ .layout label[for="tab10"],
+  #tab11:checked ~ .layout label[for="tab11"],
+  #tab12:checked ~ .layout label[for="tab12"]{border-left:none;border-bottom:3px solid var(--gold);}
+  .layout{display:block;}
+  .content{margin-left:0;padding:32px 20px 80px;}
+  .swot-grid,.bmc-grid{grid-template-columns:1fr;}
+  .bmc-partners,.bmc-value,.bmc-segments{grid-column:1;grid-row:auto;}
+  .bmc-cost,.bmc-revenue{grid-column:1;}
+}
+
+/* ---------- Print ---------- */
+@media print{
+  input[name="tabs"]{display:none;}
+  .sidebar{position:static;width:100%;height:auto;color:var(--charcoal);background:#fff;border-bottom:2px solid var(--gold);border-right:none;page-break-after:always;}
+  .wordmark,.biz-name,.positioning,.case-meta{color:var(--charcoal-2)!important;}
+  nav.tabs{display:none;}
+  .layout{display:block;}
+  .content{margin-left:0;padding:0 10mm;max-width:100%;}
+  .panel{display:block!important;page-break-after:always;padding-top:14mm;}
+  .panel:last-child{page-break-after:auto;}
+  a{color:var(--charcoal-2);text-decoration:none;}
+  body{background:#fff;}
+}
+</style>
+</head>
+<body>
+
+<input type="radio" name="tabs" id="tab1" checked>
+<input type="radio" name="tabs" id="tab2">
+<input type="radio" name="tabs" id="tab3">
+<input type="radio" name="tabs" id="tab4">
+<input type="radio" name="tabs" id="tab5">
+<input type="radio" name="tabs" id="tab6">
+<input type="radio" name="tabs" id="tab7">
+<input type="radio" name="tabs" id="tab8">
+<input type="radio" name="tabs" id="tab9">
+<input type="radio" name="tabs" id="tab10">
+<input type="radio" name="tabs" id="tab11">
+<input type="radio" name="tabs" id="tab12">
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand-block">
+      <div class="wordmark">Aamara Capital</div>
+      <div class="wordmark-rule"></div>
+      <div class="biz-name">Managed Household Staff</div>
+      <div class="positioning">The branded, trained, background-verified and actively-managed household-staff service Mumbai's affluent homes can finally trust — with a replacement guarantee no informal hire offers.</div>
+      <div class="case-meta">Case Study · Business Concept 7</div>
+    </div>
+    <nav class="tabs">
+      <label for="tab1"><span class="n">01</span> Executive Summary</label>
+      <label for="tab2"><span class="n">02</span> Market &amp; Industry</label>
+      <label for="tab3"><span class="n">03</span> Competitive Landscape</label>
+      <label for="tab4"><span class="n">04</span> Macro &amp; Regulatory</label>
+      <label for="tab5"><span class="n">05</span> Financials</label>
+      <label for="tab6"><span class="n">06</span> Customers &amp; Marketing</label>
+      <label for="tab7"><span class="n">07</span> Technology &amp; Expansion</label>
+      <label for="tab8"><span class="n">08</span> Business Model</label>
+      <label for="tab9"><span class="n">09</span> USP &amp; Moat</label>
+      <label for="tab10"><span class="n">10</span> FAQ</label>
+      <label for="tab11"><span class="n">11</span> Action Plan</label>
+      <label for="tab12"><span class="n">12</span> Sources</label>
+    </nav>
+  </aside>
+
+  <main class="content">
+
+    <!-- ================= 01 EXECUTIVE SUMMARY ================= -->
+    <section class="panel" id="panel1">
+      <span class="section-tag">Section 01</span>
+      <h1>Executive Summary</h1>
+      <p class="lede">India's affluent run their homes on a workforce sourced through WhatsApp groups and watchmen, vetted by nobody, accountable to no one — and they know it.</p>
+
+      <p><strong>Managed Household Staff</strong> is a Mumbai-first business built on a single unoccupied box in a crowded market: <em>premium + genuinely trained + actively managed + guaranteed</em>. It recruits, background-verifies, trains, places <strong>and then keeps managing</strong> — payroll, supervision, quality control, compliance and a service-level replacement guarantee — the cooks, nannies, drivers, estate managers, housekeepers and butlers that HNI and UHNI households depend on. Where the entire existing market treats staffing as a one-time match and then disappears, this is a <strong>recurring managed-service retainer</strong>: the branded, accountable layer over an enormous, chaotic, cash-based informal market.</p>
+
+      <p><strong>The problem is trust, and it is documented.</strong> Fewer than <strong>10% of families do any proper due-diligence</strong> before letting a stranger live in their home (OnGrid); most rely on a photocopied ID and a verbal reference. Mumbai Police runs a dedicated online domestic-servant verification form precisely because theft and misconduct are live concerns — yet almost no one uses it. And the category's own scaled leader, <strong>BookMyBai, carries a 1/5 rating on MouthShut</strong>, with 2025 complaints of fake profiles, staff who "can't cook," and replacements that never arrived. The trusted brand is trusted-but-poor-quality, which is exactly why the premium end sits wide open.</p>
+
+      <p><strong>Why now.</strong> Mumbai concentrates <strong>35.4% of all of India's ultra-high-net-worth individuals</strong> (US$30M+) and <strong>92 US-dollar billionaires</strong> — Asia's billionaire capital (Knight Frank; Hurun). Female labour-force participation nearly doubled from 23.3% to 41.7% in six years, so fewer households have anyone home to run them. And capital is validating the category — over ₹1,200 crore of venture funding has poured into <em>quick, gig, cheap</em> house-help (Snabbit ~$112M, Pronto ~$40M) — while ignoring the premium managed niche entirely. Meanwhile the pending National Policy on Domestic Workers explicitly targets placement-agency regulation and model contracts, which favours a formal, compliant, DPDP-ready operator over the informal players it will squeeze.</p>
+
+      <p><strong>The solution</strong> is a proprietary training academy feeding a certified, background-verified staff pool; an employer-of-record management layer that runs payroll, PF/ESIC and supervision; and a family app that turns an opaque, anxiety-ridden arrangement into a visible, accountable service — attendance, payslips, SLA-tracked replacement requests, QC ratings and a dedicated relationship manager. The strategic spine is a deliberate choice to <strong>employ (or employ-and-supervise) rather than merely broker</strong> staff: heavier on compliance, but that compliance <em>is</em> the moat and the ESG story.</p>
+
+      <p><strong>Target customers</strong> are four personas — the multi-property Malabar Hill/Altamount Road UHNI family that needs a chief-of-staff layer; the returning-NRI family that already expects formal, contracted household staffing and is frustrated by India's informality; the time-starved dual-income HNI couple who want it simply <em>done for them</em>; and the new-money founder household scaling its lifestyle fast with no legacy staff network.</p>
+
+      <p><strong>Key highlights:</strong> an estimated<span class="est">EST.</span> ₹1.33 crore seed requirement; a defensible Year-3 revenue target<span class="est">EST.</span> of ~₹12.5 crore at ~250 managed households; break-even<span class="est">EST.</span> at roughly 55–70 managed households (~Year 2 on a disciplined ramp); estimated<span class="est">EST.</span> LTV:CAC of 10–15:1 <em>if retention holds</em>; and a Mumbai → Delhi-NCR/Bengaluru → other-metros → GCC-diaspora expansion path. The single biggest risk is the <strong>informal-market undercut and direct-poaching loop</strong> — a family takes the trained staff and drops the retainer — which the entire moat design must break, and which the Mumbai pilot exists to prove.</p>
+    </section>
+
+    <!-- ================= 02 MARKET & INDUSTRY ================= -->
+    <section class="panel" id="panel2">
+      <span class="section-tag">Section 02</span>
+      <h1>Market &amp; Industry</h1>
+
+      <h2>The Demand Base — Mumbai's Wealth Concentration</h2>
+      <div class="stat-row">
+        <div class="stat"><span class="n">35.4%</span><span class="l">of India's UHNWIs (US$30M+) live in Mumbai — the single largest concentration (Knight Frank)</span></div>
+        <div class="stat"><span class="n">92</span><span class="l">US-dollar billionaires in Mumbai — Asia's billionaire capital (Hurun India Rich List 2024)</span></div>
+        <div class="stat"><span class="n">85,698</span><span class="l">Indians worth US$10M+ (2024) → 93,753 by 2028 (Knight Frank)</span></div>
+        <div class="stat"><span class="n">23% → 42%</span><span class="l">female labour-force participation, 2017-18 → 2023-24 — fewer households run by a stay-at-home hand</span></div>
+      </div>
+      <p>Two independent sources — Knight Frank and Hurun — agree on Mumbai as India's dominant wealth hub, making it the correct beachhead. India's US$30M+ UHNWI base reached <strong>19,877 in 2024</strong> (up 63% over five years), forecast to 25,217 by 2031; Mumbai's 35.4% share implies roughly <strong>7,000 Mumbai UHNWI households<span class="est">EST.</span></strong>, sitting atop a far larger pool of US$10M+ affluent households — every one of which runs on domestic staff.</p>
+
+      <h3>The Supply Base — A Vast, Informal Workforce</h3>
+      <p>Estimates of India's domestic workforce range wildly precisely because the sector is informal — and the range itself is the story: from <strong>~4.75 million</strong> (government) and ~3.9M (NSSO) to <strong>~20 million</strong> (ILO) and 50–90 million (worker collectives). The workforce is overwhelmingly female and disproportionately migrant, Dalit, Adivasi and Muslim — a labour pool that a training-and-formal-employment model can genuinely uplift, giving the family office a real ESG angle rather than a bolt-on one.</p>
+
+      <h3>Market Sizing — No Clean Report Exists (and That's the Point)</h3>
+      <p>There is <strong>no published market-size report that isolates managed household staff</strong> — the segment is largely informal and unsized, which is itself part of the white-space thesis. The adjacent, sized markets that bracket it:</p>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Market</th><th>Size &amp; forecast</th><th>CAGR</th></tr>
+        <tr><td>India Home Services</td><td>$7.47B (2025) → $20.7B (2034)</td><td>12.03%</td></tr>
+        <tr><td>India Online On-Demand Home Services (app-based sliver)</td><td>$152.4M (2025) → $586.6M (2034)</td><td>15.67%</td></tr>
+        <tr><td>India Care Services</td><td>$29.62B (2023)</td><td>13.76%</td></tr>
+        <tr><td>India Home Healthcare</td><td>$8.8B (2022)</td><td>19.29%</td></tr>
+        <tr><td>India flexi-staffing workforce (B2B analogue)</td><td>1.6M workers (ISF), +15.3% YoY FY24</td><td>—</td></tr>
+      </table>
+      </div>
+      <p>The read-through: the app-based, <em>formal</em> sliver of home services is only ~$150M — a tiny branded penetration of a vast informal market. The traditional managed-staff market is far larger, and captured by no organised player.</p>
+
+      <h3>TAM / SAM / SOM — Built Bottom-Up (Households × ARPU)<span class="est">EST.</span></h3>
+      <p>No top-down report exists, so this is a construction: <em>addressable premium households × annual revenue to the company per household</em>. Note that ARPU here is <strong>Business A's own revenue</strong> (placement fees + management retainer + payroll margin + training) — <em>not</em> the staff salaries, which pass through. A household must be able to fund 2–5 salaried staff plus a management retainer, which realistically means the US$10M+ band, with the US$30M+ UHNWI band as the premium core.</p>
+      <div class="funnel">
+        <div class="funnel-tier funnel-tam"><span class="amt">~₹2,800 cr</span><span class="lbl">TAM — all India US$10M+ households (~70,000) × ~₹4L annual revenue-to-company</span></div>
+        <div class="funnel-tier funnel-sam"><span class="amt">~₹480 cr</span><span class="lbl">SAM — Mumbai UHNWI core (~7,000) + adjacent US$10M+ affluent (~12,000 households)</span></div>
+        <div class="funnel-tier funnel-som"><span class="amt">~₹12.5 cr / yr</span><span class="lbl">SOM — Year-3 realistic capture: ~2% of SAM (~250 households) at ~₹5L premium ARPU</span></div>
+      </div>
+      <p style="font-size:0.82rem;color:#6b665c;">All figures EST. — analyst-derived, not sourced. Household counts convert individual-wealth data to household estimates and are order-of-magnitude, not precise. ARPU is illustrative (see Financials).</p>
+
+      <h3>Consumer &amp; Decision-Maker Behaviour</h3>
+      <div class="callout">
+        <strong>This is a trust product for the top 1%, not a price product.</strong> The buyer is not comparing salary rates — the salary is pass-through. They are buying the removal of a specific, recurring anxiety: the bad hire, the sudden quit, the theft, the stranger who was never verified. Purchase is often triggered by a life event — a new home being furnished, a return from abroad, a sudden liquidity event, or a bad experience with an informal hire — so acquisition must be relationship-led and reach the household at that moment, through the designers, private banks and brokers already present in their lives.</div>
+    </section>
+
+    <!-- ================= 03 COMPETITIVE LANDSCAPE ================= -->
+    <section class="panel" id="panel3">
+      <span class="section-tag">Section 03</span>
+      <h1>Competitive Landscape</h1>
+      <p class="lede">The market splits into three non-overlapping tiers — and the box that matters, premium + trained + actively-managed + guaranteed, is empty. The two closest players each miss the decisive attribute.</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Competitor</th><th>Positioning</th><th>Model</th><th>Funding</th><th>Weakness / gap</th><th>Review sentiment</th></tr>
+        <tr>
+          <td><strong>BookMyBai</strong><br><span style="font-size:0.75rem;color:#6b665c;">2015 · 10 cities · ~$457K raised</span></td>
+          <td>India's largest online domestic-help marketplace — mass, not premium</td>
+          <td><strong>Placement-only</strong>: 1 month's salary + 18% GST; 6-month free replacement; salary paid direct to worker</td>
+          <td>~$457K across 4 rounds (50K Ventures, ARUN Seed, Inflection Point ₹2 cr)</td>
+          <td>Downmarket, unmanaged, reputationally damaged — has scale + a guarantee but no management layer</td>
+          <td><strong>1/5 on MouthShut</strong> — fake profiles, un-honoured replacements</td>
+        </tr>
+        <tr>
+          <td><strong>EliteButlers</strong><br><span style="font-size:0.75rem;color:#6b665c;">2020 · Delhi-NCR + Mumbai + UAE</span></td>
+          <td>"India's first HNWI household staffing agency" — the only true premium incumbent</td>
+          <td><strong>Recruitment/placement + training + lifestyle mgmt</strong>; pricing bespoke/unpublished</td>
+          <td>Bootstrapped LLP, ~100–200 staff</td>
+          <td>Publishes <strong>no ongoing employer-of-record, payroll-management or replacement SLA</strong> — stops at recruitment</td>
+          <td>Not independently surfaced in this pass</td>
+        </tr>
+        <tr>
+          <td><strong>Broomees</strong><br><span style="font-size:0.75rem;color:#6b665c;">2020 · Delhi · Shark Tank ₹1 cr</span></td>
+          <td>Verified domestic help + care on a recurring/subscription model — closest to "managed", but mid-market</td>
+          <td>Subscription/recurring; verified help</td>
+          <td>~$600K seed (100X.VC, 2AM VC, Magic Fund)</td>
+          <td>Mid-market, not UHNI; lighter training/management depth</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><strong>Urban Company — Insta Help</strong><br><span style="font-size:0.75rem;color:#6b665c;">Mar 2025 Mumbai pilot</span></td>
+          <td>15-minute on-demand house help — budget, gig</td>
+          <td>Gig hourly: intro ₹49/hr, regular ₹245/hr</td>
+          <td>Parent listed; well-capitalised</td>
+          <td>Not full-time, not premium; drew labour-ethics backlash — sets the low-price anchor, not a competitor</td>
+          <td>Public labour-ethics criticism</td>
+        </tr>
+        <tr>
+          <td><strong>Snabbit / Pronto</strong><br><span style="font-size:0.75rem;color:#6b665c;">2024–25 · gig house-help</span></td>
+          <td>10-minute gig cleaning / formalised house-help — budget, high-frequency</td>
+          <td>Gig on-demand</td>
+          <td>Snabbit ~$112M (~$350–400M val.); Pronto ~$40M ($200M val.)</td>
+          <td>DNA is cheap + fast + high-frequency — the opposite end from premium trained live-in staff</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><strong>Helper4U / Kaamwalibais / Justdial / Quikr</strong><br><span style="font-size:0.75rem;color:#6b665c;">the unorganised ~90%</span></td>
+          <td>DIY matchmaking / local bureaus — cash-based, one-time</td>
+          <td>Low transactional fees (₹300–1,000/hire) or 1 month salary</td>
+          <td>—</td>
+          <td>No guarantee, no management, no vetting — the trust vacuum this concept displaces</td>
+          <td>—</td>
+        </tr>
+      </table>
+      </div>
+      <p style="font-size:0.82rem;color:#6b665c;">Concierge players (Quintessentially India, ₹2–8 lakh/yr membership; Les Concierges) and global UHNW agencies (Nanny &amp; Butler, Morgan &amp; Mallet) are referenced as adjacencies and salary benchmarks, not direct comparators — they manage experiences and errands, not resident household staff.</p>
+
+      <div class="callout"><strong>The white space, precisely stated:</strong> no single player bundles <em>premium + trained + actively-managed (employer-of-record) + guaranteed-replacement</em> at scale for UHNI households. BookMyBai has scale and a guarantee but is downmarket, unmanaged and reputationally damaged; EliteButlers has premium positioning and training but publishes no managed/EoR retainer or replacement SLA. Each of the two closest players misses the decisive attribute.</div>
+
+      <h2>SWOT Analysis</h2>
+      <div class="swot-grid">
+        <div class="swot-box swot-s"><h4>Strengths</h4><ul>
+          <li>A trained, background-verified, proprietary staff pool that takes years and capital to build</li>
+          <li>Employer-of-record trust and accountability — plus a credible replacement guarantee backed by a bench</li>
+          <li>Family-office credibility and a first-party HNI network (Aamara) for distribution</li>
+          <li>A premium brand in a category vacuum — no incumbent owns the top end</li>
+        </ul></div>
+        <div class="swot-box swot-w"><h4>Weaknesses</h4><ul>
+          <li>High-touch, low-scalability model; slow to blitz-scale</li>
+          <li>Heavy compliance load if employing staff (EPF/ESIC/gratuity, GST-on-gross)</li>
+          <li>Trained-staff poaching risk and a long, trust-based CAC cycle</li>
+          <li>Unproven willingness-to-pay a recurring retainer above the informal norm</li>
+        </ul></div>
+        <div class="swot-box swot-o"><h4>Opportunities</h4><ul>
+          <li>An un-owned premium niche in India's #1 wealth hub</li>
+          <li>Regulatory formalisation tailwind (draft National Policy targets placement agencies)</li>
+          <li>Adjacencies: elder-care, concierge, corporate guest-house and villa management</li>
+          <li>ESG/worker-uplift narrative that fits a family-office mandate</li>
+        </ul></div>
+        <div class="swot-box swot-t"><h4>Threats</h4><ul>
+          <li>Informal-market price undercut and direct poaching of trained staff</li>
+          <li>A funded gig player (Snabbit/Pronto/UC) attempting to move upmarket</li>
+          <li>A reputational blow-up — staff theft, harm, or a labour-rights scandal</li>
+          <li>Labour-law tightening raising the cost of formal employment</li>
+        </ul></div>
+      </div>
+
+      <h2>Porter's Five Forces</h2>
+      <div class="porter-grid">
+        <div class="porter-card"><span class="force-level">Low–Moderate (premium) / High (mass)</span><h4>Competitive rivalry</h4><p>In the premium managed niche only EliteButlers is even adjacent — rivalry is thin. In mass placement it is intense but irrelevant to this positioning.</p></div>
+        <div class="porter-card"><span class="force-level">Moderate</span><h4>Threat of new entrants</h4><p>Starting a placement agency is cheap, but assembling a trained pool, a replacement-enabling bench, compliance capability and trust in a referral-dense community is slow and expensive — that assembly is the moat.</p></div>
+        <div class="porter-card"><span class="force-level">Moderate–High</span><h4>Buyer power</h4><p>UHNI clients are few, demanding and well-networked, and can always defect to informal hiring — mitigated by the switching cost of a managed, compliant, payroll-integrated relationship and the guarantee they'd forfeit.</p></div>
+        <div class="porter-card"><span class="force-level">Moderate, rising</span><h4>Supplier power (the staff)</h4><p>Skilled cooks and estate managers are scarce and poachable, raising their leverage — countered by formal employment, career path, PF/benefits and academy certification worth more inside the system.</p></div>
+        <div class="porter-card"><span class="force-level">High</span><h4>Threat of substitutes</h4><p>WhatsApp groups, watchmen referrals, existing agencies and gig apps are abundant and cheap — the core competitive reality. Countered by trust and accountability, never by price.</p></div>
+      </div>
+    </section>
+
+    <!-- ================= 04 MACRO & REGULATORY ================= -->
+    <section class="panel" id="panel4">
+      <span class="section-tag">Section 04</span>
+      <h1>Macro &amp; Regulatory</h1>
+
+      <div class="callout wine"><strong>The defining strategic fork is EMPLOY vs. BROKER.</strong> It changes which laws bind the business, the GST base, and the entire cost structure. The recommended lane is <strong>employer-of-record / managed</strong> (with a hybrid option at the lower tier): heavier compliance — EPF/ESIC/gratuity, GST-on-gross, minimum-wage attachment — but that compliance <em>is</em> the moat and the ESG story, and it is what makes the trust, control and guarantee real. This choice is held consistent across Financials and Business Model.</div>
+
+      <h2>PESTLE Analysis</h2>
+      <div class="pestle-grid">
+        <div class="pestle-card"><h4>Political</h4><p>Domestic work is politically "invisible" — <strong>no dedicated central statute</strong>. The National Policy on Domestic Workers has been in draft since ~2017 and remains un-notified; India has not ratified ILO Convention 189. The direction of travel, however, is toward formalisation.</p></div>
+        <div class="pestle-card"><h4>Economic</h4><p><strong>18% GST</strong> applies to manpower-supply/recruitment/placement (SAC 99851 family). Employ-and-second means GST on the <em>gross</em> value (wages + margin); pure placement means GST on the <em>fee only</em> — a core cost-structure fork.</p></div>
+        <div class="pestle-card"><h4>Social</h4><p>Deep informality, stigma and near-zero registration mean a compliant, verified, career-track offering is a genuine differentiator built on near-absent formal infrastructure — and dual-income households increasingly need it.</p></div>
+        <div class="pestle-card"><h4>Technological</h4><p><strong>e-Shram</strong> (the national unorganised-worker database) is the registration rail if staff are positioned as gig/unorganised; BGV vendors (AuthBridge, IDfy, OnGrid) provide the verification stack.</p></div>
+        <div class="pestle-card"><h4>Legal</h4><p>A patchwork: obligations arise from generic labour, social-security, data-protection, child-labour and tax statutes rather than one domestic-worker law (detailed below).</p></div>
+        <div class="pestle-card"><h4>Environmental</h4><p>Not materially applicable to the operating model.</p></div>
+      </div>
+
+      <h2>Government Regulations &amp; Licensing</h2>
+      <ul>
+        <li><strong>No dedicated domestic-worker law; a draft National Policy is coming</strong> — it would let workers register as unorganised workers, set minimum-wage/social-security access, and crucially <strong>regulate placement agencies and mandate a model contract</strong>. A compliant operator is the intended survivor of that regime.</li>
+        <li><strong>Code on Social Security, 2020 — in force from 21 Nov 2025 — the employ-vs-broker decision point.</strong> Broker via an app/marketplace likely makes the business an "aggregator" liable for a 1–2%-of-turnover Social Security Fund contribution, with workers as e-Shram-registered gig workers, not employees. Employing the staff makes the business an employer, with EPF/ESIC, gratuity and full statutory liabilities once thresholds are met — heavier, but premium and defensible.</li>
+        <li><strong>Maharashtra Domestic Workers Welfare Board Act, 2008</strong> — exists but is largely dormant; registers workers (18–60) as welfare beneficiaries. Unions petitioned in 2025 to revive it.</li>
+        <li><strong>Unorganised Workers' Social Security Act, 2008</strong> — expressly covers domestic workers within "wage worker."</li>
+        <li><strong>Minimum Wages / Code on Wages</strong> — Maharashtra has <em>no</em> notified minimum wage for domestic workers (only ~7 states do), but if the business employs staff via a registered establishment, general Maharashtra minimum-wage logic attaches to <em>its</em> employees.</li>
+        <li><strong>Background verification + DPDP Act 2023</strong> — police verification is imposed via city/state rules and on placement agencies (e.g. the Delhi Private Placement Agencies Order 2014 mandates licensing + proprietor police-verification, with a ₹50,000 penalty for operating unlicensed). Handling staff and HNI PII makes the business a <strong>Data Fiduciary</strong> under DPDP 2023 — consent-based BGV, a BGV vendor as Data Processor, security safeguards, breach notification, and <strong>penalties up to ₹250 crore</strong>.</li>
+        <li><strong>Maharashtra Shops &amp; Establishments Act, 2017</strong> — governs the office/company (registration mandatory at 10+ workers), binding the Mumbai HQ, not the private worksite.</li>
+        <li><strong>Trafficking &amp; child-labour red lines</strong> — under the Child &amp; Adolescent Labour (Prohibition &amp; Regulation) Act 1986 (2016 amendment), under-14s are barred from all work and child domestic work is a notified <em>hazardous</em> occupation; adolescents (14–18) are barred from it too. Placement agencies are a known trafficking vector, so age-proofing and source-verification are non-negotiable, first-order brand controls.</li>
+      </ul>
+
+      <h2>Risk Analysis</h2>
+      <h3>Operational Risks</h3>
+      <ul><li>Staff no-shows and attrition, skill mismatch, and the difficulty of supervising quality at scale — mitigated by a replacement SLA, a trained bench, QC/mystery-audits and area supervisors.</li></ul>
+      <h3>Financial Risks</h3>
+      <ul><li>GST-on-gross and EPF/ESIC/gratuity load if employing; a long CAC payback; and low tolerance for staff churn — mitigated by pricing the retainer to absorb compliance, a hybrid employ/broker structure at the low tier, and retention bonuses.</li></ul>
+      <h3>Regulatory Risks</h3>
+      <ul><li>Placement-agency licensing (the Delhi model may spread), a DPDP breach (up to ₹250 crore), and minimum-wage attachment — mitigated by licence discipline, DPDP-by-design, and specialist counsel on the employ-vs-broker structure.</li></ul>
+      <h3>Reputational Risks</h3>
+      <ul><li>Staff theft or harm at a client home, any trafficking/child-labour exposure, or a worker-rights backlash (as Urban Company faced) — mitigated by rigorous BGV, fidelity/theft insurance, strict age-proofing, and a proactively pro-worker, fair-wage, registered-employment narrative.</li></ul>
+      <h3>Scalability Risks</h3>
+      <ul><li>The high-touch model resists blitz-scaling and the trained-pool is a bottleneck — mitigated by the academy as a supply engine, disciplined city-by-city expansion, and technology for operational leverage.</li></ul>
+    </section>
+
+    <!-- ================= 05 FINANCIALS ================= -->
+    <section class="panel" id="panel5">
+      <span class="section-tag">Section 05</span>
+      <h1>Financials</h1>
+      <p style="font-size:0.85rem;color:#6b665c;font-style:italic;">Pay and cost benchmarks rest on commercial agency/aggregator pages (no official statistic exists for India's informal domestic-staff market) — directional, not audited. Every modelled figure is marked <span class="est">EST.</span></p>
+
+      <h2>Staff Pay Benchmarks — Mumbai (Pass-Through, Not Company Revenue)</h2>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Role</th><th class="num">₹/month (Mumbai)</th><th>Premium ceiling</th></tr>
+        <tr><td>Maid/housekeeper (part-time)</td><td class="num">4,000–7,000</td><td>—</td></tr>
+        <tr><td>Maid/helper (full-time live-in)</td><td class="num">16,000–20,000</td><td>—</td></tr>
+        <tr><td>Cook (full-time live-in)</td><td class="num">18,000–35,000</td><td>continental/diet higher</td></tr>
+        <tr><td>House driver/chauffeur (FT)</td><td class="num">14,000–23,000</td><td>up to ~₹1.5 lakh (elite private)</td></tr>
+        <tr><td>Nanny/governess/ayah (live-in)</td><td class="num">16,000–35,000</td><td>postpartum (jaapa) 25,000–35,000</td></tr>
+        <tr><td>Butler</td><td class="num">34,000–41,000</td><td>higher for UHNW household</td></tr>
+        <tr><td>Estate / house manager</td><td class="num">75,000–1,01,000+</td><td>multi-property higher</td></tr>
+        <tr><td>Celebrity/HNI private chef</td><td class="num">1,25,000–2,50,000</td><td>5-star exec chef ₹1.5–4 lakh/mo</td></tr>
+      </table>
+      </div>
+      <p style="font-size:0.82rem;color:#6b665c;">Live-in maid/cook ~₹18–20k corroborated across three sources; a +20–25% South Mumbai premium and +40% for specialised skills (continental cooking, English, elder care) are documented. The ₹1.5 lakh chauffeur / ₹15–30 LPA chef figures are upper-tail "premium ceiling," not median.</p>
+
+      <h2>The Fee Structure the Market Uses — and How This Concept Changes It</h2>
+      <p>The market norm is a one-time commission of <strong>one month's salary</strong> (50% at registration, balance on joining) plus a 6-month free replacement, with the salary paid directly to the worker. BookMyBai charges exactly this — 1 month's salary + 18% GST. <strong>The innovation here is to convert that one-time transaction into a recurring managed retainer</strong>, adding payroll, supervision, compliance and an ongoing guarantee.</p>
+
+      <h2>Startup Cost — Seed (Year 0)<span class="est">EST.</span></h2>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Line item</th><th class="num">₹ (EST.)</th></tr>
+        <tr><td>Office (500 sq ft, Andheri East, deposit + fit-out)</td><td class="num">12,00,000 <span class="est">EST.</span></td></tr>
+        <tr><td>Training-academy setup (kitchen lab, AV, trainers, curriculum)</td><td class="num">15,00,000 <span class="est">EST.</span></td></tr>
+        <tr><td>Technology (staff CRM, BGV integrations, family-app MVP)</td><td class="num">20,00,000 <span class="est">EST.</span></td></tr>
+        <tr><td>Legal / compliance / licensing / DPDP setup</td><td class="num">6,00,000 <span class="est">EST.</span></td></tr>
+        <tr><td>Brand, website, launch marketing</td><td class="num">10,00,000 <span class="est">EST.</span></td></tr>
+        <tr><td>Working capital (payroll float, staff bench, 6-month runway buffer)</td><td class="num">40,00,000 <span class="est">EST.</span></td></tr>
+        <tr><td>Founding team (6 months, pre-revenue)</td><td class="num">30,00,000 <span class="est">EST.</span></td></tr>
+        <tr style="font-weight:600;"><td>Total seed</td><td class="num">~₹1.33 crore <span class="est">EST.</span></td></tr>
+      </table>
+      </div>
+
+      <h2>Revenue Model — Four Streams</h2>
+      <ul>
+        <li><strong>Placement fee</strong> — one-time, 1–1.5 months of staff salary (a premium over the market's 1 month, justified by training, vetting and the guarantee).</li>
+        <li><strong>Monthly management retainer</strong> — the recurring core: ~₹3,000–8,000 per placed staff per month, or a household bundle of ~₹15,000–40,000/month<span class="est">EST.</span>, covering payroll processing, supervision/QC, the replacement guarantee and compliance.</li>
+        <li><strong>Payroll-processing margin</strong> — under employer-of-record, a spread on salary administration (which also triggers GST-on-gross, priced accordingly).</li>
+        <li><strong>Training academy</strong> — fees from staff (or amortised into placement) plus potential third-party/corporate training revenue.</li>
+      </ul>
+
+      <h2>Unit Economics<span class="est">EST.</span></h2>
+      <p>Illustrative, for a household with 3 placed staff on a bundle retainer:</p>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Metric</th><th>Value</th></tr>
+        <tr><td>Annual revenue per household</td><td>~₹4.6 lakh <span class="est">EST.</span> — placement (amortised) ₹60k + retainer ₹30k/mo × 12 + payroll/training margin ₹40k</td></tr>
+        <tr><td>CAC (premium, referral/partner-led)</td><td>₹40,000–80,000/household <span class="est">EST.</span></td></tr>
+        <tr><td>Gross margin (on retainer + placement, excl. pass-through salaries)</td><td>~55–65% <span class="est">EST.</span> — heaviest cost is ops/supervision headcount, BGV and academy</td></tr>
+        <tr><td>LTV (3-yr avg tenure × ₹4.6L × 60% GM)</td><td>~₹8.3 lakh <span class="est">EST.</span></td></tr>
+        <tr><td>LTV:CAC</td><td>~10–15:1 <span class="est">EST.</span> — attractive <em>only if</em> retention holds (the key sensitivity)</td></tr>
+      </table>
+      </div>
+
+      <h2>Break-Even Analysis<span class="est">EST.</span></h2>
+      <div class="callout">
+        At ~₹4.6 lakh ARPU and ~₹1.6 crore of fixed annual opex (office + core team + academy), <strong>break-even is approximately 55–70 managed households<span class="est">EST.</span></strong> — roughly Year 2 on a disciplined ramp. The model's central sensitivity is not the household count but <em>staff and household retention</em>: because retainer revenue is per-household rather than per-person, a staff replacement is a fulfilment event, not a lost account — provided the anti-poaching loop holds. LTV should be stress-tested at 25–40% annual staff churn.</div>
+    </section>
+
+    <!-- ================= 06 CUSTOMERS & MARKETING ================= -->
+    <section class="panel" id="panel6">
+      <span class="section-tag">Section 06</span>
+      <h1>Customers &amp; Marketing</h1>
+
+      <h2>Customer Personas</h2>
+      <div class="card-grid">
+        <div class="card persona-card">
+          <div class="role">The Malabar Hill Family</div>
+          <div class="sub">The UHNI Estate Household</div>
+          <dl>
+            <dt>Profile</dt><dd>Multi-property Altamount Road / Malabar Hill family running 5–10 staff across homes.</dd>
+            <dt>Pain points</dt><dd>No chief-of-staff layer; coordination chaos; discretion and security paramount; a single bad hire is a genuine risk.</dd>
+            <dt>Decision drivers</dt><dd>Accountability, discretion, an estate-manager tier that runs the household so they don't have to.</dd>
+            <dt>Willingness to pay</dt><dd>Very high — pays for accountability, not price.</dd>
+            <dt>Channel</dt><dd>Private banks/family offices, luxury real estate, personal referral.</dd>
+          </dl>
+        </div>
+        <div class="card persona-card">
+          <div class="role">The Rao Family</div>
+          <div class="sub">The Returning NRI — Highest-Conviction Early Adopter</div>
+          <dl>
+            <dt>Profile</dt><dd>Back from London/Dubai/Singapore, used to formal household staffing — agencies, contracts, payroll.</dd>
+            <dt>Pain points</dt><dd>Expects a managed model and is frustrated by India's cash-based informality and lack of accountability.</dd>
+            <dt>Decision drivers</dt><dd>Familiar, contracted, compliant, done-properly service — the closest thing to what they left behind.</dd>
+            <dt>Willingness to pay</dt><dd>High; already primed to pay for management.</dd>
+            <dt>Channel</dt><dd>NRI/return networks, relocation and interior-design partners.</dd>
+          </dl>
+        </div>
+        <div class="card persona-card">
+          <div class="role">The Powai Couple</div>
+          <div class="sub">The Time-Starved Dual-Income HNI</div>
+          <dl>
+            <dt>Profile</dt><dd>Finance/tech/founder professionals in BKC/Worli/Powai; both work long hours.</dd>
+            <dt>Pain points</dt><dd>No time or expertise to recruit, train, supervise, or run payroll/compliance.</dd>
+            <dt>Decision drivers</dt><dd>"Done-for-me" convenience and delegation over price.</dd>
+            <dt>Willingness to pay</dt><dd>Moderate-to-high; starts with one or two roles, expands after trust is built.</dd>
+            <dt>Channel</dt><dd>Corporate/employer channels, premium building networks, referral.</dd>
+          </dl>
+        </div>
+        <div class="card persona-card">
+          <div class="role">The Founder Household</div>
+          <div class="sub">New-Money, Fast-Scaling Lifestyle</div>
+          <dl>
+            <dt>Profile</dt><dd>Sudden liquidity (IPO/exit); scaling a home and lifestyle fast with no legacy staff network.</dd>
+            <dt>Pain points</dt><dd>Doesn't know how to hire well, wants to avoid rookie mistakes, values speed and a branded solution.</dd>
+            <dt>Decision drivers</dt><dd>Turnkey, "get-it-right-first-time," a trusted brand rather than a WhatsApp gamble.</dd>
+            <dt>Willingness to pay</dt><dd>High in the setup window; converts to a standing retainer.</dd>
+            <dt>Channel</dt><dd>VC/founder networks, wealth managers, the Aamara ecosystem.</dd>
+          </dl>
+        </div>
+      </div>
+
+      <h2>Marketing Strategy</h2>
+      <h3>Referral &amp; Partnership Channels (the core motion)</h3>
+      <ul>
+        <li><strong>Interior designers &amp; luxury architects</strong> — present at the exact moment a home is being built or furnished, when staffing is the next need.</li>
+        <li><strong>Private banks, wealth managers &amp; family offices</strong> — Aamara's own network is a first-party edge and a trusted referrer into UHNI households.</li>
+        <li><strong>Luxury real-estate brokers</strong> — Sotheby's, JLL Prime and boutique South-Mumbai brokers, present at the point of a new home.</li>
+        <li><strong>Gated-community &amp; premium-tower networks</strong> — Lodha/Oberoi/Raheja concierge desks and building networks.</li>
+        <li><strong>Member-get-member referral</strong> — the dominant channel for trust-based UHNI services, incentivised on both sides.</li>
+      </ul>
+      <h3>Retention Strategy</h3>
+      <p>Retention <em>is</em> the model, because the product is a recurring retainer. The levers are the replacement guarantee (which removes the single biggest reason to churn), quarterly household reviews, a dedicated relationship manager, staff-loyalty and retention bonuses (so the client's staff don't leave), and the switching cost of a managed, compliant, payroll-integrated relationship that is genuinely painful to unwind.</p>
+    </section>
+
+    <!-- ================= 07 TECHNOLOGY & EXPANSION ================= -->
+    <section class="panel" id="panel7">
+      <span class="section-tag">Section 07</span>
+      <h1>Technology &amp; Expansion</h1>
+
+      <h2>Technology Stack</h2>
+      <div class="card-grid">
+        <div class="card"><h4>Staff CRM / Supply Engine</h4><p>Candidate sourcing, profiling, skills tags, availability, tenure history and poaching-risk flags — the operational backbone that turns a chaotic labour pool into a managed, deployable bench.</p></div>
+        <div class="card"><h4>BGV / Vetting Stack</h4><p>Integrations with AuthBridge/IDfy/OnGrid; Aadhaar/PAN/police-verification workflow; DPDP-compliant consent and an encrypted PII vault; and a hard age-proofing gate as the child-labour red line.</p></div>
+        <div class="card"><h4>Training Academy / LMS</h4><p>A modular, certified curriculum — etiquette, continental and diet cooking, childcare, elder-care, driving, English and discretion/security — with certification tiers. This is the differentiated supply that no listings-page competitor can match.</p></div>
+        <div class="card"><h4>Family App</h4><p>Attendance/check-in, payroll and payslips, SLA-tracked replacement requests, QC ratings, a document vault and dedicated-RM chat — the accountability surface the informal market structurally cannot offer.</p></div>
+        <div class="card"><h4>Ops Tooling</h4><p>Supervisor routing, mystery-audit scheduling, retainer billing with GST, and a compliance calendar (EPF/ESIC/e-Shram) — the machinery that makes the managed layer consistent and auditable.</p></div>
+        <div class="card"><h4>Insurance &amp; Bonding Layer</h4><p>Fidelity/theft cover and bonding for placed staff, integrated into onboarding — turning "what if they steal?" from an unbounded fear into a contractually bounded, insured risk.</p></div>
+      </div>
+
+      <h2>Expansion Strategy</h2>
+      <div class="roadmap">
+        <div class="road-phase"><h4>Phase 1 — Mumbai / MMR (Years 1–2)</h4><ul>
+          <li>Prove unit economics and the academy supply engine in India's #1 wealth hub</li>
+          <li>Reach break-even household density (~55–70 managed households) before expanding</li>
+          <li>Prove the retention / anti-poaching loop — the thesis's central sensitivity</li>
+        </ul></div>
+        <div class="road-phase"><h4>Phase 2 — Delhi-NCR + Bengaluru (Years 2–3)</h4><ul>
+          <li>The largest adjacent HNI pools; NCR is EliteButlers' home turf — entered with the managed model it lacks</li>
+          <li>Reuse the academy curriculum and BGV/compliance stack</li>
+        </ul></div>
+        <div class="road-phase"><h4>Phase 3 — Hyderabad, Pune, Chennai, Kolkata (Years 3–5)</h4><ul>
+          <li>The next wealth clusters, plus GIFT/NRI corridors</li>
+          <li>Adjacencies (elder-care, concierge, corporate guest-houses) extend ARPU per household</li>
+        </ul></div>
+        <div class="road-phase"><h4>Phase 4 — GCC / UAE NRI Households (Years 4+)</h4><ul>
+          <li>A natural premium-diaspora extension serving the same returning-NRI persona at source</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- ================= 08 BUSINESS MODEL ================= -->
+    <section class="panel" id="panel8">
+      <span class="section-tag">Section 08</span>
+      <h1>Business Model</h1>
+
+      <div class="callout"><strong>Recommended lane: employer-of-record / managed</strong> (hybrid at the lower tier — employ the high-value estate-manager/chef roles; broker-and-manage the rest). This accepts the heavier compliance in exchange for the trust, control and guarantee that make the premium positioning real, and prices the retainer to absorb it. The choice is held consistent across Macro &amp; Regulatory and Financials.</div>
+
+      <h2>Business Model Canvas</h2>
+      <div class="bmc-grid">
+        <div class="bmc-cell bmc-partners"><h4>Key Partners</h4><ul><li>BGV vendors (AuthBridge/IDfy/OnGrid)</li><li>Insurers (fidelity/theft cover)</li><li>Legal/compliance counsel (employ-vs-broker)</li><li>Referral partners (designers, private banks, brokers)</li><li>Training specialists</li></ul></div>
+        <div class="bmc-cell bmc-activities"><h4>Key Activities</h4><ul><li>Recruit → vet → train → place → manage/supervise/QC</li><li>Payroll &amp; compliance (EPF/ESIC/GST)</li><li>Replacement fulfilment</li><li>Academy curriculum &amp; certification</li></ul></div>
+        <div class="bmc-cell bmc-resources"><h4>Key Resources</h4><ul><li>Trained-staff pool + academy</li><li>BGV/PII technology</li><li>Brand &amp; HNI network</li><li>Compliance capability</li></ul></div>
+        <div class="bmc-cell bmc-value"><h4>Value Propositions</h4><ul><li>Trust and accountability — someone else is responsible</li><li>Trained, verified staff, not a WhatsApp gamble</li><li>"Done-for-you" household operations</li><li>A real replacement guarantee</li><li>Payroll &amp; compliance handled end-to-end</li></ul></div>
+        <div class="bmc-cell bmc-relationships"><h4>Customer Relationships</h4><ul><li>Dedicated relationship manager</li><li>Recurring retainer + quarterly reviews</li><li>Family app as the accountability surface</li></ul></div>
+        <div class="bmc-cell bmc-channels"><h4>Channels</h4><ul><li>Designers &amp; luxury real estate</li><li>Private banks / family offices</li><li>Gated-community networks</li><li>Member-get-member referral</li></ul></div>
+        <div class="bmc-cell bmc-segments"><h4>Customer Segments</h4><ul><li>UHNI estate households</li><li>Returning NRI families</li><li>Time-starved dual-income HNI couples</li><li>New-money founder households</li></ul></div>
+        <div class="bmc-cell bmc-cost"><h4>Cost Structure</h4><p>Ops/supervisor + recruiter headcount (largest line) · academy · BGV · technology · office · compliance · marketing/CAC. Employer-of-record adds EPF/ESIC/gratuity + GST-on-gross.</p></div>
+        <div class="bmc-cell bmc-revenue"><h4>Revenue Streams</h4><p>Placement fee (1–1.5 months' salary) · monthly management retainer (the recurring core) · payroll-processing margin · training-academy fees.</p></div>
+      </div>
+
+      <h2>Revenue Model</h2>
+      <p>The defining move is converting a one-time placement transaction — the market's entire business today — into a <strong>recurring managed retainer</strong>. Roughly 60%+ of revenue is intended to be recurring retainer income (payroll, supervision, QC, guarantee, compliance) rather than one-off placement fees, which is what turns a staffing agency into an annuity business.</p>
+
+      <h2>Cost Structure</h2>
+      <p>This is a labour-and-operations business: the dominant cost lines are ops/supervisor and recruiter headcount, the academy, BGV and compliance. Under the recommended employer-of-record lane, EPF/ESIC/gratuity and GST-on-gross are real additional loads — deliberately absorbed into retainer pricing because that compliance is precisely what a family cannot replicate through informal hiring.</p>
+
+      <h2>Pricing Strategy</h2>
+      <p>Priced on trust and risk removal, not on the underlying salary (which is pass-through). The placement fee sits modestly above the market's one-month norm, justified by training and the guarantee; the recurring retainer is the value engine and the switching cost. Acute setup moments (a returning NRI furnishing a home, a founder post-exit) carry the lowest price sensitivity.</p>
+    </section>
+
+    <!-- ================= 09 USP & MOAT ================= -->
+    <section class="panel" id="panel9">
+      <span class="section-tag">Section 09</span>
+      <h1>USP &amp; Moat</h1>
+
+      <p class="lede">The market sells a one-time match and disappears. This business sells the one thing the informal market cannot: someone who stays accountable.</p>
+
+      <h2>Why Families Choose This Over WhatsApp and Agencies</h2>
+      <ul>
+        <li><strong>Someone else is accountable.</strong> If the cook quits on Tuesday, a trained replacement arrives — no scramble. Staff are pre-trained and background-verified; payroll, PF and compliance are handled; a single relationship manager owns the household. The informal market offers none of this, and existing agencies offer a one-time match and then vanish.</li>
+        <li><strong>Trained, not just sourced.</strong> The academy produces certified staff — continental cooking, childcare, elder-care, discretion/security — a genuinely different product from a listings-page match.</li>
+        <li><strong>A guarantee backed by a bench.</strong> The replacement SLA is only credible because the academy and scale make holding a trained bench economic — which is exactly why a thin placement agency cannot copy it.</li>
+      </ul>
+
+      <h2>Why Competitors Can't Easily Copy It</h2>
+      <ul>
+        <li><strong>The trained-staff pool + academy</strong> is a proprietary, certified supply that takes years and capital to build — a placement agency cannot conjure it from a listings database.</li>
+        <li><strong>The replacement guarantee</strong> is only credible if a bench exists, which only the academy plus scale make economic — a structural, not cosmetic, barrier.</li>
+        <li><strong>Trust and brand in a vacuum.</strong> Reputation within a small, referral-dense UHNI community compounds over time and cannot be bought with a marketing budget.</li>
+        <li><strong>The management / employer-of-record layer</strong> — supervision, QC, EPF/ESIC/DPDP compliance — is genuine operational <em>work</em>, not a feature toggle, and it is the barrier the gig players (whose DNA is cheap, fast and high-frequency) would have to rebuild an entire business to clear.</li>
+        <li><strong>Family-office pedigree (Aamara)</strong> gives first-party UHNI distribution and credibility a startup cannot replicate.</li>
+      </ul>
+    </section>
+
+    <!-- ================= 10 FAQ ================= -->
+    <section class="panel" id="panel10">
+      <span class="section-tag">Section 10</span>
+      <h1>FAQ — Questions an Investment Committee Will Ask</h1>
+
+      <div class="faq-item"><div class="faq-q">1. If your placed staff steals from or harms a client, who's liable?</div><div class="faq-a">The business carries fidelity/theft insurance and bonding, runs rigorous BGV (criminal check plus police verification), and uses an employer-of-record structure that lets it act — suspend, replace, pursue — rather than leaving the family exposed. Liability is contractually bounded and insured, and the guarantee triggers an immediate vetted replacement. (The specific Indian fidelity-cover product is to be confirmed with an underwriter during setup.)</div></div>
+
+      <div class="faq-item"><div class="faq-q">2. Isn't this just a placement agency with a nicer website?</div><div class="faq-a">No. A placement agency makes a one-time match and disappears; it is judged on fill rate. This business employs or supervises the staff, runs payroll and compliance, does QC, and guarantees replacement — with roughly 60%+ of revenue as recurring retainer, not one-off fees. The two closest players prove the gap: EliteButlers (premium) stops at recruitment, and BookMyBai (scale) stops at a 6-month guarantee — neither actually <em>manages</em>.</div></div>
+
+      <div class="faq-item"><div class="faq-q">3. How do you stop clients poaching your trained staff and dropping the retainer?</div><div class="faq-a">Four locks. First, the retainer's value is ongoing — payroll, compliance, replacement, QC — not just the person. Second, a contractual non-solicit plus a buy-out clause. Third, staff loyalty is to the company (career path, PF, bonuses, academy), not just the household. Fourth, if a family goes direct, they lose the guarantee — the exact risk they were paying to avoid. This loop is the thesis's central sensitivity and is what the Mumbai pilot exists to prove.</div></div>
+
+      <div class="faq-item"><div class="faq-q">4. How do you stop your trained staff being poached by rivals or other families?</div><div class="faq-a">Registered employment with PF and benefits, retention bonuses, real career progression (maid → cook → estate manager), and academy certification that is worth more inside the system than outside it. Managed, formal employment beats informal cash on stability — the thing a good cook or estate manager most lacks today.</div></div>
+
+      <div class="faq-item"><div class="faq-q">5. The informal market undercuts you — a bai costs ₹18k, so why pay your retainer?</div><div class="faq-a">Because the business doesn't compete on the salary — that's pass-through. It sells risk removal to households for whom a bad hire, a theft, or a sudden quit costs far more than a retainer. This is a trust product for the top 1%, not a price product; the buyer is comparing the retainer to the cost of getting it wrong, not to the cost of a cheaper maid.</div></div>
+
+      <div class="faq-item"><div class="faq-q">6. If staff churn is high, do the unit economics survive?</div><div class="faq-a">Churn is the key sensitivity, and the model is designed around it. The academy and bench convert churn from a client crisis into a routine fulfilment event, and retainer revenue is per-household not per-person, so a replacement doesn't lose the account. Retention bonuses and career pathways attack the root cause. LTV is stress-tested at 25–40% annual staff churn.</div></div>
+
+      <div class="faq-item"><div class="faq-q">7. How big can this get — isn't it inherently un-scalable and high-touch?</div><div class="faq-a">It is deliberately city-by-city, not blitz-scale. Technology (CRM, family app, ops tooling) provides leverage; the academy is the scalable supply engine; and adjacencies (elder-care, concierge, corporate guest-houses) extend ARPU per household. The model optimises for margin and moat, not land-grab — the opposite of the gig players.</div></div>
+
+      <div class="faq-item"><div class="faq-q">8. Snabbit and Pronto raised $100M+ — won't they crush you by moving upmarket?</div><div class="faq-a">Their DNA, unit economics and brand are cheap, fast and high-frequency. Premium trust, trained live-in staff and employer-of-record management is a different business they would have to rebuild and re-brand for — and moving downmarket-to-premium is one of the hardest transitions in services. Their funding validates the category, not this niche.</div></div>
+
+      <div class="faq-item"><div class="faq-q">9. Could the coming domestic-worker law kill the model?</div><div class="faq-a">The opposite. The draft National Policy targets placement-agency regulation and model contracts — a formal, compliant, DPDP-ready, registered-employment operator is the intended survivor, while informal players get squeezed. This business is built for the regime that is coming, not the one that is fading.</div></div>
+
+      <div class="faq-item"><div class="faq-q">10. Employ vs. broker — which, and why does it matter to us?</div><div class="faq-a">Employer-of-record (hybrid at the lower tier). It is heavier — EPF/ESIC/gratuity, GST-on-gross — but it is what makes the trust, control and guarantee real, and it is the moat. The retainer is priced to absorb the compliance, and that compliance is precisely what a family cannot replicate through informal hiring.</div></div>
+
+      <div class="faq-item"><div class="faq-q">11. What's your defensibility once someone copies the playbook?</div><div class="faq-a">The academy-built trained pool, the guarantee-enabling bench, and reputation in a tiny, referral-dense community all compound with time — plus Aamara's first-party UHNI distribution. Copying the website is easy; copying two years of trained supply and accumulated trust is not.</div></div>
+
+      <div class="faq-item"><div class="faq-q">12. What about a trafficking, child-labour or worker-exploitation scandal?</div><div class="faq-a">These are treated as hard red lines and first-order brand risks. No under-14s (child domestic work is a notified hazardous, prohibited occupation), documented age-proofing and source-verification, registered fair-wage employment, and a proactively pro-worker narrative — the deliberate anti-Urban-Company positioning — are built in from day one, not bolted on.</div></div>
+
+      <div class="faq-item"><div class="faq-q">13. What's the single biggest risk?</div><div class="faq-a">The informal-market undercut and direct-poaching loop at scale — a family takes the trained staff and drops the retainer. Every element above (ongoing retainer value, non-solicit plus buy-out, staff loyalty via formal employment, loss-of-guarantee) is designed to break that loop, but it is the central sensitivity of the thesis and must be proven in the Mumbai pilot before any capital goes into expansion.</div></div>
+    </section>
+
+    <!-- ================= 11 ACTION PLAN ================= -->
+    <section class="panel" id="panel11">
+      <span class="section-tag">Section 11</span>
+      <h1>Action Plan</h1>
+
+      <div class="roadmap">
+        <div class="road-phase"><h4>Days 1–30</h4><ul>
+          <li>Lock the employ-vs-broker legal structure with counsel (EoR/hybrid); incorporate; register for GST and under the Maharashtra Shops &amp; Establishments Act</li>
+          <li>Sign a BGV vendor (AuthBridge/IDfy/OnGrid) and design DPDP-compliant consent and PII flows</li>
+          <li>Recruit the founding ops lead and head trainer; scope the academy curriculum</li>
+          <li>Warm-map 30–50 target UHNI households via Aamara's network plus 3–4 designer/private-bank referral partners</li>
+        </ul></div>
+        <div class="road-phase"><h4>Days 31–60</h4><ul>
+          <li>Stand up the academy MVP; recruit and train the first cohort (10–15 staff) across cook/maid/nanny/driver</li>
+          <li>Build the family-app and CRM MVP (attendance, payroll, replacement request)</li>
+          <li>Source fidelity/theft insurance and finalise the replacement-SLA contract and pricing</li>
+          <li>Sign 3–5 pilot households, targeting the NRI-returner and dual-income personas first</li>
+        </ul></div>
+        <div class="road-phase"><h4>Days 61–90</h4><ul>
+          <li>Place and actively manage the pilot staff; instrument QC, attendance and replacement events</li>
+          <li>Collect testimonials/NPS; iterate retainer pricing on real willingness-to-pay</li>
+          <li>Validate CAC via referral channels; confirm EliteButlers' exact managed-tier scope as competitive due diligence</li>
+        </ul></div>
+        <div class="road-phase"><h4>Year 1</h4><ul>
+          <li>Scale to 50–70 managed households — approaching the estimated break-even</li>
+          <li>Build the trained bench that makes the guarantee economic; formalise the retention/loyalty program</li>
+          <li>Establish 2–3 durable referral partnerships (a private bank, a designer, a luxury real-estate broker)</li>
+          <li>Prove the retention / anti-poaching loop; prepare the Delhi/Bengaluru expansion thesis for follow-on capital</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- ================= 12 SOURCES ================= -->
+    <section class="panel" id="panel12">
+      <span class="section-tag">Section 12</span>
+      <h1>Sources</h1>
+      <p style="font-size:0.85rem;color:#6b665c;">Full source list compiled during secondary research, organised by section. Pay/cost benchmarks rest on commercial agency/aggregator pages (no official statistic isolates India's informal domestic-staff market) — directional, not audited. Figures marked <span class="est">EST.</span> are analyst-derived, not sourced facts.</p>
+
+      <div class="source-group">
+        <h4>Market &amp; Wealth</h4>
+        <ul>
+          <li><a href="https://deepmarketinsights.com/vista/insights/home-services-market/india" target="_blank">Deep Market Insights — India Home Services market ($7.47B → $20.7B)</a></li>
+          <li><a href="https://www.imarcgroup.com/india-online-on-demand-home-services-market" target="_blank">IMARC — India Online On-Demand Home Services (15.67% CAGR)</a></li>
+          <li><a href="https://www.grandviewresearch.com/industry-analysis/india-care-services-market-report" target="_blank">Grand View Research — India Care Services</a></li>
+          <li><a href="https://www.grandviewresearch.com/industry-analysis/india-home-healthcare-market" target="_blank">Grand View Research — India Home Healthcare</a></li>
+          <li><a href="https://www.business-standard.com/industry/news/flexi-staffing-industry-grew-by-15-3-in-fy24-indian-staffing-federation-124071101060_1.html" target="_blank">Business Standard — ISF flexi-staffing +15.3% FY24</a></li>
+          <li><a href="https://www.knightfrank.com/wealthreport/2025-03-05--the-knight-frank-wealth-report-2025-key-insights-and-opportunities" target="_blank">Knight Frank — The Wealth Report 2025 (HNWI/UHNWI definitions)</a></li>
+          <li><a href="https://mediabrief.com/india-becomes-the-sixth-most-ultra-hni-populous-country-globally/" target="_blank">Mediabrief — Knight Frank: India 6th most UHNI-populous; Mumbai 35.4%</a></li>
+          <li><a href="https://cxotoday.com/media-coverage/indias-hnwi-population-set-to-reach-93753-by-2028-knight-franks-the-wealth-report-2025/" target="_blank">CXOtoday — Knight Frank: India HNWI 85,698 → 93,753</a></li>
+          <li><a href="https://hurunindia.com/media-release/details/?id=674d305fcf08e188628b90cd" target="_blank">Hurun India Rich List 2024 — Mumbai 92 billionaires</a></li>
+          <li><a href="https://www.mynation.com/india-news/hurun-india-rich-list-2024-mumbai-ranks-3rd-globally-in-billionaires-check-top-10-indian-cities-iwh-sj0nc4" target="_blank">MyNation — Hurun 2024: Mumbai 3rd globally in billionaires</a></li>
+          <li><a href="https://ceda.ashoka.edu.in/too-good-to-be-true-steadily-rising-female-labour-force-participation-rates-in-india/" target="_blank">CEDA Ashoka — Rising female labour-force participation (23.3% → 41.7%)</a></li>
+          <li><a href="https://www.actionaidindia.org/recognizing-the-invisible-the-legal-landscape-of-domestic-workers-in-india-and-the-road-ahead" target="_blank">ActionAid India — Domestic-worker counts &amp; legal landscape</a></li>
+          <li><a href="https://labourbureau.gov.in/all-india-survey-on-domestic-workers" target="_blank">Labour Bureau — All-India Survey on Domestic Workers</a></li>
+          <li><a href="https://ongrid.in/blogs/importance-of-maid-verification-in-india/" target="_blank">OnGrid — Maid verification (&lt;10% due diligence)</a></li>
+          <li><a href="https://mumbaipolice.gov.in/ServantForm?ps_id=0" target="_blank">Mumbai Police — Domestic Servant verification form</a></li>
+        </ul>
+      </div>
+
+      <div class="source-group">
+        <h4>Competitors</h4>
+        <ul>
+          <li><a href="https://www.bookmybai.com/our-charges.aspx" target="_blank">BookMyBai — charges (1 month salary + 18% GST; 6-mo replacement)</a></li>
+          <li><a href="https://inc42.com/buzz/domestic-help-provider-bookmybai-raises-pre-series-a-funding-from-japanese-investors/" target="_blank">Inc42 — BookMyBai pre-Series A</a></li>
+          <li><a href="https://www.mouthshut.com/websites/bookmybai-reviews-925855208" target="_blank">MouthShut — BookMyBai reviews (1/5)</a></li>
+          <li><a href="https://elitebutlers.co.in/" target="_blank">EliteButlers — homepage (HNWI household staffing)</a></li>
+          <li><a href="https://in.linkedin.com/company/elitebutlers" target="_blank">EliteButlers — LinkedIn</a></li>
+          <li><a href="https://www.100x.vc/press-releases/100-x-vc-backed-broomees-raises-600k-in-seed-funding-100xvc-team-2022-startups" target="_blank">100X.VC — Broomees $600K seed</a></li>
+          <li><a href="https://www.sharktankindiaclub.com/broomees-shark-tank-funding-founders-revenue-and-updates/" target="_blank">Shark Tank India Club — Broomees</a></li>
+          <li><a href="https://theprint.in/ground-reports/first-chips-condoms-now-domestic-workers-in-10-mins-apps-pull-strings-consumers-rule/2613784/" target="_blank">ThePrint — Urban Company Insta Help &amp; the gig house-help wave</a></li>
+          <li><a href="https://www.bwdisrupt.com/article/urban-company-introduces-15-min-insta-maid-service-triggers-outrage-over-labour-concerns-550890" target="_blank">BW Disrupt — Urban Company Insta Maid labour backlash</a></li>
+          <li><a href="https://techcrunch.com/2026/04/27/indias-snabbit-closes-56m-round-as-investor-interest-heats-up-in-on-demand-home-services/" target="_blank">TechCrunch — Snabbit $56M round (~$112M raised)</a></li>
+          <li><a href="https://techcrunch.com/2026/03/02/indias-pronto-formalizes-house-help-as-its-valuation-jumps-8x-in-under-a-year/" target="_blank">TechCrunch — Pronto formalises house-help, valuation 8x</a></li>
+          <li><a href="https://helper4u.in/" target="_blank">Helper4U — DIY hire matchmaking</a></li>
+          <li><a href="https://www.justdial.com/Mumbai/Placement-Services-For-Maids-For-Employers/nct-11085374" target="_blank">Justdial — Mumbai maid-placement agencies</a></li>
+          <li><a href="https://quintessentially.com/locations/india" target="_blank">Quintessentially India — luxury concierge (adjacency)</a></li>
+          <li><a href="https://www.householdstaff.agency/" target="_blank">Household Staff Agency — global UHNW benchmark</a></li>
+        </ul>
+      </div>
+
+      <div class="source-group">
+        <h4>Regulatory</h4>
+        <ul>
+          <li><a href="https://www.pib.gov.in/Pressreleaseshare.aspx?PRID=1564261" target="_blank">PIB — Draft National Policy on Domestic Workers</a></li>
+          <li><a href="https://www.labour.gov.in/whatsnew/formulation-national-policy-domestic-workers-reg" target="_blank">Ministry of Labour — Formulation of National Policy on Domestic Workers</a></li>
+          <li><a href="https://www.ilo.org/resource/ratifications-c189-and-law-policy-across-world" target="_blank">ILO — C189 ratifications (India not ratified)</a></li>
+          <li><a href="https://www.indiacode.nic.in/bitstream/123456789/19597/1/MH2009.pdf" target="_blank">Maharashtra Domestic Workers Welfare Board Act 2008 — text</a></li>
+          <li><a href="https://www.newsclick.in/absentee-board-no-aid-domestic-workers-maharashtra" target="_blank">NewsClick — Maharashtra's "Absentee Board"</a></li>
+          <li><a href="https://www.indiacode.nic.in/bitstream/123456789/15481/1/the_unorganised_workers_social_security_act,_2008.pdf" target="_blank">Unorganised Workers' Social Security Act 2008 — text</a></li>
+          <li><a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2220307&reg=3&lang=1" target="_blank">PIB — Social Security for Gig &amp; Platform Workers (CoSS 2020)</a></li>
+          <li><a href="https://www.medianama.com/2025/11/223-gig-workers-legally-recognised-indias-labour-codes/" target="_blank">MediaNama — Labour codes in force (Nov 2025)</a></li>
+          <li><a href="https://corridalegal.com/the-code-on-social-security-2020-epf-gig-worker-registration-explanation/" target="_blank">Corrida Legal — CoSS 2020: EPF / gig-worker registration</a></li>
+          <li><a href="https://www.ideasforindia.in/topics/macroeconomics/minimum-wage-legislation-for-domestic-workers-does-it-work" target="_blank">Ideas for India — Minimum-wage legislation for domestic workers</a></li>
+          <li><a href="https://thc.nic.in/Central%20Governmental%20Ordinances/Delhi%20Private%20Placement%20Agencies%20(Regulation)%20Order,%202014.pdf" target="_blank">Delhi Private Placement Agencies (Regulation) Order 2014 — text</a></li>
+          <li><a href="https://jobnukkad.com/blog/police-verification-of-maids-drivers-mumbai" target="_blank">JobNukkad — Police verification of maids/drivers, Mumbai</a></li>
+          <li><a href="https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf" target="_blank">DPDP Act 2023 — MeitY text</a></li>
+          <li><a href="https://www.mondaq.com/india/privacy-protection/1406850/the-digital-personal-data-protection-act-2023-key-implications-for-employers" target="_blank">Mondaq — DPDP Act: implications for employers</a></li>
+          <li><a href="https://www.indiacode.nic.in/bitstream/123456789/19710/1/shops_and_eastablishments.pdf" target="_blank">Maharashtra Shops &amp; Establishments Act 2017 — text</a></li>
+          <li><a href="https://clc.gov.in/clc/acts-rules/child-labour-prohibition-and-regulation-act-1986" target="_blank">CLC — Child &amp; Adolescent Labour Act 1986</a></li>
+          <li><a href="https://www.indiafilings.com/learn/sac-code-gst-rate-for-recruitment-and-hr-services" target="_blank">IndiaFilings — SAC &amp; GST for recruitment/HR services (18%)</a></li>
+          <li><a href="https://www.mbgcorp.com/in/insights/manpower-supply-services/" target="_blank">MBG — GST on manpower-supply services</a></li>
+        </ul>
+      </div>
+
+      <div class="source-group">
+        <h4>Financial — Pay, Fees, Costs, BGV</h4>
+        <ul>
+          <li><a href="https://mychores.in/domestic-help-cost-in-india-updated-2025-guide-for-salaries-rules-tips" target="_blank">MyChores — Domestic-help cost guide 2025 (Mumbai salaries)</a></li>
+          <li><a href="https://jobnukkad.com/full-time-maid-salary-in-mumbai" target="_blank">JobNukkad — Full-time maid salary in Mumbai</a></li>
+          <li><a href="http://gkmaidservices.com/price.php" target="_blank">GK Maid Services — pricing</a></li>
+          <li><a href="https://kaamwalibais.com/complete-guide-to-hiring-a-maid-in-mumbai-cost-services-faqs" target="_blank">Kaamwalibais — Mumbai hiring guide &amp; fees</a></li>
+          <li><a href="https://in.indeed.com/career/private-chef/salaries" target="_blank">Indeed — Private chef salary (India)</a></li>
+          <li><a href="https://www.payscale.com/research/IN/Job=Estate_Manager/Salary" target="_blank">PayScale — Estate Manager salary (India)</a></li>
+          <li><a href="https://www.erieri.com/salary/job/butler/india" target="_blank">ERI — Butler salary (India)</a></li>
+          <li><a href="https://in.indeed.com/career/driver/salaries/Mumbai--Maharashtra" target="_blank">Indeed — Driver salary (Mumbai)</a></li>
+          <li><a href="https://cityinfoservices.com/blogs/commercial-property-for-rent-in-mumbai-top-locations-rental-trends-2026-market-insights/" target="_blank">City Info Services — Mumbai commercial rents 2026</a></li>
+          <li><a href="https://in.indeed.com/career/recruiter/salaries/Mumbai--Maharashtra" target="_blank">Indeed — Recruiter salary (Mumbai)</a></li>
+          <li><a href="https://omnivoo.com/blog/background-verification-india-guide" target="_blank">Omnivoo — India BGV guide (cost per check)</a></li>
+          <li><a href="https://www.sutrahr.com/background-verification-companies-in-india/" target="_blank">SutraHR — Background-verification companies in India</a></li>
+        </ul>
+      </div>
+
+      <div class="source-group">
+        <h4>Technology &amp; Expansion</h4>
+        <ul>
+          <li><a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2200767&reg=3&lang=1" target="_blank">PIB — Formalising the gig &amp; platform workforce (e-Shram rail)</a></li>
+          <li><a href="https://authbridge.com/employee-background-verification/" target="_blank">AuthBridge — Employee background verification (BGV stack)</a></li>
+          <li><span>Expansion geographies anchored on Knight Frank / Hurun wealth-hub data (see Market &amp; Wealth).</span></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>

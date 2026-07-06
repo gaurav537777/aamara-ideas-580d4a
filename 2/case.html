@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Gaming & Social Experience Centre — Aamara Capital Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf9f5;
+    --charcoal:#141310;
+    --charcoal-2:#0c0b0a;
+    --gold:#b98a3e;
+    --wine:#5c2b2e;
+    --ember:#a8624f;
+    --line:rgba(20,19,16,0.12);
+    --card:#ffffff;
+    --sidebar-w:256px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--charcoal);
+    font-family:"Jost","Segoe UI",Helvetica,Arial,sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.display{
+    font-family:"Cormorant Garamond","Georgia",serif;
+    color:var(--charcoal-2);
+    font-weight:600;
+    letter-spacing:0.01em;
+  }
+  a{color:var(--wine);}
+  a:hover{color:var(--ember);}
+
+  /* ===== Wordmark ===== */
+  .wordmark{
+    font-family:"Jost",sans-serif;
+    font-size:13px;
+    letter-spacing:0.32em;
+    font-weight:600;
+    color:var(--charcoal-2);
+    text-transform:uppercase;
+    padding:28px 24px 14px;
+  }
+  .wordmark-rule{
+    height:1px;
+    background:linear-gradient(90deg,var(--gold),transparent 85%);
+    margin:0 24px 22px;
+  }
+
+  /* ===== Layout / tab mechanism (CSS-only, no JS) ===== */
+  .tabset{position:relative;}
+  .tabset > input[type="radio"]{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+  }
+  .layout{display:flex; align-items:stretch; min-height:100vh;}
+  .sidebar{
+    width:var(--sidebar-w);
+    min-width:var(--sidebar-w);
+    background:var(--charcoal-2);
+    position:sticky;
+    top:0;
+    align-self:flex-start;
+    height:100vh;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+  }
+  .sidebar .wordmark{color:var(--cream);}
+  .sidebar .wordmark-rule{background:linear-gradient(90deg,var(--gold),transparent 85%);}
+  .biz-tag{
+    padding:0 24px 22px;
+    color:rgba(250,249,245,0.55);
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  nav.tabnav{display:flex; flex-direction:column; padding:6px 0 24px;}
+  nav.tabnav label{
+    display:block;
+    padding:13px 24px;
+    font-size:13.5px;
+    letter-spacing:0.03em;
+    color:rgba(250,249,245,0.68);
+    cursor:pointer;
+    border-left:3px solid transparent;
+    transition:all .15s ease;
+    user-select:none;
+  }
+  nav.tabnav label .num{
+    color:var(--gold);
+    font-family:"Cormorant Garamond",serif;
+    font-weight:600;
+    margin-right:10px;
+    font-size:15px;
+  }
+  nav.tabnav label:hover{background:rgba(255,255,255,0.04); color:var(--cream);}
+
+  .content{flex:1; min-width:0; background:var(--cream);}
+  .panel{display:none; padding:56px 64px 90px; max-width:1180px;}
+  .panel.active-shell{display:block;}
+
+  /* checked-state wiring: each input reveals its own panel + highlights its own label */
+  #tab-1:checked ~ .layout .content #panel-1,
+  #tab-2:checked ~ .layout .content #panel-2,
+  #tab-3:checked ~ .layout .content #panel-3,
+  #tab-4:checked ~ .layout .content #panel-4,
+  #tab-5:checked ~ .layout .content #panel-5,
+  #tab-6:checked ~ .layout .content #panel-6,
+  #tab-7:checked ~ .layout .content #panel-7,
+  #tab-8:checked ~ .layout .content #panel-8,
+  #tab-9:checked ~ .layout .content #panel-9,
+  #tab-10:checked ~ .layout .content #panel-10,
+  #tab-11:checked ~ .layout .content #panel-11,
+  #tab-12:checked ~ .layout .content #panel-12{
+    display:block;
+  }
+  #tab-1:checked ~ .layout .sidebar label[for="tab-1"],
+  #tab-2:checked ~ .layout .sidebar label[for="tab-2"],
+  #tab-3:checked ~ .layout .sidebar label[for="tab-3"],
+  #tab-4:checked ~ .layout .sidebar label[for="tab-4"],
+  #tab-5:checked ~ .layout .sidebar label[for="tab-5"],
+  #tab-6:checked ~ .layout .sidebar label[for="tab-6"],
+  #tab-7:checked ~ .layout .sidebar label[for="tab-7"],
+  #tab-8:checked ~ .layout .sidebar label[for="tab-8"],
+  #tab-9:checked ~ .layout .sidebar label[for="tab-9"],
+  #tab-10:checked ~ .layout .sidebar label[for="tab-10"],
+  #tab-11:checked ~ .layout .sidebar label[for="tab-11"],
+  #tab-12:checked ~ .layout .sidebar label[for="tab-12"]{
+    background:rgba(185,138,62,0.14);
+    border-left-color:var(--gold);
+    color:var(--cream);
+  }
+
+  /* ===== Typography helpers ===== */
+  .eyebrow{
+    font-size:12px; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--gold); font-weight:600; margin:0 0 10px;
+  }
+  h1.page-title{font-size:44px; margin:0 0 6px; line-height:1.08;}
+  .positioning{font-size:17px; color:#4b473f; font-style:italic; margin:0 0 34px; max-width:760px; font-family:"Cormorant Garamond",serif;}
+  h2.section-h{font-size:28px; margin:44px 0 16px; padding-top:18px; border-top:1px solid var(--line);}
+  h2.section-h:first-of-type{border-top:none; padding-top:0; margin-top:0;}
+  h3.sub-h{font-size:20px; margin:26px 0 10px; color:var(--wine);}
+  p{margin:0 0 14px; max-width:840px;}
+  .lead{font-size:18px; font-family:"Cormorant Garamond",serif; color:#33312b;}
+  ul,ol{margin:0 0 16px; padding-left:22px;}
+  li{margin-bottom:6px;}
+
+  /* ===== EST badge ===== */
+  .est{
+    display:inline-block;
+    font-family:"Jost",sans-serif;
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:0.09em;
+    color:var(--gold);
+    border:1px dashed var(--gold);
+    border-radius:20px;
+    padding:1px 7px;
+    margin-left:5px;
+    vertical-align:middle;
+    background:rgba(185,138,62,0.07);
+    white-space:nowrap;
+  }
+
+  /* ===== Tables ===== */
+  .table-wrap{overflow-x:auto; margin:14px 0 26px; border:1px solid var(--line); border-radius:6px;}
+  table{border-collapse:collapse; width:100%; min-width:640px; font-size:14px; background:var(--card);}
+  thead th{
+    background:var(--charcoal-2); color:var(--cream);
+    text-align:left; padding:11px 14px; font-weight:500;
+    font-size:12.5px; letter-spacing:0.03em; white-space:nowrap;
+  }
+  tbody td{padding:11px 14px; border-top:1px solid var(--line); vertical-align:top;}
+  tbody tr:nth-child(even){background:rgba(20,19,16,0.02);}
+  tfoot td{font-weight:600; background:rgba(185,138,62,0.08); border-top:2px solid var(--gold);}
+
+  /* ===== Cards ===== */
+  .card-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin:16px 0 28px;}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:8px;
+    padding:20px 22px; border-top:3px solid var(--gold);
+  }
+  .card h4{margin:0 0 8px; font-size:19px;}
+  .card.wine-top{border-top-color:var(--wine);}
+  .card.ember-top{border-top-color:var(--ember);}
+
+  /* ===== SWOT ===== */
+  .swot-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:18px 0 30px;}
+  .swot-box{border-radius:8px; padding:20px 22px; border:1px solid var(--line);}
+  .swot-box h4{margin:0 0 10px; font-size:18px; text-transform:uppercase; letter-spacing:0.05em; font-family:"Jost",sans-serif; font-weight:600;}
+  .swot-s{background:rgba(185,138,62,0.08); border-left:4px solid var(--gold);}
+  .swot-w{background:rgba(92,43,46,0.06); border-left:4px solid var(--wine);}
+  .swot-o{background:rgba(168,98,79,0.08); border-left:4px solid var(--ember);}
+  .swot-t{background:rgba(20,19,16,0.05); border-left:4px solid var(--charcoal);}
+
+  /* ===== Funnel / bars ===== */
+  .funnel{margin:22px 0 10px;}
+  .funnel-row{margin-bottom:20px;}
+  .funnel-label{display:flex; justify-content:space-between; font-size:13px; margin-bottom:6px; color:#4b473f;}
+  .funnel-bar-bg{background:rgba(20,19,16,0.06); border-radius:5px; height:38px; overflow:hidden;}
+  .funnel-bar{
+    height:100%; border-radius:5px 0 0 5px;
+    display:flex; align-items:center; padding-left:16px;
+    color:#fff; font-family:"Cormorant Garamond",serif; font-weight:600; font-size:16px;
+  }
+  .bar-tam{width:100%; background:linear-gradient(90deg,var(--wine),#7a3b3f);}
+  .bar-sam{width:52%; background:linear-gradient(90deg,var(--ember),#c17b62);}
+  .bar-som{width:18%; background:linear-gradient(90deg,var(--gold),#d3a75f);}
+
+  /* ===== Porter / risk grids ===== */
+  .force-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; margin:16px 0 28px;}
+  .force-card{background:var(--card); border:1px solid var(--line); border-radius:8px; padding:18px 20px;}
+  .force-card .rating{
+    display:inline-block; font-size:11px; font-weight:600; letter-spacing:0.05em;
+    padding:3px 10px; border-radius:20px; margin-bottom:10px; text-transform:uppercase;
+  }
+  .rating.high{background:rgba(92,43,46,0.12); color:var(--wine);}
+  .rating.modhigh{background:rgba(168,98,79,0.14); color:var(--ember);}
+
+  /* ===== Business Model Canvas ===== */
+  .bmc{display:grid; grid-template-columns:repeat(5,1fr); grid-template-rows:auto auto; gap:10px; margin:20px 0 30px;}
+  .bmc .cell{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:14px 16px; font-size:13px;}
+  .bmc .cell h4{font-size:14px; margin:0 0 8px; color:var(--wine); text-transform:uppercase; letter-spacing:0.03em; font-family:"Jost",sans-serif; font-weight:600;}
+  .bmc .partners{grid-column:1; grid-row:1/3;}
+  .bmc .activities{grid-column:2; grid-row:1;}
+  .bmc .resources{grid-column:2; grid-row:2;}
+  .bmc .value{grid-column:3; grid-row:1/3; background:rgba(185,138,62,0.1); border-color:var(--gold);}
+  .bmc .relationships{grid-column:4; grid-row:1;}
+  .bmc .channels{grid-column:4; grid-row:2;}
+  .bmc .segments{grid-column:5; grid-row:1/3;}
+  .bmc-bottom{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:-20px;}
+  .bmc-bottom .cell{background:rgba(92,43,46,0.05);}
+
+  /* ===== FAQ ===== */
+  .faq-item{border:1px solid var(--line); border-radius:8px; padding:18px 22px; margin-bottom:12px; background:var(--card);}
+  .faq-q{font-family:"Cormorant Garamond",serif; font-size:19px; font-weight:600; color:var(--wine); margin:0 0 8px;}
+  .faq-a{margin:0;}
+
+  /* ===== Roadmap ===== */
+  .roadmap{position:relative; margin:20px 0 30px; padding-left:26px; border-left:2px solid var(--gold);}
+  .road-step{margin-bottom:26px; position:relative;}
+  .road-step::before{
+    content:""; position:absolute; left:-32px; top:4px; width:11px; height:11px; border-radius:50%;
+    background:var(--gold); border:2px solid var(--cream); box-shadow:0 0 0 1px var(--gold);
+  }
+  .road-step h4{margin:0 0 6px; font-size:19px; color:var(--charcoal-2);}
+
+  /* ===== Misc ===== */
+  .callout{
+    background:rgba(92,43,46,0.06); border-left:4px solid var(--wine);
+    padding:16px 20px; border-radius:0 6px 6px 0; margin:18px 0 22px;
+  }
+  .callout.gold{background:rgba(185,138,62,0.08); border-left-color:var(--gold);}
+  .stat-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px; margin:22px 0 30px;}
+  .stat{text-align:left; padding:16px 18px; background:var(--card); border:1px solid var(--line); border-radius:8px;}
+  .stat .num{font-family:"Cormorant Garamond",serif; font-size:34px; font-weight:700; color:var(--wine); line-height:1;}
+  .stat .lbl{font-size:12px; color:#4b473f; margin-top:6px; letter-spacing:0.02em;}
+  .source-list{list-style:none; padding:0; margin:0 0 22px;}
+  .source-list li{
+    padding:8px 0; border-bottom:1px solid var(--line); font-size:14px;
+  }
+  footer.doc-footer{
+    margin-top:50px; padding-top:18px; border-top:1px solid var(--line);
+    font-size:11.5px; color:#8a867c; letter-spacing:0.03em;
+  }
+
+  /* ===== Mobile: collapse sidebar into horizontal tab strip ===== */
+  @media (max-width:768px){
+    .layout{flex-direction:column;}
+    .sidebar{
+      width:100%; min-width:0; height:auto; position:sticky; top:0;
+      flex-direction:row; overflow-x:auto; overflow-y:hidden; z-index:20;
+      align-items:center; padding:8px 0;
+    }
+    .sidebar .wordmark, .sidebar .wordmark-rule, .biz-tag{display:none;}
+    nav.tabnav{flex-direction:row; padding:0 10px;}
+    nav.tabnav label{
+      white-space:nowrap; border-left:none; border-bottom:3px solid transparent; padding:12px 16px;
+    }
+    #tab-1:checked ~ .layout .sidebar label[for="tab-1"],
+    #tab-2:checked ~ .layout .sidebar label[for="tab-2"],
+    #tab-3:checked ~ .layout .sidebar label[for="tab-3"],
+    #tab-4:checked ~ .layout .sidebar label[for="tab-4"],
+    #tab-5:checked ~ .layout .sidebar label[for="tab-5"],
+    #tab-6:checked ~ .layout .sidebar label[for="tab-6"],
+    #tab-7:checked ~ .layout .sidebar label[for="tab-7"],
+    #tab-8:checked ~ .layout .sidebar label[for="tab-8"],
+    #tab-9:checked ~ .layout .sidebar label[for="tab-9"],
+    #tab-10:checked ~ .layout .sidebar label[for="tab-10"],
+    #tab-11:checked ~ .layout .sidebar label[for="tab-11"],
+    #tab-12:checked ~ .layout .sidebar label[for="tab-12"]{
+      border-left-color:transparent; border-bottom-color:var(--gold);
+    }
+    .panel{padding:32px 22px 60px;}
+    h1.page-title{font-size:32px;}
+    .swot-grid{grid-template-columns:1fr;}
+    .bmc{grid-template-columns:1fr 1fr;}
+    .bmc .partners,.bmc .value,.bmc .segments{grid-column:auto; grid-row:auto;}
+  }
+
+  /* ===== Print: full linear report, ignore radio state ===== */
+  @media print{
+    .sidebar{display:none;}
+    .layout{display:block;}
+    .content{width:100%;}
+    .tabset > input{display:none;}
+    .panel{
+      display:block !important;
+      max-width:100%;
+      padding:0 6mm 10mm;
+      page-break-after:always;
+      break-after:page;
+    }
+    .panel:last-child{page-break-after:auto;}
+    .table-wrap{border:1px solid #ccc;}
+    a{color:var(--wine); text-decoration:none;}
+    body{background:#fff;}
+    .funnel-bar-bg{background:#eee;}
+  }
+</style>
+</head>
+<body>
+
+<div class="tabset">
+  <input type="radio" name="tabs" id="tab-1" checked>
+  <input type="radio" name="tabs" id="tab-2">
+  <input type="radio" name="tabs" id="tab-3">
+  <input type="radio" name="tabs" id="tab-4">
+  <input type="radio" name="tabs" id="tab-5">
+  <input type="radio" name="tabs" id="tab-6">
+  <input type="radio" name="tabs" id="tab-7">
+  <input type="radio" name="tabs" id="tab-8">
+  <input type="radio" name="tabs" id="tab-9">
+  <input type="radio" name="tabs" id="tab-10">
+  <input type="radio" name="tabs" id="tab-11">
+  <input type="radio" name="tabs" id="tab-12">
+
+  <div class="layout">
+    <div class="sidebar">
+      <div class="wordmark">Aamara Capital</div>
+      <div class="wordmark-rule"></div>
+      <div class="biz-tag">New Business Case Study · 2 of 5</div>
+      <nav class="tabnav">
+        <label for="tab-1"><span class="num">01</span>Executive Summary</label>
+        <label for="tab-2"><span class="num">02</span>Market &amp; Industry</label>
+        <label for="tab-3"><span class="num">03</span>Competitive Landscape</label>
+        <label for="tab-4"><span class="num">04</span>Macro &amp; Regulatory</label>
+        <label for="tab-5"><span class="num">05</span>Financials</label>
+        <label for="tab-6"><span class="num">06</span>Customers &amp; Marketing</label>
+        <label for="tab-7"><span class="num">07</span>Technology &amp; Expansion</label>
+        <label for="tab-8"><span class="num">08</span>Business Model</label>
+        <label for="tab-9"><span class="num">09</span>USP &amp; Moat</label>
+        <label for="tab-10"><span class="num">10</span>FAQ</label>
+        <label for="tab-11"><span class="num">11</span>Action Plan</label>
+        <label for="tab-12"><span class="num">12</span>Sources</label>
+      </nav>
+    </div>
+
+    <main class="content">
+
+      <!-- ============ 01 EXECUTIVE SUMMARY ============ -->
+      <section class="panel" id="panel-1">
+        <div class="eyebrow">Case Study · Business Concept 2 of 5</div>
+        <h1 class="page-title">Premium Gaming &amp; Social Experience Centre</h1>
+        <p class="positioning">A multi-format, membership-led location-based entertainment venue — VR, sim-racing, console pods and social gaming — built for Mumbai's premium mall footfall, priced above the arcade and below the resort offsite.</p>
+
+        <h2 class="section-h">Executive Summary</h2>
+        <p class="lead">India's location-based entertainment (LBE) category is compounding at the fastest rate Grand View Research forecasts for any country globally — 36.3% CAGR through 2030 — yet every named incumbent in Mumbai's premium format is either financially scarred, single-format, or structurally under-serving the highest-value occasions. That gap is the opportunity.</p>
+
+        <p><strong>The problem.</strong> Mumbai's mall-going 15–40 age cohort has real, growing willingness to pay for out-of-home "experience" spend, but today's options are narrow: Smaaash carries the reputational and balance-sheet scar tissue of a 2020 collapse and 2022 NCLT insolvency; Timezone is optimized for redemption-arcade volume, not curated social experience, and its own reviewers cite an "inefficient call centre" and weekend overcrowding; Zero Latency is best-in-class VR but single-format and capacity-constrained; Amoeba and the long tail of independent VR operators lack brand consistency and cannot host corporate or large-party bookings at scale. No operator combines premium curation, multi-format breadth, equipment reliability and a real CRM/membership data layer.</p>
+
+        <p><strong>The solution.</strong> A flagship 8,000–10,000 sq ft venue in a Grade-A/A+ Mumbai mall combining free-roam VR, direct-drive sim-racing rigs, premium console pods, a party/event zone and light esports programming — under one membership system, one booking platform, and one hospitality standard. The format is deliberately broader than Zero Latency (multi-attraction, more occasions captured per visit) and deliberately more curated than Timezone or Amoeba (capacity caps, reservable pods, transparent single-price membership rather than deal-dependent pricing that has eroded trust in incumbents).</p>
+
+        <p><strong>Target customers.</strong> Four occasions drive the model: Gen-Z friend groups seeking Instagrammable weekend outings; corporate HR/L&amp;D teams booking offsites currently funnelled to generic resort venues; parents booking premium, safety-first birthday parties; and young-professional couples and friend groups adopting a "lifestyle membership" the way urban millennials adopted gym memberships. Group and social occasions dominate — not solo visits — and packages, capacity and pricing are built around groups of 8–15.</p>
+
+        <p><strong>Why now.</strong> Three tailwinds converge in 2026: (1) VR hardware has crossed into untethered, Wi-Fi 6E "Gen 3" wireless systems, lowering operational friction just as Zero Latency itself is upgrading its Mumbai and Gurgaon venues; (2) Formula 1 has launched a dedicated "F1 Sim Racing India Open" with Mumbai Falcons, validating sim-racing as a genuine India-specific cultural hook rather than a borrowed Western format; and (3) Nazara Technologies' ₹126 crore acquisition of Smaaash out of NCLT insolvency in mid-2025 is a strategic-capital signal that sophisticated investors see durable value in LBE gaming — while simultaneously proving that scale without operational discipline is fatal. Mall landlords, facing e-commerce erosion of traditional retail footfall, are also actively courting differentiated entertainment anchors, which improves site-selection leverage for a credible new entrant.</p>
+
+        <p><strong>Key highlights.</strong> Bottom-up sizing puts the Mumbai LBE-gaming spend pool at roughly ₹1,300 crore/year<span class="est">EST.</span>, with a realistic serviceable Mumbai segment of ₹200–260 crore/year<span class="est">EST.</span> for premium-format venues. A single flagship, once past an 18–24 month ramp, is estimated to generate ₹8–15 crore/year<span class="est">EST.</span> in revenue at 12–20% net margins<span class="est">EST.</span>, with flagship capex of ₹6–9 crore<span class="est">EST.</span> and a 3–5 year payback<span class="est">EST.</span> A phased, milestone-gated capital plan of roughly ₹28 crore<span class="est">EST.</span> across three tranches funds a Mumbai flagship, a second MMR venue, and a third company-owned site or first Tier-1 franchise — before wider India and selective Gulf/diaspora international expansion.</p>
+
+        <div class="stat-row">
+          <div class="stat"><div class="num">36.3%</div><div class="lbl">India LBE market CAGR, 2024–2030 (GVR)</div></div>
+          <div class="stat"><div class="num">₹126cr</div><div class="lbl">Nazara's 2025 NCLT acquisition price for Smaaash</div></div>
+          <div class="stat"><div class="num">₹6–9cr <span class="est">EST.</span></div><div class="lbl">Flagship venue startup capex</div></div>
+          <div class="stat"><div class="num">12–20% <span class="est">EST.</span></div><div class="lbl">Steady-state net margin</div></div>
+        </div>
+
+        <p>This is a considered, not speculative, bet: the category's structural tailwinds are real and independently verified across five separate research houses; the risks — chiefly Smaaash's own history — are well documented and directly addressable through capital discipline, a company-owned flagship-first model, and an operational playbook built explicitly around the failure modes incumbents have already exposed in public review sentiment.</p>
+      </section>
+
+      <!-- ============ 02 MARKET & INDUSTRY ============ -->
+      <section class="panel" id="panel-2">
+        <div class="eyebrow">Section 02</div>
+        <h1 class="page-title">Market &amp; Industry</h1>
+        <p class="positioning">Location-Based Entertainment sits at the intersection of three compounding categories — LBE, VR gaming and esports — each independently sized by global research houses, none of which yet publishes a single "premium social gaming lounge" number for India.</p>
+
+        <h2 class="section-h">Industry Overview</h2>
+        <p>The business sits inside Location-Based Entertainment (LBE) — a category spanning VR arenas, family entertainment centres (FECs), bowling, go-karting, escape rooms and theme parks — cross-cut with India's VR-gaming and esports sub-segments. Because no Indian research house publishes a single market number for this exact format, the sizing below is built bottom-up from three overlapping datasets and cross-checked against real comps (Smaaash, Timezone, Zero Latency).</p>
+
+        <div class="card-grid">
+          <div class="card">
+            <h4>India LBE Market</h4>
+            <p style="margin:0;">~US$0.2bn (2026) → US$2.41bn by 2030, a <strong>36.3% CAGR</strong> — the highest growth rate Grand View Research forecasts for any single country in this category worldwide.</p>
+          </div>
+          <div class="card wine-top">
+            <h4>India VR-Gaming Market</h4>
+            <p style="margin:0;">IMARC: US$4.2bn (2024) → US$30.2bn by 2033 (21.7% CAGR). GVR: 27.1% CAGR (2025–2030) for VR-in-gaming specifically. TechSci's broader VR figure (US$1.2bn → US$3.44bn, 19% CAGR) includes enterprise/software VR — directional, not literal TAM for a physical venue.</p>
+          </div>
+          <div class="card ember-top">
+            <h4>India Esports Market</h4>
+            <p style="margin:0;">US$240–248m (2025/26), CAGR quoted 18–28.4% depending on house, reaching US$765m by 2033 (IMARC). FICCI-EY flags a <strong>7.5% dip in 2025</strong> as the sector matures — a caution against linear CAGR extrapolation.</p>
+          </div>
+        </div>
+        <p>India's broader Media &amp; Entertainment sector grew 9% YoY to INR 2.78 trillion in 2025 (FICCI-EY), with "organized live experiences" up 44% — a proxy for consumers' rising willingness to pay for out-of-home experiences.</p>
+
+        <h2 class="section-h">TAM / SAM / SOM <span class="est">EST.</span></h2>
+        <p>Because no single published figure matches "premium social gaming lounge," the funnel below is our own bottom-up estimation framework — every output is explicitly <span class="est">EST.</span>, not a cited market number.</p>
+
+        <div class="funnel">
+          <div class="funnel-row">
+            <div class="funnel-label"><strong>TAM</strong> — India top-8-metro LBE-gaming spend pool <span class="est">EST.</span></div>
+            <div class="funnel-bar-bg"><div class="funnel-bar bar-tam">₹6,500–8,000 crore / year (~US$0.8–1.0bn)</div></div>
+          </div>
+          <div class="funnel-row">
+            <div class="funnel-label"><strong>SAM</strong> — serviceable Mumbai premium-format segment <span class="est">EST.</span></div>
+            <div class="funnel-bar-bg"><div class="funnel-bar bar-sam">₹200–260 crore / year (~US$24–31m)</div></div>
+          </div>
+          <div class="funnel-row">
+            <div class="funnel-label"><strong>SOM</strong> — realistic Year-5 network capture <span class="est">EST.</span></div>
+            <div class="funnel-bar-bg"><div class="funnel-bar bar-som">₹80–150 crore / year (~US$10–18m)</div></div>
+          </div>
+        </div>
+
+        <h3 class="sub-h">Funnel methodology <span class="est">EST.</span></h3>
+        <ol>
+          <li><strong>Addressable population:</strong> Mumbai Metropolitan Region ≈ 23–24 million; the mall-going, disposable-income 15–40 cohort is ≈30–35% ≈ 7–8 million people.</li>
+          <li><strong>Frequency &amp; spend:</strong> 1.5–2 LBE/gaming-lounge visits per year at an average ticket of ₹800–1,200 (anchored to observed Smaaash/Timezone/VR pricing of ₹700–2,000/person).</li>
+          <li><strong>Mumbai TAM:</strong> 7.5m people × 1.75 visits × ₹1,000 average ticket ≈ <strong>₹1,300 crore (~US$155m)</strong> annual Mumbai spend pool. Extrapolated to India's top 8–10 metros at ~5–6x Mumbai's pool gives the India TAM shown above — broadly consistent with GVR's 2030 India-LBE figure once VR/simulator/party categories and the longer forecast horizon are added.</li>
+          <li><strong>SAM:</strong> restricting to Grade-A/A+ malls and 2–3 premium high-street locations suitable for a curated (not mass-arcade) format ≈ 15–20% of Mumbai TAM.</li>
+          <li><strong>SOM:</strong> a single flagship centre at steady state can plausibly generate ₹8–15 crore/year; a network of 3–4 MMR centres plus 8–12 centres across 5–6 other metros (mixed franchise/company-owned) within five years could capture ₹80–150 crore/year systemwide — roughly 3–6% of the India SAM, a conservative, bottoms-up-defensible capture rate for a challenger brand rather than the market incumbent.</li>
+        </ol>
+
+        <h2 class="section-h">Growth Rate &amp; Trends</h2>
+        <div class="card-grid">
+          <div class="card"><h4>VR adoption accelerating</h4><p style="margin:0;">Zero Latency is actively expanding India venues and just upgraded Mumbai/Gurgaon to wireless "Gen 3" tech, calling India "far from saturated."</p></div>
+          <div class="card"><h4>Esports as marketing, not revenue</h4><p style="margin:0;">2025's unusual dip means tournament/streaming programming should be a differentiator and content engine in Year 1, not a standalone P&amp;L line.</p></div>
+          <div class="card"><h4>Malls chasing experience anchors</h4><p style="margin:0;">Bowling, VR zones, snow parks and 7D rides are now standard anchors in large-format malls, defending footfall against e-commerce.</p></div>
+          <div class="card wine-top"><h4>Sim-racing / F1 tailwind</h4><p style="margin:0;">F1's own "Sim Racing India Open 2026" with Mumbai Falcons signals a genuine, India-specific, first-mover-advantage niche.</p></div>
+          <div class="card ember-top"><h4>Experience &gt; things is structural</h4><p style="margin:0;">78% of millennials prefer experience spend to goods; Indian Gen-Z direct spend power is projected to go from ~US$250bn (2025) to ~US$1.8tn (2035); 72% of Gen-Z look to influencers for where-to-go decisions.</p></div>
+          <div class="card"><h4>Capital is consolidating at the top</h4><p style="margin:0;">Nazara Technologies' ₹126 crore acquisition of insolvent Smaaash (mid-2025) signals strategic/financial capital sees LBE gaming as a growth vector worth consolidating.</p></div>
+        </div>
+
+        <h2 class="section-h">Consumer Behaviour</h2>
+        <ul>
+          <li>Willingness to pay is real but price-sensitive without promotions — Smaaash reviewers note pricing "can burn a hole in your pocket" without deal-based access, while ₹799 promo day-passes drive strong footfall.</li>
+          <li>Group/social occasions (birthdays, corporate offsites, weekend friend-group outings) dominate purchase behaviour — most operators require minimum 10-guest groups for party packages.</li>
+          <li>Complaint patterns cluster around equipment downtime, inconsistent/confusing pricing, weak customer service, and weekend overcrowding — each is a direct product/positioning opportunity for a premium entrant.</li>
+        </ul>
+      </section>
+
+      <!-- ============ 03 COMPETITIVE LANDSCAPE ============ -->
+      <section class="panel" id="panel-3">
+        <div class="eyebrow">Section 03</div>
+        <h1 class="page-title">Competitive Landscape</h1>
+        <p class="positioning">Six named operators define Mumbai's premium-adjacent LBE-gaming market today — none combine curated premium positioning, multi-format breadth, operational reliability and a real CRM layer.</p>
+
+        <div class="callout">
+          <strong>The Smaaash case study.</strong> Founded 2009, at its 2019 peak Smaaash ran 45+ centres, ₹300cr+ revenue and ~5 million annual footfalls — then <strong>shut down entirely in September 2020</strong> when COVID-19 collapsed footfall and promised investor capital never arrived. It entered NCLT insolvency in May 2022 (debts to Yes Bank, SIDBI, Edelweiss ARC), was rebuilt as "Smaaash 2.0" at ~22 centres, and in <strong>June 2025 Nazara Technologies acquired 100% of it for ₹126 crore</strong> (₹10cr equity + ₹116cr unsecured loan under an NCLT resolution plan) — explicitly to "reimagine the Smaaash experience... tapping into emerging consumer trends." Under Nazara, Smaaash is now back to 32 outlets / 15 cities generating ₹158 crore FY25 revenue at 41% YoY growth. This is the single clearest real-world lesson in the category: capex-heavy, lease-committed LBE models are acutely vulnerable to footfall shocks and funding gaps — and it is directly addressed throughout this case study's risk mitigation and capital-phasing logic.
+        </div>
+
+        <h2 class="section-h">Competitor Comparison</h2>
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>Competitor</th><th>Pricing</th><th>Business Model</th><th>Strengths</th><th>Weaknesses</th><th>Review Sentiment</th><th>Gap / Opportunity</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Smaaash</strong><br>(Nazara-owned)</td>
+              <td>Session/attraction pay-per-play; promo day-passes ~₹799</td>
+              <td>Company-owned + franchise mix; karting, bowling, VR, arcade, F&amp;B</td>
+              <td>Strong brand recall; broad activity mix (karting is a genuine differentiator); Nazara balance sheet + digital IP</td>
+              <td>2020 collapse + NCLT history; inconsistent billing vs. advertised pricing</td>
+              <td>Non-functioning machines, double-charging, rude staff, F&amp;B hygiene complaints ("Horrible Experience," reused glasses)</td>
+              <td>Consistent uptime SLAs, transparent single-price membership, demonstrably better F&amp;B hygiene</td>
+            </tr>
+            <tr>
+              <td><strong>Timezone India</strong><br>(LAI Games)</td>
+              <td>Tap-to-play prepaid cashless card; tiered memberships</td>
+              <td>Franchise-led; ₹2–5cr initial investment; arcade/redemption + VR + bumper cars</td>
+              <td>50 years global operating experience; strong mall-landlord relationships; cashless card reduces leakage</td>
+              <td>Redemption-arcade identity, not curated premium; franchise consistency varies by site</td>
+              <td>"Inefficient call centre," no follow-up on complaints, "frequently changing rules," weekend overcrowding</td>
+              <td>Lounge-style reservable pods, capacity caps, responsive human service instead of a call centre</td>
+            </tr>
+            <tr>
+              <td><strong>Amoeba</strong><br>(HM Leisure)</td>
+              <td>Franchise bands ₹50L–₹5cr (India gaming-zone franchise norm)</td>
+              <td>~20 locations; classic arcade blended with VR and bowling</td>
+              <td>Established multi-city presence; loyal arcade-enthusiast base</td>
+              <td>Thin public financial/franchise disclosure; positioned as classic arcade, not premium</td>
+              <td>"Colourful atmosphere" (positive) but limited differentiation vs. Timezone/Fun City</td>
+              <td>Premium concept wins the higher-spend special-occasion / corporate / date-night segment Amoeba doesn't target</td>
+            </tr>
+            <tr>
+              <td><strong>Zero Latency</strong><br>(India: Mumbai, Hyderabad, Gurgaon)</td>
+              <td>₹899/15min, ₹1,699/30min; ~US$50/person/30min globally</td>
+              <td>Flexible licensing (~15% of monthly ticket revenue to licensor); hardware US$165k–245k per system</td>
+              <td>Best-in-class untethered free-roam VR; proven trial-to-upsell funnel; global content pipeline</td>
+              <td>Single-format (pure VR only); premium pricing limits repeat frequency; one group per arena capacity cap</td>
+              <td>Strong tech reputation; no major complaint pattern found, but narrow occasion coverage</td>
+              <td>Multi-format venue captures more occasions/visit and more repeat frequency than a pure-VR arena</td>
+            </tr>
+            <tr>
+              <td><strong>VR Gamezone &amp; independents</strong><br>(VR Room, Hyperinfinite, Another World)</td>
+              <td>Pay-per-game; ~₹300 average ticket</td>
+              <td>Low-capex (₹2–15L) single-location small-format VR zones</td>
+              <td>Fast to open; decent margins at small scale; validates unit-level VR demand</td>
+              <td>Generic content libraries; no loyalty/CRM infrastructure; can't host large corporate/party bookings</td>
+              <td>Inconsistent quality/hygiene per review patterns</td>
+              <td>A branded, well-capitalized entrant absorbs this validated demand with a superior, membership-backed experience</td>
+            </tr>
+            <tr>
+              <td><strong>Mall-integrated cinema/bowling zones</strong><br>(PVR INOX, Lulu, Phoenix Marketcity, Seasons)</td>
+              <td>Third-party tenant pricing (Timezone/Snow World brands leased in)</td>
+              <td>Landlord co-locates bowling/VR/snow-park tenants alongside multiplexes for dwell-time</td>
+              <td>Captive cinema-goer footfall; landlord-preferred tenant status; co-marketing with releases</td>
+              <td>Not the mall's own IP — a channel/landlord relationship, not a true competing operator</td>
+              <td>N/A (landlord, not operator)</td>
+              <td>Validates that malls actively want a premium entertainment anchor — a leasing tailwind, not a threat</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+
+        <div class="callout gold">
+          <strong>Competitive white space.</strong> No incumbent combines (a) premium/curated positioning, (b) multi-format breadth (VR + sim racing + console pods + party games + light esports), (c) reliable equipment uptime and transparent pricing, (d) a real membership/CRM data layer, and (e) strong F&amp;B/hospitality standards. Smaaash has breadth but a battered balance sheet; Timezone has scale but a redemption-arcade identity and service reputation problem; Zero Latency has best-in-class tech but single-format narrowness. This is the wedge.
+        </div>
+
+        <h2 class="section-h">SWOT Analysis</h2>
+        <div class="swot-grid">
+          <div class="swot-box swot-s">
+            <h4>Strengths</h4>
+            <ul>
+              <li>Multi-format premium positioning vs. single-format/mass-arcade incumbents</li>
+              <li>Multiple revenue streams (walk-in, membership, corporate, birthday, F&amp;B) reduce single-driver dependence</li>
+              <li>Hybrid franchise/company-owned model enables capital-efficient scaling with flagship quality control</li>
+              <li>Membership/loyalty data layer is a defensible CRM asset incumbents mostly lack</li>
+            </ul>
+          </div>
+          <div class="swot-box swot-w">
+            <h4>Weaknesses</h4>
+            <ul>
+              <li>High upfront capex with long payback typical of the category</li>
+              <li>Novelty-driven attractions risk repeat-visit fatigue without a refreshed content pipeline</li>
+              <li>Flagship-concentration footfall risk in early years</li>
+              <li>No brand recognition at launch vs. 15–20-year-old incumbents</li>
+            </ul>
+          </div>
+          <div class="swot-box swot-o">
+            <h4>Opportunities</h4>
+            <ul>
+              <li>Incumbent instability (Smaaash 2020 collapse, ongoing service complaints) creates a credibility gap</li>
+              <li>Corporate offsite demand is large and mostly served by generic resort venues, not gaming-specific ones</li>
+              <li>Mall landlords actively seeking differentiated anchors — favorable leasing leverage</li>
+              <li>Sim-racing/F1 fandom is a genuinely under-served, on-trend niche in India</li>
+            </ul>
+          </div>
+          <div class="swot-box swot-t">
+            <h4>Threats</h4>
+            <ul>
+              <li>Regulatory conflation risk with the 2025 real-money online gaming ban despite a legally distinct tax/licensing regime</li>
+              <li>Mumbai mall rent inflation (15–20% YoY) compresses margins</li>
+              <li>Macroeconomic sensitivity of discretionary spend (as COVID-19 proved with Smaaash)</li>
+              <li>Well-funded copycats (Nazara-backed Smaaash 2.0, global VR licensors expanding directly)</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="section-h">Porter's Five Forces</h2>
+        <div class="force-grid">
+          <div class="force-card"><span class="rating modhigh">Moderate–High</span><h4>Threat of New Entrants</h4><p style="margin:0;">₹2–8cr+ capex and multi-year mall leases are real barriers, but independents enter for ₹2–15L at small scale. Prime real-estate lock-in in scarce Grade-A malls is the most durable barrier — not equipment or brand.</p></div>
+          <div class="force-card"><span class="rating modhigh">Moderate–High</span><h4>Bargaining Power of Suppliers</h4><p style="margin:0;">VR/simulator/console hardware suppliers are global oligopolies (Meta/Quest platform, Zero Latency-style content licensors, sim-rig OEMs) — regional exclusivity is possible but hardware is largely imported, exposing the business to duty/currency risk.</p></div>
+          <div class="force-card"><span class="rating high">High</span><h4>Bargaining Power of Buyers</h4><p style="margin:0;">Consumers have abundant leisure alternatives and are price-sensitive without promotions; corporate/group buyers have leverage given intermediaries (Hire4Event, SOSParty) that can steer volume elsewhere.</p></div>
+          <div class="force-card"><span class="rating high">High</span><h4>Threat of Substitutes</h4><p style="margin:0;">Home console/PC/mobile gaming, multiplexes, F&amp;B hangouts, outdoor offsite venues and other experiential categories are all low-friction substitutes; standalone Quest-class headsets are a long-term threat to VR-specific attractions.</p></div>
+          <div class="force-card"><span class="rating high">High</span><h4>Competitive Rivalry</h4><p style="margin:0;">Smaaash, Timezone, Amoeba, Zero Latency and independents already compete for the same mall real estate and wallet share; rivalry intensifies as Nazara re-capitalizes Smaaash. Differentiation on execution quality, not price, is the only sustainable position.</p></div>
+        </div>
+      </section>
+
+      <!-- ============ 04 MACRO & REGULATORY ============ -->
+      <section class="panel" id="panel-4">
+        <div class="eyebrow">Section 04</div>
+        <h1 class="page-title">Macro &amp; Regulatory</h1>
+        <p class="positioning">A fragmented but navigable licensing landscape — and one crucial legal distinction the investment committee must hold onto: this is not real-money gaming.</p>
+
+        <div class="callout gold">
+          <strong>The distinction that matters most.</strong> GST on offline gaming arcades, VR rides and amusement-park-style admissions is <strong>18%</strong> (reduced from 28% by the GST Council in January 2018). This is legally and fiscally distinct from the <strong>28–40% GST regime</strong> now applied to real-money online/fantasy gaming, and separate again from the 2025 Promotion and Regulation of Online Gaming Act (in force from May 2026), which bans real-money online gaming outright and has been upheld by the Supreme Court on the GST question. This venue is a <em>skill-based, physical entertainment service</em> — taxed and regulated as amusement, not as real-money gaming — and that distinction should be an explicit compliance and marketing point, not an assumption left implicit.
+        </div>
+
+        <h2 class="section-h">PESTLE Analysis</h2>
+        <div class="card-grid">
+          <div class="card"><h4>Political</h4><p style="margin:0;">Entertainment licensing is split between local police (Section 33, Maharashtra Police Act, 1951) and BMC/municipal trade licensing (Section 394, MCGM Act, 1888) — a fragmented, discretionary approval landscape. The Union government's 2025 crackdown on real-money online gaming creates a politically charged "anti-gaming-addiction" narrative that could invite scrutiny by association, despite the distinct legal/tax treatment above.</p></div>
+          <div class="card"><h4>Economic</h4><p style="margin:0;">Mumbai mall rents are rising 15–20% YoY (premium malls near ₹777/sq ft/month), directly pressuring the lease-cost line. Grade A/A+ vacancy is tight (~3.7%), giving landlords pricing power. Rising Gen-Z/millennial discretionary "experience economy" spend is a structural tailwind.</p></div>
+          <div class="card"><h4>Social</h4><p style="margin:0;">Strong social/group-occasion consumption (birthdays, offsites, friend-group outings) rather than solo visits. Rising urban middle-class aspiration for "premium" leisure vs. mass-market arcades. Influencer-led discovery is now dominant among Gen-Z (72% rely on creators for where-to-go decisions).</p></div>
+          <div class="card wine-top"><h4>Technological</h4><p style="margin:0;">VR hardware is moving to untethered/wireless Wi-Fi 6E "Gen 3" systems — a near-term capex upgrade cycle to plan around. Sim-racing rig technology is advancing quickly with limited domestic manufacturing (INRacing a notable exception). Venue-management SaaS (ROLLER, CenterEdge, Clubspeed) has matured globally, lowering technology-stack risk.</p></div>
+          <div class="card ember-top"><h4>Legal</h4><p style="margin:0;">18% GST on offline gaming/amusement admissions (see callout above). Multiple licenses required: Shops &amp; Establishment registration, BMC trade/entertainment license, Maharashtra Police "place of public amusement" permission, Fire NOC, electrical clearance, FSSAI if F&amp;B is served. A "Video Game Parlour License" category exists as the closest regulatory analogue in some jurisdictions.</p></div>
+          <div class="card"><h4>Environmental</h4><p style="margin:0;">Non-trivial energy load from VR/simulator/console hardware and mall HVAC; e-waste disposal of retired hardware will need formal compliance under India's E-Waste Management Rules as the equipment refresh cycle matures — an ESG consideration for a family-office investment thesis.</p></div>
+        </div>
+
+        <h2 class="section-h">Government Regulations &amp; Licensing Checklist</h2>
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>Category</th><th>Requirement</th><th>Authority</th></tr></thead>
+          <tbody>
+            <tr><td>Business registration</td><td>Shops &amp; Establishment Act registration (Maharashtra S&amp;E Act, 2017) — mandatory for any commercial establishment, including places of public amusement</td><td>Aaple Sarkar (online)</td></tr>
+            <tr><td>Business registration</td><td>Trade License under Section 394, Mumbai Municipal Corporation Act, 1888</td><td>BMC / MCGM</td></tr>
+            <tr><td>Entertainment license</td><td>"Place of Public Amusement (Other than Cinemas)" license, Section 33, Maharashtra Police Act, 1951</td><td>Mumbai Police</td></tr>
+            <tr><td>Entertainment license</td><td>"Video Game Parlour License" category (closest regulatory analogue for arcade/VR/console venues; requires police, electrical, fire and health NOCs plus applicant character verification)</td><td>Municipal / local body</td></tr>
+            <tr><td>Entertainment license</td><td>Entertainment-programs NOC via Aaple Sarkar e-service; entertainment duty largely subsumed into GST post-2017</td><td>State e-governance portal</td></tr>
+            <tr><td>Safety NOC</td><td>Fire Safety NOC confirming National Building Code fire-safety compliance</td><td>Fire Services Department</td></tr>
+            <tr><td>Safety NOC</td><td>Electrical safety clearance/inspection — elevated priority given high simultaneous electrical draw from VR/sim/console stations</td><td>Electrical Inspectorate</td></tr>
+            <tr><td>Food &amp; Beverage</td><td>FSSAI registration/license (tier depends on F&amp;B turnover); may require S&amp;E license, Fire NOC, Trade License as prerequisites</td><td>FSSAI</td></tr>
+            <tr><td>Taxation</td><td>GST at 18% on offline gaming/amusement admissions (reduced from 28% in Jan 2018)</td><td>GST Council / CBIC</td></tr>
+            <tr><td>Import/customs</td><td>Correct HSN classification for VR/simulator hardware (codes span 8528, 85285900, 90138090, 85258090, 85299090, 9504) — materially affects landed cost and duty exposure</td><td>Customs</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p style="font-size:13px; color:#6b675e;"><em>Note: no evidence was found of a distinct "PASARA" licensing regime applicable to gaming venues specifically — PASARA-type frameworks in India generally govern private security agencies, not entertainment venues. This should be verified with local legal counsel rather than assumed.</em></p>
+
+        <h2 class="section-h">Risk Analysis</h2>
+        <div class="force-grid">
+          <div class="force-card"><h4>Operational</h4><p style="margin:0;">Equipment downtime/maintenance is the single most-cited real-world failure mode across Smaaash and Timezone reviews; requires proactive IoT-based maintenance and vendor SLAs. Weekend overcrowding degrades experience quality. Staff quality and F&amp;B safety are reputationally costlier at a premium-positioned venue than at a mass-market arcade.</p></div>
+          <div class="force-card"><h4>Financial</h4><p style="margin:0;">VR/sim/console hardware depreciates over 3–5 years against a 9–15 year mall lease — a capex-refresh mismatch that must be underwritten from day one. Mumbai rent inflation (15–20% YoY) compresses margins unless escalation is capped upfront. Currency exposure on imported hardware and HSN classification ambiguity add cost unpredictability. Smaaash's 2020 collapse is the clearest precedent for how thin the margin for error is in this capital structure.</p></div>
+          <div class="force-card"><h4>Regulatory</h4><p style="margin:0;">Conflation risk with real-money online gaming despite the distinct 18% vs. 28–40% GST treatment. Fragmented, discretionary local licensing (BMC + Police + Fire + Electrical + FSSAI) creates timeline and renewal risk at every new site.</p></div>
+          <div class="force-card"><h4>Technology</h4><p style="margin:0;">VR is mid-transition from tethered/backpack to wireless "Gen 3" platforms; venues on older tech risk a visible experience gap within 2–3 years. Licensor/vendor dependence (e.g., a Zero Latency-style ~15% revenue-share content license) creates exposure if terms change or exclusivity is granted to a rival.</p></div>
+          <div class="force-card"><h4>Market</h4><p style="margin:0;">Novelty fatigue can erode repeat-visit rates without continuous content rotation. Revenue is structurally tied to host-mall footfall health. Discretionary-spend cyclicality is real, as COVID-19 proved with Smaaash.</p></div>
+          <div class="force-card"><h4>Scalability</h4><p style="margin:0;">Franchise-heavy expansion risks brand/experience inconsistency (a documented complaint pattern at specific Timezone locations). Site-selection discipline must stay centralized — Smaaash's pre-2020 45-store peak shows how aggressive expansion can outrun balance-sheet resilience.</p></div>
+        </div>
+      </section>
+
+      <!-- ============ 05 FINANCIALS ============ -->
+      <section class="panel" id="panel-5">
+        <div class="eyebrow">Section 05</div>
+        <h1 class="page-title">Financials</h1>
+        <p class="positioning">Every figure below is built from comparable-company data points and standard LBE unit-economics benchmarks. Where a named operator's actual reported number exists, it is cited separately — everything else carries an explicit estimate badge.</p>
+
+        <h2 class="section-h">Startup Cost — Flagship Venue (8,000–10,000 sq ft, Mumbai Grade-A mall) <span class="est">EST.</span></h2>
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>Line item</th><th>Estimated range (₹)</th><th>Basis</th></tr></thead>
+          <tbody>
+            <tr><td>Interior fit-out / civil / design</td><td>₹1.5–2.5 crore <span class="est">EST.</span></td><td>Global FEC build-out benchmarks (US$40–150/sq ft) scaled ~40–50% down for India construction costs</td></tr>
+            <tr><td>VR stations (6–10 units)</td><td>₹60–100 lakh <span class="est">EST.</span></td><td>Scaled up from India small-zone data (₹2–15L) for multi-station premium install</td></tr>
+            <tr><td>Sim-racing rigs (4–6 units)</td><td>₹80 lakh – 1.5 crore <span class="est">EST.</span></td><td>Anchored to ₹8–11L+ per professional-grade F1-style rig</td></tr>
+            <tr><td>Console gaming pods (6–10 units)</td><td>₹40–70 lakh <span class="est">EST.</span></td><td>₹4–7L per fully kitted premium pod</td></tr>
+            <tr><td>Party/event zone build-out</td><td>₹20–30 lakh <span class="est">EST.</span></td><td>Furniture, board-game inventory, event AV</td></tr>
+            <tr><td>F&amp;B kitchen/counter setup</td><td>₹40–70 lakh <span class="est">EST.</span></td><td>Standard QSR/café-scale fit-out benchmark</td></tr>
+            <tr><td>POS / booking / membership software (setup + Y1)</td><td>₹8–15 lakh <span class="est">EST.</span></td><td>Typical FEC-SaaS implementation + subscription</td></tr>
+            <tr><td>Mall lease security deposit</td><td>₹1–2.5 crore <span class="est">EST.</span></td><td>₹500–780/sq ft/month × 8,500 sq ft × 6–9 months</td></tr>
+            <tr><td>Licenses, NOCs, legal, pre-opening marketing</td><td>₹25–40 lakh <span class="est">EST.</span></td><td>Aggregated regulatory/legal/launch spend</td></tr>
+            <tr><td><strong>Total flagship startup capex</strong></td><td><strong>₹6–9 crore (~US$0.7–1.1m) <span class="est">EST.</span></strong></td><td>Consistent with Timezone's disclosed ₹2–5cr franchise band for a smaller, arcade-only format, scaled for a larger multi-format premium venue</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <h2 class="section-h">Monthly Operating Cost <span class="est">EST.</span></h2>
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>Line item</th><th>Estimated monthly (₹)</th><th>Basis</th></tr></thead>
+          <tbody>
+            <tr><td>Mall rent (8,500 sq ft @ ~₹600–780/sq ft)</td><td>₹51–66 lakh <span class="est">EST.</span></td><td>Cushman &amp; Wakefield / Free Press Journal premium mall rent data</td></tr>
+            <tr><td>Staff (30–45 FTEs)</td><td>₹15–25 lakh <span class="est">EST.</span></td><td>Standard India LBE staffing benchmark for this venue size</td></tr>
+            <tr><td>Equipment maintenance / AMC</td><td>₹4–8 lakh <span class="est">EST.</span></td><td>~5–8% of equipment capex, annualized</td></tr>
+            <tr><td>Utilities (power-intensive VR/sim/AV + HVAC)</td><td>₹6–10 lakh <span class="est">EST.</span></td><td>Reflects electrically-intensive format</td></tr>
+            <tr><td>F&amp;B cost of goods</td><td>₹8–15 lakh <span class="est">EST.</span></td><td>Scales with F&amp;B revenue share</td></tr>
+            <tr><td>Marketing (digital + influencer + on-ground)</td><td>₹5–10 lakh <span class="est">EST.</span></td><td>Ongoing acquisition/retention spend</td></tr>
+            <tr><td>Software/SaaS (POS, CRM, membership app)</td><td>₹1–2 lakh <span class="est">EST.</span></td><td>Recurring subscription</td></tr>
+            <tr><td>Insurance, admin, misc</td><td>₹3–5 lakh <span class="est">EST.</span></td><td>Standard overhead</td></tr>
+            <tr><td><strong>Total monthly opex</strong></td><td><strong>₹93 lakh – 1.4 crore <span class="est">EST.</span></strong></td><td>Rent is 55–60% of opex — typical of mall-anchor-tenant economics</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p style="font-size:13px; color:#6b675e;"><em>A revenue-share or minimum-guarantee-plus-overage lease structure (common for large-format mall anchors) could materially lower effective rent in slow months — a key negotiating lever with landlords.</em></p>
+
+        <h2 class="section-h">Margins &amp; Break-Even <span class="est">EST.</span></h2>
+        <div class="stat-row">
+          <div class="stat"><div class="num">65–75% <span class="est">EST.</span></div><div class="lbl">Gross margin (equipment amortization + F&amp;B COGS as main cost of revenue)</div></div>
+          <div class="stat"><div class="num">12–20% <span class="est">EST.</span></div><div class="lbl">Net margin at steady state (18–24 months post-launch)</div></div>
+          <div class="stat"><div class="num">₹15–20cr <span class="est">EST.</span></div><div class="lbl">Break-even annual revenue</div></div>
+          <div class="stat"><div class="num">3–5 yrs <span class="est">EST.</span></div><div class="lbl">Capex payback period</div></div>
+        </div>
+        <p>At ₹6–9 crore capex and ~₹1.1–1.4 crore/month opex (~₹13–17 crore/year), break-even is estimated at <strong>₹15–20 crore/year</strong>, requiring roughly <strong>₹4,000–5,500 average daily revenue</strong> — achievable at an estimated <strong>150–250 paying guests/day</strong> and a ₹1,000–1,500 average ticket, broadly consistent with the ₹700–2,000 per-person pricing band observed across Smaaash/Timezone/VR operators <span class="est">EST.</span> Smaaash's own disclosed 41% revenue CAGR post-Nazara suggests the category can achieve strong unit economics once past ramp-up — though its 2020 collapse is a live reminder that margins can evaporate quickly under a footfall shock given the fixed-cost-heavy structure.</p>
+
+        <h2 class="section-h">Pricing Strategy</h2>
+        <ul>
+          <li><strong>Per-session/hourly:</strong> VR ₹800–1,700 for 15–30 min <span class="est">EST.</span> (anchored to Zero Latency India benchmarks); sim racing ₹500–900 for 15–20 min <span class="est">EST.</span>; console pods ₹300–600/hour <span class="est">EST.</span></li>
+          <li><strong>All-access day pass/combo:</strong> ₹1,200–2,500 per person <span class="est">EST.</span>, the anchor product for walk-in groups — positioned as premium, not discount, unlike Smaaash's historical ₹799 promo pattern.</li>
+          <li><strong>Membership tiers</strong> (monthly/annual): session credits, priority booking, discounted F&amp;B, exclusive esports-night access — modeled on Timezone's tap-to-play card but with a real CRM/data layer.</li>
+          <li><strong>Corporate/group/party packages:</strong> per-head pricing with 10+ guest minimums, bundling venue exclusivity, F&amp;B and hosted activities at a premium to walk-in rates.</li>
+        </ul>
+
+        <h2 class="section-h">Revenue Streams — Steady-State Mix <span class="est">EST.</span></h2>
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>Stream</th><th>Share of revenue</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Walk-in individual/small-group play</td><td>40–45% <span class="est">EST.</span></td><td>Core daily footfall</td></tr>
+            <tr><td>Membership fees + linked repeat spend</td><td>15–20% <span class="est">EST.</span></td><td>Retention/CRM anchor</td></tr>
+            <tr><td>Corporate events / team-building</td><td>15–20% <span class="est">EST.</span></td><td>High-margin, fills weekday off-peak capacity</td></tr>
+            <tr><td>Birthday parties / private celebrations</td><td>10–15% <span class="est">EST.</span></td><td>Fills off-peak slots; drives word-of-mouth</td></tr>
+            <tr><td>F&amp;B (walk-in + party/event attached)</td><td>10–15% <span class="est">EST.</span></td><td>Complements ticketed revenue</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <h2 class="section-h">Unit Economics <span class="est">EST.</span></h2>
+        <div class="stat-row">
+          <div class="stat"><div class="num">₹17.6–23.5k <span class="est">EST.</span></div><div class="lbl">Revenue per sq ft, per year (₹1,470–1,960/sq ft/month)</div></div>
+          <div class="stat"><div class="num">₹300–585 <span class="est">EST.</span></div><div class="lbl">Blended revenue per station-hour, ~20 stations at 50–65% utilization</div></div>
+        </div>
+        <p>Revenue-per-sq-ft is well above typical mall-retail benchmarks, justified by the high-throughput, ticketed-experience nature of the format. Peak weekend hours should materially exceed the blended station-hour figure; weekday off-peak hours — ideally filled by corporate bookings — will run below it.</p>
+      </section>
+
+      <!-- ============ 06 CUSTOMERS & MARKETING ============ -->
+      <section class="panel" id="panel-6">
+        <div class="eyebrow">Section 06</div>
+        <h1 class="page-title">Customers &amp; Marketing</h1>
+        <p class="positioning">Four occasions, one venue: Gen-Z social outings, corporate offsites, family birthdays, and young-professional "lifestyle membership" adoption.</p>
+
+        <h2 class="section-h">Customer Personas</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h4>"Ananya" — Gen-Z College Student</h4>
+            <p style="margin:0 0 8px;"><em>19–22, Mumbai suburbs (Bandra/Andheri/Vile Parle college cluster)</em></p>
+            <p style="margin:0 0 8px;">Visits with a friend group of 6–10 on weekends; price-sensitive but heavily influenced by Instagram/YouTube gaming creators (72% of Gen-Z Indians look to creators for where-to-go decisions). Prioritizes Instagrammable moments and a "cool," non-family-arcade vibe.</p>
+            <p style="margin:0;"><strong>Retention lever:</strong> student membership tier, referral rewards for friend groups, college tie-up promotions.</p>
+          </div>
+          <div class="card wine-top">
+            <h4>"Rohan" — Corporate HR/Offsite Planner</h4>
+            <p style="margin:0 0 8px;"><em>30–40, mid-senior HR/admin (BKC/Lower Parel/Powai office cluster)</em></p>
+            <p style="margin:0 0 8px;">Books quarterly/annual team events for 20–100 people; needs venue exclusivity, reliable AV/hosting, F&amp;B packages, simple GST-invoiced billing. Currently underserved — most corporate offsite demand funnels to generic resort venues via intermediaries like Hire4Event/SOSParty.</p>
+            <p style="margin:0;"><strong>Retention lever:</strong> corporate account management, volume pricing tiers, off-peak weekday discounts that also solve weekday utilization.</p>
+          </div>
+          <div class="card ember-top">
+            <h4>"Meera" — Birthday-Party Parent</h4>
+            <p style="margin:0 0 8px;"><em>32–45, Mumbai suburban/upscale family, child aged 6–14</em></p>
+            <p style="margin:0 0 8px;">Books for 10–25 kids; prioritizes safety on VR/simulator equipment, hygienic F&amp;B, hassle-free hosted packages, and a "premium but not overwhelming" environment vs. mass-market arcades.</p>
+            <p style="margin:0;"><strong>Retention lever:</strong> birthday-club loyalty program that turns a returning family into a repeat annual customer as the child ages through attraction categories.</p>
+          </div>
+          <div class="card">
+            <h4>"Karan &amp; Priya" — Young Professional Couple/Friend Group</h4>
+            <p style="margin:0 0 8px;"><em>25–32, Mumbai/Thane/Navi Mumbai, DINK or early-career professionals</em></p>
+            <p style="margin:0 0 8px;">Weekend date-night or friend-group (4–8 people) activity; values novelty, a bar/F&amp;B-forward social lounge feel, and premium ambience. Likely candidate for a lifestyle-subscription membership.</p>
+            <p style="margin:0;"><strong>Retention lever:</strong> rotating content calendar (new VR titles, seasonal sim-racing tournaments, esports/streaming nights) to sustain novelty.</p>
+          </div>
+        </div>
+
+        <h2 class="section-h">Marketing Strategy</h2>
+        <div class="card-grid">
+          <div class="card"><h4>Online</h4><p style="margin:0;">Instagram Reels/YouTube Shorts of VR/sim-racing gameplay; micro- and mid-tier gaming/lifestyle influencer partnerships (better ROI than macro-only, given Gen-Z's creator-led discovery); live-stream esports/influencer "battle" nights from the venue itself as a content-studio strategy.</p></div>
+          <div class="card"><h4>Offline</h4><p style="margin:0;">Mall-entrance/atrium free 2-minute VR "trial pods" to convert walk-by footfall (validated by Zero Latency's own 15-minute entry-point upsell logic); college tie-ups (fest sponsorships, student-ID discounts, inter-college esports tournaments); on-ground activation during high-footfall weekends.</p></div>
+          <div class="card"><h4>Launch</h4><p style="margin:0;">Invite-only influencer/media preview event; public launch anchored to a signature hero attraction (an F1-branded sim-racing tournament, leveraging the F1 Sim Racing India Open moment); founding-member pricing for the first 500–1,000 memberships.</p></div>
+          <div class="card wine-top"><h4>Influencer</h4><p style="margin:0;">Tiered approach — macro-influencers/celebrities for launch-moment reach, micro/mid-tier creators for sustained authentic content; consider a "creator residency" recurring partnership over one-off paid posts.</p></div>
+          <div class="card ember-top"><h4>Corporate</h4><p style="margin:0;">Direct B2B sales to HR/L&amp;D and admin teams across BKC, Lower Parel, Powai, Andheri-Kurla — positioning "no travel required, more activity variety, better ROI per rupee than an outstation offsite"; venue listings on Hire4Event/SOSParty-style platforms.</p></div>
+          <div class="card"><h4>Referral &amp; Retention</h4><p style="margin:0;">Group-referral incentives ("bring your group of 6+, everyone gets a credit") matching the observed group-occasion pattern; tiered membership with session credits and priority booking; loyalty-data personalization; a regular content-refresh calendar to combat novelty fatigue — the single most cited structural repeat-visitation risk.</p></div>
+        </div>
+      </section>
+
+      <!-- ============ 07 TECHNOLOGY & EXPANSION ============ -->
+      <section class="panel" id="panel-7">
+        <div class="eyebrow">Section 07</div>
+        <h1 class="page-title">Technology &amp; Expansion</h1>
+        <p class="positioning">Buy the platform, own the data. Expand Mumbai-first, then Maharashtra, then India, then selective diaspora markets.</p>
+
+        <h2 class="section-h">Technology Stack</h2>
+        <div class="card-grid">
+          <div class="card"><h4>Booking / POS</h4><p style="margin:0;">A proven global FEC-management SaaS platform (ROLLER, CenterEdge, Clubspeed, Venue Sumo, BookNow, Sports Carnival) rather than bespoke software — bundling booking/ticketing, POS/payments, digital waivers, party management, membership/CRM, inventory and multi-location reporting.</p></div>
+          <div class="card"><h4>Membership / CRM App</h4><p style="margin:0;">A branded consumer app or PWA membership portal built on the FEC-SaaS's CRM module for session credits, booking, tier status, referral tracking and push-notification retention — mirroring Timezone's tap-to-play card model but adding the personalization data layer it lacks.</p></div>
+          <div class="card wine-top"><h4>Equipment IoT</h4><p style="margin:0;">Given equipment downtime is the single most-cited incumbent complaint, an IoT equipment-health layer (usage-hour tracking, automated maintenance alerts, remote diagnostics) is a core operational differentiator, not a nice-to-have.</p></div>
+          <div class="card ember-top"><h4>AI Use Cases</h4><p style="margin:0;">Dynamic pricing for peak/off-peak slots; personalized CRM-driven recommendations pushed via the membership app; demand forecasting to optimize staffing and F&amp;B inventory.</p></div>
+          <div class="card"><h4>Session Automation</h4><p style="margin:0;">Automated slot-booking/queue management to reduce walk-in wait-time friction; automated equipment reset/sanitization reminders between VR sessions; automated post-visit NPS collection to catch service issues before they become public reviews.</p></div>
+        </div>
+
+        <h2 class="section-h">Expansion Strategy</h2>
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>Phase</th><th>Geography</th><th>Model</th><th>Logic</th></tr></thead>
+          <tbody>
+            <tr><td>Phase 1 — Mumbai</td><td>Flagship + 2–3 additional MMR malls</td><td>Company-owned</td><td>Prove multi-site replicability and protect brand/quality control while review-sentiment failure modes (uptime, service, F&amp;B) are still being solved for</td></tr>
+            <tr><td>Phase 2 — Maharashtra</td><td>Pune, Nagpur</td><td>Company-owned or tightly supervised franchise</td><td>Adjacent-state scale-up on proven playbook before wider geographic risk</td></tr>
+            <tr><td>Phase 3 — India metros</td><td>Delhi-NCR, Bengaluru, Hyderabad, Chennai, Kolkata, Ahmedabad</td><td>Hybrid: company-owned in 1–2 top metros, franchised elsewhere</td><td>Mirrors where Smaaash, Timezone and Zero Latency have already validated demand</td></tr>
+            <tr><td>Phase 4 — International</td><td>Gulf/UAE (large Indian-diaspora, mall-entertainment culture similar to India)</td><td>Licensing/franchise</td><td>A pattern Smaaash itself followed with a US flagship; consistent with Zero Latency's 30-country license model</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p><strong>Franchise vs. company-owned mix:</strong> company-owned flagships in Mumbai and 1–2 other top metros (protecting brand/experience quality, given how much review sentiment in this category is driven by inconsistent execution), combined with franchised expansion into Tier-2 cities and secondary metros for capital-efficient scaling — mirroring Timezone's ₹2–5cr franchise band and Zero Latency's licensing model.</p>
+        <p><strong>Site-selection discipline:</strong> prioritize Grade A/A+ malls with tight vacancy (~3.7%) and premium footfall demographics even at higher rent; favor landlords actively diversifying entertainment tenant mix (better rent-structure leverage); avoid direct co-location with an existing strong incumbent where possible; apply the same site-approval discipline centrally to franchise partners to avoid the historical failure mode of overexpansion into weak locations that preceded Smaaash's 2020 collapse.</p>
+      </section>
+
+      <!-- ============ 08 BUSINESS MODEL ============ -->
+      <section class="panel" id="panel-8">
+        <div class="eyebrow">Section 08</div>
+        <h1 class="page-title">Business Model</h1>
+        <p class="positioning">A membership-anchored, multi-occasion revenue model built on a licensed technology platform rather than bespoke build.</p>
+
+        <h2 class="section-h">Business Model Canvas</h2>
+        <div class="bmc">
+          <div class="cell partners"><h4>Key Partners</h4>VR/sim/console hardware OEMs · content licensors (Zero Latency-style) · FEC-SaaS platform vendor · mall landlords · corporate event intermediaries (Hire4Event, SOSParty) · gaming/lifestyle influencers</div>
+          <div class="cell activities"><h4>Key Activities</h4>Venue operations &amp; hosting · equipment maintenance (IoT-driven) · content/programming refresh · membership/CRM management · corporate B2B sales</div>
+          <div class="cell resources"><h4>Key Resources</h4>Flagship lease &amp; fit-out · VR/sim/console hardware fleet · FEC-SaaS + membership app · trained hospitality staff · CRM/behavioural data asset</div>
+          <div class="cell value"><h4>Value Proposition</h4>Premium, multi-format social gaming with reliable equipment, transparent pricing and hospitality-grade service — the breadth of Smaaash, the polish neither Smaaash nor Timezone consistently deliver, and more occasions per visit than single-format Zero Latency</div>
+          <div class="cell relationships"><h4>Customer Relationships</h4>Tiered membership · corporate account management · birthday-club loyalty · personalized CRM-driven offers</div>
+          <div class="cell channels"><h4>Channels</h4>Mall-atrium trial pods · Instagram/YouTube influencer content · college tie-ups · corporate B2B sales · event-intermediary listings</div>
+          <div class="cell segments"><h4>Customer Segments</h4>Gen-Z friend groups · corporate HR/offsite planners · birthday-party parents · young-professional couples/friend groups</div>
+          <div class="bmc-bottom" style="grid-column:1/6;">
+            <div class="cell"><h4>Cost Structure</h4>Mall rent (55–60% of opex) · staff · equipment AMC · utilities · F&amp;B COGS · marketing · SaaS subscriptions · equipment depreciation (3–5 yr hardware life)</div>
+            <div class="cell"><h4>Revenue Streams</h4>Walk-in play · membership fees · corporate/group events · birthday parties · F&amp;B — see Financials for steady-state mix <span class="est">EST.</span></div>
+          </div>
+        </div>
+
+        <h2 class="section-h">Pricing &amp; Acquisition-Retention Strategy</h2>
+        <p>Pricing is architected in four tiers — per-session/hourly, all-access day pass, membership, and corporate/group packages — so that price-sensitive first-time visitors (per-session) and high-LTV repeat customers (membership) are served by the same venue without cannibalizing each other. Acquisition leans on mall-atrium trial pods and influencer content to convert low-cost impressions into first visits; retention leans on the membership/CRM data layer, a rotating content calendar, and group-referral incentives that match the category's genuinely social, group-occasion purchase pattern rather than a generic 1-to-1 referral code.</p>
+      </section>
+
+      <!-- ============ 09 USP & MOAT ============ -->
+      <section class="panel" id="panel-9">
+        <div class="eyebrow">Section 09</div>
+        <h1 class="page-title">USP &amp; Moat</h1>
+        <p class="positioning">The defensibility case rests on five specific, evidence-grounded advantages — not generic "brand and quality" language.</p>
+
+        <div class="card-grid">
+          <div class="card">
+            <h4>1. Multi-format breadth Zero Latency structurally cannot match</h4>
+            <p style="margin:0;">Zero Latency's flexible-licensing model (~15% revenue share to the licensor, US$165k–245k hardware cost) is built around a single VR arena format — one group at a time, one game genre. Adding sim-racing, console pods and party/event space to a venue is a design decision a pure-VR licensee cannot make without renegotiating its entire licensing relationship. This directly captures more occasions per visit and more repeat frequency than any single-format competitor.</p>
+          </div>
+          <div class="card wine-top">
+            <h4>2. Operational reliability as a built, not claimed, differentiator</h4>
+            <p style="margin:0;">Equipment downtime, double-charging and F&amp;B hygiene failures are the single most-repeated complaint pattern against Smaaash and Timezone in public review sentiment. An IoT-based equipment-health monitoring layer with vendor SLAs is a genuine operational investment a legacy incumbent — running older hardware across dozens of sites — cannot retrofit overnight without a capital cycle of its own.</p>
+          </div>
+          <div class="card ember-top">
+            <h4>3. Prime real-estate lock-in</h4>
+            <p style="margin:0;">Porter's Five Forces analysis identifies long-term Grade-A/A+ mall leases in a landlord's market (~3.7% vacancy) as the single most durable entry barrier in this category — more durable than equipment or brand. Once a flagship location is secured on a multi-year lease in a scarce, high-footfall mall, a well-funded copycat's fastest path to compete is a materially worse location, which structurally caps its ability to match footfall and revenue per sq ft.</p>
+          </div>
+          <div class="card">
+            <h4>4. A real CRM/membership data layer</h4>
+            <p style="margin:0;">Timezone's tap-to-play card system is a proven cashless mechanic but is not, per the research, a personalization or behavioural-data platform. A branded membership app layered on a modern FEC-SaaS CRM builds a genuine first-party data asset — visit frequency, attraction preference, spend pattern — that compounds in value with scale and cannot be replicated by a competitor simply copying the physical format.</p>
+          </div>
+          <div class="card wine-top">
+            <h4>5. Capital discipline as the direct answer to the Smaaash precedent</h4>
+            <p style="margin:0;">Smaaash's failure was not a demand failure — post-Nazara relaunch revenue is growing 41% YoY. It was a capital-structure failure: an over-leveraged, over-expanded (45-store peak) balance sheet that could not absorb a footfall shock. A milestone-gated, phased capital plan (see Action Plan) — where each new venue's capital tranche is released only after the prior site hits break-even run-rate — is a structural answer to exactly this failure mode, not a generic risk disclosure.</p>
+          </div>
+        </div>
+
+        <h2 class="section-h">Why Competitors Can't Easily Copy This</h2>
+        <p>A well-funded copycat can buy the same VR headsets and sim rigs — hardware is not the moat. What it cannot buy quickly is: (1) a flagship lease already signed in a scarce Grade-A mall before the copycat arrives; (2) 12–24 months of accumulated CRM/behavioural data informing pricing and programming; (3) an equipment-uptime track record and NPS history that outlasts a single bad review cycle; and (4) the accumulated trust of corporate HR buyers and mall landlords built through delivered, not promised, reliability. Each of these compounds with time and operating history — which is precisely why Smaaash's brand recall, built over 15 years, still had residual value worth ₹126 crore to Nazara even after a total operational collapse. The moat is duration and execution discipline, not any single piece of technology.</p>
+      </section>
+
+      <!-- ============ 10 FAQ ============ -->
+      <section class="panel" id="panel-10">
+        <div class="eyebrow">Section 10</div>
+        <h1 class="page-title">FAQ — Investment Committee Questions</h1>
+        <p class="positioning">The questions a skeptical Aamara Capital IC will actually ask, answered with evidence, not reassurance.</p>
+
+        <div class="faq-item">
+          <p class="faq-q">Smaaash collapsed entirely in 2020 and went through NCLT insolvency. Why won't this?</p>
+          <p class="faq-a">Smaaash's failure was a capital-structure failure, not a demand failure — its post-Nazara relaunch is growing revenue 41% YoY on essentially the same demand base. It collapsed because it scaled to 45+ stores on thin margins and long leases, then a footfall shock (COVID-19) hit exactly when promised investor capital failed to materialize, leaving no buffer. This plan is structured as the direct opposite: a single company-owned flagship first, break-even proven before the next capital tranche is released (see Action Plan), and a phased ₹28 crore <span class="est">EST.</span> capital plan rather than a pre-committed multi-site rollout. We are underwriting to Smaaash's own post-mortem, not repeating its expansion arithmetic.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What happens if the mall doesn't renew the lease, or rent escalates sharply?</p>
+          <p class="faq-a">Mumbai Grade-A mall rent is rising 15–20% YoY, which is exactly why the lease-negotiation strategy targets a revenue-share or minimum-guarantee-plus-overage structure rather than flat per-sq-ft rent — common for large-format anchor tenants and a direct hedge against escalation. On renewal risk: landlords in a tight vacancy market (~3.7%) are actively seeking differentiated entertainment anchors to defend footfall against e-commerce, which is a retention lever in the operator's favor, not just the landlord's. The flagship-first model also avoids over-committing capital to a single irreplaceable location before the concept is proven.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Isn't VR a novelty that fades in 18 months?</p>
+          <p class="faq-a">Novelty fatigue is a real, named risk in our own analysis — which is exactly why the venue is deliberately multi-format (VR + sim racing + console pods + party/event space + light esports programming) rather than a pure-VR arena like Zero Latency, and why a content-refresh calendar (new titles, seasonal tournaments, esports nights) is budgeted as an ongoing cost line, not an afterthought. Multi-occasion revenue design (corporate, birthday, membership) also means the business does not depend on any single attraction's novelty curve to hit break-even.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How is this defensible against a well-funded copycat — say, Nazara doubling down on Smaaash, or Zero Latency expanding format?</p>
+          <p class="faq-a">See USP &amp; Moat in full. In short: hardware is copyable, but a signed flagship lease in a scarce Grade-A mall, 12–24 months of CRM data, and an established uptime/NPS track record are not — and each compounds with time. Smaaash's own ₹126 crore NCLT sale price, even after total operational collapse, is direct evidence that accumulated brand/location value in this category persists and is worth paying for — which argues for building that value early, not that it can't be built.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Is "gaming" in the brand a regulatory liability given the 2025 real-money gaming ban?</p>
+          <p class="faq-a">No — and this must be explicit in all compliance and marketing material. GST on this venue's offline, skill-based entertainment is 18% (reduced from 28% in 2018); the 2025 Promotion and Regulation of Online Gaming Act and its 28–40% GST regime apply to real-money online/fantasy gaming, a legally and fiscally separate category the Supreme Court has already upheld as distinct on the tax question. The residual risk is perception/political conflation, not actual regulatory exposure — manageable through clear positioning language ("skill-based entertainment venue," not "gaming platform") in licensing applications and marketing.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Why will corporate offsite demand actually convert, given it currently flows through generic resort venues?</p>
+          <p class="faq-a">Corporate offsite/team-building demand is large and specifically under-served by gaming-format venues today — most of it is intermediated through platforms like Hire4Event and SOSParty toward outdoor/resort venues by default, not preference. The B2B pitch is concrete: no travel time, more activity variety per rupee, and simpler single-invoice billing than a multi-vendor outstation offsite. This is also the mechanism that solves the venue's weekday utilization problem, since corporate bookings fill exactly the off-peak slots walk-in traffic doesn't.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">The capex-to-revenue ratio looks high. Why does this pencil out?</p>
+          <p class="faq-a">₹6–9 crore <span class="est">EST.</span> capex against ₹8–15 crore/year <span class="est">EST.</span> steady-state revenue and 12–20% <span class="est">EST.</span> net margins implies a 3–5 year <span class="est">EST.</span> payback — typical for premium LBE formats globally, and the reason experience-format venues run 65–75% gross margins despite high fit-out cost: equipment amortization and F&amp;B COGS are the primary cost of revenue, not per-unit variable cost. The real risk is not the ratio, it's ramp-time (18–24 months to steady state) and rent escalation — both explicitly underwritten into the break-even model above.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What if imported VR/sim hardware faces customs delay or duty reclassification?</p>
+          <p class="faq-a">This is a named, real risk — VR headsets span multiple ambiguous HSN codes (8528, 90138090, 85258090, 8525, 9504) with different duty treatments, and India imports the majority of VR hardware from the US, China and UK. Mitigation is procedural, not structural: correct classification confirmed with customs counsel before the first import order, phased equipment procurement (not a single large shipment dependent on one customs clearance), and maintaining a vendor relationship (rather than a single-shipment transaction) with an established India-experienced hardware distributor.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Why franchise at all, given franchise inconsistency is a documented complaint pattern against Timezone and Amoeba?</p>
+          <p class="faq-a">The plan explicitly limits franchising to Tier-2/secondary-metro expansion after the flagship and 1–2 additional company-owned MMR/metro venues have proven the operating playbook — the exact opposite of delegating site-selection and quality control early, which is what produced Timezone and Amoeba's inconsistency. Site approval stays centralized for franchise partners specifically to avoid repeating Smaaash's overexpansion failure mode.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What's the realistic downside case if footfall underperforms?</p>
+          <p class="faq-a">The break-even model requires 150–250 paying guests/day <span class="est">EST.</span> at a ₹1,000–1,500 average ticket. If footfall underperforms, the milestone-gated capital structure means Phase 2 and 3 tranches (₹10cr and ₹9cr <span class="est">EST.</span>) are simply not released rather than being sunk into an unproven second/third site — the single largest structural difference from Smaaash's pre-2020 approach, where expansion capital was committed well ahead of unit-economics proof.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How dependent is this on a single celebrity/brand-backer halo effect, the way Smaaash leaned on Sachin Tendulkar?</p>
+          <p class="faq-a">Not dependent at all by design — the go-to-market plan leans on tiered micro/mid-tier influencer partnerships and a "creator residency" content model precisely because 72% of Gen-Z Indians already look to creators, not single celebrity endorsers, for where-to-go decisions. This is more durable and diversified than a single-figure brand association, and does not carry single-person reputational risk.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What is Aamara Capital's actual exit or scale pathway here?</p>
+          <p class="faq-a">Two evidenced pathways exist in this exact category: strategic acquisition (Nazara's ₹126 crore purchase of Smaaash shows listed gaming/entertainment companies actively acquire LBE assets to enter the category) or continued owner-operated scale-up to a multi-city network generating an estimated ₹80–150 crore/year <span class="est">EST.</span> systemwide by Year 5 — a scale at which either a strategic sale or a larger institutional capital raise becomes realistic.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Why should Aamara Capital, a family office, be the right owner of an operationally intensive consumer business like this?</p>
+          <p class="faq-a">The single biggest lesson from Smaaash's collapse is that this category punishes short-term, externally-financed capital structures under footfall stress. A family office funding a milestone-gated, patient capital plan — releasing Phase 2 and 3 tranches only after proof of unit economics, with no pressure to over-expand for a fundraising narrative — is structurally the ownership profile least likely to repeat Smaaash's failure mode, and best positioned to hold through the 18–24 month ramp period the category requires.</p>
+        </div>
+      </section>
+
+      <!-- ============ 11 ACTION PLAN ============ -->
+      <section class="panel" id="panel-11">
+        <div class="eyebrow">Section 11</div>
+        <h1 class="page-title">Action Plan</h1>
+        <p class="positioning">A milestone-gated roadmap — each phase's capital is earned by the prior phase's performance, not pre-committed.</p>
+
+        <h2 class="section-h">30 Days</h2>
+        <div class="roadmap">
+          <div class="road-step"><h4>Site shortlisting</h4>Identify and open landlord conversations with 5–6 Grade-A/A+ Mumbai malls with tight vacancy and entertainment-tenant appetite (Phoenix Palladium, Jio World Drive/Centre, Infiniti Mall, Inorbit, Oberoi Mall) — screening for malls without an existing strong premium-gaming anchor.</div>
+          <div class="road-step"><h4>Legal &amp; regulatory diligence engaged</h4>Retain local counsel to confirm the exact Section 33/Section 394 licensing sequence for the shortlisted malls' jurisdictions, and to formally verify the PASARA-adjacent licensing question and HSN classification for planned VR/sim hardware imports.</div>
+          <div class="road-step"><h4>Technology platform selection</h4>Shortlist and demo 3 FEC-SaaS vendors (ROLLER, CenterEdge, Clubspeed) against booking, POS, membership/CRM and IoT-maintenance requirements; select by day 30.</div>
+          <div class="road-step"><h4>Financial model lock</h4>Finalize the flagship-venue underwriting model (capex, opex, break-even) against real landlord quotes rather than the estimated ranges in this case study.</div>
+        </div>
+
+        <h2 class="section-h">60 Days</h2>
+        <div class="roadmap">
+          <div class="road-step"><h4>Lease term sheet negotiated</h4>Secure a signed or heads-of-terms lease at the preferred flagship site, targeting a revenue-share/MG-hybrid structure to hedge rent-escalation risk.</div>
+          <div class="road-step"><h4>Equipment vendor contracts</h4>Finalize VR/sim-rig/console hardware suppliers with confirmed HSN classification, AMC/maintenance SLAs, and phased (not single-shipment) procurement schedule.</div>
+          <div class="road-step"><h4>Design &amp; fit-out plan</h4>Complete interior design/branding concept and fire/electrical-compliant fit-out drawings for NOC submission.</div>
+          <div class="road-step"><h4>Founding team hired</h4>General manager and head of operations hired; both briefed explicitly on the equipment-uptime and F&amp;B-hygiene SOPs designed to directly address Smaaash/Timezone's documented complaint patterns.</div>
+        </div>
+
+        <h2 class="section-h">90 Days</h2>
+        <div class="roadmap">
+          <div class="road-step"><h4>NOCs &amp; licenses in process</h4>Fire, electrical, FSSAI, trade license and Section 33 amusement-permission applications filed; Shops &amp; Establishment registration completed via Aaple Sarkar.</div>
+          <div class="road-step"><h4>Fit-out underway</h4>Civil/interior fit-out construction begins on the signed lease; membership app/CRM build begins on the selected FEC-SaaS platform.</div>
+          <div class="road-step"><h4>Pre-launch marketing engine live</h4>Influencer partnerships (micro/mid-tier) signed; founding-member pre-registration campaign opens ahead of physical launch to seed the CRM database.</div>
+          <div class="road-step"><h4>Corporate B2B pipeline building</h4>Direct outreach begins to HR/L&amp;D teams in BKC, Lower Parel, Powai and Andheri-Kurla, and listing applications submitted to Hire4Event/SOSParty-style intermediaries, ahead of launch.</div>
+        </div>
+
+        <h2 class="section-h">Year 1</h2>
+        <div class="roadmap">
+          <div class="road-step"><h4>Flagship opens</h4>Soft-launch with invite-only influencer/media preview, followed by a public launch anchored to a signature F1-branded sim-racing tournament tied to the F1 Sim Racing India Open cultural moment.</div>
+          <div class="road-step"><h4>Ramp to steady state</h4>18–24 month ramp period targeted to reach the ₹15–20 crore/year <span class="est">EST.</span> break-even revenue run-rate; NPS/uptime/F&amp;B-quality metrics tracked monthly against the specific complaint patterns documented against Smaaash and Timezone.</div>
+          <div class="road-step"><h4>Phase 2 capital gate</h4>The ₹10 crore <span class="est">EST.</span> Phase 2 tranche (second MMR venue + CRM/tech platform buildout) is released only once the flagship demonstrates a break-even-consistent run-rate for at least one full quarter — the structural safeguard directly answering the Smaaash overexpansion precedent.</div>
+          <div class="road-step"><h4>Site selection for Venue 2</h4>Begin landlord conversations for the second MMR location using the same centralized site-selection discipline applied to the flagship.</div>
+        </div>
+      </section>
+
+      <!-- ============ 12 SOURCES ============ -->
+      <section class="panel" id="panel-12">
+        <div class="eyebrow">Section 12</div>
+        <h1 class="page-title">Sources</h1>
+        <p class="positioning">All factual claims in this case study are cited to a source found via desk research; every figure not sourced to a named report is explicitly marked EST. with its estimation logic stated in the relevant section.</p>
+
+        <h3 class="sub-h">Market Research</h3>
+        <ul class="source-list">
+          <li><a href="https://www.grandviewresearch.com/horizon/outlook/location-based-entertainment-market/india" target="_blank">Grand View Research – India Location-based Entertainment Market Outlook</a></li>
+          <li><a href="https://www.fortunebusinessinsights.com/location-based-entertainment-market-110163" target="_blank">Fortune Business Insights – Location Based Entertainment Market</a></li>
+          <li><a href="https://www.imarcgroup.com/india-virtual-reality-gaming-market" target="_blank">IMARC Group – India Virtual Reality Gaming Market</a></li>
+          <li><a href="https://www.grandviewresearch.com/horizon/outlook/virtual-reality-in-gaming-market/india" target="_blank">Grand View Research – Virtual Reality in Gaming Market India</a></li>
+          <li><a href="https://www.techsciresearch.com/report/india-virtual-reality-market/24613.html" target="_blank">TechSci Research – India Virtual Reality Market</a></li>
+          <li><a href="https://www.coherentmarketinsights.com/industry-reports/india-esports-market" target="_blank">Coherent Market Insights – India Esports Market</a></li>
+          <li><a href="https://www.imarcgroup.com/esports-market-india" target="_blank">IMARC Group – India Esports Market</a></li>
+          <li><a href="https://animationxpress.com/latest-news/after-a-7-5-per-cent-dip-in-2025-indias-esports-market-enters-its-next-phase-says-ficci-ey-report-26/" target="_blank">AnimationXpress – FICCI-EY Esports 2025 Dip Report</a></li>
+          <li><a href="https://aviaanaccounting.com/business-plan-for-esports-arenas-and-gaming-cafes-business-in-india/" target="_blank">Aviaan Accounting – Esports Arenas &amp; Gaming Cafes Business Plan India</a></li>
+          <li><a href="https://ficci.in/press_release_details/5190" target="_blank">FICCI Press Release – India M&amp;E Sector 2025</a></li>
+          <li><a href="https://wanderloops.in/blog/why-gen-z-spends-on-experiences" target="_blank">WanderLOOPS – Gen Z &amp; Millennial Experience Spending 2026</a></li>
+          <li><a href="https://www.statista.com/chart/33307/gen-z-consumption-spending-and-total-consumption-spending-in-india/" target="_blank">Statista Chart – Gen Z Spending Surge in India</a></li>
+          <li><a href="https://www.formula1.com/en/latest/article/formula-1-launches-sim-racing-india-open-in-partnership-with-mumbai-falcons.7CgRKSGBmV6v9LnqdE3y9K" target="_blank">Formula1.com – F1 Sim Racing India Open 2026</a></li>
+          <li><a href="https://zerolatencyvr.zendesk.com/hc/en-us/articles/14062353804687-Operator-Stories-Powering-Up-VR-in-India" target="_blank">Zero Latency – Operator Stories: Powering Up VR in India</a></li>
+          <li><a href="https://blooloop.com/play/news/zero-latency-next-gen-wireless-vr-india/" target="_blank">blooloop – Zero Latency Next-Gen Wireless VR India</a></li>
+        </ul>
+
+        <h3 class="sub-h">Competitor Analysis</h3>
+        <ul class="source-list">
+          <li><a href="https://tracxn.com/d/legal-entities/india/smaaash-entertainment-private-limited/__p8g2H5ytH4Jo7S2_PLFGqnDquDyamygKLOcm_Hu1xZg" target="_blank">Tracxn – Smaaash Entertainment Company Profile</a></li>
+          <li><a href="https://www.indiainfoline.com/news/business/nazara-technologies-acquires-smaaash-entertainment-for-126-crore-under-nclt-plan" target="_blank">India Infoline – Nazara Acquires Smaaash for ₹126 Crore</a></li>
+          <li><a href="https://inc42.com/buzz/nazara-completes-acquisition-of-smaaash-for-inr-126-cr/" target="_blank">Inc42 – Nazara Completes Acquisition of Smaaash</a></li>
+          <li><a href="https://insolvencytracker.in/2025/05/15/nazara-technologies-acquires-smaaash-entertainment-for-rs-126-crore/" target="_blank">Insolvency Tracker – Nazara Buys Smaaash for Rs 126 Cr</a></li>
+          <li><a href="https://curlytales.com/popular-gaming-company-smaaash-shuts-down-due-to-financial-crisis-amid-pandemic/" target="_blank">Curly Tales – Smaaash Shuts Down 2020</a></li>
+          <li><a href="https://www.businessinsider.in/business/news/how-sachin-tendulkar-backed-smaaash-is-making-a-comeback-with-45-stores-by-june-2022/articleshow/90795758.cms" target="_blank">Business Insider India – Smaaash Comeback with 45 Stores</a></li>
+          <li><a href="https://www.tripadvisor.com/Attraction_Review-g304554-d15851548-Reviews-Smaaash-Mumbai_Maharashtra.html" target="_blank">Tripadvisor – Smaaash Mumbai Reviews (overview)</a></li>
+          <li><a href="https://www.tripadvisor.in/ShowUserReviews-g304554-d3804197-r165371950-Smaaash-Mumbai_Maharashtra.html" target="_blank">Tripadvisor – Smaaash "Horrible Experience" review</a></li>
+          <li><a href="https://www.tripadvisor.com/ShowUserReviews-g304554-d3804197-r707836564-Smaaash-Mumbai_Maharashtra.html" target="_blank">Tripadvisor – Smaaash manager complaint review</a></li>
+          <li><a href="https://www.franchisemart.in/entertainment-franchise/timezone-franchise/" target="_blank">Franchise Mart – Timezone Franchise India</a></li>
+          <li><a href="https://www.bus-ex.com/article/lai-games-timezone" target="_blank">Bus-Ex – LAI Games: Timezone</a></li>
+          <li><a href="https://www.tripadvisor.com/Attraction_Review-g304554-d10123326-Reviews-TimeZone-Mumbai_Maharashtra.html" target="_blank">Tripadvisor – Timezone Mumbai Reviews</a></li>
+          <li><a href="https://medium.com/@infinitimall77/10-wonderful-best-game-zone-in-mumbai-c95cde39abfd" target="_blank">Medium – 10 Best Game Zones in Mumbai</a></li>
+          <li><a href="https://invest.zerolatencyvr.com/zero-latency-vr-faq" target="_blank">Zero Latency – Invest FAQ</a></li>
+          <li><a href="https://www.zerolatencyvr.in/pricing.html" target="_blank">Zero Latency India – Pricing</a></li>
+          <li><a href="https://www.tripadvisor.in/Attraction_Review-g304554-d18220439-Reviews-VR_Gamezone-Mumbai_Maharashtra.html" target="_blank">Tripadvisor – VR Gamezone Mumbai</a></li>
+          <li><a href="https://mumbai.another-world.com/" target="_blank">Another World – Mumbai VR Club</a></li>
+          <li><a href="https://www.phoenixmarketcity.com/mumbai/fun-games" target="_blank">Phoenix Marketcity Mumbai – Fun &amp; Games</a></li>
+        </ul>
+
+        <h3 class="sub-h">PESTLE / Government Regulations</h3>
+        <ul class="source-list">
+          <li><a href="https://mumbaipolice.maharashtra.gov.in/downloads/RulesforLicensing.pdf" target="_blank">Mumbai Police – Rules for Licensing (PDF)</a></li>
+          <li><a href="https://mumbaipolice.maharashtra.gov.in/faq.asp?type=Amusement$Water_Park" target="_blank">Mumbai Police – FAQ Amusement/Water Park</a></li>
+          <li><a href="https://www.registerkaro.in/trade-license-in-mumbai" target="_blank">RegisterKaro – Trade License Registration Mumbai</a></li>
+          <li><a href="https://crspl.in/blog/video-game-parlour-license" target="_blank">CRSPL – Video Game Parlour License Blog</a></li>
+          <li><a href="https://aaplesarkar.mahaonline.gov.in/en/Login/Certificate_Documents?ServiceId=3221" target="_blank">Aaple Sarkar – Entertainment Programs NOC Certificate</a></li>
+          <li><a href="https://aaplesarkar.mahaonline.gov.in/pdf/Entertainment_Duty_procedure.pdf" target="_blank">Aaple Sarkar – Entertainment Duty Procedure (PDF)</a></li>
+          <li><a href="https://www.agileregulatory.com/blogs/maharashtra-shops-and-establishment-act-registration-process-documents-fees" target="_blank">Agile Regulatory – Maharashtra Shops &amp; Establishment Act Registration</a></li>
+          <li><a href="https://www.indiafilings.com/learn/maharashtra-shops-and-establishment-act" target="_blank">IndiaFilings – Maharashtra Shops and Establishment Act Compliance</a></li>
+          <li><a href="https://www.registerkaro.in/fssai-registration-in-mumbai" target="_blank">RegisterKaro – FSSAI Registration Mumbai</a></li>
+          <li><a href="https://www.pib.gov.in/Pressreleaseshare.aspx?PRID=1519453" target="_blank">PIB – GST Council Amusement Park Rate Cut Press Release</a></li>
+          <li><a href="https://www.mastersindia.co/blog/gst-on-amusement-park-tickets/" target="_blank">Masters India – GST on Amusement Park Tickets</a></li>
+          <li><a href="https://www.adityabirlacapital.com/abc-of-money/entertainment-tax-in-india" target="_blank">Aditya Birla Capital – Entertainment Tax in India History</a></li>
+          <li><a href="https://busy.in/gst-rates/gaming-industry/" target="_blank">Busy.in – New GST on Online Gaming 2026</a></li>
+          <li><a href="https://www.businesstoday.in/latest/corporate/story/supreme-court-upholds-28-gst-on-online-gaming-rs1-lakh-cr-tax-burden-looms-533671-2026-05-27" target="_blank">BusinessToday – Supreme Court Upholds 28% GST on Online Gaming</a></li>
+          <li><a href="https://a2ztaxcorp.net/indias-online-gaming-revolution-a-complete-guide-to-the-promotion-and-regulation-of-online-gaming-w-e-f-may-1-2026/" target="_blank">A2Z Taxcorp – Promotion and Regulation of Online Gaming Act 2025</a></li>
+          <li><a href="https://www.seair.co.in/virtual-reality-headset-hs-code.aspx" target="_blank">Seair – Virtual Reality Headset HS Code Data</a></li>
+          <li><a href="https://www.exportgenius.in/india-import-duty/virtual-reality-headset" target="_blank">ExportGenius – Custom Duty on VR Headset HS Code</a></li>
+        </ul>
+
+        <h3 class="sub-h">Financial Research</h3>
+        <ul class="source-list">
+          <li><a href="https://rezovr.com/vr-gaming-zone-setup-cost/" target="_blank">RezoVR – VR Gaming Zone Setup Cost India</a></li>
+          <li><a href="https://bleegame.com/how-to-start-a-vr-arcade-50k-500k-setup-guide-monthly-revenue/" target="_blank">Bleegame – How to Start a VR Arcade: $50K–$500K Setup Guide</a></li>
+          <li><a href="https://finlaw.in/blog/how-to-start-a-game-center-business-in-2025-step-by-step-guide" target="_blank">Finlaw – How to Start a Game Center Business 2025</a></li>
+          <li><a href="https://www.freepressjournal.in/mumbai/mumbai-emerges-as-premium-retail-hub-mall-rents-touch-777-per-sq-ft-amid-1520-annual-growth" target="_blank">Freepress Journal – Mumbai Mall Rents Touch ₹777/sq ft</a></li>
+          <li><a href="https://www.business-standard.com/amp/finance/personal-finance/delhi-ncr-s-top-malls-run-full-mumbai-sees-sharpest-rent-surge-at-20-126051300720_1.html" target="_blank">Business Standard – Mumbai Sharpest Mall Rent Surge 20%</a></li>
+          <li><a href="https://www.cushmanwakefield.com/en/india/insights/mumbai-marketbeat" target="_blank">Cushman &amp; Wakefield – Mumbai Real Estate MarketBeat</a></li>
+          <li><a href="https://www.sloshout.com/mumbai/gaming-zone-first-birthday-party-venues/31/" target="_blank">Sloshout – Gaming Zone Birthday Party Venues Mumbai with Prices</a></li>
+          <li><a href="https://www.timezonegames.com/en-in/celebrations/birthday-parties/" target="_blank">Timezone India – Birthday Parties</a></li>
+          <li><a href="https://thegamemumbai.com/the-game-birthday.html" target="_blank">The Game Mumbai – Birthday Parties Pricing</a></li>
+        </ul>
+
+        <h3 class="sub-h">Technology Stack</h3>
+        <ul class="source-list">
+          <li><a href="https://www.roller.software/industries/family-entertainment-center-software/" target="_blank">ROLLER Software – FEC Software</a></li>
+          <li><a href="https://venuesumo.com/best-family-entertainment-center-software/" target="_blank">VenueSumo – Best FEC Software Comparison 2025</a></li>
+          <li><a href="https://centeredgesoftware.com/industries/family-entertainment-centers/" target="_blank">CenterEdge Software – FEC Solutions</a></li>
+          <li><a href="https://clubspeed.com/family-entertainment-center/" target="_blank">Clubspeed – FEC Software</a></li>
+        </ul>
+
+        <h3 class="sub-h">Marketing / Customer Behaviour</h3>
+        <ul class="source-list">
+          <li><a href="https://wanderloops.in/blog/why-gen-z-spends-on-experiences" target="_blank">WanderLOOPS – Gen Z Experience Spending</a></li>
+          <li><a href="https://www.hire4event.com/plan-your-trip/venue-selection-booking-corporate-offsite-events-india" target="_blank">Hire4Event – Corporate Offsite Venue Booking</a></li>
+          <li><a href="https://www.sosparty.io/" target="_blank">SOSParty – Corporate Team Building Events</a></li>
+        </ul>
+
+        <h3 class="sub-h">General / Franchise Landscape</h3>
+        <ul class="source-list">
+          <li><a href="https://franchisetimes.co.in/best-gaming-zone-franchise-opportunities/" target="_blank">Franchise Times – Best Gaming Zone Franchise Opportunities</a></li>
+          <li><a href="https://topfranchise.com/articles/the-10-best-entertainment-franchise-businesses-in-india/" target="_blank">Topfranchise.com – 10 Best Entertainment Franchise Businesses India 2025</a></li>
+        </ul>
+
+        <footer class="doc-footer">
+          Prepared for Aamara Capital — internal business case study, secondary/desk research only. All figures marked <span class="est">EST.</span> are estimates built from comparable-company data and stated methodology, not cited market figures. July 2026.
+        </footer>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+</body>
+</html>
