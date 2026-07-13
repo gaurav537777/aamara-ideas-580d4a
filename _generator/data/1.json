@@ -74,11 +74,11 @@
   },
   "alphabet": {
     "kicker": "Chapter 6 · The Range",
-    "titleHtml": "A is for <span class='hl'>Aamara</span>.",
-    "lead": "One decal program, twenty-six gifts. Put the letter on the thing — B on the bowl, C on the cup, M on the mug — and a single idea becomes a whole personalised range.",
+    "titleHtml": "A is for <span class='hl'>Achaar</span>.",
+    "lead": "One decal program, twenty-six gifts. Each piece wears its own initial — A on the achaar jar, B on the bowl, C on the cup, M on the mug — and a single idea becomes a whole personalised range.",
     "heroLetters": ["A", "B", "C", "M"],
     "tiles": [
-      { "l": "A", "w": "Aamara" }, { "l": "B", "w": "Bowl" }, { "l": "C", "w": "Cup" }, { "l": "D", "w": "Dish" },
+      { "l": "A", "w": "Achaar jar" }, { "l": "B", "w": "Bowl" }, { "l": "C", "w": "Cup" }, { "l": "D", "w": "Dish" },
       { "l": "E", "w": "Ewer" }, { "l": "F", "w": "Flask" }, { "l": "G", "w": "Goblet" }, { "l": "H", "w": "Handi" },
       { "l": "I", "w": "Incense" }, { "l": "J", "w": "Jug" }, { "l": "K", "w": "Kadai" }, { "l": "L", "w": "Ladle" },
       { "l": "M", "w": "Mug" }, { "l": "N", "w": "Napkin ring" }, { "l": "O", "w": "Oil pot" }, { "l": "P", "w": "Platter" },
@@ -86,7 +86,7 @@
       { "l": "U", "w": "Urn" }, { "l": "V", "w": "Vase" }, { "l": "W", "w": "Water jug" }, { "l": "X", "w": "Mark" },
       { "l": "Y", "w": "Yogurt pot" }, { "l": "Z", "w": "Zafran box" }
     ],
-    "note": "Highlighted letters are the launch four — A for Aamara, B, C and M — the set that ships this Diwali. The rest roll out as the range grows."
+    "note": "Highlighted letters are the launch four — Achaar jar, Bowl, Cup and Mug — the set that ships this Diwali. The rest roll out as the range grows."
   },
   "human": {
     "chapter": "The Moat",
