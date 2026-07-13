@@ -1,0 +1,109 @@
+{
+  "meta": { "num": "02", "slug": "gaming", "title": "Press Start — Playable Case Study", "hubName": "Premium Gaming Centre", "hubTagline": "Build the one Mumbai venue that combines premium curation, multi-format breadth and a real CRM layer — inside the fastest-compounding entertainment market Grand View Research tracks anywhere.", "videoQuery": "esports gaming lounge" },
+  "hero": { "badge": "Aamara Capital · Business Idea 02 of 11", "titleHtml": "The Premium<br><em>Play</em>", "sub": "A playable walk-through of the Premium Gaming &amp; Social Experience Centre dossier. Same facts, same numbers — but you get to investigate, decide, and vote.", "startLabel": "Insert coin ↓" },
+  "opening": {
+    "kicker": "Chapter 1 · The Opening",
+    "titleHtml": "One idea, <span class='hl'>four numbers</span>.",
+    "lead": "No operator in Mumbai's premium format combines <em>multi-format breadth, equipment reliability and a real membership/CRM data layer</em> — and it sits inside the fastest-compounding entertainment category on record. That single gap is the whole thesis.",
+    "stats": [
+      { "to": 36.3, "suffix": "%", "dec": 1, "labelHtml": "<b>India LBE market CAGR</b> to 2030 — the highest Grand View Research forecasts for any country worldwide" },
+      { "to": 126, "prefix": "₹", "suffix": "cr", "labelHtml": "<b>Nazara's 2025 NCLT price for Smaaash</b> — strategic capital says the category is worth consolidating" },
+      { "to": 28, "prefix": "₹", "suffix": "cr", "labelHtml": "<b>Phased capital plan</b> across three milestone-gated tranches — EST., not a pre-committed rollout" },
+      { "to": 0, "suffix": "", "labelHtml": "<b>Operators combining premium curation, multi-format breadth &amp; a real CRM layer</b> — the whitespace, quantified" }
+    ]
+  },
+  "imgband": { "title": "Three flawed incumbents", "sub": "Smaaash carries a 2020 collapse and NCLT scar · Timezone is a redemption arcade with a service-reputation problem · Zero Latency is best-in-class VR but single-format. Nobody is premium, multi-format and reliable at once." },
+  "whitespace": {
+    "kicker": "Chapter 2 · The Whitespace",
+    "titleHtml": "Find the <span class='hl'>empty quadrant</span>.",
+    "lead": "Eight real operators, plotted. Hover any dot. Notice where <em>nobody</em> is: premium-priced <b>and</b> multi-format. That corner is what this business is built to own.",
+    "axisYtop": "Premium price →",
+    "axisXleft": "Single-format / arcade",
+    "axisXright": "Multi-format breadth →",
+    "gapLabelHtml": "The Gap →<br>premium &amp; multi-format",
+    "players": [
+      { "n": "Smaaash", "x": 0.72, "y": 0.44, "d": "45-store peak → 2020 NCLT collapse" },
+      { "n": "Timezone", "x": 0.46, "y": 0.34, "d": "redemption arcade, call-centre gripes" },
+      { "n": "Amoeba", "x": 0.52, "y": 0.28, "d": "~20 classic arcades, not premium" },
+      { "n": "Zero Latency", "x": 0.16, "y": 0.85, "d": "best-in-class VR, single-format only" },
+      { "n": "VR Gamezone", "x": 0.2, "y": 0.2, "d": "~₹300 ticket, no loyalty/CRM" },
+      { "n": "Another World", "x": 0.26, "y": 0.32, "d": "Mumbai VR club, small-format" },
+      { "n": "Hyperinfinite", "x": 0.18, "y": 0.24, "d": "low-capex single-location VR zone" },
+      { "n": "Mall bowling zones", "x": 0.55, "y": 0.5, "d": "leased-in tenant, not own IP" }
+    ],
+    "sidebarHtml": "<p class='note' style='margin:0 0 12px;'><b style='color:var(--gold)'>Reading the map.</b></p><p class='note' style='margin:0 0 10px;'><b style='color:#cfc7b6'>Smaaash</b> has the breadth but a battered balance sheet and a mass-arcade price. <b style='color:#cfc7b6'>Zero Latency</b> sits high on price but is pure single-format VR. <b style='color:#cfc7b6'>Timezone</b> and <b style='color:#cfc7b6'>Amoeba</b> anchor the redemption-arcade floor; independents cluster low on both axes.</p><p class='note' style='margin:0;'>The top-right — premium <em>and</em> multi-format — is uncontested. <em>That</em> is the investable idea.</p>"
+  },
+  "hook": {
+    "chapter": "The Cautionary Tale",
+    "kicker": "Chapter 3 · The Cautionary Tale",
+    "titleHtml": "What was <span class='hl'>fatal</span> — and what is a fortress?",
+    "lead": "This category has a real graveyard and a real moat, and the story of both is written on one company: Smaaash. <b>Click each case file</b> to see whether it's a killer or a defence — and watch the lesson flip.",
+    "statusInitialTail": "flip them all to separate the killers from the fortresses.",
+    "statusSolvedHtml": "<b>Case closed.</b> Smaaash didn't fail on demand — post-Nazara it grows <b>41% YoY</b>. It failed on capital structure. The moat isn't hardware anyone can buy; it's <em>duration and execution discipline</em> — a signed Grade-A lease, 12–24 months of CRM data, an uptime track record — all underwritten by a milestone-gated ₹28cr plan.",
+    "cases": [
+      { "name": "The 45-store sprint", "meta": "Smaaash · pre-2020", "clue": "“Scale first, prove later.”", "verdict": "fail", "det": "Smaaash scaled to <b>45+ centres on thin margins and long leases</b>, then a COVID footfall shock hit exactly as promised investor capital vanished — total shutdown Sept 2020, NCLT insolvency May 2022. A capital-structure failure, not a demand one." },
+      { "name": "The call-centre problem", "meta": "Timezone · service", "clue": "“Great scale, shame about the service.”", "verdict": "fail", "det": "Reviewers cite an <b>‘inefficient call centre’, no complaint follow-up and weekend overcrowding.</b> A redemption-arcade identity that quietly erodes the premium trust a curated venue is built on." },
+      { "name": "Equipment downtime", "meta": "The #1 complaint", "clue": "“The machine was out of order.”", "verdict": "fail", "det": "Downtime, double-charging and F&amp;B hygiene are the <b>single most-repeated complaint pattern</b> against Smaaash and Timezone — and a legacy chain on old hardware across dozens of sites can't retrofit an IoT uptime layer overnight." },
+      { "name": "Nazara's ₹126cr bet", "meta": "June 2025 · NCLT", "clue": "“Worth buying, even after a total collapse.”", "verdict": "real", "det": "Nazara paid <b>₹126 crore</b> (₹10cr equity + ₹116cr loan) for a company that had already collapsed — direct proof that accumulated brand and location value persists. Smaaash now runs 32 outlets / ₹158cr FY25 revenue at 41% growth." },
+      { "name": "The Grade-A lease", "meta": "Porter's most durable barrier", "clue": "“You can copy the headset, not the address.”", "verdict": "real", "det": "A signed multi-year lease in a scarce Grade-A mall (~<b>3.7% vacancy</b>) is named the single most durable entry barrier — more durable than equipment or brand. A copycat's fastest path is a materially worse location." },
+      { "name": "The CRM data layer", "meta": "The compounding asset", "clue": "“The format is copyable. The data isn't.”", "verdict": "real", "det": "<b>12–24 months of first-party behavioural data</b> — visit frequency, attraction preference, spend pattern — compounds with scale and can't be replicated by cloning the physical format. Timezone's tap card moves money but stores no personalisation." }
+    ]
+  },
+  "personas": {
+    "kicker": "Chapter 4 · The Buyers",
+    "titleHtml": "Four people who <span class='hl'>actually pay</span>.",
+    "lead": "Every persona has a trigger, an objection, and one thing that converts them. <b>Flip each card</b> to see what wins the sale.",
+    "items": [
+      { "name": "Ananya, 20", "role": "Gen-Z College Student · Bandra / Andheri", "trig": "A weekend friend-group outing (6–10 people); a gaming creator's Reel; the pull of an Instagrammable, non-family-arcade vibe.", "obj": "Price-sensitive without a promo — “why pay premium when the arcade is cheaper?” — and 72% of her cohort take where-to-go cues from creators, not ads.", "conv": "A student membership tier + friend-group referral rewards + college tie-up promotions that make the premium venue the default cool spot." },
+      { "name": "Rohan, 35", "role": "Corporate HR / Offsite Planner · BKC / Lower Parel / Powai", "trig": "A quarterly/annual team event for 20–100 people; a mandate to run something better than a generic resort offsite.", "obj": "Needs venue exclusivity, reliable AV/hosting, F&amp;B packages and simple single-invoice GST billing — today most demand funnels to resorts via Hire4Event/SOSParty.", "conv": "A corporate account manager, volume pricing and off-peak weekday slots — ‘no travel, more variety, better ROI per rupee’ than an outstation offsite." },
+      { "name": "Meera, 38", "role": "Birthday-Party Parent · Mumbai Suburbs", "trig": "A child's birthday for 10–25 kids; wants a ‘premium but not overwhelming’ alternative to mass-market arcades.", "obj": "Anxious about VR/simulator safety, F&amp;B hygiene and hassle — a premium venue is judged more harshly on a slip than a cheap one.", "conv": "Hosted, safety-first party packages + hygienic F&amp;B + a birthday-club loyalty program that keeps the family returning as the child ages through attractions." },
+      { "name": "Karan &amp; Priya, 28", "role": "Young-Professional Couple · Thane / Navi Mumbai", "trig": "A weekend date-night or friend-group (4–8) activity; values novelty and a bar/F&amp;B-forward social-lounge feel.", "obj": "Novelty fatigue — will it still be worth it on the fourth visit? — and a wariness of overwhelming, kid-heavy arcades.", "conv": "A lifestyle-subscription membership + a rotating content calendar (new VR titles, seasonal sim-racing tournaments, esports nights) that keeps the novelty alive." }
+    ]
+  },
+  "tycoon": {
+    "kicker": "Chapter 5 · Build the Business",
+    "titleHtml": "Now <span class='hl'>you</span> run it.",
+    "lead": "Four real decisions from the dossier. Each has a right answer the diligence already argues for. Pick — then see what the evidence says.",
+    "decisions": [
+      { "q": "1 · How do you sequence the capital?", "ctx": "₹28cr EST. is available. Do you commit it to a rollout, or earn it?", "opts": [ { "t": "Pre-commit a multi-site rollout to move fast", "good": false, "fb": "That is precisely Smaaash's pre-2020 arithmetic — 45+ stores committed ahead of unit-economics proof, then a footfall shock with no buffer. Overexpansion is the documented failure mode, not the growth strategy." }, { "t": "One company-owned flagship first, milestone-gated tranches", "good": true, "fb": "Correct. A single flagship proves the playbook; the ₹10cr Phase-2 and ₹9cr Phase-3 tranches release only after break-even run-rate — the structural answer to Smaaash's collapse." } ] },
+      { "q": "2 · What format do you build?", "ctx": "Zero Latency proves premium VR works. Do you copy it, or go wider?", "opts": [ { "t": "A single-format premium VR arena — proven and focused", "good": false, "fb": "Single-format caps occasions per visit and repeat frequency, and leaves you exposed to VR novelty fatigue — the exact ceiling Zero Latency hits with one group, one genre, per arena." }, { "t": "Multi-format: VR + sim-racing + console pods + party + esports", "good": true, "fb": "Correct. Breadth captures more occasions per visit and more repeat frequency, and is a design choice a pure-VR licensee can't make without renegotiating its whole ~15% revenue-share licence." } ] },
+      { "q": "3 · How do you negotiate the lease?", "ctx": "Mumbai Grade-A rent is rising 15–20% YoY and is 55–60% of opex.", "opts": [ { "t": "Lock a flat per-sq-ft rent for certainty", "good": false, "fb": "Flat rent leaves you fully exposed to 15–20% annual escalation and offers no cushion in slow months — the margin compression that punishes a fixed-cost-heavy model." }, { "t": "A revenue-share / minimum-guarantee-plus-overage structure", "good": true, "fb": "Correct. Common for large-format anchors, it hedges escalation and lowers effective rent in slow months — and landlords in a ~3.7%-vacancy market actively want a differentiated anchor, so you have leverage." } ] },
+      { "q": "4 · How do you fill weekday off-peak?", "ctx": "Walk-in traffic clusters on weekends. Weekdays sit empty.", "opts": [ { "t": "Discount walk-in day-passes to pull midweek crowds", "good": false, "fb": "Deal-dependent discounting is Smaaash's ₹799-promo pattern — it trains customers to wait for offers and erodes the premium position you're being paid for." }, { "t": "Sell corporate offsites / team-building into the off-peak slots", "good": true, "fb": "Correct. Corporate demand is large, under-served by gaming venues, high-margin — and it fills exactly the weekday slots walk-in traffic doesn't, solving utilisation and revenue at once." } ] }
+    ]
+  },
+  "human": {
+    "chapter": "The Human Number",
+    "kicker": "Chapter 6 · The Human Number",
+    "titleHtml": "The number that <span class='hl'>shut the doors</span>.",
+    "lead": "At its 2019 peak Smaaash ran 45+ centres and put roughly <em>5 million people a year</em> through its doors. In September 2020 a footfall shock met a fragile balance sheet — and every one of those doors closed. This is the most human number in the deck, and the whole plan is built to never print it.",
+    "rows": [
+      { "label": "Smaaash — 2019 peak", "value": "45+ centres · ~5M annual footfalls", "w": 95, "cls": "wb-high", "barText": "45+" },
+      { "label": "Smaaash — September 2020", "value": "0 — shut down entirely", "w": 4, "cls": "wb-low", "barText": "0" }
+    ],
+    "note": "The lesson isn't that demand failed — post-Nazara, Smaaash grows 41% YoY on the same demand base. It's that an over-leveraged, over-expanded structure couldn't absorb a shock. A family office funding a milestone-gated ₹28cr plan — releasing each tranche only after break-even, with no pressure to over-expand for a fundraising narrative — is the ownership profile least likely to ever close those doors."
+  },
+  "quiz": {
+    "kicker": "Chapter 7 · The Investment Committee",
+    "titleHtml": "Did it <span class='hl'>stick</span>?",
+    "lead": "Five questions. Then you cast the vote you'd cast in the room.",
+    "items": [
+      { "q": "What makes the growth story credible?", "opts": ["Gaming is a brand-new activity in India", "India's LBE market is compounding at 36.3% CAGR to 2030 — the highest Grand View Research forecasts for any country", "The government subsidises gaming venues", "There are no competitors at all"], "a": 1, "e": "GVR forecasts India's location-based entertainment market at a 36.3% CAGR through 2030 — the fastest of any single country worldwide, from ~US$0.2bn (2026) to US$2.41bn by 2030." },
+      { "q": "Why did Smaaash actually collapse in 2020?", "opts": ["Nobody wanted to play any more", "A capital-structure failure — 45+ stores on thin margins and long leases, hit by a footfall shock as promised capital vanished", "The government banned arcades", "A competitor bought all its locations"], "a": 1, "e": "It was a capital-structure failure, not a demand failure — post-Nazara relaunch it grows 41% YoY on essentially the same demand base. Overexpansion plus a COVID footfall shock with no buffer is what closed it." },
+      { "q": "How is this venue taxed, and why does the distinction matter?", "opts": ["28–40% GST, same as fantasy gaming", "18% GST as offline amusement — legally and fiscally distinct from the 28–40% real-money online-gaming regime", "It is tax-exempt", "40% GST under the 2025 online-gaming Act"], "a": 1, "e": "Offline, skill-based amusement admissions carry 18% GST (cut from 28% in 2018) — separate from the 28–40% regime and 2025 ban on real-money online gaming. The residual risk is perception, not actual regulatory exposure." },
+      { "q": "What does the dossier name as the single most durable moat?", "opts": ["Owning the best VR headsets", "A signed multi-year lease in a scarce Grade-A mall — more durable than equipment or brand", "A celebrity brand ambassador", "The lowest prices in the market"], "a": 1, "e": "Porter's analysis names prime Grade-A/A+ mall real-estate lock-in (~3.7% vacancy) as the most durable barrier. Hardware is copyable; a signed flagship lease, accumulated CRM data and an uptime track record are not." },
+      { "q": "Why should a family office — not a VC — own this?", "opts": ["Gaming has guaranteed returns", "Because milestone-gated patient capital, releasing tranches only after break-even, is the ownership profile least likely to repeat Smaaash's overexpansion failure", "It is a tax shelter", "Because the hardware is free"], "a": 1, "e": "The category punishes short-term, externally-financed structures under footfall stress. Patient family-office capital with no pressure to over-expand for a fundraising narrative is best positioned to hold through the 18–24 month ramp." }
+    ]
+  },
+  "vote": {
+    "prompt": "You've seen the whitespace, the cautionary tale, the personas, the unit economics and the human number. What's your call?",
+    "yesLabel": "Back it — open the flagship",
+    "noLabel": "Pass — capex-heavy &amp; footfall-fragile",
+    "yesMsg": "<b>Backed.</b> Your Phase-1 first move (per the Action Plan): inside the first 30 days, open landlord conversations with 5–6 Grade-A Mumbai malls (Phoenix Palladium, Jio World Drive, Infiniti, Inorbit, Oberoi), retain licensing counsel on the Section 33/394 sequence, demo three FEC-SaaS vendors (ROLLER, CenterEdge, Clubspeed), and lock the financial model against real landlord quotes. Milestone-gated ₹28cr EST., patient family-office capital.",
+    "noMsg": "<b>Passed — and defensibly so.</b> The dossier concedes the variance: the market size is a self-constructed bottom-up TAM with no published ‘premium social gaming lounge’ figure; ₹6–9cr EST. capex faces a 3–5 year payback and an 18–24 month ramp; Grade-A rent is inflating 15–20% YoY; and the category's own cautionary tale, Smaaash, proves how fast a footfall shock can evaporate margins in a fixed-cost-heavy structure."
+  },
+  "footer": {
+    "note1": "This playable walk-through is a companion to the full institutional dossier — it simplifies for engagement and never overrides the source document.",
+    "note2": "Every number here is drawn verbatim from the dossier, including its <b>EST.</b> flags and unverified-source caveats.",
+    "videoCredit": "Video: Pexels (free/commercial licence)."
+  }
+}

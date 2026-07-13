@@ -1,0 +1,111 @@
+{
+  "meta": { "num": "10", "slug": "digitaltwin", "title": "The Compliance Twin — Playable Case", "hubName": "Building Digital Twin", "hubTagline": "A walkable 3D twin of every building sounds like a government mandate. The honest business is an owner-funded compliance twin riding the fire-NOC renewal.", "dossierLabel": "Open the brief ↗", "thumbStyle": "background:radial-gradient(ellipse at 30% 20%,rgba(169,120,47,0.35),transparent 60%),linear-gradient(150deg,#141310,#2a2016);", "thumbGlyph": "◫", "fresh": "New" },
+  "hero": { "badge": "Aamara Capital · Business Idea 10 of 11 · New", "titleHtml": "The Digital<br><em>Twin</em>", "sub": "The idea: every premises carries a navigable 3D twin the government can inspect for safety. Pressure-test whether that model holds — then find the version that does.", "startLabel": "Scan it ↓",
+    "stageHtml": "<div class='stage-wrap'><div class='stage-ring2'></div><div class='stage-ring'></div><svg class='twin-svg' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Wireframe building being scanned'><polygon class='face' points='60,60 130,60 160,42 90,42'/><polygon class='face' points='130,150 130,60 160,42 160,132'/><polygon class='face' points='60,150 130,150 130,60 60,60'/><path class='edge' d='M60,150 L130,150 L130,60 L60,60 Z'/><path class='edge' d='M60,60 L90,42 L160,42 L130,60'/><path class='edge soft' d='M130,150 L160,132 L160,42'/><line class='edge soft' x1='60' y1='120' x2='130' y2='120'/><line class='edge soft' x1='60' y1='90' x2='130' y2='90'/><line class='edge soft' x1='130' y1='120' x2='160' y2='102'/><line class='edge soft' x1='130' y1='90' x2='160' y2='72'/><circle class='node' cx='60' cy='150' r='2.6'/><circle class='node' cx='130' cy='150' r='2.6'/><circle class='node' cx='130' cy='60' r='2.6'/><circle class='node' cx='60' cy='60' r='2.6'/><circle class='node' cx='90' cy='42' r='2.6'/><circle class='node' cx='160' cy='42' r='2.6'/><circle class='node' cx='160' cy='132' r='2.6'/><g class='twin-scanline'><line x1='52' y1='150' x2='168' y2='132' stroke='#a9782f' stroke-width='2.4' opacity='0.9'/></g></svg></div>" },
+  "opening": {
+    "kicker": "Chapter 1 · The Opening",
+    "titleHtml": "One idea, <span class='hl'>four numbers</span>.",
+    "lead": "A twin of every building, inspectable for safety, is a genuinely big idea — and pieces of it are already real. The numbers frame both the promise and the wall.",
+    "stats": [
+      { "to": 73, "prefix": "S$", "suffix": "M", "labelHtml": "<b>Virtual Singapore</b> — the first whole-nation digital twin, completed 2022. Proof the top end is possible" },
+      { "to": 2035, "suffix": "", "labelHtml": "<b>India's target year</b> for a National Digital Twin of major cities (National Geospatial Policy 2022)" },
+      { "to": 330, "suffix": "M", "labelHtml": "<b>Structures in India</b> — the scale a “twin everything” mandate would have to physically cover" },
+      { "to": 155, "prefix": "₹", "suffix": "cr", "labelHtml": "<b>Genesys's Mumbai city-twin</b> contract with the BMC — but for the <em>exterior</em> layer, not every interior" }
+    ]
+  },
+  "imgband": { "title": "The mandate is a mirage. The wedge is real.", "sub": "No government on earth has compelled a walkable twin of every existing building. But a compliance twin the owner already pays for, every year — that lines up.", "style": "background:radial-gradient(ellipse at 25% 15%,rgba(169,120,47,0.28),transparent 60%),linear-gradient(140deg,#0c0b0a,#241a10)" },
+  "whitespace": {
+    "kicker": "Chapter 2 · The Map",
+    "titleHtml": "Where twins <span class='hl'>actually get funded</span>.",
+    "lead": "Every real precedent and model, plotted by who pays and whether it ever gets funded. Hover any dot. The pitched version sits alone in the bottom-left; the fundable one is top-right.",
+    "axisYtop": "Actually gets funded →",
+    "axisXleft": "Taxpayer pays",
+    "axisXright": "Owner pays →",
+    "gapLabelHtml": "The wedge →<br>owner-funded compliance twin",
+    "players": [
+      { "n": "“Twin every premises” (the pitch)", "x": 0.15, "y": 0.12, "d": "taxpayer-funded, nationwide — never funded anywhere" },
+      { "n": "Virtual Singapore", "x": 0.18, "y": 0.85, "d": "S$73M state-funded — but access-restricted" },
+      { "n": "Genesys city twin (Mumbai)", "x": 0.32, "y": 0.7, "d": "₹155cr municipal — city exterior only" },
+      { "n": "CPWD BIM (India)", "x": 0.46, "y": 0.55, "d": "new govt projects, procurement-driven" },
+      { "n": "UK BIM mandate 2016", "x": 0.55, "y": 0.72, "d": "new public builds, procurement leverage" },
+      { "n": "Dubai 3D-BIM permit 2024", "x": 0.8, "y": 0.82, "d": "owner pays, condition of permit — it works" },
+      { "n": "Matterport tour", "x": 0.85, "y": 0.34, "d": "owner pays, but no compliance value" },
+      { "n": "Compliance twin", "x": 0.88, "y": 0.86, "d": "You are here — owner pays, fire-NOC-triggered, insurer-backed", "mine": true }
+    ],
+    "sidebarHtml": "<p class='note' style='margin:0 0 12px;'><b style='color:var(--gold)'>Reading the map.</b></p><p class='note' style='margin:0 0 10px;'>Every mandate that <em>worked</em> — UK, Dubai, CPWD — rides a <b style='color:#cfc7b6'>permit or procurement</b> moment on <b style='color:#cfc7b6'>new</b> construction, with the <b style='color:#cfc7b6'>owner</b> paying.</p><p class='note' style='margin:0;'>The pitch — taxpayer funds a twin of everything — is the one corner that never gets funded. The wedge is the opposite corner.</p>"
+  },
+  "hook": {
+    "chapter": "The Challenges",
+    "kicker": "Chapter 3 · The Challenges",
+    "titleHtml": "Pressure-test the <span class='hl'>hard parts</span>.",
+    "lead": "Mridul flagged two problems; diligence found four. <b>Flip each card</b> — four break the naive model, one is the version that survives.",
+    "statusInitialTail": "flip all five to see what's left standing.",
+    "statusSolvedHtml": "<b>Verdict in.</b> “Twin everything, government pays” collapses on cost, coverage, incentives and privacy. What survives is a <em>regulation-triggered, owner-funded compliance twin</em> for the formal, high-occupancy stock — the one version where payer, beneficiary and mandate finally line up.",
+    "cases": [
+      { "name": "Existing buildings", "meta": "Mridul's flag #2", "clue": "“New builds can comply. Old ones can't.”", "verdict": "fail", "tag": "Breaks the mandate", "det": "New buildings bake a twin in at design (BIM). Existing ones must be <b>scanned room by room</b> — 330M structures, occupied, private, no as-built drawings, and <b>~70% of the cost is human modelling</b> that doesn't fall with cheaper hardware." },
+      { "name": "Illegal & informal stock", "meta": "The fatal one", "clue": "“The riskiest buildings resist most.”", "verdict": "fail", "tag": "Actively hostile", "det": "<b>12–20M urban households</b> live in unauthorised housing. Owners of the highest-risk stock have a <em>negative</em> incentive to be documented — a twin exposes non-compliance, inviting penalty. Coverage of the very buildings most at risk is impossible." },
+      { "name": "Who pays", "meta": "Mridul's flag #1", "clue": "“Government pays for all of it.”", "verdict": "fail", "tag": "Payer ≠ beneficiary", "det": "Single-payer government = budget cycles, slow procurement, political turnover — the UK's national-twin programme <b>closed after 5 years</b>. And the recurring value (facilities, insurance) accrues to <em>private owners</em>, not the state." },
+      { "name": "Privacy & security", "meta": "Found in diligence", "clue": "“A walkable map of everywhere.”", "verdict": "fail", "tag": "Surveillance-grade", "det": "An interior twin of every premises is a surveillance dataset. Virtual Singapore is <b>access-restricted</b> for exactly this reason; post-DPDP Act 2023, mass interior capture is a civil-liberties flashpoint in India." },
+      { "name": "The Fire-NOC renewal", "meta": "The wedge", "clue": "“A fee they already pay every year.”", "verdict": "real", "tag": "The version that works", "det": "Malls, hospitals and high-rises <b>renew a Fire NOC periodically</b> and pay consultants each cycle. Attach a scan-to-BIM compliance twin to that <em>existing recurring payment</em>: auto-checks NBC code, gives the fire dept a pre-incident 3D, becomes the FM system-of-record, earns an insurer discount. Government recognises it; the owner pays." }
+    ]
+  },
+  "personas": {
+    "kicker": "Chapter 4 · The Buyers",
+    "titleHtml": "Who <span class='hl'>actually pays</span> for a twin.",
+    "lead": "A pure government-pays model fights gravity. These four don't. <b>Flip each card.</b>",
+    "items": [
+      { "name": "The Mall / Hospital Owner", "role": "High-occupancy building · the payer", "trig": "The annual Fire-NOC re-inspection and a facilities-management headache that never ends.", "obj": "“I already pay consultants — why another line item?”", "conv": "One twin that clears compliance, runs FM as the system-of-record, and cuts the insurance premium — replacing spend, not adding it." },
+      { "name": "The Fire Department", "role": "Municipal safety · the recogniser", "trig": "Wants a pre-incident 3D model and validated evacuation routes before crews go in.", "obj": "No budget to buy or build models.", "conv": "Owner-funded — the department simply <b>recognises the twin</b> as the compliance artefact. Regulation, not procurement." },
+      { "name": "The Insurer", "role": "Risk pricing · the sweetener", "trig": "A verified compliance twin is a better underwriting input than a paper certificate.", "obj": "Needs the data to be trustworthy and current.", "conv": "Twin-verified compliance → risk-based premium discount → owner ROI that doesn't depend on any government budget." },
+      { "name": "The Developer", "role": "New large projects · the easy win", "trig": "CPWD / Dubai-style BIM mandates already require a model at design.", "obj": "Doesn't want extra cost for a twin.", "conv": "Bake the twin in at design — <b>zero marginal scan cost</b>, clean as-built data, and a reference win to sell the existing-building version." }
+    ]
+  },
+  "tycoon": {
+    "kicker": "Chapter 5 · The Operating Calls",
+    "titleHtml": "Now <span class='hl'>you</span> scope it.",
+    "lead": "Four calls that separate the mirage from the business. Pick — then see the diligence.",
+    "decisions": [
+      { "q": "1 · Which buildings first?", "ctx": "Where does coverage actually start?", "opts": [ { "t": "Every home and shop, nationwide", "good": false, "fb": "That's the mirage — 330M structures, mostly occupied and private, most cost being irreducible manual modelling. It never gets funded or finished." }, { "t": "Formal high-occupancy stock — malls, hospitals, high-rises", "good": true, "fb": "Correct. A single-digit % of buildings by count but a large share of risk and value — and the segment that already carries compliance obligations." } ] },
+      { "q": "2 · Who pays for the twin?", "ctx": "The load-bearing question.", "opts": [ { "t": "The government, per building", "good": false, "fb": "Single-payer fragility: budget cycles, procurement, turnover. The UK's national-twin programme was cut after 5 years." }, { "t": "The owner, at a moment they already spend", "good": true, "fb": "Correct — the Dubai template. The owner captures the FM + insurance value, so the owner funds the capture. Incentives line up." } ] },
+      { "q": "3 · What triggers the sale?", "ctx": "You need a moment someone already pays for.", "opts": [ { "t": "A new national law mandating twins", "good": false, "fb": "It won't come soon, and waiting for legislation is not a business plan." }, { "t": "The recurring Fire-NOC renewal they already do", "good": true, "fb": "Correct. Attach the twin to a payment that already recurs — the owner is already hiring consultants and re-inspecting. You replace that spend with something better." } ] },
+      { "q": "4 · New vs existing capture?", "ctx": "How do you build coverage without the cost wall?", "opts": [ { "t": "Scan all existing stock first", "good": false, "fb": "That's the cost wall — every existing building is a bespoke field job with no as-built data to lean on." }, { "t": "Bake into new large projects; scan only willing formal existing", "good": true, "fb": "Correct. New builds via existing BIM mandates cost nothing extra; existing builds only where the owner has a live compliance reason to pay." } ] }
+    ]
+  },
+  "human": {
+    "chapter": "The Money",
+    "kicker": "Chapter 6 · The Money",
+    "titleHtml": "A mandate no one funds vs a fee <span class='hl'>owners already pay</span>.",
+    "lead": "The whole business turns on this one comparison. One bar is a wish; the other is money already changing hands, every year, that we can attach to.",
+    "rows": [
+      { "label": "“Twin everything” mandate — taxpayer-funded", "value": "≈ never funded", "w": 12, "cls": "wb-low", "barText": "wish" },
+      { "label": "Compliance twin — owner pays, every renewal", "value": "recurring", "w": 90, "cls": "wb-high", "barText": "real money" }
+    ],
+    "note": "Owners of malls, hospitals and high-rises already pay consultants and re-inspection fees every Fire-NOC cycle. The twin doesn't ask for a new budget — it upgrades a budget that already recurs, and adds an insurer discount on top. <b>EST.</b>",
+    "mediaHtml": "<div class='wage-img' style='background:radial-gradient(ellipse at 30% 20%,rgba(169,120,47,0.3),transparent 60%),linear-gradient(160deg,#141310,#241a10);display:flex;align-items:center;justify-content:center;text-align:center;padding:26px;'><div style='color:#f0ece2;'><div style='font-family:\"Cormorant Garamond\",serif;font-size:2.4rem;color:var(--gold-2);line-height:1.1;'>Recognise,<br>don't pay.</div><div style='font-size:.82rem;margin-top:12px;line-height:1.5;'>The government's role is to <b style=\"color:#fff;\">recognise</b> the twin as the compliance artefact — like Dubai. The owner funds it because the owner keeps the value.</div></div></div>"
+  },
+  "quiz": {
+    "kicker": "Chapter 7 · The Check",
+    "titleHtml": "Did the <span class='hl'>honesty</span> land?",
+    "lead": "Five questions — this one's about seeing the idea clearly, flaws and all.",
+    "items": [
+      { "q": "Why does “twin every existing building” break?", "opts": ["Scanners are too expensive", "330M occupied/private structures, ~70% cost is manual modelling, and illegal-stock owners resist", "There's no software for it", "Buildings move too much"], "a": 1, "e": "New builds can bake in a twin; existing occupied stock must be scanned bespoke, and the highest-risk illegal stock is actively hostile to being documented." },
+      { "q": "The strongest real precedent of a funded national twin?", "opts": ["A US city app", "Virtual Singapore — S$73M, done 2022, but access-restricted", "Google Maps", "The UK national twin, still running"], "a": 1, "e": "Virtual Singapore proves whole-nation feasibility — but its access is restricted for security, which undercuts a public “walk-through” app." },
+      { "q": "The pragmatic wedge to build first?", "opts": ["Scan every home", "An owner-funded compliance twin riding the Fire-NOC renewal", "A free public app", "Sell the data to advertisers"], "a": 1, "e": "Attach a scan-to-BIM compliance twin to the recurring Fire-NOC cycle for high-occupancy buildings: government recognises it, owner pays, insurer discounts it." },
+      { "q": "Why not “government pays”?", "opts": ["Governments are always broke", "Single-payer fragility, and the value accrues to private owners — the UK programme was cut after 5 years", "It's illegal", "Owners refuse free money"], "a": 1, "e": "One buyer means budget cycles and procurement risk; and the recurring FM/insurance value lands with private owners, so they should fund the capture." },
+      { "q": "Where do NEW buildings fit?", "opts": ["They don't", "Bake BIM in at design via existing CPWD/Dubai mandates — zero marginal scan cost", "Scan them after completion", "Only model the exterior"], "a": 1, "e": "New large projects already produce a model under BIM mandates — clean as-built data at no extra capture cost, and reference wins for the existing-building sale." }
+    ]
+  },
+  "vote": {
+    "prompt": "The grand mandate is a mirage; the compliance-twin wedge is real but leans on regulators, insurers and a mostly-manual scan cost. Your call.",
+    "yesLabel": "Probe the compliance-twin wedge",
+    "noLabel": "Park it — too government-dependent",
+    "yesMsg": "<b>Green-lit as a probe.</b> Phase 1: pick one building type (Mumbai malls or private hospitals), map the state Fire-NOC renewal cycle and its fees, partner a scan-to-BIM shop (or Genesys), and pilot <em>one</em> compliance twin that clears re-inspection and becomes the FM record. The test is simple: does the owner pay again next year?",
+    "noMsg": "<b>Defensible.</b> Even the wedge needs regulators to recognise the twin, insurers to price it, and a scan cost that's mostly manual labour. A legitimate pass until the Fire-NOC regime digitises further — this dossier never pretends otherwise."
+  },
+  "footer": {
+    "note1": "This playable walk-through is a candid pressure-test of the digital-twin idea — built to surface the challenges, not hide them, exactly as asked.",
+    "note2": "Figures marked <b>EST.</b> are estimates. Precedents (Virtual Singapore, Dubai, CPWD, Genesys) and challenges are drawn from primary and industry sources.",
+    "dossierLabel": "Open the full brief →",
+    "videoCredit": "Diagram built for Aamara Capital."
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "meta": { "num": "04", "slug": "pet-wellness", "title": "The Whole Pet — Playable Case Study", "hubName": "Premium Pet Wellness", "hubTagline": "Build India's first integrated premium pet-wellness brand — daycare, boarding, grooming &amp; vet-tech under one roof, Mumbai-first — in the white space no incumbent holds.", "videoQuery": "dog grooming salon" },
+  "hero": { "badge": "Aamara Capital · Business Idea 04 of 11", "titleHtml": "Under One<br><em>Roof</em>", "sub": "A playable walk-through of the Premium Pet Wellness dossier. Same facts, same numbers — but you get to investigate, decide, and vote.", "startLabel": "Fetch it ↓" },
+  "opening": {
+    "kicker": "Chapter 1 · The Opening",
+    "titleHtml": "One idea, <span class='hl'>four numbers</span>.",
+    "lead": "No competitor in India owns premium physical locations, boarding/daycare, integrated health-tech <em>and</em> a subscription model at the same time. That single gap is the whole thesis. Here is the shape of it.",
+    "stats": [
+      { "to": 42, "suffix": "M", "labelHtml": "<b>Pets in India</b> (2024) — the market this brand serves <b>(EST.)</b>" },
+      { "to": 33.6, "suffix": "%", "labelHtml": "<b>West India's share</b> of India's pet-food revenue — Mumbai over-indexes on premium pet spend" },
+      { "to": 12, "suffix": "", "labelHtml": "<b>Vetic clinics in Mumbai</b> — the closest rival, but clinic-only: no daycare, no boarding" },
+      { "to": 0, "suffix": "", "labelHtml": "<b>Competitors</b> combining premium locations + boarding/daycare + health-tech + subscription — the whitespace, quantified" }
+    ]
+  },
+  "imgband": { "title": "Three services, three strangers", "sub": "A neighbourhood groomer · an informal boarder found through a WhatsApp group · a vet clinic across town — with no shared record of vaccinations, allergies or visit history between any of them. The integrated middle is empty." },
+  "whitespace": {
+    "kicker": "Chapter 2 · The Whitespace",
+    "titleHtml": "Find the <span class='hl'>empty quadrant</span>.",
+    "lead": "Eight real competitors, plotted. Hover any dot. Notice where <em>nobody</em> is: premium &amp; experiential <b>and</b> full-stack integrated wellness. That corner is what this business is built to own.",
+    "axisYtop": "Premium &amp; experiential →",
+    "axisXleft": "Single-service / digital-only",
+    "axisXright": "Integrated wellness →",
+    "gapLabelHtml": "The Gap →<br>premium physical &amp; full-stack wellness",
+    "players": [
+      { "n": "HUFT", "x": 0.35, "y": 0.72, "d": "100+ stores, $75M; grooming is a counter, no health-tech, no boarding" },
+      { "n": "Supertails", "x": 0.42, "y": 0.15, "d": "+67% YoY, $63.8M; best tele-vet, zero physical locations" },
+      { "n": "Wiggles", "x": 0.6, "y": 0.4, "d": "₹21.7cr; validated subscription, weak Mumbai density" },
+      { "n": "DogSpot", "x": 0.2, "y": 0.2, "d": "18yrs content trust, Ratan Tata; never scaled to services" },
+      { "n": "Vetic", "x": 0.72, "y": 0.55, "d": "65 clinics, 12 in Mumbai; clinic-only, no daycare/boarding" },
+      { "n": "Pupstop", "x": 0.45, "y": 0.2, "d": "daycare ₹500-1,200/day; budget tier, no health records" },
+      { "n": "Petsfolio", "x": 0.3, "y": 0.15, "d": "claims 50,000+ clients; aggregator, inconsistent safety" },
+      { "n": "PetBacker / Purfurry", "x": 0.25, "y": 0.1, "d": "boarding ₹700-1,400/night; marketplace, weak premium trust" }
+    ],
+    "sidebarHtml": "<p class='note' style='margin:0 0 12px;'><b style='color:var(--gold)'>Reading the map.</b></p><p class='note' style='margin:0 0 10px;'><b style='color:#cfc7b6'>Supertails</b> owns the best tele-vet but has no physical footprint. <b style='color:#cfc7b6'>HUFT</b> sits high on brand yet bolts grooming onto a shop. <b style='color:#cfc7b6'>Vetic</b> is the only player near the corner — proving vet+grooming+app at 12-clinic Mumbai density — but it is built and positioned as a <em>clinic</em>, not a premium daycare/boarding home.</p><p class='note' style='margin:0;'>The top-right is uncontested. <em>That</em> is the investable idea.</p>"
+  },
+  "hook": {
+    "chapter": "The White-Space Mystery",
+    "kicker": "Chapter 3 · The White-Space Mystery",
+    "titleHtml": "Who actually <span class='hl'>owns the whole pet</span>?",
+    "lead": "Six competitors were profiled in depth. Each built one piece of the puzzle — brand, tele-health, subscription, or clinical density — and none of them combined all four. <b>Click each case file</b> to see what they cover, and where the real gap is.",
+    "statusInitialTail": "open them all to close the case.",
+    "statusSolvedHtml": "<b>Case closed.</b> HUFT owns brand, Supertails owns tele-vet, Wiggles proved subscription, Vetic proved vet+grooming+app at 12-clinic Mumbai density — but <b>not one of them</b> has built premium daycare/boarding + integrated health-tech + subscription together. Vetic comes closest, yet reads as a clinic. The whitespace is real — and still open.",
+    "cases": [
+      { "name": "HUFT", "meta": "Heads Up For Tails", "clue": "“India's strongest pet brand.”", "verdict": "fail", "tag": "Brand + retail", "det": "100+ stores, 80 grooming facilities, $75M raised (Sequoia/Peak XV, Verlinvest). But grooming is a <b>counter bolted onto a shop</b>, not a destination — and there is no health-record or tele-vet layer, no daycare, no boarding." },
+      { "name": "Supertails", "meta": "Digital-first", "clue": "“The best tele-vet in India.”", "verdict": "fail", "tag": "Tele-vet only", "det": "Best digital/tele-vet product in the category, growing <b>67% YoY</b> (₹64.6cr → ₹108.3cr), $63.8M raised. But <b>zero physical locations</b> — a customer who wants to drop a dog off for the day simply cannot use it." },
+      { "name": "Wiggles", "meta": "Subscription pioneer", "clue": "“Indians will pay a subscription.”", "verdict": "fail", "tag": "Subscription, no density", "det": "Proved five years ago that pet owners will pay for a subscription box + vet-on-call line. But at <b>₹21.7cr revenue</b> it has never achieved density anywhere — least of all Mumbai; it is Pune-rooted." },
+      { "name": "Vetic", "meta": "The closest read", "clue": "“Vet + grooming + app, at scale.”", "verdict": "fail", "tag": "Clinic-only", "det": "<b>65 clinics, 11 cities, 12 in Mumbai</b> — the strongest proof the hard part is fundable. But it is built and positioned as a <b>clinic chain</b>: no dedicated daycare or overnight boarding, functional rather than premium-experiential." },
+      { "name": "The whitespace", "meta": "What nobody holds", "clue": "“Combine all four.”", "verdict": "real", "tag": "The investable gap", "det": "<b>Premium physical locations + boarding/daycare + integrated health-tech + subscription — together.</b> Vetic's density, HUFT's polish, Wiggles' subscription, plus the boarding none of them built well. That combination is uncontested." }
+    ]
+  },
+  "personas": {
+    "kicker": "Chapter 4 · The Buyers",
+    "titleHtml": "Four people who <span class='hl'>actually pay</span>.",
+    "lead": "Every persona has a trigger, an objection, and one thing that converts them. <b>Flip each card</b> to see what wins the sale.",
+    "items": [
+      { "name": "Neha, 28–34", "role": "Working Professional · Daycare · Andheri/Powai/Bandra", "trig": "9–10 hour office-plus-commute days leave the dog alone; a guilt-driven search for trustworthy daytime care.", "obj": "Churns fast if a drop-off ever feels unsafe or the photo/video updates go quiet.", "conv": "Reliable daycare with photo/video proof of care + a flexible monthly membership (no per-day booking friction) + ideally an employer-subsidised wellness benefit." },
+      { "name": "The Malhotras", "role": "Affluent Family · Premium Breed · Bandra/Juhu/Powai", "trig": "Fragmented care today — grooming here, vet there, no single health record; anxious about breed-specific issues like hip dysplasia or skin conditions.", "obj": "Least price-sensitive of all, but demands genuine single-home integration, not a rebranded groomer.", "conv": "One trusted “wellness home” — grooming, vet visits, vaccination reminders, a digital health record and proactive AI-anomaly alerts. Top membership tier + retail upsell." },
+      { "name": "Rahul, 30–45", "role": "Frequent Traveller · Boarding · Consulting/Finance", "trig": "Repeatedly needs trustworthy overnight boarding on short notice, especially across the Diwali/Christmas peaks.", "obj": "Been burned by informal arrangements; worries about kennel cough and peak-season availability.", "conv": "Guaranteed peak availability + live webcam/photo updates + vet-on-call backup + a frequent-boarder loyalty discount. Best fit for prepaid “boarding credits.”" },
+      { "name": "Priya, 24–29", "role": "First-Time Pet Parent · Entry Tier", "trig": "Recently adopted her first pet (often a rescue/Indie dog or first cat); doesn't yet know what she doesn't know.", "obj": "Intimidated by traditional vet clinics; moderate income and a lower average ticket.", "conv": "An approachable, non-judgmental entry point — automatic vaccination reminders, an easy “is this normal?” tele-vet chat, affordable bundled guidance. High long-term value if “graduated” up; the key word-of-mouth persona." }
+    ]
+  },
+  "tycoon": {
+    "kicker": "Chapter 5 · Build the Business",
+    "titleHtml": "Now <span class='hl'>you</span> run it.",
+    "lead": "Four real decisions from the dossier. Each has a right answer the diligence already argues for. Pick — then see what the evidence says.",
+    "decisions": [
+      { "q": "1 · Where do you plant the flag?", "ctx": "This is a capital-intensive real-estate business. Choose your rollout.", "opts": [ { "t": "Open flagships city-wide, fast — grab the corridors before rivals do", "good": false, "fb": "Per-flagship capex of ₹84 lakh–₹1.7 crore against premium Mumbai rents makes an all-flagship land-grab the fastest route to overextension. Speed here is a liability, not a moat." }, { "t": "Pilot two flagships (Bandra/Khar + Powai), then hub-and-spoke", "good": true, "fb": "Correct. Prove unit economics over 12–18 months at 1–2 flagships, then scale via lower-capex ₹25–45 lakh satellites — mirroring Vetic's proven 12-clinic Mumbai pattern at a far better capex-to-revenue ratio." } ] },
+      { "q": "2 · How do you get the tele-vet layer?", "ctx": "Supertails has the best tele-vet product in India. Choose your path to that capability.", "opts": [ { "t": "Partner with or acquire Supertails for the tele-vet asset", "good": false, "fb": "A partnership doesn't solve your core gap (no physical locations), and an acquisition would import Supertails' documented login/OTP failures and payment-gateway issues open since May 2024 along with the asset." }, { "t": "Build your own telehealth, informed by Supertails' visible mistakes", "good": true, "fb": "Correct. Building the layer yourself — with uptime, payment-flow QA and OTP robustness as first-class requirements — is the lower-risk path to the same capability, since the app is the core retention moat." } ] },
+      { "q": "3 · How do you price the grooming?", "ctx": "Review-mining surfaced a HUFT customer hit with an undisclosed extra ₹2,000 on a “full haircut.” Choose your pricing model.", "opts": [ { "t": "Premium pricing with flexible add-on charges at the counter", "good": false, "fb": "That is exactly the documented trust-killer — the surprise ₹2,000 upcharge that damaged HUFT's own reviews. It converts a premium into a reputation problem." }, { "t": "Itemized, pre-committed, transparent quotes — no surprises", "good": true, "fb": "Correct. Radical pricing transparency directly answers the market's evidenced overcharge backlash and is a genuine, differentiated retention lever — not a nice-to-have." } ] },
+      { "q": "4 · How do you handle the GST ambiguity?", "ctx": "Grooming, boarding and daycare sit in a contested zone between nil-rated “animal husbandry services” and standard 18% GST.", "opts": [ { "t": "Assume the favourable nil-rate and price low to win share", "good": false, "fb": "A wrong classification carries retroactive liability. Betting the pricing on the optimistic reading is a tax exposure disguised as a discount." }, { "t": "Get a formal advance ruling; price at a conservative 18%", "good": true, "fb": "Correct. Commission a GST advance ruling before finalizing pricing, price assuming the conservative 18% treatment, and treat any favourable ruling as upside — not as the business case." } ] }
+    ]
+  },
+  "human": {
+    "chapter": "The Human Number",
+    "kicker": "Chapter 6 · The Human Number",
+    "titleHtml": "The most <span class='hl'>unprotected</span> pet in the room.",
+    "lead": "The moat isn't just an app — it's a health record. Pet insurance penetration in India is below 1%, versus 25%+ in the UK and 40%+ in Sweden. Most pet spend here is out-of-pocket, which forces families into cost-based medical decisions for an animal they treat as family.",
+    "rows": [
+      { "label": "Pet insurance — India today", "value": "< 1%", "w": 3, "cls": "wb-low", "barText": "<1%" },
+      { "label": "Pet insurance — United Kingdom", "value": "25%+", "w": 60, "cls": "wb-high", "barText": "25%+" },
+      { "label": "Pet insurance — Sweden", "value": "40%+", "w": 92, "cls": "wb-high", "barText": "40%+" }
+    ],
+    "note": "That sub-1% is inflecting — growing ~19–20% CAGR, with new entrants like Universal Sompo and Future Generali writing ~25,000 policies in a single quarter. A continuously-updated pet health record positions this chain as a future insurer-distribution partner — turning the data moat into real financial protection for a family's pet, not just a retention hook."
+  },
+  "quiz": {
+    "kicker": "Chapter 7 · The Investment Committee",
+    "titleHtml": "Did it <span class='hl'>stick</span>?",
+    "lead": "Five questions. Then you cast the vote you'd cast in the room.",
+    "items": [
+      { "q": "What makes the whitespace real?", "opts": ["Nobody has ever groomed a dog in Mumbai", "No competitor combines premium physical locations + boarding/daycare + integrated health-tech + subscription at once", "Pet ownership is illegal without a licence", "The government funds premium pet chains"], "a": 1, "e": "HUFT owns brand/retail, Supertails owns tele-vet, Wiggles proved subscription, Vetic proved vet+grooming+app density — but none of the four has combined all the pieces. That absence is the thesis." },
+      { "q": "Which competitor comes closest — and why does it stop short?", "opts": ["HUFT — because its grooming is a store counter", "Supertails — because it has zero physical locations", "Vetic — 65 clinics, 12 in Mumbai, but it is a clinic with no daycare/boarding", "DogSpot — because it never converted content to services"], "a": 2, "e": "Vetic is the single most important read: it proves vet+grooming+app is fundable at real Mumbai density, but it is positioned as a clinic — no dedicated daycare or overnight boarding, and a functional rather than premium-experiential brand." },
+      { "q": "What is the estimated Year-5 Mumbai revenue (SOM)?", "opts": ["₹4–8 crore/year (EST.)", "₹500 crore/year", "₹4–8 lakh/year", "₹100 crore in Year 1"], "a": 0, "e": "A deliberately conservative, bottom-up Mumbai SOM of roughly ₹4–8 crore/year by Year 5 (EST.) — built from the organized pet-services sub-segment, not the $25bn headline pet-economy number." },
+      { "q": "What is the single highest-severity risk the dossier names?", "opts": ["The Instagram algorithm changing", "A single animal-safety incident — injury, escape or a fight — carrying outsized, viral, brand-wide reputational risk", "Running out of grooming shampoo", "Too few competitors to benchmark against"], "a": 1, "e": "Animal safety/liability is treated as the top operational risk: one incident at any one location is socially viral and hits the whole brand — which is why intake screening, staff-to-animal ratios, CCTV and insurance are non-negotiable." },
+      { "q": "Why should Aamara run this rather than buy a proven pet business?", "opts": ["Because pet care has guaranteed returns", "Because the proven integrated version doesn't exist yet — the whitespace IS the opportunity, and the window closes if HUFT, Vetic or Supertails add the missing piece first", "Because animal care is tax-free", "Because vets work for free"], "a": 1, "e": "None of the funded players has combined the four pieces — but the gap won't stay open: HUFT could add an app, Vetic could add boarding, Supertails could open stores. Moving first, in Vetic's own proven Mumbai geography, is the argument for now." }
+    ]
+  },
+  "vote": {
+    "prompt": "You've seen the whitespace, the diligence on every incumbent, the personas, the unit economics and the human number. What's your call?",
+    "yesLabel": "Back it — pilot two flagships",
+    "noLabel": "Pass — too capital-intensive",
+    "yesMsg": "<b>Backed.</b> Your Phase-1 first move (per the Action Plan): commission a GST advance ruling before any pricing is finalized, shortlist 4–6 Bandra/Khar &amp; Powai sites for landlord LOIs, and scope the health-record app with a reliability requirement informed by Supertails' documented failures — all inside the first 30 days. Then prove unit economics at 1–2 flagships over 12–18 months before any wider Mumbai, Maharashtra and India rollout.",
+    "noMsg": "<b>Passed — and defensibly so.</b> The dossier agrees the variance is real: a capital-intensive real-estate model with 5–15% mature net margins, membership churn unproven at scale in India (Wiggles never disclosed its), a single animal-safety incident carrying viral brand-wide risk, and well-funded incumbents (HUFT $75M, Vetic's 65 clinics, Supertails +67% YoY) who could close the whitespace faster than a standing start. A pass here is a legitimate IC position."
+  },
+  "footer": {
+    "note1": "This playable walk-through is a companion to the full institutional dossier — it simplifies for engagement and never overrides the source document.",
+    "note2": "Every number here is drawn from the dossier, including its <b>EST.</b> flags and unverified-source caveats.",
+    "videoCredit": "Video: Pexels (free/commercial licence)."
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "meta": { "num": "09", "slug": "nri-property", "title": "The Absentee Owner — Playable Case Study", "hubName": "Second-Home &amp; NRI Property Management", "hubTagline": "The owner-first, fiduciary care service that keeps Mumbai, Alibaug and Goa second homes guest-ready — and monetises them only if you want. StayVista rents your villa; we protect it.", "videoQuery": "luxury villa keys" },
+  "hero": { "badge": "Aamara Capital · Business Idea 09 of 11", "titleHtml": "The Absentee<br><em>Owner</em>", "sub": "A playable walk-through of the Second-Home &amp; NRI Property Management dossier. Same facts, same numbers — but you get to investigate, decide, and vote.", "startLabel": "Open the door ↓" },
+  "opening": {
+    "kicker": "Chapter 1 · The Opening",
+    "titleHtml": "One conflict, <span class='hl'>one empty box</span>.",
+    "lead": "Every scaled operator a wealthy owner has heard of — StayVista, Lohono, SaffronStays — earns money <em>only when your home is let</em>. Their incentive is occupancy, not the care of your asset. Nobody sells the owner fiduciary care as the product. That single gap is the whole thesis.",
+    "stats": [
+      { "to": 63, "prefix": "", "suffix": "%", "labelHtml": "<b>of Indian buyers</b> now prefer real estate over stocks, gold &amp; FDs (ANAROCK H1 2025) — demand is real" },
+      { "to": 13.1, "prefix": "$", "suffix": "B", "labelHtml": "<b>NRI real-estate investment</b> in FY21; NRI share of purchases has climbed to ~18–20% and needs caring for" },
+      { "to": 0, "prefix": "", "suffix": "", "labelHtml": "<b>Owner-first fiduciary care operators</b> for premium coastal second homes — the whitespace, quantified" },
+      { "to": 130, "prefix": "~", "suffix": "", "labelHtml": "<b>Homes under management to break even</b> EST. — an asset-light threshold, reachable in the Mumbai + Alibaug cluster" }
+    ]
+  },
+  "imgband": { "title": "Three ways to leave your home behind", "sub": "Rental operators who earn only when it is let, on undisclosed 25–40% revenue-shares · informal caretakers, relatives and watchmen nobody is accountable to · inspection-only point solutions. The owner-first middle is empty." },
+  "whitespace": {
+    "kicker": "Chapter 2 · The Whitespace",
+    "titleHtml": "Find the <span class='hl'>empty quadrant</span>.",
+    "lead": "Ten real players, plotted. Hover any dot. Notice where <em>nobody</em> is: premium-priced <b>and</b> owner-first care — a retainer to protect the asset, not a cut of the rent. That corner is what this business is built to own.",
+    "axisYtop": "Premium / HNI focus →",
+    "axisXleft": "Rental-operator (occupancy-first)",
+    "axisXright": "Owner-first care →",
+    "gapLabelHtml": "The Gap →<br>premium &amp; owner-first care",
+    "players": [
+      { "n": "StayVista", "x": 0.2, "y": 0.72, "d": "30% commission; ~1,000 villas; occupancy-first" },
+      { "n": "Lohono / Isprava", "x": 0.16, "y": 0.95, "d": "$130M group; ultra-luxury rental mgmt, opaque terms" },
+      { "n": "SaffronStays", "x": 0.24, "y": 0.6, "d": "450+ villas; rental, profitable, commission opaque" },
+      { "n": "Elivaas / EkoStay", "x": 0.22, "y": 0.5, "d": "villa rental mgmt; ₹87cr Series B / ₹40cr bootstrapped" },
+      { "n": "NoBroker (NRI)", "x": 0.42, "y": 0.35, "d": "8–10% of rent; metro-flat-optimised, upsell-heavy" },
+      { "n": "Anarock / HDFC", "x": 0.44, "y": 0.55, "d": "10–12% / 7–9% of rent; metro long-let, not coastal" },
+      { "n": "NRIWAY", "x": 0.6, "y": 0.46, "d": "NRI helpdesk; quote-based, sub-scale" },
+      { "n": "HomeShikari", "x": 0.72, "y": 0.3, "d": "fixed ₹7.5k–13.5k/yr retainer, but 3 South cities, tenancy" },
+      { "n": "Informal caretakers", "x": 0.5, "y": 0.1, "d": "watchmen &amp; relatives; low-trust free default" },
+      { "n": "Settlin / Zippserv", "x": 0.56, "y": 0.24, "d": "inspection/diligence point solutions, not ongoing care" }
+    ],
+    "sidebarHtml": "<p class='note' style='margin:0 0 12px;'><b style='color:var(--gold)'>Reading the map.</b></p><p class='note' style='margin:0 0 10px;'>The funded, premium names — <b style='color:#cfc7b6'>StayVista</b>, <b style='color:#cfc7b6'>Lohono</b>, <b style='color:#cfc7b6'>SaffronStays</b> — all cluster bottom-left: high-end, but occupancy-first. <b style='color:#cfc7b6'>HomeShikari</b> is the only true fixed care retainer — but three South-India cities, tenancy-focused, sub-premium.</p><p class='note' style='margin:0;'>The top-right — premium <em>and</em> owner-first — is uncontested. <em>That</em> is the investable idea.</p>"
+  },
+  "hook": {
+    "chapter": "The Alignment Test",
+    "kicker": "Chapter 3 · The Alignment Test",
+    "titleHtml": "Who actually earns when your home sits <span class='hl'>safely empty</span>?",
+    "lead": "Every one of these looks like it manages your home. Diligence asks one question of each: do they make money protecting an asset that is <em>not</em> let? <b>Click each case file</b> to see the verdict — and watch the whitespace open up.",
+    "statusInitialTail": "open them all to close the case.",
+    "statusSolvedHtml": "<b>Case closed.</b> Every scaled, premium operator fails the alignment test — they earn only when your home is <em>let</em>. HomeShikari proves owners will pay a clean fixed retainer, but in the wrong cities and the wrong segment. The <b>owner-first, premium, coastal box is empty</b> — the whitespace is real.",
+    "cases": [
+      { "name": "StayVista", "meta": "The scale leader", "clue": "\"~1,000 villas — surely they protect the asset.\"", "verdict": "fail", "det": "Earns a <b>30% commission (70:30 split)</b> — money only when your home is <em>rented</em>. Occupancy-first, with documented double-booking and refund complaints, and loss-making. Aligned with bookings, not with your asset." },
+      { "name": "Lohono / Isprava", "meta": "The ultra-luxury name", "clue": "\"$130M group, trained teams, 200+ homes.\"", "verdict": "fail", "det": "A build-plus-rental model on an <b>undisclosed monthly revenue-share</b>. Premium and polished — but opaque, premium-only, and monetisation-first. It cannot sell a protect-the-asset retainer without fighting its own model." },
+      { "name": "Informal caretaker", "meta": "The free default", "clue": "\"The watchman and a cousin already live there.\"", "verdict": "fail", "det": "NoBroker's own words: prone to <b>\"poor maintenance, inadequate tenant screening, and a lack of regular updates,\"</b> with vacant homes exposed to unauthorised occupation and forged documentation. Free — and precisely the low-trust layer this business displaces." },
+      { "name": "NoBroker / Anarock", "meta": "The scaled managers", "clue": "\"Unicorn tech + HNI positioning.\"", "verdict": "fail", "det": "Charge <b>8–12% of rent</b> — metro-flat, long-let optimised. Their whole economics ride on the property being <em>tenanted</em>; a staffed coastal villa on a protect-first retainer is a different customer and a different ops muscle entirely." },
+      { "name": "HomeShikari", "meta": "The one clean retainer", "clue": "\"Looks like a tiny South-India product.\"", "verdict": "real", "det": "The single operator publishing a <b>fixed care retainer (₹7,499–13,499/yr)</b> — proof that owners will pay a transparent, occupancy-independent fee. But it is three South cities and tenancy-focused, not premium coastal second homes. It validates the model without filling the box." }
+    ]
+  },
+  "personas": {
+    "kicker": "Chapter 4 · The Buyers",
+    "titleHtml": "Four owners who <span class='hl'>can't be there</span>.",
+    "lead": "Every persona has a trigger, an objection, and one thing that converts them. <b>Flip each card</b> to see what wins the sale.",
+    "items": [
+      { "name": "Kabir Mehta, 45", "role": "The Weekend Baron · Mumbai HNI, Alibaug villa", "trig": "Handover of a new Alibaug villa he'll use 30–50 nights a year; the guilt and hassle of coordinating a ₹5.5–12 lakh staffing bill blind and remotely.", "obj": "\"Why pay a retainer when my caretaker and watchman already live on-site?\" — plus the quiet fear he's being robbed of things he'll never notice.", "conv": "Time-stamped photographic proof in the owner app + bonded, insured staff + optional rental upside on idle weekends without ever dealing with guests." },
+      { "name": "Priya Nair, 38", "role": "The Remote Landlord · NRI (US/Gulf), rented Mumbai flat", "trig": "Delayed rent, a fear of unauthorised subletting, and TDS/society confusion from eight time zones away.", "obj": "Already burned by informal caretakers who send no updates — skeptical that anyone managing remotely is truly accountable.", "conv": "Transparent app reporting, rent collected into her NRO account, and 31.2% TDS / FEMA / Lower-TDS (Form 13) compliance handled end-to-end." },
+      { "name": "Col. Deshpande, 67", "role": "The Retiree · Lonavala/Khandala home", "trig": "Health and travel now limit visits; monsoon damage anxiety; zero interest in ever renting to strangers.", "obj": "Budget-aware and wary of slick operators — he just wants reliable pure upkeep and a familiar point of contact.", "conv": "A standalone care-only retainer with no rental strings, a fixed relationship manager, security and monsoon-proofing — exactly the product the rental-first market refuses to sell him." },
+      { "name": "Neel Shah, 40", "role": "The Yield Investor · Goa holiday-let", "trig": "Bought purely for returns; wants maximum occupancy and clean, trustworthy payout statements.", "obj": "Will churn to whoever delivers RevPAR, and is suspicious of opaque revenue-shares after dealing with the rental operators.", "conv": "Demonstrable rental performance + a transparent 20–25% commission (below StayVista's 30%) + clean statements paid straight into his account." }
+    ]
+  },
+  "tycoon": {
+    "kicker": "Chapter 5 · Build the Business",
+    "titleHtml": "Now <span class='hl'>you</span> run it.",
+    "lead": "Four real decisions from the dossier. Each has a right answer the diligence already argues for. Pick — then see what the evidence says.",
+    "decisions": [
+      { "q": "1 · How do you earn your money?", "ctx": "The scaled players all take a cut of the rent. Choose your revenue model.", "opts": [ { "t": "Rental commission only — earn when the home is let", "good": false, "fb": "That's the StayVista/Lohono model — and its conflict of interest. Your incentive becomes occupancy, not care, and you have nothing to sell the ~third of owners who never want tenants. You'd be copying the box everyone already fills." }, { "t": "A recurring care retainer, with rental as an option", "good": true, "fb": "Correct. A retainer to <em>protect</em> the asset is the owner-first box competitors can't copy without cannibalising their own occupancy-based model — and it's the higher-margin, stickier product." } ] },
+      { "q": "2 · When do you add trust controls?", "ctx": "Bonded staff, insurance, IoT cameras and tamper-evident inventory all cost money up front.", "opts": [ { "t": "Add them later, once you have scale and cash", "good": false, "fb": "The single biggest risk is theft or staff misconduct at a client home — one incident destroys the trust the whole model is sold on. Deferring the controls is deferring the product itself." }, { "t": "Bonded staff, insurance &amp; IoT from day one", "good": true, "fb": "Correct. Trust is the product, so the controls are day-one, not a later add-on — and the app's photographic proof directly attacks the buyer's number-one fear." } ] },
+      { "q": "3 · Which market do you open first?", "ctx": "Goa has the highest rental yield; Mumbai + Alibaug is Aamara's home turf.", "opts": [ { "t": "Launch in Goa first — chase the highest yield", "good": false, "fb": "Goa has the highest ops complexity and thinnest labour market — entered only once the playbook is proven. Leading with it means learning the hardest lessons before you have any density." }, { "t": "Mumbai + Alibaug — density and home turf first", "good": true, "fb": "Correct. Highest density, shortest logistics loop, and Aamara's own network — prove the fiduciary model and reach cluster density before exporting the playbook to Lonavala, then Goa." } ] },
+      { "q": "4 · How do you handle NRI rent money?", "ctx": "An NRI client's rent must move under FEMA, with 31.2% TDS under Section 195.", "opts": [ { "t": "Touch the owner's rent directly to move fast", "good": false, "fb": "Mishandled TDS or repatriation triggers penalties on the owner — the exact trust-killer for an NRI. Never touch owner money without 15CA/CB compliance; speed here is a liability." }, { "t": "Route everything through a partner CA network, 15CA/CB", "good": true, "fb": "Correct. A CA partner network turns FEMA/TDS friction into the highest-value NRI add-on — collecting into NRO, filing Form 27Q, and securing a Lower-TDS certificate the owner would dread doing alone." } ] }
+    ]
+  },
+  "human": {
+    "chapter": "The Human Number",
+    "kicker": "Chapter 6 · The Human Number",
+    "titleHtml": "The most important <span class='hl'>₹</span> in the deck.",
+    "lead": "The moat isn't a feature — it's an incentive. A rental operator earns <em>nothing</em> from a home that sits safely empty; their living depends on renting it out. This business earns its living from exactly the opposite: keeping the asset protected whether it's ever let or not.",
+    "rows": [
+      { "label": "Rental operator's take when your home sits safely empty", "value": "₹0", "w": 6, "cls": "wb-low", "barText": "₹0" },
+      { "label": "Owner-first operator's retainer to protect that same home", "value": "₹1.8–4.2 L / yr EST.", "w": 90, "cls": "wb-high", "barText": "₹1.8–4.2L" }
+    ],
+    "note": "Roughly a third of the target market — retirees and private-use HNIs — will never rent, and they are the stickiest, highest-margin customers (~55–60% GM EST.). The retainer isn't just aligned pricing; it's the only ₹ that exists for the owner the rental-first market cannot serve at all."
+  },
+  "quiz": {
+    "kicker": "Chapter 7 · The Investment Committee",
+    "titleHtml": "Did it <span class='hl'>stick</span>?",
+    "lead": "Five questions. Then you cast the vote you'd cast in the room.",
+    "items": [
+      { "q": "What makes the whitespace real?", "opts": ["Nobody manages villas in India", "No owner-first, fiduciary, transparent full-care service exists for premium coastal second homes — the scaled players all earn only when your home is let", "The government banned rental operators", "Second homes are a brand-new asset class"], "a": 1, "e": "StayVista, Lohono and SaffronStays monetise via 25–40% revenue-shares and earn only on occupancy. HomeShikari is the only clean retainer — but three South cities, tenancy-focused. The owner-first premium box is empty." },
+      { "q": "Why do the rental operators fail the owner-first test?", "opts": ["They are too expensive", "Their occupancy-based revenue structurally conflicts with a protect-the-asset retainer — they'd have to fight their own incentive", "They don't have apps", "They only work with NRIs"], "a": 1, "e": "A true fiduciary retainer conflicts with pushing rentals; for StayVista or Lohono to offer it credibly they'd cannibalise their own occupancy-based model and brand. The positioning, not the feature, is the moat." },
+      { "q": "Roughly how many homes to break even?", "opts": ["~10 homes in month one", "~1,000 homes", "~100–130 homes under management EST.", "~5,000 homes"], "a": 2, "e": "At ~₹6–7 lakh blended gross revenue per home and ~40% margin against ~₹2.5–3 crore fixed overhead, break-even is ~100–130 homes EST. — reachable within the Mumbai + Alibaug cluster by Year 2–3." },
+      { "q": "What is the single biggest risk the dossier names?", "opts": ["Instagram algorithm changes", "Theft or staff misconduct at a client home — a trust the entire model is sold on, destroyable by one incident", "Too many competitors", "No demand for second homes"], "a": 1, "e": "The whole model is sold on trust, so one theft or misconduct event can destroy it — which is why bonded staff, insurance and IoT must be day-one, not a later add-on." },
+      { "q": "Why should Aamara — a family office — run this rather than buy a proven business?", "opts": ["Property management has guaranteed returns", "Because the owner-first version doesn't exist yet — the absence IS the opportunity, and Aamara's Mumbai HNI/NRI network plus local cluster density is the edge", "It's a tax shelter", "Local labour is free"], "a": 1, "e": "The trusted-advisor and NRI-network channels, plus density earned home by home, are relationship assets a funded competitor can't buy — but the lead compounds while incumbents decide, which is the argument to move now." }
+    ]
+  },
+  "vote": {
+    "prompt": "You've seen the whitespace, the alignment test, the personas, the unit economics and the human number. What's your call?",
+    "yesLabel": "Back it — proceed to Phase 1",
+    "noLabel": "Pass — too much trust risk",
+    "yesMsg": "<b>Backed.</b> Your Phase-1 first move (per the Action Plan): run 25–30 discovery interviews with Mumbai HNI Alibaug-villa owners and NRI flat owners through the Aamara / family-office network, lock the fiduciary positioning and retainer price points, and map the CRZ / legal diligence checklist — all inside the first 30 days. Asset-light, recurring, cluster-by-cluster capital.",
+    "noMsg": "<b>Passed — and defensibly so.</b> The dossier agrees the variance is real: a self-constructed, bottom-up TAM with no comparable that has raised institutional capital on the owner-first model, low switching costs early, thin coastal labour markets, and a business whose entire promise can be destroyed by a single theft or misconduct event. A pass here is a legitimate IC position — the case study never pretends otherwise."
+  },
+  "footer": {
+    "note1": "This playable walk-through is a companion to the full institutional dossier — it simplifies for engagement and never overrides the source document.",
+    "note2": "Every number here is drawn verbatim from the dossier, including its <b>EST.</b> flags and indicative / trade-press caveats.",
+    "videoCredit": "Video: Pexels (free/commercial licence)."
+  }
+}

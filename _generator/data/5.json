@@ -1,0 +1,111 @@
+{
+  "meta": { "num": "05", "slug": "cloud-kitchen", "title": "Kitchen-as-a-Service — Playable Case Study", "hubName": "Kitchen-as-a-Service", "hubTagline": "Shared, licensed, multi-tenant commercial kitchen hubs for Mumbai’s food entrepreneurs — compliance-as-a-service plus a firewalled cross-tenant demand-data product, built in the exact space three well-funded predecessors could not hold.", "videoQuery": "commercial kitchen chef" },
+  "hero": { "badge": "Aamara Capital · Business Idea 05 of 11", "titleHtml": "Kitchen-as-<br><em>a-Service</em>", "sub": "A playable walk-through of the Kitchen-as-a-Service dossier — the highest-risk idea in the set. Same facts, same numbers, same named graveyard. You get to investigate, decide, and vote.", "startLabel": "Fire it up ↓" },
+  "opening": {
+    "kicker": "Chapter 1 · The Opening",
+    "titleHtml": "One model. <span class='hl'>Four numbers.</span> Three ghosts.",
+    "lead": "Rent food entrepreneurs a fully-compliant kitchen ‘bay’ instead of making them build one. Simple — except the two best-funded operators on earth built exactly this and walked away. Here is the honest shape of it, risk first.",
+    "stats": [
+      { "to": 3, "prefix": "", "suffix": "", "labelHtml": "<b>Well-funded prior attempts</b> at this exact model — Swiggy Access, CloudKitchens &amp; Kitchen United — that built it and exited" },
+      { "to": 30, "prefix": "", "suffix": "%", "labelHtml": "<b>First-year shutdown rate</b> of Indian cloud kitchens (25–30%) — the category’s structural, un-engineerable risk" },
+      { "to": 100, "prefix": "", "suffix": "%", "labelHtml": "<b>Occupancy a single 20-station hub needs</b> just to break even — even at optimistic premium pricing. EST." },
+      { "to": 170, "prefix": "$", "suffix": "M", "labelHtml": "<b>National KaaS infrastructure-spend pool</b> — a modest $95–170M/yr. EST. The market is real, but narrow." }
+    ]
+  },
+  "imgband": { "title": "The wall every food entrepreneur hits", "sub": "A standalone compliant kitchen runs ₹55,000–75,000/month all-in. Zomato and Swiggy take 15–30% and hold 90%+ of orders. 25–30% of cloud kitchens shut within a year. The kitchen itself is the bottleneck — and, for three funded predecessors, the trap." },
+  "whitespace": {
+    "kicker": "Chapter 2 · The Whitespace",
+    "titleHtml": "Find the <span class='hl'>empty quadrant</span> — the one three exits couldn’t fill.",
+    "lead": "Ten real players, plotted — including the three that exited. Hover any dot. Notice the top-right: a <em>neutral</em> infrastructure host that actually offers a service &amp; data layer, not bare space. Nobody durably holds it. That corner is the whole thesis — and its whole risk.",
+    "axisYtop": "Neutral infrastructure host →",
+    "axisXleft": "Bare space (‘rent the box’)",
+    "axisXright": "Service + data layer →",
+    "gapLabelHtml": "The Gap →<br>neutral host <b>with</b> a real service &amp; data layer",
+    "players": [
+      { "n": "Swiggy Access", "x": 0.18, "y": 0.72, "d": "EXITED 2023 · 1,000+ kitchens on ₹175 cr, its own data — sold to Kitchens@" },
+      { "n": "CloudKitchens / KitchenPlus", "x": 0.12, "y": 0.78, "d": "EXITED India 2022 · ~$400M; rents ran 50–70% over budget" },
+      { "n": "Kitchen United", "x": 0.2, "y": 0.82, "d": "EXITED 2023 (US) · $100M; sold real estate, pivoted to software" },
+      { "n": "Kitchens@", "x": 0.38, "y": 0.6, "d": "$65M, 700+ kitchens; scaled via M&amp;A, thin location curation" },
+      { "n": "Speed Kitchen", "x": 0.42, "y": 0.55, "d": "Mumbai rival · MG + revenue-share; Haldiram’s, Chaayos" },
+      { "n": "Kytchens", "x": 0.3, "y": 0.58, "d": "Mumbai-native · 40+ brands: Worli, Andheri, Powai, Malad" },
+      { "n": "Skope Kitchens", "x": 0.48, "y": 0.5, "d": "Bengaluru · 6–8% royalty, 10-day go-live; Mumbai still open" },
+      { "n": "Rebel Foods", "x": 0.5, "y": 0.15, "d": "Operator-first · ₹1,617 cr rev, ₹337 cr FY25 loss; rents via Launcher" },
+      { "n": "Curefoods", "x": 0.35, "y": 0.2, "d": "Operator-first · 502 sites; 100%+ staff attrition 3 yrs running" },
+      { "n": "EatClub (Box8)", "x": 0.4, "y": 0.25, "d": "Multi-brand operator · losses cut 77% to ₹15.77 cr FY24" }
+    ],
+    "sidebarHtml": "<p class='note' style='margin:0 0 12px;'><b style='color:var(--gold)'>Reading the map.</b></p><p class='note' style='margin:0 0 10px;'>The three that <b style='color:#cfc7b6'>exited</b> sit top-left: neutral-ish hosts, but pure ‘rent the box’ with no durable service layer. <b style='color:#cfc7b6'>Rebel Foods</b> &amp; <b style='color:#cfc7b6'>Curefoods</b> sit low — operator-first, running their own brands, so they can never credibly be a neutral landlord for rivals.</p><p class='note' style='margin:0;'>The top-right — neutral host <em>plus</em> a real compliance/data layer — is uncontested. That is the investable idea. It is also, honestly, the corner three funded giants aimed for and couldn’t hold.</p>"
+  },
+  "hook": {
+    "chapter": "The Graveyard",
+    "kicker": "Chapter 3 · The Graveyard",
+    "titleHtml": "What <span class='hl'>killed</span> the last three — and what this plan does differently.",
+    "lead": "This is the riskiest idea in the portfolio, so we lead with the bodies. Three well-funded operators built almost exactly this model and left. A live regulatory complaint threatens the one real moat. <b>Click each case file</b> to see what went wrong — and what this plan changes.",
+    "statusInitialTail": "open them all to close the case.",
+    "statusSolvedHtml": "<b>Case (partly) closed.</b> Three well-funded operators built exactly this and walked — all were pure real-estate arbitrage renting bare kitchen shells. This plan is deliberately built on the layers they skipped: compliance-as-a-service, a firewalled cross-tenant data product, and underserved segments they never designed for. That differentiation is real — <em>not</em> a guarantee. The break-even math (Chapter 6) still shows a single hub is tight. This remains the highest-execution-risk idea in the set, and the dossier never pretends otherwise.",
+    "cases": [
+      { "name": "Swiggy Access", "meta": "Prior attempt · exited 2023", "clue": "“The platform already had the data.”", "verdict": "fail", "tag": "Graveyard", "det": "Scaled to <b>1,000+ kitchens across 14 cities on ₹175 crore</b> — with Swiggy’s own order-flow data, restaurant relationships and delivery logistics already in-house. Still couldn’t make bare-kitchen-landlord economics work, and divested to Kitchens@ in March 2023 ‘as delivery growth slows down.’" },
+      { "name": "CloudKitchens / KitchenPlus", "meta": "Prior attempt · exited India 2022", "clue": "“~$400M and Uber’s real-estate playbook.”", "verdict": "fail", "tag": "Graveyard", "det": "Travis Kalanick’s CloudKitchens (~$400M from Saudi PIF) entered India as KitchenPlus with ~80 kitchens. <b>Exited entirely after three years</b> — rents and utilities reportedly ran <b>50–70% above budget.</b> Real-estate cost discipline failed even with near-unlimited capital." },
+      { "name": "Kitchen United", "meta": "Prior attempt · exited 2023 (US)", "clue": "“$100M to take on CloudKitchens.”", "verdict": "fail", "tag": "Graveyard", "det": "Raised <b>$100M</b>, bought Zuul Kitchens for its tech stack, then <b>quit the ghost-kitchen business and sold its real estate</b> in late 2023 — pivoting to software. The same pure real-estate-arbitrage economics failed even in a mature, well-capitalised US market." },
+      { "name": "The FHRAI / CCI complaint", "meta": "Live regulatory risk · Jan 2025", "clue": "“The data product is the moat…”", "verdict": "fail", "tag": "Regulatory", "det": "FHRAI (60,000+ hotels, 500,000+ restaurants) formally complained that Zomato/Swiggy <b>misuse aggregated demand data</b> to build and favour their own private-label brands (Bistro, Snacc); a Nov-2024 CCI probe found exclusivity breaches. A ‘what sells where’ product ever used against tenants would replicate <b>exactly that conduct.</b>" },
+      { "name": "Compliance-as-a-service", "meta": "What this does differently", "clue": "“Handled, not merely offered.”", "verdict": "real", "tag": "Differentiator", "det": "FSSAI, BMC eating-house licence, fire NOC and GST co-ordinated centrally — the <b>single clearest value-add gap</b> identified against every named competitor, and a layer none of the three failed precedents built. Backed by the 2026 FSSAI reform (₹1.5 cr Basic ceiling) and premises-based licensing." },
+      { "name": "The firewalled data product", "meta": "What this does differently", "clue": "“Never used against you.”", "verdict": "real", "tag": "Differentiator", "det": "The cross-tenant ‘what sells where’ insights product <b>no failed precedent built</b> — sold as a tenant subscription only, aggregated and anonymised, with a contractual firewall and a business-model vow to <b>never launch house brands.</b> The one moat the graveyard lacked — mitigated directly against the FHRAI/CCI pattern, not disclosed away." }
+    ]
+  },
+  "personas": {
+    "kicker": "Chapter 4 · The Buyers",
+    "titleHtml": "Four people who <span class='hl'>actually rent a bay</span>.",
+    "lead": "The tenants are food-business owners, not diners. Each has a trigger, an objection, and one thing that converts them. <b>Flip each card</b> to see what wins the lease.",
+    "items": [
+      { "name": "“Priya”, 28–40", "role": "Home-Chef-Turned-Brand-Founder · Andheri/Powai/Chembur", "trig": "Instagram/WhatsApp/Homefoodi sales have outgrown what a domestic kitchen can legally and physically support; tightened FSSAI &amp; fire enforcement make staying informal risky.", "obj": "Doesn’t know which FSSAI tier applies, can’t afford a full independent buildout, and fears her sales data will be used to launch a competing house brand — the FHRAI-style worry.", "conv": "A membership tier below her ₹55,000–75,000/month DIY cost, 4–10 day onboarding, explicit contractual language that her data never informs the operator’s own brands, and a tenant peer community." },
+      { "name": "“Rohan”", "role": "Restaurant Brand · delivery-only outpost · 3–8 Mumbai outlets", "trig": "Strong delivery volume in existing locations; wants a delivery-only presence in an underserved micro-market without an expensive multi-year retail lease.", "obj": "Reputational risk from co-located tenants’ hygiene/fire incidents; dilution of ‘premium’ positioning by sharing infrastructure; wariness of revenue-share vs flat rent.", "conv": "A dedicated, brand-controlled station in a visibly professional hub, 4–10 day speed-to-launch, aggregator-onboarding facilitation, and multi-hub/multi-city membership as the network grows." },
+      { "name": "“Ananya”", "role": "Multi-Brand Cloud-Kitchen Operator · testing a new city", "trig": "Runs a 20–60-kitchen, 2–3-city operator; wants to validate 1–3 brands in Mumbai in a 3–6 month window before committing capex.", "obj": "Free-rider fear — a future rival benefiting from her own performance data; general wariness of multi-tenant kitchens, echoing Curefoods’ 100%+ attrition.", "conv": "Minimum-Guarantee-plus-revenue-share enterprise pricing (the Speed Kitchen model), plus a contractually bounded, anonymised insights product — the clearest product-market fit for the data moat in the dossier." },
+      { "name": "“Karan”", "role": "D2C Packaged-Food Brand Founder · at contract-manufacturer capacity", "trig": "A venture-funded or bootstrapped D2C brand (WickedGud/Beyond Snack/MasterChow mould) whose contract manufacturer or small unit is at capacity and serves competing brands off the same lines.", "obj": "A hot-delivery-optimised cook line may not suit packaged production; IP/recipe leakage risk alongside competitor brands; the non-recoverable 18% rental GST vs his 5% no-ITC output tax.", "conv": "A subset of hub capacity built for packaged production (fillers, sealers, batch vessels, cold storage), contractual IP-protection language, and genuine Legal Metrology / FSSAI-labelling specialisation." }
+    ]
+  },
+  "tycoon": {
+    "kicker": "Chapter 5 · Build the Business",
+    "titleHtml": "Now <span class='hl'>you</span> run it.",
+    "lead": "Four real decisions from the dossier — several designed to avoid the exact failure mode that sank the last three. Pick, then see what the evidence says.",
+    "decisions": [
+      { "q": "1 · Where do you site Hub 1?", "ctx": "CloudKitchens died on rent/utility overruns 50–70% above budget. Choose your location strategy.", "opts": [ { "t": "A prime, high-visibility suburb — put the hub where the brands are", "good": false, "fb": "This is close to CloudKitchens’ exact failure mode. Prime-suburb rent, plus quick-commerce dark stores actively bidding up the same delivery-dense micro-markets, is how you blow the budget 50–70% over — before a single tenant defaults." }, { "t": "A cost-effective commercial-industrial micro-market (Bhandup/Vikhroli/Turbhe-type)", "good": true, "fb": "Correct. The dossier’s discipline is deliberate: accept lower initial visibility in exchange for real cost control, precisely because rent overrun is the documented reason a $400M predecessor lost the plot." } ] },
+      { "q": "2 · What do you do with the cross-tenant data?", "ctx": "The ‘what sells where’ dataset is the one moat no failed precedent built. It’s also radioactive.", "opts": [ { "t": "Use it to spot winners and launch your own high-margin house brands", "good": false, "fb": "That is precisely the conduct FHRAI complained about and the CCI is probing against Zomato/Swiggy (Bistro, Snacc). You’d recreate a live regulatory case and destroy the tenant trust the moat depends on." }, { "t": "Sell it back to tenants only — aggregated, anonymised, firewalled by contract", "good": true, "fb": "Correct. Tenant-facing subscription, anonymised before any dashboard, an explicit no-compete data firewall, and a business-model vow to never launch house brands — removing the incentive entirely, not just disclosing it." } ] },
+      { "q": "3 · How do you underwrite the economics?", "ctx": "Your own break-even model shows a single 20-station hub needs ~100% occupancy just to cover fixed costs.", "opts": [ { "t": "One flagship hub, expected to be profitable in Year 1", "good": false, "fb": "The math won’t allow it — even the optimistic mix needs full occupancy to break even. WeWork India needed 121,638 desks to reach a 6.6% net margin; a lone hub in Year 1–2 should be underwritten near-breakeven-to-negative." }, { "t": "A multi-hub network with ancillary revenue, funding several hubs before profit", "good": true, "fb": "Correct. Margin cushion comes from a network diluting central overhead plus ancillary layers (compliance, packaging markup, data), not from squeezing an already-tiny per-station variable cost. Prove it across 3–5 hubs, not hub #1." } ] },
+      { "q": "4 · How do you price the enterprise tier?", "ctx": "Tenant churn is structural (25–30% first-year shutdown). Large tenants carry outsized leverage.", "opts": [ { "t": "Pure fixed rent — predictable revenue for the operator", "good": false, "fb": "Fixed rent compounds a tenant’s bad quarter into a default and a sudden vacancy. In a category where a Zomato algorithm change can collapse order volume overnight, rigid rent transfers all the risk onto the weakest link." }, { "t": "Minimum Guarantee + revenue-share (the Speed Kitchen model)", "good": true, "fb": "Correct. Payment obligations flex with the tenant’s own sales, aligning incentives and reducing default risk — the closest real precedent among named Mumbai operators for the enterprise tier." } ] }
+    ]
+  },
+  "human": {
+    "chapter": "The Human Number",
+    "kicker": "Chapter 6 · The Human Number",
+    "titleHtml": "The number a <span class='hl'>home chef feels</span> — and the one that keeps you honest.",
+    "lead": "The whole model rests on a single relatable gap: what it costs Priya to go it alone versus what a hub charges her. That gap is her reason to come. Whether it’s enough to keep <em>you</em> alive is a harder number.",
+    "rows": [
+      { "label": "Go it alone — standalone compliant kitchen (all-in)", "value": "₹55–75k / mo", "w": 92, "cls": "wb-low", "barText": "₹75k" },
+      { "label": "KaaS flexible membership (~15–20 shifts/mo)", "value": "₹35–45k / mo", "w": 55, "cls": "wb-high", "barText": "₹45k" }
+    ],
+    "note": "The price gap is the tenant’s reason to switch — rent, equipment, licensing and shared staff bundled below the DIY cost of a worse setup. But the membership only wins if the hub stays near-full: the break-even model shows a single 20-station hub needs close to <b>100% occupancy at premium pricing</b> just to cover fixed costs. Occupancy, and the ancillary compliance/data layers, are the operator’s only real reason to survive — not the rent line alone."
+  },
+  "quiz": {
+    "kicker": "Chapter 7 · The Investment Committee",
+    "titleHtml": "Did it <span class='hl'>stick</span>?",
+    "lead": "Five questions. Then you cast the vote you’d cast in the room — on the riskiest idea in the set.",
+    "items": [
+      { "q": "Why is Kitchen-as-a-Service flagged the highest-risk idea in the portfolio?", "opts": ["Food delivery is a shrinking market", "Three well-funded operators (Swiggy Access, CloudKitchens, Kitchen United) built almost exactly this model and failed or exited", "There are no customers for shared kitchens", "The government has banned cloud kitchens"], "a": 1, "e": "Swiggy Access (₹175 cr, its own data), CloudKitchens (~$400M) and Kitchen United ($100M) all built it and left within ~3 years — the most direct, named precedent of failure in the whole case-study set." },
+      { "q": "What did all three failed precedents have in common?", "opts": ["They were all profitable but got bored", "They were pure real-estate arbitrage — renting bare kitchen shells with no durable tenant-facing service or data layer", "They refused to use technology", "They only operated outside India"], "a": 1, "e": "None had a genuine service or data layer beyond bare space — they were real-estate plays wearing tech-company valuations. That is the single most important evidence point in the dossier." },
+      { "q": "What does the break-even model say about a single 20-station hub?", "opts": ["It’s profitable at 40% occupancy", "It needs near-100% occupancy at premium pricing just to cover fixed costs", "It never needs tenants to break even", "It breaks even in month one"], "a": 1, "e": "Even the optimistic pricing mix requires ~100% occupancy. Margin cushion has to come from a multi-hub network plus ancillary revenue, not from a single hub or from cutting an already-tiny per-station variable cost." },
+      { "q": "What is the real legal exposure of the ‘what sells where’ data product?", "opts": ["Privacy law (DPDP) — which almost certainly applies", "Competition law (FHRAI/CCI) — replicating the Zomato/Swiggy data-misuse conduct pattern", "Copyright law", "There is no legal exposure at all"], "a": 1, "e": "DPDP likely doesn’t reach purely aggregated B2B data; the live, real channel is competition law. The mitigation — tenant-facing only, anonymised, firewalled, never launch house brands — is built against CCI/FHRAI-style scrutiny specifically." },
+      { "q": "What is the genuine ‘why now’ regulatory tailwind?", "opts": ["A total ban on independent kitchens", "FSSAI’s Basic Registration ceiling rises to ₹1.5 crore from 1 April 2026, and premises-based licensing lets one premises host innumerable brands", "The government now pays hub rents", "Zomato and Swiggy were shut down"], "a": 1, "e": "The threshold reform enlarges the pool of small, scaling food businesses in the lightest compliance tier — precisely the tenant base a hub needs — and premises-not-brand licensing makes the multi-tenant model legally coherent." }
+    ]
+  },
+  "vote": {
+    "prompt": "You’ve seen the graveyard, the whitespace, the buyers, the unit economics and the human number. This is the highest-variance idea in the set. What’s your call?",
+    "yesLabel": "Back it — proceed to Phase 1",
+    "noLabel": "Pass — too much precedent-risk",
+    "yesMsg": "<b>Backed — eyes open.</b> Your first Action-Plan move (Days 0–30): engage counsel to close the five open regulatory questions (operator-vs-tenant FSSAI licensing, labour-threshold aggregation, MPCB category, composite BMC licence, the 2026 FSSAI reform), site-visit Kitchens@ and Speed Kitchen to pressure-test unit economics, shortlist 6–8 commercial-industrial micro-markets for indicative rent quotes, and start a founding-tenant waitlist via FSSAI consultants and home-chef communities — all before a rupee touches real estate. No full capex until at least three anchor LOIs are signed.",
+    "noMsg": "<b>Passed — the most defensible ‘no’ in the set.</b> Three well-funded operators — Swiggy (₹175 cr, its own data), CloudKitchens (~$400M) and Kitchen United ($100M) — built almost exactly this and all exited within ~3 years. Your own model shows a single 20-station hub needs ~100% occupancy just to cover costs; the TAM is a self-built $95–170M; the model is structurally penalised by 18% GST it can’t pass through; and tenant health sits outside your control behind a 90%+ Zomato/Swiggy duopoly. The differentiation — compliance-as-a-service and a firewalled data product — is real but narrow and unproven. The dossier itself ranks this the highest-execution-risk of the candidates; a pass is a wholly legitimate IC position."
+  },
+  "footer": {
+    "note1": "This playable walk-through is a companion to the full institutional dossier — it simplifies for engagement and never overrides the source document.",
+    "note2": "Every number here is drawn from the dossier, including its <b>EST.</b> flags, its named failed precedents, and its unresolved regulatory caveats — none of which are softened.",
+    "videoCredit": "Video: Pexels (free/commercial licence)."
+  }
+}

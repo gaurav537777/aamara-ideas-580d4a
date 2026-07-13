@@ -1,0 +1,109 @@
+{
+  "meta": { "num": "03", "slug": "elder-care", "title": "The Trust Bench — Playable Case Study", "hubName": "Elder Care Concierge", "hubTagline": "Own the one thing every incumbent's own reviews say they can't deliver — caregiver trust — with a directly-employed, low-attrition bench, a modern family dashboard, and deep Mumbai hospital density.", "videoQuery": "caregiver elderly home" },
+  "hero": { "badge": "Aamara Capital · Business Idea 03 of 11", "titleHtml": "The Trust<br><em>Bench</em>", "sub": "A playable walk-through of the Elder Care Concierge dossier — same facts, same numbers, but you investigate the incumbents, make the calls, and cast the vote.", "startLabel": "Begin the rounds ↓" },
+  "opening": {
+    "kicker": "Chapter 1 · The Opening",
+    "titleHtml": "One idea, <span class='hl'>four numbers</span>.",
+    "lead": "India is ageing fastest at the top of the pyramid — and the families best able to pay for care are the least able, structurally, to give it. Eight organised incumbents already compete for that household, yet every one shows the same fault line: <em>caregiver quality</em>. That gap is the whole thesis.",
+    "stats": [
+      { "to": 347, "prefix": "", "suffix": "M", "labelHtml": "<b>India's 60+ population by 2050</b> — up from ~153M in 2020 (UNFPA)" },
+      { "to": 279, "prefix": "+", "suffix": "%", "labelHtml": "<b>Growth in the 80+ 'oldest-old' cohort</b> — the highest-intensity-care segment, vs +18% general-population growth" },
+      { "to": 54, "prefix": "", "suffix": "%", "labelHtml": "<b>Emoha staff who'd recommend it</b> as an employer (Glassdoor 3.2/5) — the attrition crack, quantified" },
+      { "to": 0, "suffix": "", "labelHtml": "<b>Incumbents publishing caregiver-retention data</b> as a customer trust signal — the whitespace, quantified" }
+    ]
+  },
+  "imgband": { "title": "Three unsatisfying choices", "sub": "A faceless national network spread too thin to guarantee your caregiver · a WhatsApp-sourced stranger you cannot vet from another continent · a capital-heavy senior-living facility your parent will never move into. The middle — a trusted, vetted, directly-employed caregiver at home — is empty." },
+  "whitespace": {
+    "kicker": "Chapter 2 · The Whitespace",
+    "titleHtml": "Find the <span class='hl'>empty quadrant</span>.",
+    "lead": "Eight real competitors, plotted. Hover any dot. Notice where <em>nobody</em> is: deep single-metro density <b>and</b> a directly-employed, published-welfare caregiver bench. That corner is what this business is built to own.",
+    "axisYtop": "Directly-employed, published welfare →",
+    "axisXleft": "National breadth",
+    "axisXright": "Single-metro depth →",
+    "gapLabelHtml": "The Gap →<br>deep density &amp; directly-employed caregiver welfare",
+    "players": [
+      { "n": "Samarth", "x": 0.12, "y": 0.2, "d": "350+ cities, 33 countries — broker/coordination hub, thin QC" },
+      { "n": "HCAH", "x": 0.18, "y": 0.5, "d": "70+ cities, Dabur-backed — scale-first quality risk" },
+      { "n": "Portea", "x": 0.32, "y": 0.55, "d": "24 cities, ₹161cr rev; staff 4.0/5 — medical, not concierge" },
+      { "n": "Emoha", "x": 0.38, "y": 0.4, "d": "60k members; staff 3.2/5, only 54% recommend" },
+      { "n": "Khyaal", "x": 0.45, "y": 0.15, "d": "1M+ users — engagement app, not care delivery" },
+      { "n": "Nightingales", "x": 0.42, "y": 0.28, "d": "5 cities; 1.58/5 MouthShut vs 4.3 Justdial" },
+      { "n": "Antara / Max", "x": 0.55, "y": 0.6, "d": "Delhi-NCR/Dehradun senior living — real-estate-led, not home-first" },
+      { "n": "KITES", "x": 0.62, "y": 0.34, "d": "Bangalore clinical depth; 'high prices, bad service', no maternity benefits" }
+    ],
+    "sidebarHtml": "<p class='note' style='margin:0 0 12px;'><b style='color:var(--gold)'>Reading the map.</b></p><p class='note' style='margin:0 0 10px;'>Reach-first players like <b style='color:#cfc7b6'>Samarth</b> (350+ cities) and <b style='color:#cfc7b6'>HCAH</b> (70+) trade density for footprint. <b style='color:#cfc7b6'>Portea</b> sits highest on caregiver quality — but it owns acute medical episodes, not the ongoing relationship. Every one carries a caregiver-welfare or consistency crack in its own public data.</p><p class='note' style='margin:0;'>The top-right — deep Mumbai density <em>and</em> a directly-employed, published-welfare bench — is uncontested. <em>That</em> is the investable idea.</p>"
+  },
+  "hook": {
+    "chapter": "The Trust Audit",
+    "kicker": "Chapter 3 · The Trust Audit",
+    "titleHtml": "Which incumbents <span class='hl'>survive their own reviews</span>?",
+    "lead": "The category has scale players with polished marketing sites. Real diligence checked each one against its <em>own</em> public data — Glassdoor, MouthShut, Justdial, funding filings. In a category where the entire product is trust, staff-welfare and frontline-consistency signals are not a footnote. <b>Click each case file</b> to see the verdict — and watch the story flip.",
+    "statusInitialTail": "open them all to close the case.",
+    "statusSolvedHtml": "<b>Case closed.</b> Emoha, KITES, Nightingales, Samarth and HCAH all crack on the one thing that <em>is</em> the product — caregiver trust. Portea's medical leg genuinely holds, but it owns acute episodes, not the ongoing relationship. The whitespace — <b>directly-employed, published-welfare, Mumbai-deep</b> — is stronger than any single incumbent's position. That's a diligence <em>win</em>.",
+    "cases": [
+      { "name": "Emoha", "meta": "60,000+ members · $16.4M raised", "clue": "'The category darling.'", "verdict": "fail", "tag": "Culture crack", "det": "A clean ₹2,999 / ₹7,999 / ₹15,999 subscription ladder and a real Aditya Birla insurer tie-up — but its own staff rate it <b>3.2/5 on Glassdoor, with only 54% recommending it</b> as an employer. In a trust product, that is the crack." },
+      { "name": "KITES Senior Care", "meta": "Bangalore-centric · founded 2016", "clue": "'The clinical specialist.'", "verdict": "fail", "tag": "Welfare gap", "det": "The deepest clinical specialisation reviewed — dementia, palliative, psychiatric — undercut by <b>'very high prices, bad service'</b> complaints and Glassdoor flags of <b>no maternity benefits</b> for female staff." },
+      { "name": "Nightingales", "meta": "22+ yrs · 1 lakh+ patients · 5 cities", "clue": "'The legacy brand.'", "verdict": "fail", "tag": "Polarised reviews", "det": "A long operating track record, but rated <b>4.3/5 on Justdial versus 1.58/5 on MouthShut</b> — the polarisation that only shows up when frontline consistency breaks down at scale." },
+      { "name": "Samarth", "meta": "30,000+ seniors · 350+ cities · 33 countries", "clue": "'Built for the NRI.'", "verdict": "fail", "tag": "Brokered, not employed", "det": "Strong NRI positioning and asset-light reach — but a <b>care-manager coordination hub over third-party partners</b> means far less direct quality control over the caregiver actually in the home." },
+      { "name": "HCAH", "meta": "70+ cities · Dabur/Burman-backed · $64.4M", "clue": "'The best-funded footprint.'", "verdict": "fail", "tag": "Scale over depth", "det": "The largest geography and a strong governance halo — but <b>scale-first across 70+ cities</b> risks the very caregiver-quality consistency this category is judged on, with thin consumer-tech differentiation." },
+      { "name": "Portea", "meta": "24 cities · ₹161cr FY25 rev · 400+ hospital ties", "clue": "'The pioneer.'", "verdict": "real", "tag": "Medical leg real", "det": "The one whose strength genuinely holds: <b>Glassdoor 4.0/5, 85% recommend</b>, 400+ hospital tie-ups, AI remote monitoring. But it owns <b>acute medical episodes</b> — not the ongoing concierge trust relationship." }
+    ]
+  },
+  "personas": {
+    "kicker": "Chapter 4 · The Buyers",
+    "titleHtml": "Four people who <span class='hl'>actually decide</span>.",
+    "lead": "This is a classic payer-versus-user market — the person paying often can't verify the care, and the person receiving it can veto the whole sale. Every persona has a trigger, an objection, and one thing that converts them. <b>Flip each card</b> to see what wins.",
+    "items": [
+      { "name": "Anjali, 38", "role": "NRI Daughter · US/UK · parents in Bandra", "trig": "Constant low-grade anxiety, magnified by a missed call across time zones; parents in their 70s living alone in a Mumbai 2BHK.", "obj": "'How do I vet a caregiver for my mother from another continent?' — remote-vetting distrust and fragmented WhatsApp-forward vendors.", "conv": "A single accountable point of contact + a real-time dashboard that works across time zones + English-fluent professional reporting. The premium tier (₹15,000+/mo) is affordable in foreign-salary terms — a guilt-offset, insurance-like purchase." },
+      { "name": "Rohan, 42", "role": "Busy Mumbai Professional · same city as parents", "trig": "An ad-hoc appointment or emergency that blows up his own work day; social pressure to 'personally' handle his parents' care.", "obj": "Physically closer but still time-starved — and more price-sensitive than the NRI segment; starts mid-tier.", "conv": "Convenience and delegation — fast scheduling, hospital-escort service, being alerted only when it matters. Often reached through a corporate elder-care benefit; upgrades after an incident." },
+      { "name": "Mrs. Kulkarni, 76", "role": "Independent End-User · own Mumbai apartment", "trig": "Children pushing a service she never asked for; a fall or a lonely stretch that even she admits needs help.", "obj": "'I don't want to be monitored or infantilised' — autonomy, privacy, and distrust of strangers at home; may be tech-hesitant.", "conv": "Dignity-preserving design + a caregiver she personally likes + companionship, not surveillance. Won face-to-face at the first visit — where she holds effective veto power over the entire sale." },
+      { "name": "The Chatterjee family", "role": "Post-Hospitalisation Crisis · discharge desk", "trig": "A same-day discharge after a fall, stroke, cardiac event or surgery — no prior vendor, acute emotional stress.", "obj": "Needs clinically competent staff immediately; no time to compare or vet.", "conv": "Speed of response and clinical credibility (hospital referral/endorsement) far outweigh price in the first 2–4 weeks — and a good crisis experience often converts into a long-term subscription." }
+    ]
+  },
+  "tycoon": {
+    "kicker": "Chapter 5 · Build the Business",
+    "titleHtml": "Now <span class='hl'>you</span> run it.",
+    "lead": "Four real decisions from the dossier. Each has a right answer the diligence already argues for. Pick — then see what the evidence says.",
+    "decisions": [
+      { "q": "1 · How do you staff the bench?", "ctx": "The whole thesis rests on caregiver quality. Choose your employment model.", "opts": [ { "t": "Broker / gig-classify caregivers to keep costs low", "good": false, "fb": "That is Samarth's coordination-hub gap — diffused quality control, plus reclassification and back-pay risk under the Code on Social Security 2020. It forfeits the one thing the thesis rests on: full control of vetting, pay and accountability." }, { "t": "Directly employ, vet and train the bench", "good": true, "fb": "Correct. Direct employment gives full control of vetting, certification, pay and accountability — and lets you publish retention numbers no broker can. The moat is linear to build, which is exactly why an incumbent can't quickly copy it." } ] },
+      { "q": "2 · Where do you launch?", "ctx": "HCAH spans 70+ cities, Samarth 350+. Choose your geographic strategy.", "opts": [ { "t": "Launch across several metros to match incumbent reach", "good": false, "fb": "That's the incumbents' own trap — breadth trades away density, and caregiver-quality consistency cracks. Spreading thin from a standing start burns capital long before any metro reaches break-even density." }, { "t": "Go deep in 2–3 Mumbai micro-markets first", "good": true, "fb": "Correct. Density in Bandra/Khar/Juhu, South Mumbai and Powai/Andheri concentrates caregiver-bench utilisation, hospital-partnership depth and response times — and Mumbai stacks NRI, HNI and hospital density in one metro. Break-even is ~2,300–2,500 households (EST.) before you expand." } ] },
+      { "q": "3 · What's your first acquisition channel?", "ctx": "A trust-first category has slow, expensive CAC. Choose where to start.", "opts": [ { "t": "Buy NRI digital ads at scale from day one", "good": false, "fb": "Buyers need social proof before handing over a parent — paid ads alone can't manufacture that trust, and you'd burn marketing budget against entrenched brands with no referral base yet." }, { "t": "Anchor on hospital discharge-referral partnerships", "good": true, "fb": "Correct. The post-hospitalisation crisis family is price-insensitive in the acute window and converts to long-term subscriptions. Discharge desks at Kokilaben/Lilavati/Breach Candy capture intent at the trigger moment — a validated channel (Apollo, Indiana Hospital tie-ups) that also lends third-party credibility." } ] },
+      { "q": "4 · What's your brand claim?", "ctx": "Positioning around caregiver quality is the wedge. How do you make it stick?", "opts": [ { "t": "Market 'we treat our caregivers well' like everyone else", "good": false, "fb": "An unbacked claim invites scrutiny against incumbents' public scars (Emoha 3.2/5, Nightingales 1.58/5 on MouthShut). Words are copyable instantly — a well-funded rival can out-message you overnight." }, { "t": "Publish caregiver retention, tenure and training-hours as a KPI", "good": true, "fb": "Correct. No competitor publishes this. Real numbers turn an invisible internal metric into a hard-to-fake external promise — and incumbents with legacy Glassdoor/MouthShut scars can't credibly match it without years of genuine culture change." } ] }
+    ]
+  },
+  "human": {
+    "chapter": "The Caregiver Number",
+    "kicker": "Chapter 6 · The Caregiver Number",
+    "titleHtml": "The most important <span class='hl'>%</span> in the deck.",
+    "lead": "The moat isn't the app — it's how the caregiver is treated. The whole product is trust, delivered by one human at the bedside. Yet the sector's own employer data shows caregiver welfare swings wildly — and it's invisible to the customer who's paying.",
+    "rows": [
+      { "label": "Emoha — its own staff who'd recommend it as an employer", "value": "54%", "w": 54, "cls": "wb-low", "barText": "54%" },
+      { "label": "Portea — its own staff who'd recommend it as an employer", "value": "85%", "w": 85, "cls": "wb-high", "barText": "85%" }
+    ],
+    "note": "Same category, a 31-point gap in how caregivers rate their own employer — proof the bench, not the brand, is the variable. No incumbent publishes retention or tenure to customers today. Do it, and caregiver welfare stops being an internal HR line and becomes the switching cost no rival with legacy Glassdoor/MouthShut scars can copy."
+  },
+  "quiz": {
+    "kicker": "Chapter 7 · The Investment Committee",
+    "titleHtml": "Did it <span class='hl'>stick</span>?",
+    "lead": "Five questions. Then you cast the vote you'd cast in the room.",
+    "items": [
+      { "q": "What makes the whitespace real?", "opts": ["Elder care is a brand-new category in India", "No incumbent combines directly-employed/trained caregivers, a modern monitoring app AND deep single-metro hospital density — and none publishes caregiver-welfare data", "Nobody else has an app", "The government banned all competitors"], "a": 1, "e": "Each incumbent owns one or two legs of the trust triangle; none owns all three, and not one publishes caregiver retention/tenure as a customer-facing trust signal." },
+      { "q": "Why does caregiver attrition matter so disproportionately here?", "opts": ["It doesn't — it's a minor HR issue", "Because the entire product IS trust — one caregiver lapse is disproportionately reputation-damaging, and incumbents' own Glassdoor/MouthShut data shows exactly where it breaks", "Because caregivers are cheap to replace", "Because regulators require it"], "a": 1, "e": "Emoha 3.2/5 (54% recommend), KITES' no-maternity complaints, Nightingales' 1.58/5 MouthShut — the sector's own numbers confirm frontline consistency is the recurring weak point." },
+      { "q": "What is the estimated Year-1 Mumbai launch capital?", "opts": ["₹3.15–5.05 crore (estimated)", "₹70 lakh in Year 1", "₹100 crore up front", "No capital — it's asset-light"], "a": 0, "e": "An estimated ₹3.15–5.05 crore (~$380K–$610K), covering tech, wearables, caregiver recruitment/BGV/training, licences, the ops base and a working-capital payroll buffer — every line carries an EST. flag." },
+      { "q": "Roughly how many paying Mumbai households does break-even require?", "opts": ["~250 households", "~2,300–2,500 households (estimated)", "~25,000 households", "It breaks even in month one"], "a": 1, "e": "Estimated ~2,300–2,500 actively paying households — ~₹70 lakh/month fixed cost ÷ ~₹3,000/month contribution per subscriber — plausible within a 3–4 year horizon, to be stress-tested against real pilot CAC/churn." },
+      { "q": "Why should Aamara — a family office, not a healthcare operator — run this?", "opts": ["Pottery-style guaranteed returns", "Because the moat (direct employment, published data, transparent pricing) is a governance and capital-discipline problem, not a clinical-innovation one — and clinical delivery is hired and partnered, not invented in-house", "Because caregiver labour is free", "It's a tax shelter"], "a": 1, "e": "The moat rewards patient capital, long-horizon thinking and operational rigor over healthcare-sector pedigree; the medical layer is de-risked via hired geriatric/nursing expertise and hospital partnerships." }
+    ]
+  },
+  "vote": {
+    "prompt": "You've seen the whitespace, the trust audit, the personas, the unit economics and the caregiver number. What's your call?",
+    "yesLabel": "Back it — proceed to Phase 1",
+    "noLabel": "Pass — me-too risk too high",
+    "yesMsg": "<b>Backed.</b> Your Phase-1 first move (per the Action Plan): inside the first 30 days, incorporate and register under the Maharashtra Shops &amp; Establishments Act, open discharge-referral term sheets with Kokilaben, Lilavati &amp; Breach Candy, engage a BGV vendor and draft the caregiver certification curriculum, and lock the 2–3 launch micro-markets (Bandra/Khar/Juhu, South Mumbai, Powai/Andheri). Patient, density-first family-office capital — not venture-scale land-grab.",
+    "noMsg": "<b>Passed — and defensibly so.</b> The dossier concedes the variance: the addressable premium segment is narrow, incumbents hold multi-year head starts in brand, hospital relationships and member data, a 'we'll do it better' wedge risks becoming a me-too entrant, the caregiver bench is linear (not exponential) to build, and net margin is modelled negative in Years 1–2 (EST.). One high-profile caregiver-negligence incident in the first 12–18 months could permanently damage the brand. A pass here is a legitimate IC position — the case study never pretends otherwise."
+  },
+  "footer": {
+    "note1": "This playable walk-through is a companion to the full institutional dossier — it simplifies for engagement and never overrides the source document.",
+    "note2": "Every number here is drawn verbatim from the dossier, including its <b>EST.</b> flags and unverified-source caveats.",
+    "videoCredit": "Video: Pexels (free/commercial licence)."
+  }
+}

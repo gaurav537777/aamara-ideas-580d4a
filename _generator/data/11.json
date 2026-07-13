@@ -1,0 +1,112 @@
+{
+  "meta": { "num": "11", "slug": "playschool", "title": "The First Classroom — Playable Case", "hubName": "Premium Playschool", "hubTagline": "A founder-led, safety-obsessed, small-batch premium preschool for Mumbai — where the moat is ratios, trust and a founder you'd hand your child to, not the interiors.", "dossierLabel": "Open the brief ↗", "thumbStyle": "background:radial-gradient(ellipse at 70% 25%,rgba(185,138,62,0.4),transparent 60%),linear-gradient(150deg,#5c2b2e,#a8624f);", "thumbGlyph": "A", "fresh": "New" },
+  "hero": { "badge": "Aamara Capital · Business Idea 11 of 11 · New", "titleHtml": "The First<br><em>Classroom</em>", "sub": "The idea: a premium Mumbai playschool in the spirit of an Arth or a Casa Bambino. Meet the parents, price the rent, and decide what “premium” really buys.", "startLabel": "Open the doors ↓",
+    "stageHtml": "<div class='stage-wrap'><div class='stage-ring2'></div><div class='stage-ring'></div><div class='play-blocks'><div class='play-block b1'>A</div><div class='play-block b2'>B</div><div class='play-block b3'>C</div><div class='play-block b4'>a</div><div class='play-block b5'>1</div></div></div>" },
+  "opening": {
+    "kicker": "Chapter 1 · The Opening",
+    "titleHtml": "One idea, <span class='hl'>four numbers</span>.",
+    "lead": "Premium preschool is a thin, defensible slice at the very top of a deep, cheap market. These four numbers say where it sits — and what actually makes it premium.",
+    "stats": [
+      { "to": 3, "prefix": "₹", "suffix": "L+", "labelHtml": "<b>Top of the premium Mumbai fee band</b> — Casa Bambino, KLAY, Little Palms all live at ₹2.4–3L+ a year" },
+      { "to": 6, "prefix": "1:", "suffix": "", "labelHtml": "<b>Premium teacher-to-child ratio</b> — vs 1:15–20 at mass chains. The ratio <em>is</em> the product" },
+      { "to": 58, "prefix": "₹", "suffix": "k", "labelHtml": "<b>Mumbai's median preschool fee</b> — premium is a thin slice above a very deep value base" },
+      { "to": 0, "suffix": "", "labelHtml": "<b>Central regulators</b> for standalone preschools today — NEP 2020 is changing that, a moat for the compliant-by-design" }
+    ]
+  },
+  "imgband": { "title": "The interiors are table stakes. The trust is the business.", "sub": "Pretty rooms are everywhere. Low ratios, vetted staff, a founder you'd hand your child to, and a pathway into a top school — that's what ₹3 lakh actually buys.", "style": "background:radial-gradient(ellipse at 75% 20%,rgba(185,138,62,0.32),transparent 60%),linear-gradient(140deg,#3a1c1e,#5c2b2e)" },
+  "whitespace": {
+    "kicker": "Chapter 2 · The Map",
+    "titleHtml": "Find the <span class='hl'>founder-led premium</span> gap.",
+    "lead": "The Mumbai field, plotted by price and pedagogical depth. Hover any dot. The mass franchises crowd the bottom-left; the top-right — authentic, premium, with a pathway — is thin.",
+    "axisYtop": "Premium price →",
+    "axisXleft": "Generic play-based",
+    "axisXright": "Pedagogy-authentic →",
+    "gapLabelHtml": "The gap →<br>founder-led, safety-first, with a pathway",
+    "players": [
+      { "n": "Small Wonder", "x": 0.15, "y": 0.2, "d": "mid-market franchise — the foil, not the comp" },
+      { "n": "EuroKids / Kidzee", "x": 0.22, "y": 0.26, "d": "mass franchise engines, ₹45–90k" },
+      { "n": "Podar Jumbo Kids", "x": 0.32, "y": 0.42, "d": "upper-mass, branded play-based" },
+      { "n": "Kangaroo Kids", "x": 0.5, "y": 0.68, "d": "premium, 1993 — sold into a chain" },
+      { "n": "KLAY", "x": 0.62, "y": 0.76, "d": "Reggio + premium daycare, ₹2.3–3.2L" },
+      { "n": "Casa Bambino", "x": 0.8, "y": 0.8, "d": "pure Montessori, Juhu, ₹2.16–2.64L" },
+      { "n": "Arth (Kolkata)", "x": 0.86, "y": 0.72, "d": "the archetype — Reggio, founder-led, cult" },
+      { "n": "Oberoi Intl (early yrs)", "x": 0.55, "y": 0.95, "d": "₹3L+, attached to an IB K-12" },
+      { "n": "Aamara", "x": 0.9, "y": 0.84, "d": "You are here — founder-led, safety-first, with a K-12 pathway", "mine": true }
+    ],
+    "sidebarHtml": "<p class='note' style='margin:0 0 12px;'><b style='color:var(--gold)'>Reading the map.</b></p><p class='note' style='margin:0 0 10px;'>The premium tier is a <em>thin top slice</em> — the median Mumbai fee is only ₹58k. And <b style='color:#cfc7b6'>“Montessori”</b> is an unprotected word everyone claims.</p><p class='note' style='margin:0;'>The defensible corner is <em>authentic pedagogy + safety transparency + a top-school pathway</em> — the things a franchise chain structurally can't fake.</p>"
+  },
+  "hook": {
+    "chapter": "The Teardown",
+    "kicker": "Chapter 3 · The Teardown",
+    "titleHtml": "The names on the <span class='hl'>table</span>, taken apart.",
+    "lead": "The two Mridul mentioned, plus the ones that define the tier. <b>Flip each card</b>: what it really is, and what we take from it.",
+    "statusInitialTail": "flip all five to finish the teardown.",
+    "statusSolvedHtml": "<b>Teardown done.</b> Small Wonder is the foil; Arth is the archetype; KLAY shows the daycare wedge; Kangaroo Kids shows the exit and the warning. The moat isn't a label on the signboard — it's <em>ratios, safety, a founder you'd trust, and a pathway</em>.",
+    "cases": [
+      { "name": "Small Wonder", "meta": "Mridul mentioned it", "clue": "“A preschool you can franchise.”", "verdict": "fail", "tag": "The foil, not the comp", "det": "A mid-market North-India franchise (est. 2011, <b>&lt;10 outlets</b>, ₹2–5L to open, 15% royalty). The crowded, undifferentiated tier. <b>Our move:</b> do not be confused with this — premium is people and ratios, not a franchise kit." },
+      { "name": "Arth (Kolkata)", "meta": "the likely “Artha”", "clue": "“Booked a year in advance.”", "verdict": "real", "tag": "The archetype", "det": "Reggio-inspired boutique, founder an <b>IIT engineer turned educator</b>, <b>5:1 ratios</b>, cult following, batches booked a year out. Not in Mumbai — but the template. <b>Our move:</b> this founder-led, scarcity, pedagogy-authentic model, built for Mumbai." },
+      { "name": "KLAY", "meta": "premium chain", "clue": "“Preschool that works for working parents.”", "verdict": "real", "tag": "The daycare wedge", "det": "Reggio-inspired, long-hours <b>daycare + corporate tie-ups</b>, ₹2.3–3.2L. <b>Our move:</b> pair a genuinely premium environment with flexible daycare for dual-income BKC / SoBo professionals — a real, paid-for need." },
+      { "name": "Kangaroo Kids", "meta": "premium, since 1993", "clue": "“The premium name that scaled.”", "verdict": "real", "tag": "The exit — and the warning", "det": "Founded by Lina Ashar; premium; <b>acquired by EuroKids (now KKR)</b>. Shows the premium exit path <em>and</em> that scaling premium tends to sell into a chain. <b>Our move:</b> build the founder-trust asset; don't dilute it chasing scale." },
+      { "name": "“Montessori”", "meta": "the word itself", "clue": "“Everyone's a Montessori.”", "verdict": "fail", "tag": "Unprotected buzzword", "det": "No regulator owns the term — every signboard claims it. The pedagogy <em>label</em> is the ticket, not the moat. <b>Our move:</b> prove depth — documented development, real ratios, visible outcomes — not just a word on the wall." }
+    ]
+  },
+  "personas": {
+    "kicker": "Chapter 4 · The Parents",
+    "titleHtml": "Four parents who <span class='hl'>write the cheque</span>.",
+    "lead": "Each has a trigger, an anxiety, and one thing that closes them. <b>Flip each card.</b>",
+    "items": [
+      { "name": "The BKC Professional", "role": "Dual-income · long hours", "trig": "Needs premium preschool <em>and</em> daycare that runs to a working day, without feeling corporate.", "obj": "“Will it actually be premium, or just long hours?”", "conv": "A genuinely beautiful, safe environment + flexible hours + an app-based learning journal she can check from the office." },
+      { "name": "The Anxious Mother", "role": "Safety is everything", "trig": "One horror story from a friend and the whole search resets.", "obj": "“How do I <em>know</em> my child is safe all day?”", "conv": "Vetted, background-checked staff, live-CCTV parent access, documented safeguarding — “the safest premium preschool in Mumbai.”" },
+      { "name": "The Pathway Parent", "role": "Playing the long game", "trig": "Wants to de-risk admission into a sought-after IB / ICSE K-12.", "obj": "“Does this actually lead somewhere?”", "conv": "A feeder partnership or credible prep + a track record of where the children go next." },
+      { "name": "The Pedagogy Believer", "role": "Reggio / Montessori-literate", "trig": "Real depth — a room designed as the “third teacher,” not a themed play area.", "obj": "“Is this authentic, or a label?”", "conv": "A credible founder-educator, documented child development, and a philosophy the staff can actually articulate." }
+    ]
+  },
+  "tycoon": {
+    "kicker": "Chapter 5 · The Operating Calls",
+    "titleHtml": "Now <span class='hl'>you</span> build it.",
+    "lead": "Four calls that decide whether it's premium or just expensive. Pick — then see the diligence.",
+    "decisions": [
+      { "q": "1 · What makes it premium?", "ctx": "Where does the ₹3 lakh actually go?", "opts": [ { "t": "The fanciest interiors in the neighbourhood", "good": false, "fb": "Beautiful rooms are table stakes — every boutique has them. Interiors alone don't hold a premium." }, { "t": "Low ratios + safety + founder trust + a pathway", "good": true, "fb": "Correct. 1:6 ratios, vetted staff, a founder-educator you'd trust, and admission de-risking into a top school — the things a chain can't fake." } ] },
+      { "q": "2 · What's the single biggest lever?", "ctx": "Look at the P&L before the pedagogy.", "opts": [ { "t": "Marketing spend to fill batches", "good": false, "fb": "In this word-of-mouth category, marketing is not the constraint — and it can't rescue a bad lease." }, { "t": "The lease — a great prime ground-floor space", "good": true, "fb": "Correct. Rent dominates the P&L; a below-market prime ground-floor + open play in Bandra/BKC is the single biggest source of durable margin. A bad lease kills the model." } ] },
+      { "q": "3 · How do you scale?", "ctx": "Growth vs the promise.", "opts": [ { "t": "Franchise fast for rapid growth", "good": false, "fb": "Franchising dilutes the premium — the premium <em>is</em> the ratios, the people and the founder. It's exactly why Kangaroo Kids ultimately sold into a chain." }, { "t": "Stay founder-led and small-batch; grow slowly", "good": true, "fb": "Correct. Protect the promise: a second centre only when the first is full and the model is proven. Patient capital, cohort by cohort." } ] },
+      { "q": "4 · How do you handle the safety risk?", "ctx": "The existential, uninsurable one.", "opts": [ { "t": "Hope it never happens", "good": false, "fb": "A single trust or safety incident is existential and reputationally uninsurable in this category. Hope is not a control." }, { "t": "Make safety the brand — vetting, CCTV, protocols", "good": true, "fb": "Correct. Turn the biggest anxiety into the biggest selling point, and be compliant-by-design ahead of NEP-driven regulation — so the coming rules become your moat." } ] }
+    ]
+  },
+  "human": {
+    "chapter": "The Economics",
+    "kicker": "Chapter 6 · The Economics",
+    "titleHtml": "Premium is a <span class='hl'>thin slice</span>, not the middle.",
+    "lead": "The gap between the median fee and the premium band isn't nicer sofas — it's ratios, safety and trust. That's the only gap worth building in.",
+    "rows": [
+      { "label": "Mumbai's median preschool fee", "value": "~₹58k", "w": 18, "cls": "wb-low", "barText": "median" },
+      { "label": "The premium band we play in", "value": "~₹3L", "w": 92, "cls": "wb-high", "barText": "premium" }
+    ],
+    "note": "Rent dominates the P&L (₹3–6L/month for prime ground-floor + play area); break-even is roughly <b>55–75 children</b>; fees are paid upfront, giving strong negative working capital once full. The two things that break it: a bad lease, or a single trust incident. <b>EST.</b>",
+    "mediaHtml": "<div class='wage-img' style='background:radial-gradient(ellipse at 70% 25%,rgba(185,138,62,0.34),transparent 60%),linear-gradient(160deg,#3a1c1e,#5c2b2e);display:flex;align-items:center;justify-content:center;text-align:center;padding:26px;'><div style='color:#f6ece2;'><div style='font-family:\"Cormorant Garamond\",serif;font-size:2.4rem;color:var(--gold-2);line-height:1.1;'>Land the lease,<br>then build.</div><div style='font-size:.82rem;margin-top:12px;line-height:1.5;'>The rent is the whole game. The right prime ground-floor lease is the single biggest source of durable margin — everything else follows it.</div></div></div>"
+  },
+  "quiz": {
+    "kicker": "Chapter 7 · The Check",
+    "titleHtml": "Did it <span class='hl'>land</span>?",
+    "lead": "Five quick questions before we decide.",
+    "items": [
+      { "q": "What actually justifies the premium?", "opts": ["The most expensive interiors", "Low ratios + safety + founder trust + a pathway", "The biggest ad budget", "Being open the longest hours"], "a": 1, "e": "Interiors are table stakes. The premium is ratios, safety, a founder you'd trust, and admission de-risking into a top school." },
+      { "q": "Is “Montessori” a protected, regulated term?", "opts": ["Yes, strictly", "No — it's unprotected; everyone claims it, so depth is the moat", "Only in Maharashtra", "It's trademarked by EuroKids"], "a": 1, "e": "No regulator owns the word. The label is the ticket to entry; documented depth, ratios and outcomes are the real differentiator." },
+      { "q": "The single biggest economic lever?", "opts": ["Teacher salaries", "The lease / rent", "The uniform supplier", "Google ads"], "a": 1, "e": "Rent dominates the P&L. A great prime ground-floor lease is the biggest source of durable margin; a bad one makes premium economics impossible." },
+      { "q": "Why not franchise fast?", "opts": ["Franchising is illegal for preschools", "It dilutes the premium — which is people, ratios and the founder; Kangaroo Kids sold into a chain", "Franchisees are too expensive", "There's no demand"], "a": 1, "e": "The premium is bound to low ratios, star teachers and a founder. Scaling by franchise breaks that promise — the reason premium brands tend to sell into chains." },
+      { "q": "The biggest existential risk?", "opts": ["A competitor opening nearby", "A single trust/safety incident — reputationally uninsurable — plus a bad lease", "Rising uniform costs", "Too many applicants"], "a": 1, "e": "In a word-of-mouth, high-anxiety category, one safeguarding or safety event can end the brand. Real-estate cost is the close second." }
+    ]
+  },
+  "vote": {
+    "prompt": "Premium preschool is a thin, defensible slice — real, but slow, cohort-gated and trust-fragile. Your call.",
+    "yesLabel": "Probe one flagship centre",
+    "noLabel": "Park it — too slow, too fragile",
+    "yesMsg": "<b>Green-lit as a probe.</b> Phase 1: hunt the lease first — a below-market prime ground-floor + open play in Bandra/BKC is the whole game. Line up a founder-educator face, design the safety/safeguarding standard, and model one flagship at ~₹2.5–3L fees, 1:6 ratios, break-even ~60–70 children. <em>Land the lease, then build.</em>",
+    "noMsg": "<b>Defensible.</b> It's cohort-gated (one intake a year, 18–36 months to break even), key-person dependent, and one incident is existential. A legitimate pass unless the right lease and the right founder-educator both show up."
+  },
+  "footer": {
+    "note1": "This playable walk-through is a first-pass exploration of the premium-preschool idea, built to be honest about what “premium” must mean and what could break it.",
+    "note2": "Figures marked <b>EST.</b> are estimates. “Artha” could not be verified as a Mumbai preschool; it is mapped to the Arth (Kolkata) archetype and its Mumbai analogues, not invented.",
+    "dossierLabel": "Open the full brief →",
+    "videoCredit": "Illustration built for Aamara Capital."
+  }
+}

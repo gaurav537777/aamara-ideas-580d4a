@@ -1,0 +1,109 @@
+{
+  "meta": { "num": "06", "slug": "tableware-b2b", "title": "Commercial Tableware for Indian HoReCa — Playable Case Study", "hubName": "Commercial Tableware B2B", "hubTagline": "Own the premium-durable-<em>serviced</em> ceramic quadrant Indian HoReCa has no branded champion for — asset-light, private-label, and built on a recurring-replacement annuity.", "videoQuery": "restaurant plating tableware" },
+  "hero": { "badge": "Aamara Capital · Business Idea 06 of 11", "titleHtml": "The Recurring<br><em>Table</em>", "sub": "A playable walk-through of the Commercial Tableware dossier. Same facts, same numbers — but you get to investigate, decide, and vote.", "startLabel": "Set the table ↓" },
+  "opening": {
+    "kicker": "Chapter 1 · The Opening",
+    "titleHtml": "One idea, <span class='hl'>four numbers</span>.",
+    "lead": "No branded Indian house owns the premium-durable-<em>serviced</em> ceramic HoReCa quadrant. Imports own the top, unbranded Khurja the bottom, and the middle is empty. That gap is the whole thesis. Here is the shape of it.",
+    "stats": [
+      { "to": 0, "prefix": "", "suffix": "", "labelHtml": "<b>Branded Indian houses</b> owning the premium-durable-<em>serviced</em> ceramic HoReCa quadrant — the whitespace, quantified" },
+      { "to": 94, "prefix": "", "suffix": "k", "labelHtml": "<b>New branded hotel rooms</b> in India's pipeline to FY29 — a rolling wave of pre-opening fit-outs" },
+      { "to": 40, "prefix": "₹", "suffix": "", "labelHtml": "<b>Per-plate anti-dumping duty</b> on Chinese ceramic tableware (USD 1,075/MT) — the import-substitution wedge <b>EST.</b>" },
+      { "to": 6, "prefix": "₹", "suffix": "cr", "labelHtml": "<b>Total capital to launch</b> — mostly recyclable working capital, <em>not</em> a kiln <b>EST.</b>" }
+    ]
+  },
+  "imgband": { "title": "Two bad options, one broken table", "sub": "Imports (Steelite, RAK, Villeroy &amp; Boch) look right and last — but carry duty, container MOQs, long lead times and get discontinued. Local unbranded Khurja is cheap and fast but batch-inconsistent, so re-orders never match. Within 12–24 months every premium venue is serving on a chipped, mismatched table." },
+  "whitespace": {
+    "kicker": "Chapter 2 · The Whitespace",
+    "titleHtml": "Find the <span class='hl'>empty quadrant</span>.",
+    "lead": "Ten real players, plotted. Hover any dot. Notice where <em>nobody</em> is: premium-priced <b>and</b> branded-plus-serviced. That corner — where you can re-supply the exact plate for years — is what this business is built to own.",
+    "axisYtop": "Premium price →",
+    "axisXleft": "Commodity / unbranded",
+    "axisXright": "Branded &amp; serviced →",
+    "gapLabelHtml": "The Gap →<br>premium &amp; branded-serviced",
+    "players": [
+      { "n": "Steelite", "x": 0.45, "y": 0.92, "d": "UK category leader, no owned India entity" },
+      { "n": "Villeroy &amp; Boch Pro", "x": 0.34, "y": 0.95, "d": "luxury porcelain, top of range" },
+      { "n": "Noritake", "x": 0.4, "y": 0.85, "d": "bone china, 5-star standard" },
+      { "n": "RAK Porcelain", "x": 0.5, "y": 0.8, "d": "entrenched import, agent-distributed" },
+      { "n": "Bonna", "x": 0.48, "y": 0.72, "d": "designer + durable challenger" },
+      { "n": "Ariane", "x": 0.72, "y": 0.68, "d": "design-led HoReCa, closest to the gap" },
+      { "n": "Feather Touch", "x": 0.44, "y": 0.55, "d": "claims ~70% premium hotels, but a factory" },
+      { "n": "La Opala", "x": 0.6, "y": 0.42, "d": "branded, but opalware not ceramic" },
+      { "n": "Clay Craft", "x": 0.55, "y": 0.4, "d": "India #1 maker, private-label OEM" },
+      { "n": "Khurja (unbranded)", "x": 0.15, "y": 0.12, "d": "cheap, fast, fragmented, no continuity" }
+    ],
+    "sidebarHtml": "<p class='note' style='margin:0 0 12px;'><b style='color:var(--gold)'>Reading the map.</b></p><p class='note' style='margin:0 0 10px;'>Imports like <b style='color:#cfc7b6'>Steelite</b>, <b style='color:#cfc7b6'>RAK</b> &amp; <b style='color:#cfc7b6'>V&amp;B</b> own the top on price and prestige — but are agent-distributed, duty-loaded and slow to re-supply. Indian makers (<b style='color:#cfc7b6'>Clay Craft</b>, <b style='color:#cfc7b6'>Bharat Potteries</b>, <b style='color:#cfc7b6'>Feather Touch</b>) have scale and 5-star clients but present as <em>factories</em>, not branded service. <b style='color:#cfc7b6'>Ariane</b> is closest — yet still hasn't fused kiln-cost, import-grade design and a held-SKU guarantee.</p><p class='note' style='margin:0;'>The top-right — premium <em>and</em> serviced — is uncontested. <em>That</em> is the investable idea.</p>"
+  },
+  "hook": {
+    "chapter": "The Moat Trap",
+    "kicker": "Chapter 3 · The Moat Trap",
+    "titleHtml": "Which moat <span class='hl'>survives scrutiny</span>?",
+    "lead": "Anyone who pitches this deal on “proprietary designs” is selling the wrong story. Real diligence ranked every candidate moat by defensibility. <b>Click each case file to see the verdict — and watch the story flip.</b>",
+    "statusInitialTail": "open them all to close the case.",
+    "statusSolvedHtml": "<b>Case closed. The plate is not the moat — the re-supply is.</b> Design IP, brand-as-spec and re-order lock-in all fail as standalone walls. The boring one — distribution, held inventory, service and colour-batch continuity — is the only durable moat. Steelite paying up for Utopia's distribution engine in 2024 (not its kilns) is the proof.",
+    "cases": [
+      { "name": "Proprietary plate designs", "meta": "The flashy pitch", "clue": "“Our catalogue is the IP.”", "verdict": "fail", "tag": "Design IP", "det": "A Khurja kiln can copy any plate we design <b>within a season</b>. Design is low defensibility as law, medium as a capability — a season-ahead treadmill, not a wall. Owning the finishing step is the only defensible slice." },
+      { "name": "Brand-as-spec", "meta": "The logo story", "clue": "“They'll ask for us by name.”", "verdict": "fail", "tag": "Brand", "det": "“Brand” has historically been <b>weak leverage in B2B crockery</b>. It's 5–10-year option value at best — N/A at launch, and it cannot be built directly. The premium must be earned by service + total cost of ownership, not a logo." },
+      { "name": "Re-order lock-in", "meta": "The switching-cost claim", "clue": "“Once we're specified, we're stuck in.”", "verdict": "fail", "tag": "SKU lock-in", "det": "Real economics — but a <b>derivative amplifier</b>. It only accrues to us <em>through</em> the boring moat below. Remove the held-SKU guarantee and it collapses to a one-time commodity sale." },
+      { "name": "Chip warranty", "meta": "The durability promise", "clue": "“Lifetime edge-chip, like Steelite.”", "verdict": "real", "tag": "Gated", "det": "A powerful trust moat — <b>but gated</b>. A durability promise on kilns you don't own is a put option written against your own supply chain. Bound it (2-year, named range), underwrite it with QC data, and it holds." },
+      { "name": "Held inventory + service", "meta": "The un-sexy one", "clue": "“Just a warehouse and a service desk.”", "verdict": "real", "tag": "PRIMARY", "det": "<b>The real moat.</b> Holding graded stock for years, colour-batch-matching a 2027 plate to 2024 originals, and shipping 40 replacements in days is working-capital-heavy logistics a job-shop kiln does not want and an importer cannot do inside a container MOQ." }
+    ]
+  },
+  "personas": {
+    "kicker": "Chapter 4 · The Buyers",
+    "titleHtml": "Four people who <span class='hl'>actually sign</span>.",
+    "lead": "A committee sale with a split buyer — the emotional buyer and the economic buyer are different people. Every persona has a trigger, an objection, and one thing that converts them. <b>Flip each card</b> to see what wins the account.",
+    "items": [
+      { "name": "Aditi, Executive Chef", "role": "New Mumbai fine-diner · the emotional buyer", "trig": "A distinctive reactive-glaze coupe that makes her plating sing — and a new outlet opening that needs a full opening set.", "obj": "Falling in love with an import range that gets discontinued, or a local batch that comes back a different green.", "conv": "A held-SKU guarantee — same shape, same glaze, colour-matched for years — backed by owned finishing and a bounded chip warranty." },
+      { "name": "Rakesh, F&amp;B Purchase Manager", "role": "5-star hotel group · the economic buyer", "trig": "An RFQ for a pre-opening fit-out; an ESG / made-in-India sourcing mandate.", "obj": "Stock-outs mid-season, re-tendering a 6-plate breakage order, and warranty claims that don't get honoured.", "conv": "Empanelment, landed cost below imports, fast small-order replacement, plus FSSAI and lead/cadmium-free certificates." },
+      { "name": "Priya, F&amp;B Consultant", "role": "Kitchen planner on new-builds · the gatekeeper", "trig": "Drafting the crockery spec and vendor shortlist for a greenfield hotel or restaurant.", "obj": "Recommending an untested new brand puts her reputation on the line; she needs proven references.", "conv": "Two to three lighthouse 5-star references + a QC-backed bounded warranty + a Mumbai showroom and sample library she can send clients to." },
+      { "name": "Vikram, GM / Owner-Promoter", "role": "Premium standalone · budget sign-off", "trig": "Signing off a large fit-out; protecting a ₹2,000+ dining experience from a degrading tabletop.", "obj": "Needs bulk reliability and a total cost of ownership below imports across a multi-year outlet life.", "conv": "The razor/annuity math — below-import landed cost on the opening order, plus a re-supply annuity that keeps the tabletop intact for a decade." }
+    ]
+  },
+  "tycoon": {
+    "kicker": "Chapter 5 · Build the Business",
+    "titleHtml": "Now <span class='hl'>you</span> run it.",
+    "lead": "Four real decisions from the dossier. Each has a right answer the diligence already argues for. Pick — then see what the evidence says.",
+    "decisions": [
+      { "q": "1 · Do you build a kiln?", "ctx": "La Opala owns its kilns and prints ~37% operating margins. Tempting. Pick your asset base.", "opts": [ { "t": "Build a kiln to capture the manufacturing margin", "good": false, "fb": "That's a ₹20–50cr+ capex bet, and it forfeits the entire thesis. The whole edge is asset-light: recyclable working capital, not a sunk factory. La Opala's 37% belongs to a kiln-owner — you would be copying the wrong template." }, { "t": "Asset-light brand on kilns that already exist", "good": true, "fb": "Correct. The Utopia template. Clay Craft advertises OEM/private-label and Bharat Potteries runs 70M+ pieces a year — hungry for branded demand. The kiln is a vendor, not a balance-sheet asset." } ] },
+      { "q": "2 · How do you write the warranty?", "ctx": "The chip warranty is your headline — but you don't own the kiln. Choose the promise.", "opts": [ { "t": "“Lifetime edge-chip on everything,” like Steelite", "good": false, "fb": "A durability promise on kilns you don't control is a put option written against your own supply chain. Over-promise and every batch defect becomes a warranty liability you can't underwrite." }, { "t": "Bounded 2-year warranty on a named range, widened as data proves the body", "good": true, "fb": "Correct. Underwrite the claim with incoming QC and batch testing, treat kiln consistency as a gate to clear before scaling the warranty — an honest, defensible trust moat." } ] },
+      { "q": "3 · How do you source to keep the promise?", "ctx": "The durability promise means you can't spot-buy blindly across rotating kilns. Choose your supply discipline.", "opts": [ { "t": "Spot-buy from whichever kiln is cheapest each order", "good": false, "fb": "That reintroduces exactly the odd-plate, batch-mismatch problem you're selling against. Cheapest-per-order destroys the colour-batch continuity that IS the moat." }, { "t": "Anchor-kiln dedicated lines + own the finishing step", "good": true, "fb": "Correct. Concentrate volume with 1–2 quality partners, dual-source hero SKUs, and own decoration/finishing for design IP + QC control — exactly the layer Steelite and Utopia own." } ] },
+      { "q": "4 · What margin do you underwrite?", "ctx": "The single most important framing in the deck. Anchor the model on the right comp.", "opts": [ { "t": "La Opala's ~37% operating margin", "good": false, "fb": "Wrong comp — that belongs to a vertically-integrated kiln-owner. As an asset-light reseller you forfeit the manufacturing slice; any model assuming 37% is broken." }, { "t": "~45–55% gross, ~10–20% operating — benchmarked to Churchill China's ~10–12%", "good": true, "fb": "Correct. The honest asset-light landing zone. Churchill China's ~10–12% manufacturer margin is the sensible floor-to-mid reference; you earn a resale mark-up on far less capital." } ] }
+    ]
+  },
+  "human": {
+    "chapter": "The Annuity",
+    "kicker": "Chapter 6 · The Annuity",
+    "titleHtml": "The most important <span class='hl'>₹</span> in the deck.",
+    "lead": "Take one 80-cover Mumbai fine-diner. The opening fit-out is a one-time ~₹7.8 lakh order. But at ~15%/yr breakage, the replacement “blades” exceed that opening order within ~6–7 years — and over a 10-year account life the annuity is <em>bigger than the acquisition sale</em>.",
+    "rows": [
+      { "label": "Opening fit-out — the one-time “razor”", "value": "~₹7.8 lakh", "w": 55, "cls": "wb-low", "barText": "₹7.8L" },
+      { "label": "10-year replacement annuity — the “blades”", "value": "~₹11–12 lakh", "w": 88, "cls": "wb-high", "barText": "₹11–12L" }
+    ],
+    "note": "Remove the held-SKU guarantee and this collapses to a one-time commodity sale. The moat and the annuity are the same fact viewed twice: whoever holds your exact SKU and re-supplies it plate-for-plate captures the stream by default — because re-ordering from anyone else re-introduces the mismatch problem. All figures EST., to be replaced with a real Mumbai fine-dining spec sheet in diligence." },
+  "quiz": {
+    "kicker": "Chapter 7 · The Investment Committee",
+    "titleHtml": "Did it <span class='hl'>stick</span>?",
+    "lead": "Five questions. Then you cast the vote you'd cast in the room.",
+    "items": [
+      { "q": "What makes the whitespace real?", "opts": ["Ceramic tableware is a brand-new product in India", "No branded Indian house owns the premium-durable-serviced ceramic HoReCa quadrant", "Nobody sells crockery to hotels", "The government banned all imports"], "a": 1, "e": "Imports own the top but are agent-distributed and slow; Indian makers have scale but present as factories; Khurja owns price and nothing else. The premium-durable-serviced quadrant has no branded Indian champion." },
+      { "q": "Why is the moat the “boring” one, not proprietary designs?", "opts": ["Designs are illegal to trademark in India", "A kiln can copy any plate; the defensible moat is held inventory + service + colour-batch continuity", "Because customers don't care about design", "Because imports are cheaper"], "a": 1, "e": "The plate is not the moat; the re-supply is. Holding graded stock for years and colour-batch-matching a replacement is working-capital-heavy logistics a kiln won't do. Steelite bought Utopia for distribution, not kilns." },
+      { "q": "Why not anchor the model on La Opala's ~37% operating margin?", "opts": ["La Opala's numbers are fake", "That margin belongs to a vertically-integrated kiln-owner; asset-light targets ~10–20% (Churchill ~10–12%)", "Because 37% is too low", "Because opalware is illegal"], "a": 1, "e": "As an asset-light reseller you forfeit the manufacturing slice. The realistic landing zone is ~45–55% gross and ~10–20% operating at scale — benchmarked to Churchill China's ~10–12% manufacturer margin." },
+      { "q": "What is the gating technical milestone the plan must clear?", "opts": ["Building a national logistics network", "Reactive-glaze batch consistency on kilns it doesn't own", "Registering a trademark", "Opening a Mumbai showroom"], "a": 1, "e": "The chip-warranty differentiator is in direct tension with the asset-light model. If 1–2 anchor kilns can't hit reactive-glaze batch-match in the pilot, the warranty collapses — re-scope or stop." },
+      { "q": "What happens if the anti-dumping duty lapses in ~May 2027?", "opts": ["The business becomes illegal", "Import prices could fall ~₹30–40/plate; the ADD is a tailwind, not the thesis", "Nothing changes at all", "All kilns close"], "a": 1, "e": "The ADD (USD 1,075/MT, ~₹40/plate) needs a fresh DGTR sunset review. Model a no-ADD downside — but the ~40% BCD/duty stack and the service/continuity moat remain regardless." }
+    ]
+  },
+  "vote": {
+    "prompt": "You've seen the whitespace, the moat trap, the split buyer, the unit economics and the annuity. What's your call?",
+    "yesLabel": "Back it — proceed to Phase 1",
+    "noLabel": "Pass — the cash trap is the moat",
+    "yesMsg": "<b>Backed.</b> Your Phase-1 first move (per the Action Plan): pull 3–4 real distributor quotes on a comparable 27cm plate (RAK via EFF N Bee, Bonna via Polymech, Clay Craft direct), benchmark Ariane / Feather Touch / Clay Craft hard, run 5–8 primary Mumbai chef/F&amp;B interviews, and pilot anchor-kiln batch consistency — all inside Months 0–6. Patient, working-capital-disciplined capital, not venture-scale.",
+    "noMsg": "<b>Passed — and defensibly so.</b> The dossier agrees the variance is real: this is <em>not</em> greenfield (Ariane, Feather Touch and Clay Craft already hold parts of the thesis), the product is copyable, the chip-warranty headline is in direct tension with an asset-light model, brand is weak leverage in B2B crockery, the moat is itself a working-capital cash trap, and the ADD tailwind lapses in 2027. A pass here is a legitimate IC position — the case study never pretends otherwise."
+  },
+  "footer": {
+    "note1": "This playable walk-through is a companion to the full institutional dossier — it simplifies for engagement and never overrides the source document.",
+    "note2": "Every number here is drawn verbatim from the dossier, including its <b>EST.</b> flags and unverified-source caveats.",
+    "videoCredit": "Video: Pexels (free/commercial licence)."
+  }
+}

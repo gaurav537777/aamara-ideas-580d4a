@@ -1,0 +1,109 @@
+{
+  "meta": { "num": "07", "slug": "household-staff", "title": "Managed Household Staff — Playable Case Study", "hubName": "Managed Household Staff", "hubTagline": "The branded, trained, background-verified and actively-managed household-staff service Mumbai’s affluent homes can finally trust — with a replacement guarantee no informal hire offers.", "videoQuery": "butler serving household" },
+  "hero": { "badge": "Aamara Capital · Business Idea 07 of 11", "titleHtml": "The Trust<br><em>Layer</em>", "sub": "A playable walk-through of the Managed Household Staff dossier. Same facts, same numbers — but you get to investigate, decide, and vote.", "startLabel": "Staff it up ↓" },
+  "opening": {
+    "kicker": "Chapter 1 · The Opening",
+    "titleHtml": "One gap, <span class='hl'>four numbers</span>.",
+    "lead": "India’s affluent run their homes on a workforce sourced through WhatsApp groups and watchmen, vetted by nobody, accountable to no one — and they know it. No organised player owns the premium, <em>actively-managed</em> end. That gap is the whole thesis.",
+    "stats": [
+      { "to": 35.4, "prefix": "", "suffix": "%", "labelHtml": "<b>of India’s UHNWIs</b> (US$30M+) live in Mumbai — the single largest concentration (Knight Frank)" },
+      { "to": 1200, "prefix": "₹", "suffix": "cr+", "labelHtml": "<b>venture funding</b> into <em>quick, gig, cheap</em> house-help (Snabbit, Pronto) — while the premium managed niche sits ignored" },
+      { "to": 10, "prefix": "<", "suffix": "%", "labelHtml": "<b>of families do any proper due-diligence</b> before letting a stranger live in their home (OnGrid)" },
+      { "to": 0, "suffix": "", "labelHtml": "<b>funded operators</b> bundling premium + trained + actively-managed + guaranteed for UHNI households — the whitespace, quantified" }
+    ]
+  },
+  "imgband": { "title": "Three unsatisfying choices", "sub": "Downmarket placement marketplaces with a 1/5 reputation · premium agencies that stop at recruitment and vanish · 10-minute gig apps built for cheap and fast. The managed, accountable middle is empty." },
+  "whitespace": {
+    "kicker": "Chapter 2 · The Whitespace",
+    "titleHtml": "Find the <span class='hl'>empty quadrant</span>.",
+    "lead": "Eight real players, plotted. Hover any dot. Notice where <em>nobody</em> is: premium-priced <b>and</b> actively-managed with a guarantee. That corner is what this business is built to own.",
+    "axisYtop": "Premium →",
+    "axisXleft": "One-time / unmanaged",
+    "axisXright": "Actively managed →",
+    "gapLabelHtml": "The Gap →<br>premium &amp; actively-managed",
+    "players": [
+      { "n": "BookMyBai", "x": 0.3, "y": 0.2, "d": "scale + guarantee, but 1/5 MouthShut, placement-only" },
+      { "n": "EliteButlers", "x": 0.36, "y": 0.82, "d": "premium + training, but stops at recruitment" },
+      { "n": "Broomees", "x": 0.55, "y": 0.4, "d": "recurring/verified, but mid-market" },
+      { "n": "Urban Company Insta Help", "x": 0.2, "y": 0.16, "d": "15-min gig; labour-ethics backlash" },
+      { "n": "Snabbit", "x": 0.18, "y": 0.1, "d": "~$112M raised, 10-min gig cleaning" },
+      { "n": "Pronto", "x": 0.22, "y": 0.12, "d": "~$40M, formalised gig house-help" },
+      { "n": "Helper4U / Justdial", "x": 0.1, "y": 0.18, "d": "DIY, cash-based, one-time — the ~90%" },
+      { "n": "Quintessentially India", "x": 0.42, "y": 0.9, "d": "luxury concierge — errands, not resident staff" }
+    ],
+    "sidebarHtml": "<p class='note' style='margin:0 0 12px;'><b style='color:var(--gold)'>Reading the map.</b></p><p class='note' style='margin:0 0 10px;'>The scaled leader <b style='color:#cfc7b6'>BookMyBai</b> has a guarantee but is downmarket and reputationally damaged. <b style='color:#cfc7b6'>EliteButlers</b> is the only true premium incumbent — but publishes no managed retainer or replacement SLA. The gig wave (<b style='color:#cfc7b6'>Snabbit, Pronto, Urban Company</b>) is cheap, fast and high-frequency — the opposite end.</p><p class='note' style='margin:0;'>The top-right — premium <em>and</em> actively-managed — is uncontested. <em>That</em> is the investable idea.</p>"
+  },
+  "hook": {
+    "chapter": "The Trust Illusion",
+    "kicker": "Chapter 3 · The Trust Illusion",
+    "titleHtml": "Which ‘trusted’ option <span class='hl'>survives scrutiny</span>?",
+    "lead": "Every affluent Mumbai family believes it has a safe way to staff its home. Real diligence tested each one against primary sources. <b>Click each case file</b> to see the verdict — and watch every safety net fail.",
+    "statusInitialTail": "open them all to close the case.",
+    "statusSolvedHtml": "<b>Case closed.</b> Every existing ‘trust signal’ fails — the referral, the police form, the scaled leader, the premium incumbent, the gig app. The only thing that survives scrutiny is a <b>trained, verified, actively-managed layer with a real replacement guarantee</b> — which no one is selling. That absence <em>is</em> the opportunity.",
+    "cases": [
+      { "name": "The watchman referral", "meta": "How ~90% hire", "clue": "“My building’s network vouched for her.”", "verdict": "fail", "det": "Fewer than <b>10% of families do any proper due-diligence</b> (OnGrid) — most rely on a photocopied ID and a verbal reference. Trust here is a feeling, not a check." },
+      { "name": "Mumbai Police verification", "meta": "The official rail", "clue": "“There’s a government form for this.”", "verdict": "fail", "det": "Mumbai Police runs a dedicated online domestic-servant verification form <em>precisely because</em> theft and misconduct are live concerns — yet <b>almost no one uses it.</b> The safeguard exists on paper only." },
+      { "name": "BookMyBai", "meta": "The scaled leader", "clue": "“India’s largest online domestic-help brand.”", "verdict": "fail", "det": "Carries a <b>1/5 rating on MouthShut</b> — 2025 complaints of fake profiles, staff who ‘can’t cook,’ and replacements that never arrived. Trusted-but-poor-quality: it has scale and a guarantee, but no management layer." },
+      { "name": "EliteButlers", "meta": "The premium incumbent", "clue": "“India’s first HNWI staffing agency.”", "verdict": "fail", "det": "Genuine premium positioning and training — but publishes <b>no ongoing employer-of-record, payroll-management or replacement SLA.</b> It stops at recruitment, then the family is on its own again." },
+      { "name": "Urban Company Insta Help", "meta": "The funded gig app", "clue": "“15-minute house help, well-capitalised.”", "verdict": "fail", "det": "Gig hourly (₹49–245/hr), not full-time, not premium — and it drew a <b>public labour-ethics backlash.</b> It sets the low-price anchor, not a trusted managed alternative." },
+      { "name": "The managed EoR retainer", "meta": "The white space", "clue": "“Trained, verified, managed, guaranteed.”", "verdict": "real", "det": "Recruit → vet → train → place → <b>keep managing</b>: payroll, supervision, QC, compliance and a replacement SLA. No single player bundles this at scale for UHNI homes — the one option that survives scrutiny doesn’t exist yet." }
+    ]
+  },
+  "personas": {
+    "kicker": "Chapter 4 · The Buyers",
+    "titleHtml": "Four households that <span class='hl'>actually pay</span>.",
+    "lead": "Every persona has a trigger, an objection, and one thing that converts them. <b>Flip each card</b> to see what wins the sale.",
+    "items": [
+      { "name": "The Malabar Hill Family", "role": "UHNI Estate Household · Altamount Road", "trig": "A multi-property home running 5–10 staff with no chief-of-staff layer; coordination chaos; a single bad hire is a genuine security risk.", "obj": "Discretion and security are paramount — will an outsider really be safer than the people they already know?", "conv": "An estate-manager tier that runs the household so they don’t have to, plus employer-of-record accountability — they pay for accountability, not price. Reached via private banks and luxury real estate." },
+      { "name": "The Rao Family", "role": "Returning NRI · Highest-Conviction Early Adopter", "trig": "Back from London/Dubai/Singapore, already used to agencies, contracts and payroll — and frustrated by India’s cash-based informality.", "obj": "“Does a properly managed, contracted service even exist here?” — scepticism that India can match what they left behind.", "conv": "A familiar, contracted, compliant, done-properly model — the closest thing to home. They arrive already primed to pay for management, via NRI and relocation networks." },
+      { "name": "The Powai Couple", "role": "Time-Starved Dual-Income HNI · BKC/Worli", "trig": "Both work long hours in finance/tech; no time or expertise to recruit, train, supervise or run payroll and compliance.", "obj": "“Is a retainer worth it when I could just hire a bai for ₹18k?” — budget-anchored to the informal norm.", "conv": "‘Done-for-me’ delegation: start with one or two roles, expand once trust is built. Sold through employer and premium-building channels." },
+      { "name": "The Founder Household", "role": "New-Money, Fast-Scaling Lifestyle", "trig": "Sudden liquidity (IPO/exit); scaling a home and lifestyle fast with no legacy staff network.", "obj": "Doesn’t know how to hire well and wants to avoid rookie mistakes — but is wary of paying a premium for a ‘nicer website’.", "conv": "A turnkey, get-it-right-first-time branded solution rather than a WhatsApp gamble — highest willingness in the setup window, converting to a standing retainer via the Aamara ecosystem." }
+    ]
+  },
+  "tycoon": {
+    "kicker": "Chapter 5 · Build the Business",
+    "titleHtml": "Now <span class='hl'>you</span> run it.",
+    "lead": "Four real decisions from the dossier. Each has a right answer the diligence already argues for. Pick — then see what the evidence says.",
+    "decisions": [
+      { "q": "1 · Employ, or just broker?", "ctx": "The defining fork. It changes which laws bind you, the GST base, and the entire cost structure.", "opts": [ { "t": "Pure marketplace — broker and disappear, keep it light", "good": false, "fb": "Brokering via an app likely makes you an ‘aggregator’ with a Social Security Fund levy and workers as gig, not employees — and, fatally, no control to make the trust, guarantee and QC real. You’d be rebuilding BookMyBai." }, { "t": "Employer-of-record / managed (hybrid at the low tier)", "good": true, "fb": "Correct. Heavier compliance — EPF/ESIC/gratuity, GST-on-gross — but that compliance <em>is</em> the moat and the ESG story, and it’s what makes the trust, control and replacement guarantee real. Price the retainer to absorb it." } ] },
+      { "q": "2 · Who do you position against?", "ctx": "Over ₹1,200 cr has poured into cheap, fast, gig house-help. Pick your lane.", "opts": [ { "t": "Undercut the gig apps on price and frequency", "good": false, "fb": "That’s Snabbit/Pronto/Urban Company’s DNA — cheap, fast, high-frequency — and they’re better capitalised for that fight. Competing on the salary (which is pass-through) is a race you can’t win and don’t need to." }, { "t": "Own the empty premium, actively-managed, guaranteed box", "good": true, "fb": "Correct. This is a trust product for the top 1%, not a price product. BookMyBai has scale but is downmarket; EliteButlers is premium but unmanaged — each misses the decisive attribute you can own." } ] },
+      { "q": "3 · How do you reach the buyer?", "ctx": "Purchase is triggered by a life event — a new home, a return from abroad, a bad hire. Pick the motion.", "opts": [ { "t": "Performance marketing and paid search at scale", "good": false, "fb": "A trust product for a tiny, referral-dense UHNI community doesn’t convert on ads. You’d burn CAC reaching the wrong people at the wrong moment." }, { "t": "Referral & partner-led — designers, private banks, brokers, Aamara’s network", "good": true, "fb": "Correct. Reach the household at the trigger moment through the designers, private banks and brokers already in their lives — and Aamara’s first-party HNI network is the one asset a funded competitor can’t buy." } ] },
+      { "q": "4 · How do you stop clients poaching your trained staff?", "ctx": "The central sensitivity: a family takes the trained staff and drops the retainer.", "opts": [ { "t": "A tight non-solicit clause and hope it holds", "good": false, "fb": "A contract alone won’t hold against informal cash. Lean only on legal deterrence and you’ve left the thesis’s biggest risk unmanaged." }, { "t": "Four locks — ongoing retainer value, non-solicit + buy-out, staff loyalty, loss-of-guarantee", "good": true, "fb": "Correct. The retainer’s value is ongoing (payroll, compliance, replacement, QC), staff loyalty is to the company (PF, career path, bonuses), and going direct forfeits the guarantee — the exact risk they were paying to avoid. This is what the Mumbai pilot exists to prove." } ] }
+    ]
+  },
+  "human": {
+    "chapter": "The Human Number",
+    "kicker": "Chapter 6 · The Human Number",
+    "titleHtml": "The most important <span class='hl'>₹</span> in the deck.",
+    "lead": "The moat isn’t marketing — it’s a career ladder. Today’s informal live-in maid earns ₹16–20k in cash with no PF, no security, no path. Formal, certified employment (maid → cook → estate manager) can reach ₹1 lakh+ — worth more <em>inside</em> the system than outside it. That ladder is both the ethics and the anti-poaching lock.",
+    "rows": [
+      { "label": "Informal live-in maid — today", "value": "₹16,000–20,000 / mo", "w": 18, "cls": "wb-low", "barText": "₹18k" },
+      { "label": "Trained cook — certified", "value": "₹18,000–35,000 / mo", "w": 33, "cls": "wb-low", "barText": "₹35k" },
+      { "label": "Estate / house manager — top of ladder", "value": "₹75,000–1,01,000+ / mo", "w": 95, "cls": "wb-high", "barText": "₹1L+" }
+    ],
+    "note": "The workforce is overwhelmingly female, migrant, Dalit, Adivasi and Muslim, and 90%+ informal. Registered employment — PF, benefits, academy certification, a real path — beats informal cash on the one thing a good cook or estate manager most lacks: stability. That switching cost is what keeps trained staff exclusive to you, and it’s a genuine family-office ESG story rather than a bolt-on one." },
+  "quiz": {
+    "kicker": "Chapter 7 · The Investment Committee",
+    "titleHtml": "Did it <span class='hl'>stick</span>?",
+    "lead": "Five questions. Then you cast the vote you’d cast in the room.",
+    "items": [
+      { "q": "What is the empty box the whole thesis rests on?", "opts": ["Cheaper maids than the gig apps", "Premium + trained + actively-managed (employer-of-record) + guaranteed replacement, at scale for UHNI households", "A domestic-worker app nobody has built", "A concierge membership for errands"], "a": 1, "e": "No single player bundles all four attributes. BookMyBai has scale and a guarantee but is downmarket and unmanaged; EliteButlers is premium and trains staff but publishes no managed retainer or replacement SLA — each misses the decisive attribute." },
+      { "q": "Why isn’t BookMyBai the winner despite scale and a guarantee?", "opts": ["It’s too expensive", "It only serves Delhi", "It’s downmarket, unmanaged and reputationally damaged — 1/5 on MouthShut, with fake profiles and un-honoured replacements", "It refuses to offer a guarantee"], "a": 2, "e": "The category’s scaled leader is trusted-but-poor-quality: a 1/5 rating, 2025 complaints of fake profiles and replacements that never arrived. That reputation gap is exactly why the premium end sits wide open." },
+      { "q": "What is the single biggest risk the dossier names?", "opts": ["A competitor with a nicer website", "The informal-market undercut and direct-poaching loop — a family takes the trained staff and drops the retainer", "Lack of wealthy households in Mumbai", "The coming domestic-worker law banning the model"], "a": 1, "e": "Because retainer revenue is per-household not per-person, the model survives staff churn — but only if the anti-poaching loop holds. That loop is the central sensitivity the Mumbai pilot exists to prove before any expansion capital." },
+      { "q": "Which operating lane does the dossier recommend, and why?", "opts": ["Pure broker — lightest compliance", "Employer-of-record / managed (hybrid at the low tier) — heavier compliance, but that compliance IS the moat", "Franchise the brand nationally on day one", "Gig-aggregator under e-Shram only"], "a": 1, "e": "Employer-of-record adds EPF/ESIC/gratuity and GST-on-gross, but it’s what makes the trust, control and guarantee real — and it’s precisely what a family cannot replicate through informal hiring. The retainer is priced to absorb it." },
+      { "q": "Why should Aamara — a family office — run this rather than buy a proven business?", "opts": ["Domestic staffing has guaranteed returns", "Because the premium managed version doesn’t exist yet — the absence IS the opportunity, and Aamara’s first-party UHNI network is distribution a startup can’t buy", "It’s a tax shelter", "Domestic labour is free"], "a": 1, "e": "The proven version isn’t for sale because no one has built it. Reputation in a tiny, referral-dense UHNI community plus family-office pedigree compound over time — a relationship asset a funded competitor cannot replicate." }
+    ]
+  },
+  "vote": {
+    "prompt": "You’ve seen the whitespace, the trust illusion, the personas, the unit economics and the human number. What’s your call?",
+    "yesLabel": "Back it — proceed to the Mumbai pilot",
+    "noLabel": "Pass — too much variance",
+    "yesMsg": "<b>Backed.</b> Your first move (per the Action Plan, Days 1–30): lock the employ-vs-broker legal structure with counsel, incorporate and register (GST + Maharashtra Shops &amp; Establishments), sign a BGV vendor (AuthBridge/IDfy/OnGrid) with DPDP-compliant flows, and warm-map 30–50 target UHNI households via Aamara’s network plus 3–4 designer/private-bank referral partners. Patient, margin-and-moat capital — not blitz-scale.",
+    "noMsg": "<b>Passed — and defensibly so.</b> The dossier agrees the variance is real: a self-constructed, bottom-up TAM with no clean market report; a high-touch model that resists scaling; unproven willingness to pay a recurring retainer above the informal norm; and the informal-undercut-and-poaching loop that could quietly gut the annuity. A pass here is a legitimate IC position — the case study never pretends otherwise."
+  },
+  "footer": {
+    "note1": "This playable walk-through is a companion to the full institutional dossier — it simplifies for engagement and never overrides the source document.",
+    "note2": "Every number here is drawn verbatim from the dossier, including its <b>EST.</b> flags and unverified-source caveats.",
+    "videoCredit": "Video: Pexels (free/commercial licence)."
+  }
+}
