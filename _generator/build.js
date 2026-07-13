@@ -181,6 +181,7 @@ ${alphabetSection(d.alphabet)}
   <p>${d.footer.note2}</p>
   <div class="footlinks">
     <a class="deep-link solid" href="case.html">${dossierLabelFoot}</a>
+    ${d.footer.extraLink?`<a class="deep-link solid" href="${d.footer.extraLink.href}">${d.footer.extraLink.label}</a>`:''}
     <a class="deep-link" href="../">← Back to all ideas</a>
   </div>
   <p style="margin-top:22px;font-size:.72rem;">${d.footer.videoCredit}</p>
